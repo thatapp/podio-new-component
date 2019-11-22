@@ -22,9 +22,14 @@
             "main": "./lib/triggers/getItem.js",
             "title": "Get Items",
             "type" : "polling",
-            "metadata": {
-                "in": "./lib/schemas/getItem.in.json"
-            }
+            "fields": {
+                "ItemId": {
+                  "label": "Item Id",
+                  "required": true,
+                  "viewClass": "TextFieldWithNoteView",
+                  "note": "Enter the Item Id of the Item"
+                }
+              }
         },
         "getSpace": {
             "main": "./lib/triggers/getSpace.js",
