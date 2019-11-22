@@ -3,7 +3,7 @@ var API_URL = 'https://api.podio.com';
 var request = require('request');
 var Q = require('q');
 var _ = require('lodash');
-var oauthUtils = require('../oauth-utils.js');
+var oauthUtils = require('./helpers/oauth-utils.js');
 var concatStream = require('concat-stream');
 
 function Podio(cfg, context) {
@@ -45,10 +45,10 @@ Podio.prototype.request = function(method, path, params, formData) {
         console.log('x-rate-limit-remaining:', response.headers['x-rate-limit-remaining']);
         if (401 === response.statusCode) {
             console.log('Podio: Trying to refresh token...');
-            oauthUtils.refreshTokenPromise('podio', that.cfg)
-                .then(onTokenRefresh)
-                .fail(defered.reject)
-                .done();
+            oauthUtils.refreshAppToken('podio', that.cfg,onTokenRefresh);
+          };
+
+
         } else if (response.statusCode >= 400) {
             if (_.isObject(body)) {
                 err = new Error(body.error_description);

@@ -35,41 +35,66 @@
             "main": "./lib/triggers/getSpace.js",
             "title": "Get Space",
             "type" : "polling",
-            "metadata": {
-                "in": "./lib/schemas/getSpace.in.json"
-            }
+            "fields": {
+                "SpaceId": {
+                  "label": "Space Id",
+                  "required": true,
+                  "viewClass": "TextFieldWithNoteView",
+                  "note": "Enter the Space Id"
+                }
+              }
         },
         "getApp": {
             "main": "./lib/triggers/getApp.js",
             "title": "Get App",
             "type" : "polling",
-            "metadata": {
-                "in": "./lib/schemas/getApp.in.json"
-            }
+            "fields": {
+                "AppId": {
+                  "label": "App Id",
+                  "required": true,
+                  "viewClass": "TextFieldWithNoteView",
+                  "note": "Enter the App Id"
+                }
+              }
         },
         "getTask": {
             "main": "./lib/triggers/getTask.js",
             "title": "Get Task",
             "type" : "polling",
-            "metadata": {
-                "in": "./lib/schemas/getTask.in.json"
-            }
+            "fields": {
+                "TaskId": {
+                  "label": "Task Id",
+                  "required": true,
+                  "viewClass": "TextFieldWithNoteView",
+                  "note": "Enter the Task Id"
+                }
+              }
         },
         "getFile": {
             "main": "./lib/triggers/getFile.js",
             "title": "Get File",
             "type" : "polling",
-            "metadata": {
-                "in": "./lib/schemas/getFile.in.json"
-            }
+            "fields": {
+                "FileId": {
+                  "label": "File Id",
+                  "required": true,
+                  "viewClass": "TextFieldWithNoteView",
+                  "note": "Enter the File Id"
+                }
+              }
         },
         "getComment": {
             "main": "./lib/triggers/getComment.js",
             "title": "Get Comment",
             "type" : "polling",
-            "metadata": {
-                "in": "./lib/schemas/getComment.in.json"
-            }
+            "fields": {
+                "FileId": {
+                  "label": "Comment Id",
+                  "required": true,
+                  "viewClass": "TextFieldWithNoteView",
+                  "note": "Enter the Comment Id"
+                }
+              }
         }
     },
     "actions": {
