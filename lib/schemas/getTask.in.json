@@ -1,0 +1,10 @@
+{
+    "type": "object",
+    "properties": {
+        "TaskId": {
+            "type": "number",
+            "required": true,
+            "title": "Task id"
+        }
+    }
+}

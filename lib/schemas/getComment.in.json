@@ -1,0 +1,10 @@
+{
+    "type": "object",
+    "properties": {
+        "CommentId": {
+            "type": "number",
+            "required": true,
+            "title": "Comment id"
+        }
+    }
+}

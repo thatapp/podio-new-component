@@ -1,0 +1,20 @@
+{
+    "type": "object",
+    "properties": {
+        "refType": {
+            "type": "string",
+            "required": false,
+            "title": "Ref. type"
+        },
+        "refId": {
+            "type": "string",
+            "required": false,
+            "title": "Ref. Id"
+        },
+        "remindersDelta": {
+            "type": "string",
+            "required": false,
+            "title": "Reminder Delta"
+        }
+    }
+}

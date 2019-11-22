@@ -1,0 +1,15 @@
+{
+    "type": "object",
+    "properties": {
+        "name": {
+            "type": "string",
+            "required": false,
+            "title": "Name"
+        },
+        "logo": {
+            "type": "string",
+            "required": false,
+            "title": "Logo"
+        }
+    }
+}

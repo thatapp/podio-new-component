@@ -1,0 +1,10 @@
+{
+    "type": "object",
+    "properties": {
+        "ItemId": {
+            "type": "number",
+            "required": true,
+            "title": "Item id"
+        }
+    }
+}

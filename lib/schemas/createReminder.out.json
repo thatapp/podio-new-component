@@ -1,0 +1,10 @@
+{
+    "type": "object",
+    "properties": {
+    	"remind_delta": {
+            "type": "string",
+            "required": false,
+            "title": "Reminder Delta"
+        }
+    }
+}

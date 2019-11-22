@@ -1,0 +1,115 @@
+{
+    "type": "object",
+    "properties": {
+        "text": {
+            "type": "string",
+            "required": true,
+            "title": "Text"
+        },
+        "description": {
+            "type": "string",
+            "required": false,
+            "title": "Description"
+        },
+        "private": {
+            "type": "boolean",
+            "required": false,
+            "title": "Private"
+        },
+        "due_date": {
+            "type": "string",
+            "required": false,
+            "title": "Due date"
+        },
+        "due_time": {
+            "type": "string",
+            "required": false,
+            "title": "Due time"
+        },
+        "due_on": {
+            "type": "string",
+            "required": false,
+            "title": "Due on"
+        },
+        "responsible": {
+            "type": "number",
+            "required": false,
+            "title": "Responsible"
+        },
+        "file_ids": {
+            "type": "array",
+            "properties": {
+                "value": {
+                    "type": "string",
+                    "required": false,
+                    "title": "File ids"
+                }
+            }
+        },
+        "labels": {
+            "type": "array",
+            "properties": {
+                "value": {
+                    "type": "string",
+                    "required": false,
+                    "title": "Labels"
+                }
+            }
+        },
+        "reminder": {
+            "type": "object",
+            "properties": {
+                "remind_delta": {
+                    "type": "number",
+                    "required": false,
+                    "title": "Remind delta"
+                }
+            }
+        },
+        "recurrence": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "required": false,
+                    "title": "Recurrence Name"
+                },
+                "config": {
+                    "type": "object",
+                    "properties": {
+                        "days": {
+                            "type": "array",
+                            "properties": {
+                                "value": {
+                                    "type": "string",
+                                    "required": false,
+                                    "title": "Recurrence Days"
+                                }
+                            }
+                        },
+                        "repeat_on": {
+                            "type": "string",
+                            "required": false,
+                            "title": "Repeat on"
+                        }
+                    }
+                },
+                "step": {
+                    "type": "number",
+                    "required": false,
+                    "title": "Recurrence Step"
+                },
+                "until": {
+                    "type": "string",
+                    "required": false,
+                    "title": "Recurrence Until"
+                }
+            }
+        },
+        "external_id": {
+            "type": "string",
+            "required": false,
+            "title": "External Id"
+        }
+    }
+}

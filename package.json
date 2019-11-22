@@ -1,0 +1,41 @@
+{
+  "name": "podio-component",
+  "version": "1.0.0",
+  "description": "Podio API integration component template for thatapp.io platform",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Warning: no test specified\" && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thatapp/podio-component.git"
+  },
+  "keywords": [
+    "podio",
+    "thatapp.io",
+    "api",
+    "ipaas"
+  ],
+  "author": "thatapp.io GmbH",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/thatapp/podio-component/issues"
+  },
+  "homepage": "https://github.com/thatapp/podio-component#readme",
+  "dependencies": {
+    "elasticio-node": "0.0.7",
+    "elasticio-sailor-nodejs": "^1.0.1",
+    "lodash": "^3.10.1",
+    "moment": "^2.10.6",
+    "q": "^1.4.1",
+    "request": "^2.65.0"
+  },
+  "devDependencies": {
+    "code-quality-js": "git+https://github.com/thatapp/code-quality-js.git#master",
+    "git-guppy": "~1.0.0",
+    "gulp": "^3.8.11",
+    "gulp-jasmine": "^2.0.1",
+    "gulp-jscs": "~1.6.0",
+    "nock": "^2.17.0"
+  }
+}

@@ -1,0 +1,149 @@
+{
+    "type": "object",
+    "properties": {
+        "avatar": {
+            "type": "number",
+            "required": false,
+            "title": "Avatar"
+        },
+        "external_id": {
+            "type": "object",
+            "properties": {}
+        },
+        "image": {
+            "type": "object",
+            "properties": {
+                "file_id": {
+                    "type": "number",
+                    "required": false,
+                    "title": "Image File Id"
+                },
+                "hosted_by": {
+                    "type": "string",
+                    "required": false,
+                    "title": "Image Hosted By"
+                },
+                "hosted_by_humanized_name": {
+                    "type": "string",
+                    "required": false,
+                    "title": "Image Hosted By Humanized Name"
+                },
+                "link": {
+                    "type": "string",
+                    "required": false,
+                    "title": "Image Link"
+                },
+                "link_target": {
+                    "type": "string",
+                    "required": false,
+                    "title": "Image Link Target"
+                },
+                "thumbnail_link": {
+                    "type": "string",
+                    "required": false,
+                    "title": "Image Thumbnail Link"
+                }
+            }
+        },
+        "last_seen_on": {
+            "type": "string",
+            "required": false,
+            "title": "Last Seen On"
+        },
+        "link": {
+            "type": "string",
+            "required": false,
+            "title": "Link"
+        },
+        "linkedin": {
+            "type": "string",
+            "required": false,
+            "title": "Linkedin"
+        },
+        "mail": {
+            "type": "array",
+            "properties": {
+                "value": {
+                    "type": "string",
+                    "required": false,
+                    "title": "Mail"
+                }
+            }
+        },
+        "name": {
+            "type": "string",
+            "required": false,
+            "title": "Name"
+        },
+        "org_id": {
+            "type": "string",
+            "required": false,
+            "title": "Org Id"
+        },
+        "phone": {
+            "type": "array",
+            "properties": {
+                "value": {
+                    "type": "string",
+                    "required": false,
+                    "title": "Phone"
+                }
+            }
+        },
+        "profile_id": {
+            "type": "number",
+            "required": false,
+            "title": "Profile Id"
+        },
+        "rights": {
+            "type": "array",
+            "properties": {
+                "value": {
+                    "type": "string",
+                    "required": false,
+                    "title": "Rights"
+                }
+            }
+        },
+        "skype": {
+            "type": "string",
+            "required": false,
+            "title": "Skype"
+        },
+        "space_id": {
+            "type": "string",
+            "required": false,
+            "title": "Space Id"
+        },
+        "title": {
+            "type": "array",
+            "properties": {
+                "value": {
+                    "type": "string",
+                    "required": false,
+                    "title": "Title"
+                }
+            }
+        },
+        "type": {
+            "type": "string",
+            "required": false,
+            "title": "Type"
+        },
+        "url": {
+            "type": "array",
+            "properties": {
+                "value": {
+                    "type": "string",
+                    "required": false,
+                    "title": "Url"
+                }
+            }
+        },
+        "user_id": {
+            "type": "number",
+            "required": true,
+            "title": "User Id"
+        }
+    }
+}
