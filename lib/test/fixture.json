@@ -1,0 +1,13 @@
+{
+    "fixtures":{
+        "success":{
+            "msg":{
+                "headers":{},
+                "body":{}
+            },
+            "cfg": {
+                "ItemId" : 980503737
+            }
+        }
+    }
+}
