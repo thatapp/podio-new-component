@@ -1,152 +1,76 @@
 {
-    "title": "Podio",
-    "description": "Podio",
-    "envVars": { },
-    "credentials": {
-        "fields":{
-            "oauth":{
-                "label": "Authentication",
-                "viewClass": "OAuthFieldView",
-                "required": true
-            }
-        },
-        "oauth2":{
-            "client_id": "{{PODIO_APP_ID}}",
-            "client_secret": "{{PODIO_APP_SECRET}}",
-            "auth_uri": "https://podio.com/oauth/authorize",
-            "token_uri": "https://podio.com/oauth/token"
-        }
+  "title": "Podio",
+  "desctiprion": "Podio",
+  "credentials": {
+    "fields":{
+      "oauth":{
+        "label": "Authentication",
+        "viewClass": "OAuthFieldView",
+        "required": true
+      }
     },
-"triggers": {
-        "getItem": {
-            "main": "./lib/triggers/getItem.js",
-            "title": "Get Items",
-            "type": "polling",
-            "metadata": {
-                "in": {
-                "type": "object",
-                "properties": {
-                    "query": {
-                    "type": "string",
-                    "title": "Item Id",
-                    "required": true
-                    }
-                }
-                }
-            }
-        },
-        "getSpace": {
-            "main": "./lib/triggers/getSpace.js",
-            "title": "Get Space",
-            "type" : "polling",
-            "fields": {
-                "SpaceId": {
-                  "label": "Space Id",
-                  "required": true,
-                  "viewClass": "TextFieldWithNoteView",
-                  "note": "Enter the Space Id"
-                }
-              }
-        },
-        "getApp": {
-            "main": "./lib/triggers/getApp.js",
-            "title": "Get App",
-            "type" : "polling",
-            "fields": {
-                "AppId": {
-                  "label": "App Id",
-                  "required": true,
-                  "viewClass": "TextFieldWithNoteView",
-                  "note": "Enter the App Id"
-                }
-              }
-        },
-        "getTask": {
-            "main": "./lib/triggers/getTask.js",
-            "title": "Get Task",
-            "type" : "polling",
-            "fields": {
-                "TaskId": {
-                  "label": "Task Id",
-                  "required": true,
-                  "viewClass": "TextFieldWithNoteView",
-                  "note": "Enter the Task Id"
-                }
-              }
-        },
-        "getFile": {
-            "main": "./lib/triggers/getFile.js",
-            "title": "Get File",
-            "type" : "polling",
-            "fields": {
-                "FileId": {
-                  "label": "File Id",
-                  "required": true,
-                  "viewClass": "TextFieldWithNoteView",
-                  "note": "Enter the File Id"
-                }
-              }
-        },
-        "getComment": {
-            "main": "./lib/triggers/getComment.js",
-            "title": "Get Comment",
-            "type" : "polling",
-            "fields": {
-                "FileId": {
-                  "label": "Comment Id",
-                  "required": true,
-                  "viewClass": "TextFieldWithNoteView",
-                  "note": "Enter the Comment Id"
-                }
-              }
-        }
-    },
-    "actions": {
-        "createItem": {
-            "main": "./lib/actions/createItem.js",
-            "title": "Create Item",
-            "fields": {
-                "appId": {
-                    "viewClass": "SelectView",
-                    "prompt": "Select an Application",
-                    "label": "Podio Application",
-                    "required": false,
-                    "model": "getApplications"
-                },
-                "spaceId": {
-                    "viewClass": "SelectView",
-                    "prompt": "Select a Space",
-                    "label": "Podio Space",
-                    "required": true,
-                    "model": "getSpaces"
-                }
-            },
-            "dynamicMetadata": true
-        },
-        "createOrganization": {
-            "main": "./lib/actions/createOrganization.js",
-            "title": "Create Organization",
-            "metadata": {
-                "in": "./lib/schemas/createOrganization.in.json",
-                "out": "./lib/schemas/createOrganization.out.json"
-            }
-        },
-        "createReminder": {
-            "main": "./lib/actions/createReminder.js",
-            "title": "Create Reminder",
-            "metadata": {
-                "in": "./lib/schemas/createReminder.in.json",
-                "out": "./lib/schemas/createReminder.out.json"
-            }
-        },
-        "createTask": {
-            "main": "./lib/actions/createTask.js",
-            "title": "Create Task",
-            "metadata": {
-                "in": "./lib/schemas/createTask.in.json",
-                "out": "./lib/schemas/createTask.out.json"
-            }
-        },
-        "fields": { }
+    "oauth2":{
+      "client_id": "{{PODIO_APP_ID}}",
+      "client_secret": "{{PODIO_APP_SECRET}}",
+      "auth_uri": "https://podio.com/oauth/authorize",
+      "token_uri": "https://podio.com/oauth/token"
     }
+  },
+  "actions": {
+    "createItem": {
+      "main": "./lib/actions/createItem.js",
+      "title": "Create Item",
+      "fields": {
+        "appId": {
+          "viewClass": "SelectView",
+          "prompt": "Select an Application",
+          "label": "Podio Application",
+          "required": false,
+          "model": "getApplications"
+        },
+        "spaceId": {
+          "viewClass": "SelectView",
+          "prompt": "Select a Space",
+          "label": "Podio Space",
+          "required": true,
+          "model": "getSpaces"
+        }
+      },
+      "dynamicMetadata": true
+    },
+    "createOrganization": {
+      "main": "./lib/actions/createOrganization.js",
+      "title": "Create Organization",
+      "metadata": {
+        "in": "./lib/schemas/createOrganization.in.json",
+        "out": "./lib/schemas/createOrganization.out.json"
+      }
+    },
+    "createReminder": {
+      "main": "./lib/actions/createReminder.js",
+      "title": "Create Reminder",
+      "metadata": {
+        "in": "./lib/schemas/createReminder.in.json",
+        "out": "./lib/schemas/createReminder.out.json"
+      }
+    },
+    "createTask": {
+      "main": "./lib/actions/createTask.js",
+      "title": "Create Task",
+      "metadata": {
+        "in": "./lib/schemas/createTask.in.json",
+        "out": "./lib/schemas/createTask.out.json"
+      }
+    }
+  },
+  "triggers": {
+    "getContacts": {
+      "main": "./lib/triggers/getContacts.js",
+      "title": "Get Contacts",
+      "type" : "polling",
+      "metadata": {
+        "out": "./lib/schemas/getContacts.out.json"
+      }
+    }
+  }
 }
