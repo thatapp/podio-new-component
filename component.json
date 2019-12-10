@@ -17,7 +17,7 @@
     }
   },
   "actions": {
-    "CreateItem": {
+    "createItem": {
       "main": "./lib/actions/createItem.js",
       "title": "Create Item",
       "fields": {
