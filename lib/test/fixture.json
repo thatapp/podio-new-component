@@ -1,12 +1,69 @@
 {
     "fixtures":{
-        "success":{
+        "items":{
             "msg":{
                 "headers":{},
-                "body":{}
+                "body":{
+                    "ItemId" : 980503737
+                }
             },
             "cfg": {
                 "ItemId" : 980503737
+            }
+        },
+        "apps":{
+            "msg":{
+                "headers":{},
+                "body":{
+                    "AppId" : 21727299
+                }
+            },
+            "cfg": {
+                "AppId" : 21727299
+            }
+        },
+        "spaces":{
+            "msg":{
+                "headers":{},
+                "body":{
+                    "SpaceId" : 6269904
+                }
+            },
+            "cfg": {
+                "SpaceId" : 6269904
+            }
+        },
+        "files":{
+            "msg":{
+                "headers":{},
+                "body":{
+                    "FileId" : 988492515
+                }
+            },
+            "cfg": {
+                "FileId" : 988492515
+            }
+        },
+        "comments":{
+            "msg":{
+                "headers":{},
+                "body":{
+                    "CommentId" : 988492515
+                }
+            },
+            "cfg": {
+                "CommentId" : 988492515
+            }
+        },
+        "tasks":{
+            "msg":{
+                "headers":{},
+                "body":{
+                    "taskId" : 988492515
+                }
+            },
+            "cfg": {
+                "taskId" : 988492515
             }
         }
     }

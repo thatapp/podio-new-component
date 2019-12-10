@@ -19,7 +19,7 @@ Podio.prototype.request = function(method, path, params, formData) {
         baseUrl: API_URL,
         url : path,
         headers : {
-            Authorization : 'OAuth2 ' + this.cfg.oauth.access_token
+            Authorization : 'OAuth2 ' + "2872352daa504cd3bf8971bb17ea05a8"
         },
         json: true
     };
