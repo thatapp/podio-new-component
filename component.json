@@ -1,6 +1,6 @@
 {
-  "title": "Podio",
-  "desctiprion": "Podio",
+  "title": "Podio powered by Techego",
+  "description": "Podio",
   "credentials": {
     "fields":{
       "oauth":{
@@ -19,54 +19,44 @@
   "actions": {
     "getItem": {
       "main": "./lib/actions/getItem.js",
-      "title": "Get a Podio Item with it's Id ",
+      "title": "Get a Podio Item",
       "metadata": {
         "in": "./lib/schemas/getItem.in.json"
       }
     },
-    "createItem": {
-      "main": "./lib/actions/createItem.js",
-      "title": "Create Item",
-      "fields": {
-        "appId": {
-          "viewClass": "SelectView",
-          "prompt": "Select an Application",
-          "label": "Podio Application",
-          "required": false,
-          "model": "getApplications"
-        },
-        "spaceId": {
-          "viewClass": "SelectView",
-          "prompt": "Select a Space",
-          "label": "Podio Space",
-          "required": true,
-          "model": "getSpaces"
-        }
-      },
-      "dynamicMetadata": true
-    },
-    "createOrganization": {
-      "main": "./lib/actions/createOrganization.js",
-      "title": "Create Organization",
+    "getApp": {
+      "main": "./lib/actions/getApp.js",
+      "title": "Get a Podio App",
       "metadata": {
-        "in": "./lib/schemas/createOrganization.in.json",
-        "out": "./lib/schemas/createOrganization.out.json"
+        "in": "./lib/schemas/getApp.in.json"
       }
     },
-    "createReminder": {
-      "main": "./lib/actions/createReminder.js",
-      "title": "Create Reminder",
+    "getSpace": {
+      "main": "./lib/actions/getSpace.js",
+      "title": "Get a Podio Space",
       "metadata": {
-        "in": "./lib/schemas/createReminder.in.json",
-        "out": "./lib/schemas/createReminder.out.json"
+        "in": "./lib/schemas/getSpace.in.json"
       }
     },
-    "createTask": {
-      "main": "./lib/actions/createTask.js",
-      "title": "Create Task",
+    "getFile": {
+      "main": "./lib/actions/getFile.js",
+      "title": "Get a Podio File",
       "metadata": {
-        "in": "./lib/schemas/createTask.in.json",
-        "out": "./lib/schemas/createTask.out.json"
+        "in": "./lib/schemas/getFile.in.json"
+      }
+    },
+    "getTask": {
+      "main": "./lib/actions/getTask.js",
+      "title": "Get a Podio Task",
+      "metadata": {
+        "in": "./lib/schemas/getTask.in.json"
+      }
+    },
+    "getComment": {
+      "main": "./lib/actions/getComment.js",
+      "title": "Get a Podio Comment",
+      "metadata": {
+        "in": "./lib/schemas/getComment.in.json"
       }
     }
   },
