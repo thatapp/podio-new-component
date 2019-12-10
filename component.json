@@ -17,44 +17,65 @@
     }
   },
   "actions": {
+    "CreateItem": {
+      "main": "./lib/actions/createItem.js",
+      "title": "Create Item",
+      "fields": {
+        "appId": {
+          "viewClass": "SelectView",
+          "prompt": "Select an Application",
+          "label": "Podio Application",
+          "required": false,
+          "model": "getApplications"
+        },
+        "spaceId": {
+          "viewClass": "SelectView",
+          "prompt": "Select a Space",
+          "label": "Podio Space",
+          "required": true,
+          "model": "getSpaces"
+        }
+      },
+      "dynamicMetadata": true
+    },
     "getItem": {
       "main": "./lib/actions/getItem.js",
-      "title": "Get a Podio Item",
+      "title": "Get an Item",
       "metadata": {
         "in": "./lib/schemas/getItem.in.json"
       }
     },
     "getApp": {
       "main": "./lib/actions/getApp.js",
-      "title": "Get a Podio App",
+      "title": "Get an App",
       "metadata": {
         "in": "./lib/schemas/getApp.in.json"
       }
     },
     "getSpace": {
       "main": "./lib/actions/getSpace.js",
-      "title": "Get a Podio Space",
+      "title": "Get a Space",
       "metadata": {
         "in": "./lib/schemas/getSpace.in.json"
       }
     },
     "getFile": {
       "main": "./lib/actions/getFile.js",
-      "title": "Get a Podio File",
+      "title": "Get a File",
       "metadata": {
         "in": "./lib/schemas/getFile.in.json"
       }
     },
     "getTask": {
       "main": "./lib/actions/getTask.js",
-      "title": "Get a Podio Task",
+      "title": "Get a Task",
       "metadata": {
         "in": "./lib/schemas/getTask.in.json"
       }
     },
     "getComment": {
       "main": "./lib/actions/getComment.js",
-      "title": "Get a Podio Comment",
+      "title": "Get a Comment",
       "metadata": {
         "in": "./lib/schemas/getComment.in.json"
       }
