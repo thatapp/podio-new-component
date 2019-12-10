@@ -28,12 +28,14 @@
     "elasticio-node": "0.0.9",
     "elasticio-sailor-nodejs": "2.3.0",
     "hbs": "^4.0.6",
+    "heartbeat-stream": "^1.0.1",
     "jsforce": "1.9.1",
     "lodash": "^4.17.15",
     "moment": "^2.10.6",
     "node-uuid": "1.4.8",
     "q": "^1.4.1",
-    "request": "^2.65.0"
+    "request": "^2.65.0",
+    "s3": "^4.4.0"
   },
   "devDependencies": {
     "code-quality-js": "git+https://github.com/thatapp/code-quality-js.git#master",
