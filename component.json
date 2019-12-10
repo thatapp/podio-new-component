@@ -17,6 +17,13 @@
     }
   },
   "actions": {
+    "getItem": {
+      "main": "./lib/actions/getItem.js",
+      "title": "Get a Podio Item with it's Id ",
+      "metadata": {
+        "in": "./lib/schemas/getItem.in.json"
+      }
+    },
     "createItem": {
       "main": "./lib/actions/createItem.js",
       "title": "Create Item",
