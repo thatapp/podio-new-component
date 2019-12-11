@@ -20,10 +20,11 @@
     "createItem": {
       "main": "./lib/actions/createItem.js",
       "title": "Create Item",
+      "type": "polling",
       "fields": {
         "appId": {
           "viewClass": "SelectView",
-          "prompt": "Select an Application",
+          "prompt": "Select an App",
           "label": "Podio Application",
           "required": false,
           "model": "getApplications"
