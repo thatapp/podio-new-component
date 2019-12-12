@@ -43,8 +43,7 @@
           "required": true,
           "model": "getApplications"
         }
-      },
-      "dynamicMetadata": true
+      }
     },
     "getItem": {
       "main": "./lib/actions/getItem.js",
@@ -90,13 +89,23 @@
     }
   },
   "triggers": {
-    "getContacts": {
-      "main": "./lib/triggers/getContacts.js",
+    "getOrganisations": {
+      "main": "./lib/triggers/getOrganisations.js",
+      "title": "Get Organisation",
+      "type" : "polling",
+      "dynamicMetadata": true
+    },
+    "getSpaces": {
+      "main": "./lib/triggers/getSpaces.js",
+      "title": "Get Spaces",
+      "type" : "polling",
+      "dynamicMetadata": true
+    },
+    "getApplications": {
+      "main": "./lib/triggers/getApplications.js",
       "title": "Get Contacts",
       "type" : "polling",
-      "metadata": {
-        "out": "./lib/schemas/getContacts.out.json"
-      }
+      "dynamicMetadata": true
     }
   }
 }
