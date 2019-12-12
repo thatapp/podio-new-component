@@ -26,21 +26,21 @@
           "prompt": "Select an Organisation",
           "label": "Podio Organisation",
           "required": true,
-          "model": "getOrganisations"
+          "model": "organisations"
         },
         "spaceId": {
           "viewClass": "SelectView",
           "prompt": "Select a Space",
           "label": "Podio Space",
           "required": true,
-          "model": "getSpaces"
+          "model": "spaces"
         },
         "appId": {
           "viewClass": "SelectView",
           "prompt": "Select an App",
           "label": "Podio Application",
           "required": true,
-          "model": "getApplications"
+          "model": "applications"
         }
       },
       "dynamicMetadata": true
