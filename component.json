@@ -22,12 +22,12 @@
       "title": "Create Item",
       "type": "polling",
       "fields": {
-        "appId": {
+        "orgId": {
           "viewClass": "SelectView",
-          "prompt": "Select an App",
-          "label": "Podio Application",
-          "required": false,
-          "model": "getApplications"
+          "prompt": "Select an Organisation",
+          "label": "Podio Organisation",
+          "required": true,
+          "model": "getOrganisations"
         },
         "spaceId": {
           "viewClass": "SelectView",
@@ -35,6 +35,13 @@
           "label": "Podio Space",
           "required": true,
           "model": "getSpaces"
+        },
+        "appId": {
+          "viewClass": "SelectView",
+          "prompt": "Select an App",
+          "label": "Podio Application",
+          "required": true,
+          "model": "getApplications"
         }
       },
       "dynamicMetadata": true
