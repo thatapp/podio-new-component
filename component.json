@@ -20,7 +20,6 @@
     "createItem": {
       "main": "./lib/actions/createItem.js",
       "title": "Create Item",
-      "type": "polling",
       "fields": {
         "orgId": {
           "viewClass": "SelectView",
@@ -43,7 +42,8 @@
           "required": true,
           "model": "getApplications"
         }
-      }
+      },
+      "dynamicMetadata": true
     },
     "getItem": {
       "main": "./lib/actions/getItem.js",
@@ -89,23 +89,13 @@
     }
   },
   "triggers": {
-    "getOrganisations": {
-      "main": "./lib/triggers/getOrganisations.js",
-      "title": "Get Organisation",
-      "type" : "polling",
-      "dynamicMetadata": true
-    },
-    "getSpaces": {
-      "main": "./lib/triggers/getSpaces.js",
-      "title": "Get Spaces",
-      "type" : "polling",
-      "dynamicMetadata": true
-    },
-    "getApplications": {
-      "main": "./lib/triggers/getApplications.js",
+    "getContacts": {
+      "main": "./lib/triggers/getContacts.js",
       "title": "Get Contacts",
       "type" : "polling",
-      "dynamicMetadata": true
+      "metadata": {
+        "out": "./lib/schemas/getContacts.out.json"
+      }
     }
   }
 }
