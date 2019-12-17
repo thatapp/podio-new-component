@@ -19,7 +19,7 @@
   "actions": {
     "createItem": {
       "main": "./lib/actions/createItem.js",
-      "title": "Create Item",
+      "title": "Item: Create",
       "fields": {
         "orgId": {
           "viewClass": "SelectView",
@@ -47,7 +47,7 @@
     },
     "updateItem": {
       "main": "./lib/actions/updateItem.js",
-      "title": "Update Item",
+      "title": "Item: Update ",
       "fields": {
         "orgId": {
           "viewClass": "SelectView",
@@ -75,42 +75,42 @@
     },
     "getItem": {
       "main": "./lib/actions/getItem.js",
-      "title": "Get an Item",
+      "title": "Item: Get ",
       "metadata": {
         "in": "./lib/schemas/getItem.in.json"
       }
     },
     "getApp": {
       "main": "./lib/actions/getApp.js",
-      "title": "Get an App",
+      "title": "App: Get",
       "metadata": {
         "in": "./lib/schemas/getApp.in.json"
       }
     },
     "getSpace": {
       "main": "./lib/actions/getSpace.js",
-      "title": "Get a Space",
+      "title": "Space: Get",
       "metadata": {
         "in": "./lib/schemas/getSpace.in.json"
       }
     },
     "getFile": {
       "main": "./lib/actions/getFile.js",
-      "title": "Get a File",
+      "title": "File: Get",
       "metadata": {
         "in": "./lib/schemas/getFile.in.json"
       }
     },
     "getTask": {
       "main": "./lib/actions/getTask.js",
-      "title": "Get a Task",
+      "title": "Task: Get",
       "metadata": {
         "in": "./lib/schemas/getTask.in.json"
       }
     },
     "getComment": {
       "main": "./lib/actions/getComment.js",
-      "title": "Get a Comment",
+      "title": "Comment: Get",
       "metadata": {
         "in": "./lib/schemas/getComment.in.json"
       }
