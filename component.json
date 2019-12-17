@@ -72,7 +72,6 @@
         },
         "itemId": {
           "viewClass": "TextFieldView",
-          "prompt": "Add Item ID",
           "label": "Item ID",
           "placeholder": "2323543",
           "required": true
