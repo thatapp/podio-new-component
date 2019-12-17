@@ -69,11 +69,6 @@
           "label": "Podio Application",
           "required": true,
           "model": "applications"
-        },
-        "itemId": {
-          "viewClass": "TextFieldView",
-          "label": "Item ID",
-          "required": true
         }
       },
       "dynamicMetadata": true
