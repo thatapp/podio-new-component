@@ -36,17 +36,18 @@ Podio.prototype.request = function(method, path, params, formData) {
         }
     }
 
-    request(requestParams, responseHandler);
+     request(requestParams, responseHandler);
 
-    function responseHandler(err, response, body) {
+    async function responseHandler(err, response, body) {
         if (err) {
             return defered.reject(err);
         }
         console.log('x-rate-limit-remaining:', response.headers['x-rate-limit-remaining']);
         if (401 === response.statusCode) {
             console.log('Podio: Trying to refresh token...');
-            console.log(that.cfg);
-            oauthUtils.refreshAppToken('podio', that.cfg,onTokenRefresh(that.cfg));
+           oauthUtils.refreshAppToken('podio', that.cfg, onTokenRefresh);
+
+          //  updateToken(refreshedToken);
         } else if (response.statusCode >= 400) {
             if (_.isObject(body)) {
                 err = new Error(body.error_description);
@@ -63,8 +64,9 @@ Podio.prototype.request = function(method, path, params, formData) {
 
     function onTokenRefresh(cfg) {
         that.cfg = cfg;
+        console.log(cfg);
         updateToken(cfg);
-        requestParams.headers.Authorization = 'OAuth2 ' + "72869346a52242a081faf159785bc225";
+        requestParams.headers.Authorization = 'OAuth2 ' + cfg.oauth.access_token;
         console.log('Making new request...');
         request(requestParams, responseHandler);
     }
