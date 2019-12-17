@@ -45,6 +45,41 @@
       },
       "dynamicMetadata": true
     },
+    "updateItem": {
+      "main": "./lib/actions/updateItem.js",
+      "title": "Update Item",
+      "fields": {
+        "orgId": {
+          "viewClass": "SelectView",
+          "prompt": "Select an Organisation",
+          "label": "Podio Organisation",
+          "required": true,
+          "model": "organisations"
+        },
+        "spaceId": {
+          "viewClass": "SelectView",
+          "prompt": "Select a Space",
+          "label": "Podio Space",
+          "required": true,
+          "model": "spaces"
+        },
+        "appId": {
+          "viewClass": "SelectView",
+          "prompt": "Select an App",
+          "label": "Podio Application",
+          "required": true,
+          "model": "applications"
+        },
+        "itemId": {
+          "viewClass": "TextFieldView",
+          "prompt": "Add Item ID",
+          "label": "Item ID",
+          "placeholder": "2323543",
+          "required": true
+        }
+      },
+      "dynamicMetadata": true
+    },
     "getItem": {
       "main": "./lib/actions/getItem.js",
       "title": "Get an Item",
