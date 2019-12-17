@@ -73,7 +73,6 @@
         "itemId": {
           "viewClass": "TextFieldView",
           "label": "Item ID",
-          "placeholder": "2323543",
           "required": true
         }
       },
