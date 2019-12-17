@@ -4,7 +4,8 @@
         "ItemId": {
             "type": "number",
             "required": true,
-            "title": "Item id"
+            "title": "Item id",
+            "note": "84937"
         }
     }
 }
