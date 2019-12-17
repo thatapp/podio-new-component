@@ -16,6 +16,7 @@ var _ = require('lodash');
  * @param next
  */
 function refreshToken(serviceUri, clientIdKey, clientSecretKey, conf, next) {
+    console.log(conf);
     'use strict';
 
     var clientId = getValueFromEnv(clientIdKey);
@@ -67,7 +68,7 @@ function getValueFromEnv(key) {
 }
 
 function refreshAppToken(app, conf, cb) {
-    var appDef = require('../../component.json');
+    var appDef = require('../component.json');
     var credentials = appDef.credentials || {};
     var oauth2 = credentials["oauth2"];
 

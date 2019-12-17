@@ -45,8 +45,8 @@ Podio.prototype.request = function(method, path, params, formData) {
         console.log('x-rate-limit-remaining:', response.headers['x-rate-limit-remaining']);
         if (401 === response.statusCode) {
             console.log('Podio: Trying to refresh token...');
+            console.log(that.cfg);
             oauthUtils.refreshAppToken('podio', that.cfg,onTokenRefresh(that.cfg));
-
         } else if (response.statusCode >= 400) {
             if (_.isObject(body)) {
                 err = new Error(body.error_description);
@@ -64,7 +64,7 @@ Podio.prototype.request = function(method, path, params, formData) {
     function onTokenRefresh(cfg) {
         that.cfg = cfg;
         updateToken(cfg);
-        requestParams.headers.Authorization = 'OAuth2 ' + cfg.oauth.access_token;
+        requestParams.headers.Authorization = 'OAuth2 ' + "72869346a52242a081faf159785bc225";
         console.log('Making new request...');
         request(requestParams, responseHandler);
     }
