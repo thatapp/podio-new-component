@@ -2,13 +2,23 @@
     "fixtures":{
         "items":{
             "msg":{
+                "oauth": {
+                    "access_token": "b4129822bf5a45dd814de90735553eb7",
+                    "token_type": "bearer",
+                    "refresh_token": "60fb6420b41d4ac4a1f97ee327e31523"
+                },
                 "headers":{},
                 "body":{
                     "ItemId" : 980503737
                 }
             },
             "cfg": {
-                "ItemId" : 980503737
+                "ItemId" : 980503737,
+                "oauth": {
+                    "access_token": "b4129822bf5a45dd814de90735553eb7",
+                    "token_type": "bearer",
+                    "refresh_token": "60fb6420b41d4ac4a1f97ee327e31523"
+                }
             }
         },
         "apps":{
@@ -64,6 +74,35 @@
             },
             "cfg": {
                 "taskId" : 988492515
+            }
+        },
+        "updateItem":{
+            "msg":{
+                "oauth": {
+                    "access_token": "b4129822bf5a45dd814de90735553eb7",
+                    "token_type": "bearer",
+                    "refresh_token": "60fb6420b41d4ac4a1f97ee327e31523"
+                },
+                "headers":{},
+                "body":{
+                    "appId" : 23144488,
+                    "password":"eiusmod",
+                    "username":"ex do",
+                    "platform":"ipsum do",
+                    "item_id":"1298870607"
+                }
+            },
+            "cfg": {
+                "oauth": {
+                    "access_token": "b4129822bf5a45dd814de90735553eb7",
+                    "token_type": "bearer",
+                    "refresh_token": "60fb6420b41d4ac4a1f97ee327e31523"
+                },
+                "appId" : 23144488,
+                "password":"eiusmod",
+                "username":"ex do",
+                "platform":"ipsum do",
+                "item_id":"1298870607"
             }
         }
     }
