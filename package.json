@@ -31,12 +31,14 @@
     "heartbeat-stream": "^1.0.1",
     "jsforce": "1.9.1",
     "lodash": "^4.17.15",
+    "lodash.template": ">=4.5.0",
     "mime": "^2.4.4",
     "moment": "^2.10.6",
     "node-uuid": "1.4.8",
     "q": "^1.4.1",
     "request": "^2.65.0",
-    "s3": "^4.4.0"
+    "s3": "^4.4.0",
+    "csv-parse": ">=4.4.6"
   },
   "devDependencies": {
     "code-quality-js": "git+https://github.com/thatapp/code-quality-js.git#master",
