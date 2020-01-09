@@ -41,16 +41,16 @@
     "csv-parse": ">=4.4.6"
   },
   "devDependencies": {
-    "code-quality-js": "git+https://github.com/thatapp/code-quality-js.git#master",
-    "git-guppy": "~1.0.0",
-    "gulp": "^3.8.11",
-    "gulp-jasmine": "^2.0.1",
-    "gulp-jscs": "~1.6.0",
     "chai": "4.2.0",
+    "code-quality-js": "git+https://github.com/thatapp/code-quality-js.git#master",
     "dotenv": "8.0.0",
     "eslint": "5.16.0",
     "eslint-config-airbnb-base": "13.1.0",
     "eslint-plugin-import": "2.18.0",
+    "git-guppy": "~1.0.0",
+    "gulp": "^3.8.11",
+    "gulp-jasmine": "^2.0.1",
+    "gulp-jscs": "~1.6.0",
     "mocha": "6.1.4",
     "nock": "10.0.6",
     "sinon": "7.3.2"
