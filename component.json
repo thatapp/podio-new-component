@@ -94,6 +94,7 @@
         "in": "./lib/schemas/getSpace.in.json"
       }
     },
+
     "createSpace": {
       "main": "./lib/actions/spaces/createSpace.js",
       "title": "Space: Create",
@@ -104,51 +105,9 @@
           "label": "Podio Organisation",
           "required": true,
           "model": "organisations"
-        },
-        "name": {
-          "viewClass": "TextFieldView",
-          "label": "Space Name",
-          "required": true,
-          "placeholder":"Enter space name"
-        },
-        "privacy": {
-          "viewClass": "SelectView",
-          "prompt": "Privacy",
-          "label": "Privacy",
-          "required": true,
-          "model": {
-            "open": "open",
-            "closed": "closed"
-          }
-        },
-        "auto_join": {
-          "viewClass": "SelectView",
-          "prompt": "Auto Join",
-          "label": "Auto Join (new employees should be joined automatically)",
-          "model": {
-            "true": "true",
-            "false": "false"
-          }
-        },
-        "post_on_new_app": {
-          "viewClass": "SelectView",
-          "prompt": "New App",
-          "label": "New App Notification (if new apps should be announced with a status update)",
-          "model": {
-            "true": "true",
-            "false": "false"
-          }
-        },
-        "post_on_new_member": {
-          "viewClass": "SelectView",
-          "prompt": "New Member",
-          "label": "New member Notification (if new members should be announced with a status update)",
-          "model": {
-            "true": "true",
-            "false": "false"
-          }
         }
-      }
+      },
+      "dynamicMetadata": true
     },
     "updateSpace": {
       "main": "./lib/actions/spaces/updateSpace.js",
@@ -520,6 +479,13 @@
         }
       }
     },
+    "getComment": {
+      "main": "./lib/actions/comments/getComment.js",
+      "title": "Comment: Get",
+      "metadata": {
+        "in": "./lib/schemas/getComment.in.json"
+      }
+    },
     "getFile": {
       "main": "./lib/actions/files/getFile.js",
       "title": "File: Get",
@@ -539,13 +505,6 @@
       "title": "App: Get All App",
       "metadata": {
         "in": "./lib/schemas/getAllApp.in.json"
-      }
-    },
-    "getComment": {
-      "main": "./lib/actions/comments/getComment.js",
-      "title": "Comment: Get",
-      "metadata": {
-        "in": "./lib/schemas/getComment.in.json"
       }
     }
   },
