@@ -1,0 +1,45 @@
+{
+  "type": "object",
+  "properties": {
+    "exclude_app_ids": {
+      "type": "string",
+      "required": false,
+      "title": "Exclude Apps(comma, seperated)"
+    },
+    "exclude_demo": {
+      "type": "SelectView",
+      "title": "Exclude Demo Apps",
+      "model": {
+        "true": "true",
+        "false": "false"
+      }
+    },
+    "limit": {
+      "type": "number",
+      "title": "Limit"
+    },
+    "order": {
+      "type": "string",
+      "title": "Order"
+    },
+    "referenceable_in_org": {
+      "type": "number",
+      "required": false,
+      "title": "ID of the Organization to filter apps by"
+    },
+    "right": {
+      "type": "string",
+      "title": "Right"
+    },
+    "target_space_id": {
+      "type": "string",
+      "required": false,
+      "title": "Target Space"
+    },
+    "text": {
+      "type": "string",
+      "required": false,
+      "title": "Text"
+    }
+  }
+}

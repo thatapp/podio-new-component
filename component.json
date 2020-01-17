@@ -18,7 +18,7 @@
   },
   "actions": {
     "createItem": {
-      "main": "./lib/actions/createItem.js",
+      "main": "./lib/actions/items/createItem.js",
       "title": "Item: Create",
       "fields": {
         "orgId": {
@@ -46,7 +46,7 @@
       "dynamicMetadata": true
     },
     "updateItem": {
-      "main": "./lib/actions/updateItem.js",
+      "main": "./lib/actions/items/updateItem.js",
       "title": "Item: Update ",
       "fields": {
         "orgId": {
@@ -74,42 +74,475 @@
       "dynamicMetadata": true
     },
     "getItem": {
-      "main": "./lib/actions/getItem.js",
+      "main": "./lib/actions/items/getItem.js",
       "title": "Item: Get ",
       "metadata": {
         "in": "./lib/schemas/getItem.in.json"
       }
     },
     "getApp": {
-      "main": "./lib/actions/getApp.js",
+      "main": "./lib/actions/apps/getApp.js",
       "title": "App: Get",
       "metadata": {
         "in": "./lib/schemas/getApp.in.json"
       }
     },
     "getSpace": {
-      "main": "./lib/actions/getSpace.js",
+      "main": "./lib/actions/spaces/getSpace.js",
       "title": "Space: Get",
       "metadata": {
         "in": "./lib/schemas/getSpace.in.json"
       }
     },
+    "createSpace": {
+      "main": "./lib/actions/spaces/createSpace.js",
+      "title": "Space: Create",
+      "fields": {
+        "orgId": {
+          "viewClass": "SelectView",
+          "prompt": "Select an Organisation",
+          "label": "Podio Organisation",
+          "required": true,
+          "model": "organisations"
+        },
+        "name": {
+          "viewClass": "TextFieldView",
+          "label": "Space Name",
+          "required": true,
+          "placeholder":"Enter space name"
+        },
+        "privacy": {
+          "viewClass": "SelectView",
+          "prompt": "Privacy",
+          "label": "Privacy",
+          "required": true,
+          "model": {
+            "open": "open",
+            "closed": "closed"
+          }
+        },
+        "auto_join": {
+          "viewClass": "SelectView",
+          "prompt": "Auto Join",
+          "label": "Auto Join (new employees should be joined automatically)",
+          "model": {
+            "true": "true",
+            "false": "false"
+          }
+        },
+        "post_on_new_app": {
+          "viewClass": "SelectView",
+          "prompt": "New App",
+          "label": "New App Notification (if new apps should be announced with a status update)",
+          "model": {
+            "true": "true",
+            "false": "false"
+          }
+        },
+        "post_on_new_member": {
+          "viewClass": "SelectView",
+          "prompt": "New Member",
+          "label": "New member Notification (if new members should be announced with a status update)",
+          "model": {
+            "true": "true",
+            "false": "false"
+          }
+        }
+      }
+    },
+    "updateSpace": {
+      "main": "./lib/actions/spaces/updateSpace.js",
+      "title": "Space: Update",
+      "fields": {
+        "orgId": {
+          "viewClass": "SelectView",
+          "prompt": "Select an Organisation",
+          "label": "Podio Organisation",
+          "required": true,
+          "model": "organisations"
+        },
+        "name": {
+          "viewClass": "TextFieldView",
+          "label": "Space Name",
+          "required": true,
+          "placeholder":"Enter space name"
+        },
+        "privacy": {
+          "viewClass": "SelectView",
+          "prompt": "Privacy",
+          "label": "Privacy",
+          "required": true,
+          "model": {
+            "open": "open",
+            "closed": "closed"
+          }
+        },
+        "auto_join": {
+          "viewClass": "SelectView",
+          "prompt": "Auto Join",
+          "label": "Auto Join (new employees should be joined automatically)",
+          "model": {
+            "true": "true",
+            "false": "false"
+          }
+        },
+        "post_on_new_app": {
+          "viewClass": "SelectView",
+          "prompt": "New App",
+          "label": "New App Notification (if new apps should be announced with a status update)",
+          "model": {
+            "true": "true",
+            "false": "false"
+          }
+        },
+        "post_on_new_member": {
+          "viewClass": "SelectView",
+          "prompt": "New Member",
+          "label": "New member Notification (if new members should be announced with a status update)",
+          "model": {
+            "true": "true",
+            "false": "false"
+          }
+        }
+      }
+    },
+    "getSpaceMember": {
+      "main": "./lib/actions/spaces/getSpaceMember.js",
+      "title": "Space: Get Space Member",
+      "fields": {
+        "orgId": {
+          "viewClass": "SelectView",
+          "prompt": "Select an Organisation",
+          "label": "Podio Organisation",
+          "required": true,
+          "model": "organisations"
+        },
+        "spaceId": {
+          "viewClass": "SelectView",
+          "prompt": "Select a Space",
+          "label": "Podio Space",
+          "required": true,
+          "model": "spaces"
+        },
+        "limit": {
+          "viewClass": "TextFieldView",
+          "label": "Limit",
+          "placeholder":"100"
+        },
+        "offset": {
+          "viewClass": "TextFieldView",
+          "label": "Offset",
+          "placeholder":"0"
+        },
+        "member_type": {
+          "viewClass": "SelectView",
+          "prompt": "Member Type",
+          "label": "Member Type",
+          "model": {
+            "employee": "employee",
+            "external": "external",
+            "admin": "admin",
+            "regular": "regular",
+            "light": "light",
+            "guest": "guest"
+          }
+        },
+        "query": {
+          "viewClass": "TextFieldView",
+          "label": "query",
+          "placeholder":""
+        }
+      }
+    },
+    "search": {
+      "main": "./lib/actions/all/search.js",
+      "title": "Search All",
+      "fields": {
+        "counts": {
+          "viewClass": "SelectView",
+          "prompt": "Counts",
+          "label": "Counts",
+          "model": {
+            "true": "true",
+            "false": "false"
+          }
+        },
+        "highlights": {
+          "viewClass": "SelectView",
+          "label": "highlights",
+          "model": {
+            "true": "true",
+            "false": "false"
+          }
+        },
+        "limit": {
+          "viewClass": "TextFieldView",
+          "label": "Limit",
+          "placeholder":"100"
+        },
+        "offset": {
+          "viewClass": "TextFieldView",
+          "label": "Offset",
+          "placeholder":"0"
+        },
+        "ref_type": {
+          "viewClass": "SelectView",
+          "prompt": "Ref Type",
+          "label": "Ref Type",
+          "model": {
+            "item": "item",
+            "task": "task",
+            "admin": "file",
+            "regular": "conversation",
+            "light": "profile",
+            "guest": "app"
+          }
+        },
+        "query": {
+          "viewClass": "TextFieldView",
+          "label": "query",
+          "placeholder":""
+        },
+        "search_fields": {
+          "viewClass": "TextFieldView",
+          "label": "Search Fields",
+          "placeholder":"100"
+        }
+      }
+    },
+    "searchOrg": {
+      "main": "./lib/actions/all/searchOrg.js",
+      "title": "Search Organisation",
+      "fields": {
+        "orgId": {
+          "viewClass": "SelectView",
+          "prompt": "Select an Organisation",
+          "label": "Podio Organisation",
+          "required": true,
+          "model": "organisations"
+        },
+        "counts": {
+          "viewClass": "SelectView",
+          "prompt": "Counts",
+          "label": "Counts",
+          "model": {
+            "true": "true",
+            "false": "false"
+          }
+        },
+        "highlights": {
+          "viewClass": "SelectView",
+          "label": "highlights",
+          "model": {
+            "true": "true",
+            "false": "false"
+          }
+        },
+        "limit": {
+          "viewClass": "TextFieldView",
+          "label": "Limit",
+          "placeholder":"100"
+        },
+        "offset": {
+          "viewClass": "TextFieldView",
+          "label": "Offset",
+          "placeholder":"0"
+        },
+        "ref_type": {
+          "viewClass": "SelectView",
+          "prompt": "Ref Type",
+          "label": "Ref Type",
+          "model": {
+            "item": "item",
+            "task": "task",
+            "admin": "file",
+            "regular": "conversation",
+            "light": "profile",
+            "guest": "app"
+          }
+        },
+        "query": {
+          "viewClass": "TextFieldView",
+          "label": "query",
+          "placeholder":""
+        },
+        "search_fields": {
+          "viewClass": "TextFieldView",
+          "label": "Search Fields",
+          "placeholder":"100"
+        }
+      }
+    },
+    "searchSpace": {
+      "main": "./lib/actions/all/searchSpace.js",
+      "title": "Search Space",
+      "fields": {
+        "orgId": {
+          "viewClass": "SelectView",
+          "prompt": "Select an Organisation",
+          "label": "Podio Organisation",
+          "required": true,
+          "model": "organisations"
+        },
+        "spaceId": {
+          "viewClass": "SelectView",
+          "prompt": "Select a Space",
+          "label": "Podio Space",
+          "required": true,
+          "model": "spaces"
+        },
+        "counts": {
+          "viewClass": "SelectView",
+          "prompt": "Counts",
+          "label": "Counts",
+          "model": {
+            "true": "true",
+            "false": "false"
+          }
+        },
+        "highlights": {
+          "viewClass": "SelectView",
+          "label": "highlights",
+          "model": {
+            "true": "true",
+            "false": "false"
+          }
+        },
+        "limit": {
+          "viewClass": "TextFieldView",
+          "label": "Limit",
+          "placeholder":"100"
+        },
+        "offset": {
+          "viewClass": "TextFieldView",
+          "label": "Offset",
+          "placeholder":"0"
+        },
+        "ref_type": {
+          "viewClass": "SelectView",
+          "prompt": "Ref Type",
+          "label": "Ref Type",
+          "model": {
+            "item": "item",
+            "task": "task",
+            "admin": "file",
+            "regular": "conversation",
+            "light": "profile",
+            "guest": "app"
+          }
+        },
+        "query": {
+          "viewClass": "TextFieldView",
+          "label": "query",
+          "placeholder":""
+        },
+        "search_fields": {
+          "viewClass": "TextFieldView",
+          "label": "Search Fields",
+          "placeholder":"100"
+        }
+      }
+    },
+    "searchApp": {
+      "main": "./lib/actions/all/searchApp.js",
+      "title": "Search App",
+      "fields": {
+        "orgId": {
+          "viewClass": "SelectView",
+          "prompt": "Select an Organisation",
+          "label": "Podio Organisation",
+          "required": true,
+          "model": "organisations"
+        },
+        "spaceId": {
+          "viewClass": "SelectView",
+          "prompt": "Select a Space",
+          "label": "Podio Space",
+          "required": true,
+          "model": "spaces"
+        },
+        "appId": {
+          "viewClass": "SelectView",
+          "prompt": "Select an App",
+          "label": "Podio Application",
+          "required": true,
+          "model": "applications"
+        },
+        "counts": {
+          "viewClass": "SelectView",
+          "prompt": "Counts",
+          "label": "Counts",
+          "model": {
+            "true": "true",
+            "false": "false"
+          }
+        },
+        "highlights": {
+          "viewClass": "SelectView",
+          "label": "highlights",
+          "model": {
+            "true": "true",
+            "false": "false"
+          }
+        },
+        "limit": {
+          "viewClass": "TextFieldView",
+          "label": "Limit",
+          "placeholder":"100"
+        },
+        "offset": {
+          "viewClass": "TextFieldView",
+          "label": "Offset",
+          "placeholder":"0"
+        },
+        "ref_type": {
+          "viewClass": "SelectView",
+          "prompt": "Ref Type",
+          "label": "Ref Type",
+          "model": {
+            "item": "item",
+            "task": "task",
+            "admin": "file",
+            "regular": "conversation",
+            "light": "profile",
+            "guest": "app"
+          }
+        },
+        "query": {
+          "viewClass": "TextFieldView",
+          "label": "query",
+          "placeholder":""
+        },
+        "search_fields": {
+          "viewClass": "TextFieldView",
+          "label": "Search Fields",
+          "placeholder":"100"
+        }
+      }
+    },
     "getFile": {
-      "main": "./lib/actions/getFile.js",
+      "main": "./lib/actions/files/getFile.js",
       "title": "File: Get",
       "metadata": {
         "in": "./lib/schemas/getFile.in.json"
       }
     },
     "getTask": {
-      "main": "./lib/actions/getTask.js",
+      "main": "./lib/actions/tasks/getTask.js",
       "title": "Task: Get",
       "metadata": {
         "in": "./lib/schemas/getTask.in.json"
       }
     },
+    "getAllApp": {
+      "main": "./lib/actions/apps/getAllApp.js",
+      "title": "App: Get All App",
+      "metadata": {
+        "in": "./lib/schemas/getAllApp.in.json"
+      }
+    },
     "getComment": {
-      "main": "./lib/actions/getComment.js",
+      "main": "./lib/actions/comments/getComment.js",
       "title": "Comment: Get",
       "metadata": {
         "in": "./lib/schemas/getComment.in.json"
@@ -118,7 +551,7 @@
   },
   "triggers": {
     "getContacts": {
-      "main": "./lib/triggers/getContacts.js",
+      "main": "./lib/triggers/contacts/getContacts.js",
       "title": "Get Contacts",
       "type" : "polling",
       "metadata": {

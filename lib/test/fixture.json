@@ -84,12 +84,13 @@
                     "refresh_token": "60fb6420b41d4ac4a1f97ee327e31523"
                 },
                 "headers":{},
-                "body":{
-                    "appId" : 23144488,
+                "body": {
+                    "appId" : 21732468,
                     "password":"eiusmod",
                     "username":"ex do",
                     "platform":"ipsum do",
-                    "item_id":"1298870607"
+                    "item_id":"1298870607",
+                    "query" : "update"
                 }
             },
             "cfg": {
@@ -98,11 +99,12 @@
                     "token_type": "bearer",
                     "refresh_token": "60fb6420b41d4ac4a1f97ee327e31523"
                 },
-                "appId" : 23144488,
+                "appId" : 21732468,
                 "password":"eiusmod",
                 "username":"ex do",
                 "platform":"ipsum do",
-                "item_id":"1298870607"
+                "item_id":"1298870607",
+                "query" : "update"
             }
         }
     }
