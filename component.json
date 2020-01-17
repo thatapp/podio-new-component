@@ -210,58 +210,9 @@
           "label": "Podio Organisation",
           "required": true,
           "model": "organisations"
-        },
-        "counts": {
-          "viewClass": "SelectView",
-          "prompt": "Counts",
-          "label": "Counts",
-          "model": {
-            "true": "true",
-            "false": "false"
-          }
-        },
-        "highlights": {
-          "viewClass": "SelectView",
-          "label": "highlights",
-          "model": {
-            "true": "true",
-            "false": "false"
-          }
-        },
-        "limit": {
-          "viewClass": "TextFieldView",
-          "label": "Limit",
-          "placeholder":"100"
-        },
-        "offset": {
-          "viewClass": "TextFieldView",
-          "label": "Offset",
-          "placeholder":"0"
-        },
-        "ref_type": {
-          "viewClass": "SelectView",
-          "prompt": "Ref Type",
-          "label": "Ref Type",
-          "model": {
-            "item": "item",
-            "task": "task",
-            "admin": "file",
-            "regular": "conversation",
-            "light": "profile",
-            "guest": "app"
-          }
-        },
-        "query": {
-          "viewClass": "TextFieldView",
-          "label": "query",
-          "placeholder":""
-        },
-        "search_fields": {
-          "viewClass": "TextFieldView",
-          "label": "Search Fields",
-          "placeholder":"100"
         }
-      }
+      },
+      "dynamicMetadata": true
     },
     "searchSpace": {
       "main": "./lib/actions/all/searchSpace.js",
@@ -280,58 +231,9 @@
           "label": "Podio Space",
           "required": true,
           "model": "spaces"
-        },
-        "counts": {
-          "viewClass": "SelectView",
-          "prompt": "Counts",
-          "label": "Counts",
-          "model": {
-            "true": "true",
-            "false": "false"
-          }
-        },
-        "highlights": {
-          "viewClass": "SelectView",
-          "label": "highlights",
-          "model": {
-            "true": "true",
-            "false": "false"
-          }
-        },
-        "limit": {
-          "viewClass": "TextFieldView",
-          "label": "Limit",
-          "placeholder":"100"
-        },
-        "offset": {
-          "viewClass": "TextFieldView",
-          "label": "Offset",
-          "placeholder":"0"
-        },
-        "ref_type": {
-          "viewClass": "SelectView",
-          "prompt": "Ref Type",
-          "label": "Ref Type",
-          "model": {
-            "item": "item",
-            "task": "task",
-            "admin": "file",
-            "regular": "conversation",
-            "light": "profile",
-            "guest": "app"
-          }
-        },
-        "query": {
-          "viewClass": "TextFieldView",
-          "label": "query",
-          "placeholder":""
-        },
-        "search_fields": {
-          "viewClass": "TextFieldView",
-          "label": "Search Fields",
-          "placeholder":"100"
         }
-      }
+      },
+      "dynamicMetadata": true
     },
     "searchApp": {
       "main": "./lib/actions/all/searchApp.js",
@@ -358,56 +260,7 @@
           "required": true,
           "model": "applications"
         },
-        "counts": {
-          "viewClass": "SelectView",
-          "prompt": "Counts",
-          "label": "Counts",
-          "model": {
-            "true": "true",
-            "false": "false"
-          }
-        },
-        "highlights": {
-          "viewClass": "SelectView",
-          "label": "highlights",
-          "model": {
-            "true": "true",
-            "false": "false"
-          }
-        },
-        "limit": {
-          "viewClass": "TextFieldView",
-          "label": "Limit",
-          "placeholder":"100"
-        },
-        "offset": {
-          "viewClass": "TextFieldView",
-          "label": "Offset",
-          "placeholder":"0"
-        },
-        "ref_type": {
-          "viewClass": "SelectView",
-          "prompt": "Ref Type",
-          "label": "Ref Type",
-          "model": {
-            "item": "item",
-            "task": "task",
-            "admin": "file",
-            "regular": "conversation",
-            "light": "profile",
-            "guest": "app"
-          }
-        },
-        "query": {
-          "viewClass": "TextFieldView",
-          "label": "query",
-          "placeholder":""
-        },
-        "search_fields": {
-          "viewClass": "TextFieldView",
-          "label": "Search Fields",
-          "placeholder":"100"
-        }
+        "dynamicMetadata": true
       }
     },
     "getComment": {
