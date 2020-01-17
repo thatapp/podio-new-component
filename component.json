@@ -119,51 +119,9 @@
           "label": "Podio Organisation",
           "required": true,
           "model": "organisations"
-        },
-        "name": {
-          "viewClass": "TextFieldView",
-          "label": "Space Name",
-          "required": true,
-          "placeholder":"Enter space name"
-        },
-        "privacy": {
-          "viewClass": "SelectView",
-          "prompt": "Privacy",
-          "label": "Privacy",
-          "required": true,
-          "model": {
-            "open": "open",
-            "closed": "closed"
-          }
-        },
-        "auto_join": {
-          "viewClass": "SelectView",
-          "prompt": "Auto Join",
-          "label": "Auto Join (new employees should be joined automatically)",
-          "model": {
-            "true": "true",
-            "false": "false"
-          }
-        },
-        "post_on_new_app": {
-          "viewClass": "SelectView",
-          "prompt": "New App",
-          "label": "New App Notification (if new apps should be announced with a status update)",
-          "model": {
-            "true": "true",
-            "false": "false"
-          }
-        },
-        "post_on_new_member": {
-          "viewClass": "SelectView",
-          "prompt": "New Member",
-          "label": "New member Notification (if new members should be announced with a status update)",
-          "model": {
-            "true": "true",
-            "false": "false"
-          }
         }
-      }
+      },
+      "dynamicMetadata": true
     },
     "getSpaceMember": {
       "main": "./lib/actions/spaces/getSpaceMember.js",
@@ -182,36 +140,9 @@
           "label": "Podio Space",
           "required": true,
           "model": "spaces"
-        },
-        "limit": {
-          "viewClass": "TextFieldView",
-          "label": "Limit",
-          "placeholder":"100"
-        },
-        "offset": {
-          "viewClass": "TextFieldView",
-          "label": "Offset",
-          "placeholder":"0"
-        },
-        "member_type": {
-          "viewClass": "SelectView",
-          "prompt": "Member Type",
-          "label": "Member Type",
-          "model": {
-            "employee": "employee",
-            "external": "external",
-            "admin": "admin",
-            "regular": "regular",
-            "light": "light",
-            "guest": "guest"
-          }
-        },
-        "query": {
-          "viewClass": "TextFieldView",
-          "label": "query",
-          "placeholder":""
         }
-      }
+      },
+      "dynamicMetadata": true
     },
     "search": {
       "main": "./lib/actions/all/search.js",
