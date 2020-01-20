@@ -1,0 +1,10 @@
+{
+  "type": "object",
+  "properties": {
+    "hook_id": {
+      "type": "number",
+      "required": true,
+      "title": "Ref Type"
+    }
+  }
+}

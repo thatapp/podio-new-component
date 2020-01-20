@@ -1,0 +1,10 @@
+{
+  "type": "object",
+  "properties": {
+    "orgId": {
+      "type": "number",
+      "required": true,
+      "title": "Organisation id"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "type": "object",
+  "properties": {
+    "appId": {
+      "type": "number",
+      "required": true,
+      "title": "App id"
+    },
+    "fieldId": {
+      "type": "number",
+      "required": true,
+      "title": "Field id"
+    }
+  }
+}

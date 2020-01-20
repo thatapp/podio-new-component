@@ -94,7 +94,6 @@
         "in": "./lib/schemas/getSpace.in.json"
       }
     },
-
     "createSpace": {
       "main": "./lib/actions/spaces/createSpace.js",
       "title": "Space: Create",
@@ -202,7 +201,7 @@
     },
     "searchOrg": {
       "main": "./lib/actions/all/searchOrg.js",
-      "title": "Search Organisation",
+      "title": "Search: Organisation",
       "fields": {
         "orgId": {
           "viewClass": "SelectView",
@@ -216,7 +215,7 @@
     },
     "searchSpace": {
       "main": "./lib/actions/all/searchSpace.js",
-      "title": "Search Space",
+      "title": "Search: Space",
       "fields": {
         "orgId": {
           "viewClass": "SelectView",
@@ -237,7 +236,7 @@
     },
     "searchApp": {
       "main": "./lib/actions/all/searchApp.js",
-      "title": "Search App",
+      "title": "Search: App",
       "fields": {
         "orgId": {
           "viewClass": "SelectView",
@@ -289,6 +288,110 @@
       "title": "App: Get All App",
       "metadata": {
         "in": "./lib/schemas/getAllApp.in.json"
+      }
+    },
+    "getOrg": {
+      "main": "./lib/actions/organisations/getOrg.js",
+      "title": "Org: Get Organisations",
+      "fields": {
+        "orgId": {
+          "viewClass": "SelectView",
+          "prompt": "Select an Organisation",
+          "label": "Podio Organisation",
+          "required": true,
+          "model": "organisations"
+        }
+      }
+    },
+    "getOrgUrl": {
+      "main": "./lib/actions/organisations/getOrgUrl.js",
+      "title": "Org: Get Organisation's URL",
+      "metadata": {
+        "in": "./lib/schemas/getOrgUrl.in.json"
+      }
+    },
+    "getAppBySpace": {
+      "main": "./lib/actions/spaces/getAppBySpace.js",
+      "title": "Space: Get App's By Space",
+      "fields": {
+        "orgId": {
+          "viewClass": "SelectView",
+          "prompt": "Select an Organisation",
+          "label": "Podio Organisation",
+          "required": true,
+          "model": "organisations"
+        },
+        "spaceId": {
+          "viewClass": "SelectView",
+          "prompt": "Select a Space",
+          "label": "Podio Space",
+          "required": true,
+          "model": "spaces"
+        }
+      },
+      "dynamicMetadata": true
+    },
+    "updateAppField": {
+      "main": "./lib/actions/apps/updateAppField.js",
+      "title": "App: Update App Field",
+      "metadata": {
+        "in": "./lib/schemas/updateAppField.in.json"
+      }
+    },
+    "getAllSpacesOrg": {
+      "main": "./lib/actions/organisations/getAllSpacesOrg.js",
+      "title": "Org: Get All Spaces on Organisations",
+      "metadata": {
+        "in": "./lib/schemas/getOrg.in.json"
+      }
+    },
+    "createHooks": {
+      "main": "./lib/actions/hooks/createHooks.js",
+      "title": "Hooks: Create",
+      "metadata": {
+        "in": "./lib/schemas/createHooks.in.json"
+      }
+    },
+    "getHooks": {
+      "main": "./lib/actions/hooks/getHooks.js",
+      "title": "Hooks: Get",
+      "metadata": {
+        "in": "./lib/schemas/createHooks.in.json"
+      }
+    },
+    "deleteHooks": {
+      "main": "./lib/actions/hooks/deleteHooks.js",
+      "title": "Hooks: Delete",
+      "metadata": {
+        "in": "./lib/schemas/deleteHooks.in.json"
+      }
+    },
+    "validateHooks": {
+      "main": "./lib/actions/hooks/validateHooks.js",
+      "title": "Hooks: Validate",
+      "metadata": {
+        "in": "./lib/schemas/deleteHooks.in.json"
+      }
+    },
+    "verifyHooks": {
+      "main": "./lib/actions/hooks/verifyHooks.js",
+      "title": "Hooks: Validate",
+      "metadata": {
+        "in": "./lib/schemas/deleteHooks.in.json"
+      }
+    },
+    "updateSpaceMembership": {
+      "main": "./lib/actions/spaces/updateSpaceMembership.js",
+      "title": "Space: Update Space Membership",
+      "metadata": {
+        "in": "./lib/schemas/updateSpaceMembership.in.json"
+      }
+    },
+    "addMemberToSpace": {
+      "main": "./lib/actions/spaces/addMemberToSpace.js",
+      "title": "Space: Add Member to Space",
+      "metadata": {
+        "in": "./lib/schemas/addMemberToSpace.in.json"
       }
     }
   },

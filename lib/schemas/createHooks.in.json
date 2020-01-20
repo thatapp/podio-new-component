@@ -1,0 +1,15 @@
+{
+  "type": "object",
+  "properties": {
+    "ref_type": {
+      "type": "string",
+      "required": true,
+      "title": "Ref Type"
+    },
+    "ref_id": {
+      "type": "string",
+      "required": true,
+      "title": "Ref Id"
+    }
+  }
+}

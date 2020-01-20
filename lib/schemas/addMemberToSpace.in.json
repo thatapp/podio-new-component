@@ -1,0 +1,38 @@
+{
+  "type": "object",
+  "properties": {
+    "space_id": {
+      "type": "string",
+      "required": true,
+      "title": "Role"
+    },
+    "role": {
+      "type": "string",
+      "title": "Role"
+    },
+    "message": {
+      "type": "string",
+      "title": "message"
+    },
+    "users": {
+      "type": "string",
+      "title": "users"
+    },
+    "profiles": {
+      "type": "string",
+      "title": "Profile"
+    },
+    "mails": {
+      "type": "string",
+      "title": "Mails"
+    },
+    "context_ref_type": {
+      "type": "string",
+      "title": "Ref Type"
+    },
+    "context_ref_id": {
+      "type": "string",
+      "title": "Ref id"
+    }
+  }
+}
