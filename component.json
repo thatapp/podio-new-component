@@ -375,7 +375,7 @@
     },
     "verifyHooks": {
       "main": "./lib/actions/hooks/verifyHooks.js",
-      "title": "Hooks: Validate",
+      "title": "Hooks: Verification",
       "metadata": {
         "in": "./lib/schemas/deleteHooks.in.json"
       }
