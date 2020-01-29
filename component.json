@@ -258,9 +258,9 @@
           "label": "Podio Application",
           "required": true,
           "model": "applications"
-        },
-        "dynamicMetadata": true
-      }
+        }
+      },
+      "dynamicMetadata": true
     },
     "getComment": {
       "main": "./lib/actions/comments/getComment.js",
