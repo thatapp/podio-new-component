@@ -21,26 +21,11 @@
       "main": "./lib/actions/items/createItem.js",
       "title": "Item: Create",
       "fields": {
-        "orgId": {
-          "viewClass": "SelectView",
-          "prompt": "Select an Organisation",
-          "label": "Podio Organisation",
-          "required": true,
-          "model": "organisations"
-        },
-        "spaceId": {
-          "viewClass": "SelectView",
-          "prompt": "Select a Space",
-          "label": "Podio Space",
-          "required": true,
-          "model": "spaces"
-        },
         "appId": {
-          "viewClass": "SelectView",
-          "prompt": "Select an App",
+          "viewClass": "TextFieldView",
+          "prompt": "Enter App Id",
           "label": "Podio Application",
-          "required": true,
-          "model": "applications"
+          "required": true
         }
       },
       "dynamicMetadata": true
@@ -49,26 +34,11 @@
       "main": "./lib/actions/items/updateItem.js",
       "title": "Item: Update ",
       "fields": {
-        "orgId": {
-          "viewClass": "SelectView",
-          "prompt": "Select an Organisation",
-          "label": "Podio Organisation",
-          "required": true,
-          "model": "organisations"
-        },
-        "spaceId": {
-          "viewClass": "SelectView",
-          "prompt": "Select a Space",
-          "label": "Podio Space",
-          "required": true,
-          "model": "spaces"
-        },
         "appId": {
-          "viewClass": "SelectView",
-          "prompt": "Select an App",
+          "viewClass": "TextFieldView",
+          "prompt": "Enter App Id",
           "label": "Podio Application",
-          "required": true,
-          "model": "applications"
+          "required": true
         }
       },
       "dynamicMetadata": true
