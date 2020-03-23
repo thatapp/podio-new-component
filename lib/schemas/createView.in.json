@@ -1,0 +1,58 @@
+{
+  "type": "object",
+  "properties": {
+    "app_id": {
+      "type": "number",
+      "required": true,
+      "title": "App Id"
+    },
+    "name": {
+      "type": "string",
+      "required": false,
+      "title": "Name"
+    },
+    "private": {
+      "required": false,
+      "type": "SelectView",
+      "title": "Private",
+      "model": {
+        "true": "true",
+        "false": "false"
+      }
+    },
+    "sort_by": {
+      "required": false,
+      "type": "string",
+      "title": "Sort By"
+    },
+    "sort_desc": {
+      "required": false,
+      "type": "SelectView",
+      "title": "Sort Desc",
+      "model": {
+        "true": "true",
+        "false": "false"
+      }
+    },
+    "filters": {
+      "type": "object",
+      "title": "Filters",
+      "properties": {}
+    },
+    "layout": {
+      "type": "string",
+      "required": false,
+      "title": "Layout"
+    },
+    "fields": {
+      "type": "object",
+      "title": "Fields",
+      "properties": {}
+    },
+    "grouping": {
+      "type": "object",
+      "title": "Grouping",
+      "properties": {}
+    }
+  }
+}

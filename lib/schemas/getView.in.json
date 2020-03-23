@@ -1,0 +1,15 @@
+{
+  "type": "object",
+  "properties": {
+    "app_id": {
+      "type": "number",
+      "required": true,
+      "title": "App Id"
+    },
+    "view_id_or_name": {
+      "type": "number",
+      "required": true,
+      "title": "View Id Or Name"
+    }
+  }
+}

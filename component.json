@@ -363,6 +363,41 @@
       "metadata": {
         "in": "./lib/schemas/addMemberToSpace.in.json"
       }
+    },
+    "filterItems": {
+      "main": "./lib/actions/all/filterItems.js",
+      "title": "Items: Filters",
+      "metadata": {
+        "in": "./lib/schemas/filterItems.in.json"
+      }
+    },
+    "getView": {
+      "main": "./lib/actions/all/getView.js",
+      "title": "Views: Get View",
+      "metadata": {
+        "in": "./lib/schemas/getView.in.json"
+      }
+    },
+    "getViews": {
+      "main": "./lib/actions/all/getViews.js",
+      "title": "Views: Get Views",
+      "metadata": {
+        "in": "./lib/schemas/getViews.in.json"
+      }
+    },
+    "createView": {
+      "main": "./lib/actions/views/createView.js",
+      "title": "Views: Create Views",
+      "metadata": {
+        "in": "./lib/schemas/createView.in.json"
+      }
+    },
+    "deleteView": {
+      "main": "./lib/actions/views/deleteView.js",
+      "title": "Views: Delete View",
+      "metadata": {
+        "in": "./lib/schemas/deleteView.in.json"
+      }
     }
   },
   "triggers": {

@@ -1,0 +1,10 @@
+{
+  "type": "object",
+  "properties": {
+    "view_id": {
+      "type": "number",
+      "required": true,
+      "title": "View Id"
+    }
+  }
+}

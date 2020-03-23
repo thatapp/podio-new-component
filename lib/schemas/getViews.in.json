@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "app_id": {
+      "type": "number",
+      "required": true,
+      "title": "App Id"
+    },
+    "include_standard_views": {
+      "required": false,
+      "title": "Include Standard View",
+      "type": "SelectView",
+      "model": {
+        "true": "true",
+        "false": "false"
+      }
+    }
+  }
+}
