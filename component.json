@@ -371,6 +371,13 @@
         "in": "./lib/schemas/filterItems.in.json"
       }
     },
+    "getItemsbyApp": {
+      "main": "./lib/actions/items/getItemsbyApp.js",
+      "title": "Items: Get All APP Items",
+      "metadata": {
+        "in": "./lib/schemas/getItemsbyApp.in.json"
+      }
+    },
     "getView": {
       "main": "./lib/actions/all/getView.js",
       "title": "Views: Get View",

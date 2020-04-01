@@ -1,0 +1,33 @@
+{
+  "type": "object",
+  "properties": {
+    "app_id": {
+      "type": "number",
+      "required": true,
+      "title": "App Id"
+    },
+    "sort_by": {
+      "type": "string",
+      "title": "Sort By",
+      "required": false
+    },
+    "sort_desc": {
+      "type": "SelectView",
+      "title": "Sort Desc",
+      "model": {
+        "true": "true",
+        "false": "false"
+      }
+    },
+    "limit": {
+      "type": "number",
+      "title": "Limit",
+      "required": false
+    },
+    "filters": {
+      "type": "object",
+      "title": "Filters",
+      "required": false
+    }
+  }
+}

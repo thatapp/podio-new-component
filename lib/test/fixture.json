@@ -106,6 +106,37 @@
                 "item_id":"1298870607",
                 "query" : "update"
             }
+        },
+        "getItemsbyApp":{
+            "msg":{
+                "oauth": {
+                    "access_token": "1cd547105db34387a0a2d93a8ca033e7",
+                    "token_type": "bearer",
+                    "refresh_token": "60fb6420b41d4ac4a1f97ee327e31523"
+                },
+                "headers":{},
+                "body": {
+                    "appId" : 21738954,
+                    "password":"eiusmod",
+                    "username":"ex do",
+                    "platform":"ipsum do",
+                    "item_id":"1298870607",
+                    "query" : "update"
+                }
+            },
+            "cfg": {
+                "oauth": {
+                    "access_token": "1cd547105db34387a0a2d93a8ca033e7",
+                    "token_type": "bearer",
+                    "refresh_token": "60fb6420b41d4ac4a1f97ee327e31523"
+                },
+                "appId" : 21738954,
+                "password":"eiusmod",
+                "username":"ex do",
+                "platform":"ipsum do",
+                "item_id":"1298870607",
+                "query" : "update"
+            }
         }
     }
 }
