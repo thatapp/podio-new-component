@@ -1,0 +1,10 @@
+{
+  "type": "object",
+  "properties": {
+    "appId": {
+      "type": "string",
+      "required": true,
+      "title": "App ID"
+    }
+  }
+}

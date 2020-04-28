@@ -20,13 +20,8 @@
     "createItem": {
       "main": "./lib/actions/items/createItem.js",
       "title": "Item: Create",
-      "fields": {
-        "appId": {
-          "viewClass": "TextFieldView",
-          "prompt": "Enter App Id",
-          "label": "Podio Application",
-          "required": true
-        }
+      "metadata": {
+        "in": "./lib/schemas/createItem.in.json"
       },
       "dynamicMetadata": true
     },
