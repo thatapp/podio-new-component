@@ -13,18 +13,15 @@
     },
     "label": {
       "type": "string",
-      "required": true,
-      "title": "URL"
+      "title": "Label"
     },
     "description": {
       "type": "string",
-      "required": true,
-      "title": "URL"
+      "title": "Description"
     },
     "delta": {
       "type": "integer",
-      "required": true,
-      "title": "URL"
+      "title": "Delta"
     },
     "required": {
       "type": "SelectView",
