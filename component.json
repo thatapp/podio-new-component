@@ -306,7 +306,8 @@
       "title": "App: Update App Field",
       "metadata": {
         "in": "./lib/schemas/updateAppField.in.json"
-      }
+      },
+      "dynamicMetadata": true
     },
     "getAllSpacesOrg": {
       "main": "./lib/actions/organisations/getAllSpacesOrg.js",

@@ -10,6 +10,38 @@
       "type": "number",
       "required": true,
       "title": "Field id"
+    },
+    "label": {
+      "type": "string",
+      "required": true,
+      "title": "URL"
+    },
+    "description": {
+      "type": "string",
+      "required": true,
+      "title": "URL"
+    },
+    "delta": {
+      "type": "integer",
+      "required": true,
+      "title": "URL"
+    },
+    "required": {
+      "type": "SelectView",
+      "title": "Required",
+      "model": {
+        "true": "true",
+        "false": "false"
+      }
+    },
+    "hidden_create_view_edit": {
+      "type": "SelectView",
+      "title": "Hide Create,View and Edit",
+      "model": {
+        "true": "true",
+        "false": "false"
+      }
     }
   }
 }
+
