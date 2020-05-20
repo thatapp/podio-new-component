@@ -1,6 +1,7 @@
 {
   "title": "Podio",
-  "description": "Podio",
+  "description": "Podio Project Management and Collaboration Software",
+  //"type": "docker",
   "credentials": {
     "fields":{
       "oauth":{
@@ -23,7 +24,7 @@
       "fields": {
         "appId": {
           "viewClass": "TextFieldView",
-          "prompt": "Enter App Id",
+          "prompt": "Enter app_id",
           "label": "Podio Application",
           "required": true
         }
@@ -32,11 +33,11 @@
     },
     "updateItem": {
       "main": "./lib/actions/items/updateItem.js",
-      "title": "Item: Update ",
+      "title": "Item: Update",
       "fields": {
         "appId": {
           "viewClass": "TextFieldView",
-          "prompt": "Enter App Id",
+          "prompt": "Enter app_id",
           "label": "Podio Application",
           "required": true
         }
@@ -45,7 +46,7 @@
     },
     "getItem": {
       "main": "./lib/actions/items/getItem.js",
-      "title": "Item: Get ",
+      "title": "Item: Get",
       "metadata": {
         "in": "./lib/schemas/getItem.in.json"
       }
