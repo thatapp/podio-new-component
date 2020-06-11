@@ -1,0 +1,142 @@
+{
+  "fixtures":{
+    "items":{
+      "msg":{
+        "oauth": {
+          "access_token": "08672dd0ede74022977fbe846da086a9",
+          "token_type": "bearer",
+          "refresh_token": "d53b599ec18f4098bce11def7289d92b"
+        },
+        "headers":{},
+        "body":{
+          "ItemId" : 1178515401
+        }
+      },
+      "cfg": {
+        "ItemId" : 980503737,
+        "oauth": {
+          "access_token": "08672dd0ede74022977fbe846da086a9",
+          "token_type": "bearer",
+          "refresh_token": "d53b599ec18f4098bce11def7289d92b"
+        }
+      }
+    },
+    "apps":{
+      "msg":{
+        "headers":{},
+        "body":{
+          "AppId" : 21727299
+        }
+      },
+      "cfg": {
+        "AppId" : 21727299
+      }
+    },
+    "spaces":{
+      "msg":{
+        "headers":{},
+        "body":{
+          "SpaceId" : 6269904
+        }
+      },
+      "cfg": {
+        "SpaceId" : 6269904
+      }
+    },
+    "files":{
+      "msg":{
+        "headers":{},
+        "body":{
+          "FileId" : 988492515
+        }
+      },
+      "cfg": {
+        "FileId" : 988492515
+      }
+    },
+    "comments":{
+      "msg":{
+        "headers":{},
+        "body":{
+          "CommentId" : 988492515
+        }
+      },
+      "cfg": {
+        "CommentId" : 988492515
+      }
+    },
+    "tasks":{
+      "msg":{
+        "headers":{},
+        "body":{
+          "taskId" : 988492515
+        }
+      },
+      "cfg": {
+        "taskId" : 988492515
+      }
+    },
+    "updateItem":{
+      "msg":{
+        "oauth": {
+          "access_token": "08672dd0ede74022977fbe846da086a9",
+          "token_type": "bearer",
+          "refresh_token": "d53b599ec18f4098bce11def7289d92b"
+        },
+        "headers":{},
+        "body": {
+          "appId" : 21732468,
+          "password":"eiusmod",
+          "username":"ex do",
+          "platform":"ipsum do",
+          "item_id":"1298870607",
+          "query" : "update"
+        }
+      },
+      "cfg": {
+        "oauth": {
+          "access_token": "08672dd0ede74022977fbe846da086a9",
+          "token_type": "bearer",
+          "refresh_token": "d53b599ec18f4098bce11def7289d92b"
+        },
+        "appId" : 21732468,
+        "password":"eiusmod",
+        "username":"ex do",
+        "platform":"ipsum do",
+        "item_id":"1298870607",
+        "query" : "update"
+      }
+    },
+    "getItemsbyApp":{
+      "msg":{
+        "oauth": {
+          "access_token": "08672dd0ede74022977fbe846da086a9",
+          "token_type": "bearer",
+          "refresh_token": "d53b599ec18f4098bce11def7289d92b"
+        },
+        "headers":{},
+        "body": {
+          "appId" : 21738954,
+          "password":"eiusmod",
+          "username":"ex do",
+          "platform":"ipsum do",
+          "item_id":"1298870607",
+          "query" : "update"
+        }
+      },
+      "cfg": {
+        "oauth": {
+          "access_token": "08672dd0ede74022977fbe846da086a9",
+          "token_type": "bearer",
+          "refresh_token": "d53b599ec18f4098bce11def7289d92b"
+        },
+        "appId" : 21738954,
+        "password":"eiusmod",
+        "username":"ex do",
+        "platform":"ipsum do",
+        "item_id":"1298870607",
+        "query" : "update"
+      }
+    }
+  }
+}
