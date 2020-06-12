@@ -116,7 +116,7 @@ exports.getFieldProperties = (field) => {
 
 exports.getProperties = (fields, helper) => {
     function format(result, field) {
-        const properties = helper.getFieldProperties(field);
+        const properties = helper.getFieldProperties(field,helper);
         if (properties) {
             if(field.status === "active") {
                 result[field.external_id] = properties;
