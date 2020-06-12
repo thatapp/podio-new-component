@@ -131,7 +131,7 @@ exports.proccessAll = (app, helper, itemProperties, cb, outScheme) => {
     let outProperties;
     if (!_.isArray(app.fields)) return cb(new Error('No fields found'));
 
-    itemProperties = _.extend(itemProperties, helper.getProperties(app.fields));
+    itemProperties = _.extend(itemProperties, helper.getProperties(app.fields,helper));
 
     outProperties = _.extend(outScheme, itemProperties);
     schema = {
