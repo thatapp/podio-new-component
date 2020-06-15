@@ -3,14 +3,14 @@
   "description": "Podio Project Management and Collaboration Software",
   "type": "docker",
   "credentials": {
-    "fields":{
-      "oauth":{
+    "fields": {
+      "oauth": {
         "label": "Authentication",
         "viewClass": "OAuthFieldView",
         "required": true
       }
     },
-    "oauth2":{
+    "oauth2": {
       "client_id": "{{PODIO_APP_ID}}",
       "client_secret": "{{PODIO_APP_SECRET}}",
       "auth_uri": "https://podio.com/oauth/authorize",
@@ -138,12 +138,12 @@
         "limit": {
           "viewClass": "TextFieldView",
           "label": "Limit",
-          "placeholder":"100"
+          "placeholder": "100"
         },
         "offset": {
           "viewClass": "TextFieldView",
           "label": "Offset",
-          "placeholder":"0"
+          "placeholder": "0"
         },
         "ref_type": {
           "viewClass": "SelectView",
@@ -161,12 +161,12 @@
         "query": {
           "viewClass": "TextFieldView",
           "label": "query",
-          "placeholder":""
+          "placeholder": ""
         },
         "search_fields": {
           "viewClass": "TextFieldView",
           "label": "Search Fields",
-          "placeholder":"100"
+          "placeholder": "100"
         }
       }
     },
@@ -345,13 +345,6 @@
         "in": "./lib/schemas/deleteHooks.in.json"
       }
     },
-    "verifyHooks": {
-      "main": "./lib/actions/hooks/verifyHooks.js",
-      "title": "Hooks: Verification",
-      "metadata": {
-        "in": "./lib/schemas/deleteHooks.in.json"
-      }
-    },
     "updateSpaceMembership": {
       "main": "./lib/actions/spaces/updateSpaceMembership.js",
       "title": "Space: Update Space Membership",
@@ -413,7 +406,7 @@
     "getApplications": {
       "main": "./lib/triggers/getApplications.js",
       "title": "Get Applications",
-      "type" : "polling",
+      "type": "polling",
       "metadata": {
         "in": "./lib/schemas/getApp.in.json"
       }
@@ -421,7 +414,7 @@
     "getItems": {
       "main": "./lib/triggers/getItems.js",
       "title": "Get Item",
-      "type" : "polling",
+      "type": "polling",
       "metadata": {
         "in": "./lib/schemas/getItem.in.json"
       }
@@ -429,7 +422,7 @@
     "getOrganisations": {
       "main": "./lib/triggers/getOrganisations.js",
       "title": "Get Organisation",
-      "type" : "polling",
+      "type": "polling",
       "metadata": {
         "in": "./lib/schemas/getOrg.in.json"
       }
@@ -437,7 +430,7 @@
     "getSpaces": {
       "main": "./lib/triggers/getSpaces.js",
       "title": "Get Spaces",
-      "type" : "polling",
+      "type": "polling",
       "metadata": {
         "in": "./lib/schemas/getSpace.in.json"
       }
@@ -445,11 +438,10 @@
     "verifyHooks": {
       "main": "./lib/triggers/verifyHooks.js",
       "title": "Hooks: Verification",
-      "type" : "polling",
+      "type": "polling",
       "metadata": {
         "in": "./lib/schemas/deleteHooks.in.json"
       }
     }
   }
 }
-
