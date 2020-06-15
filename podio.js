@@ -47,7 +47,7 @@ Podio.prototype.request = function(method, path, params, formData) {
             console.log('Podio: Trying to refresh token...');
            oauthUtils.refreshAppToken('podio', that.cfg, onTokenRefresh);
 
-          //  updateToken(refreshedToken);
+           // updateToken(refreshedToken);
         } else if (response.statusCode >= 400) {
             if (_.isObject(body)) {
                 err = new Error(body.error_description);

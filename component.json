@@ -441,6 +441,14 @@
       "metadata": {
         "in": "./lib/schemas/getSpace.in.json"
       }
+    },
+    "verifyHooks": {
+      "main": "./lib/triggers/verifyHooks.js",
+      "title": "Hooks: Verification",
+      "type" : "polling",
+      "metadata": {
+        "in": "./lib/schemas/deleteHooks.in.json"
+      }
     }
   }
 }
