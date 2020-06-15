@@ -1,0 +1,15 @@
+{
+  "type": "object",
+  "properties": {
+    "hook_id": {
+      "type": "number",
+      "required": true,
+      "title": "Ref Type"
+    },
+    "code": {
+      "type": "string",
+      "required": true,
+      "title": "Hooks verification code"
+    }
+  }
+}
