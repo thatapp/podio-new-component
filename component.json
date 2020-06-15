@@ -317,13 +317,6 @@
         "in": "./lib/schemas/getOrg.in.json"
       }
     },
-    "createHooks": {
-      "main": "./lib/actions/hooks/createHooks.js",
-      "title": "Hooks: Create",
-      "metadata": {
-        "in": "./lib/schemas/createHooks.in.json"
-      }
-    },
     "getHooks": {
       "main": "./lib/actions/hooks/getHooks.js",
       "title": "Hooks: Get",
@@ -400,6 +393,24 @@
       "metadata": {
         "in": "./lib/schemas/deleteView.in.json"
       }
+    },
+    "createHooks": {
+      "main": "./lib/actions/hooks/createHooks.js",
+      "title": "Hooks: Create",
+      "fields": {
+        "hookType": {
+          "viewClass": "SelectView",
+          "prompt": "Select a Hook Type!!!",
+          "label": "Select Hook Type",
+          "model": {
+            "space": "Space",
+            "app": "App",
+            "field": "Field"
+          },
+          "required": true
+        }
+      },
+      "dynamicMetadata": true
     }
   },
   "triggers": {
