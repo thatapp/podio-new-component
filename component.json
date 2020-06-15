@@ -410,12 +410,36 @@
     }
   },
   "triggers": {
-    "getContacts": {
-      "main": "./lib/triggers/contacts/getContacts.js",
-      "title": "Get Contacts",
+    "getApplications": {
+      "main": "./lib/triggers/getApplications.js",
+      "title": "Get Applications",
       "type" : "polling",
       "metadata": {
-        "out": "./lib/schemas/getContacts.out.json"
+        "in": "./lib/schemas/getApp.in.json"
+      }
+    },
+    "getItems": {
+      "main": "./lib/triggers/getItems.js",
+      "title": "Get Item",
+      "type" : "polling",
+      "metadata": {
+        "in": "./lib/schemas/getItem.in.json"
+      }
+    },
+    "getOrganisations": {
+      "main": "./lib/triggers/getOrganisations.js",
+      "title": "Get Organisation",
+      "type" : "polling",
+      "metadata": {
+        "in": "./lib/schemas/getOrg.in.json"
+      }
+    },
+    "getSpaces": {
+      "main": "./lib/triggers/getSpaces.js",
+      "title": "Get Spaces",
+      "type" : "polling",
+      "metadata": {
+        "in": "./lib/schemas/getSpace.in.json"
       }
     }
   }
