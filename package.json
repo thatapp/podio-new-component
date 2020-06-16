@@ -24,7 +24,7 @@
   "homepage": "https://github.com/thatapp/podio-component#readme",
   "dependencies": {
     "concat-stream": "^2.0.0",
-    "csv-parse": ">=4.4.6",
+    "csv-parse": "^4.10.1",
     "debug": "2.6.9",
     "elasticio-node": "0.0.9",
     "elasticio-sailor-nodejs": "^2.6.10",
@@ -34,11 +34,11 @@
     "jsforce": "^1.9.3",
     "lodash": "^4.17.15",
     "lodash.template": ">=4.5.0",
-    "mime": "^2.4.4",
-    "moment": "^2.10.6",
+    "mime": "^2.4.6",
+    "moment": "^2.26.0",
     "node-uuid": "1.4.8",
     "q": "^1.4.1",
-    "request": "^2.65.0",
+    "request": "^2.88.2",
     "s3": "^4.4.0"
   },
   "devDependencies": {

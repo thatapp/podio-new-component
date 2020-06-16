@@ -419,8 +419,7 @@
           "viewClass": "TextFieldView",
           "label": "Ref Id(Space_id or App_id or Field_id)",
           "placeholder": "34343223"
-        },
-
+        }
       },
       "dynamicMetadata": true
     }
