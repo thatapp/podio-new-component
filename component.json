@@ -434,8 +434,7 @@
       "main": "./lib/triggers/verifyHooks.js",
       "title": "Hooks: Verification",
       "metadata": {
-        "in": {},
-        "out": "./lib/schemas/metadata.out.json"
+        "in": "./lib/schemas/verifyHooks.in.json"
       }
     }
   },
@@ -475,9 +474,9 @@
     "verifyHooks": {
       "main": "./lib/triggers/verifyHooks.js",
       "title": "Hooks: Verification",
-      "type": "polling",
       "metadata": {
-        "in": "./lib/schemas/verifyHooks.in.json"
+        "in": {},
+        "out": "./lib/schemas/metadata.out.json"
       }
     }
   }
