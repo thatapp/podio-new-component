@@ -409,11 +409,18 @@
           },
           "required": true
         },
+        "hook_type": {
+          "viewClass": "SelectView",
+          "label": "Hook Type",
+          "placeholder": "34343223",
+          "model": "getHooks"
+        },
         "ref_id": {
           "viewClass": "TextFieldView",
           "label": "Ref Id(Space_id or App_id or Field_id)",
           "placeholder": "34343223"
-        }
+        },
+
       },
       "dynamicMetadata": true
     }
