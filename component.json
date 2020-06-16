@@ -421,9 +421,15 @@
           "label": "Ref Id(Space_id or App_id or Field_id)",
           "placeholder": "34343223",
           "required": true
+        },
+        "url": {
+          "viewClass": "TextFieldView",
+          "label": "url",
+          "placeholder": "https://google.com",
+          "required": true
         }
-      },
-      "dynamicMetadata": true
+      }
+
     }
   },
   "triggers": {
