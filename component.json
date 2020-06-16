@@ -476,7 +476,7 @@
       "title": "Hooks: Verification",
       "metadata": {
         "in": {},
-        "out": "./lib/schemas/metadata.out.json"
+        "out": {}
       }
     }
   }
