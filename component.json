@@ -431,7 +431,7 @@
       }
     },
     "verifyHooks": {
-      "main": "./lib/triggers/verifyHooks.js",
+      "main": "./lib/actions/hooks/verifyHooks.js",
       "title": "Hooks: Verification",
       "metadata": {
         "in": "./lib/schemas/verifyHooks.in.json"
@@ -471,7 +471,7 @@
         "in": "./lib/schemas/getSpace.in.json"
       }
     },
-    "verifyHooks": {
+    "verifyHook": {
       "main": "./lib/triggers/verifyHooks.js",
       "title": "Hooks: Verification",
       "metadata": {
