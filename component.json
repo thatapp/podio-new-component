@@ -475,8 +475,7 @@
       "main": "./lib/triggers/verifyHooks.js",
       "title": "Hooks: Verification",
       "metadata": {
-        "in": {},
-        "out": {}
+        "in": "./lib/schemas/verifyHooks.in.json"
       }
     }
   }
