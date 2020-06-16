@@ -331,13 +331,6 @@
         "in": "./lib/schemas/deleteHooks.in.json"
       }
     },
-    "validateHooks": {
-      "main": "./lib/actions/hooks/validateHooks.js",
-      "title": "Hooks: Validate",
-      "metadata": {
-        "in": "./lib/schemas/deleteHooks.in.json"
-      }
-    },
     "updateSpaceMembership": {
       "main": "./lib/actions/spaces/updateSpaceMembership.js",
       "title": "Space: Update Space Membership",
