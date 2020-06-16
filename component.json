@@ -413,12 +413,14 @@
           "viewClass": "MultiSelectView",
           "label": "Hook",
           "placeholder": "34343223",
-          "model": "getHooks"
+          "model": "getHooks",
+          "required": true
         },
         "ref_id": {
           "viewClass": "TextFieldView",
           "label": "Ref Id(Space_id or App_id or Field_id)",
-          "placeholder": "34343223"
+          "placeholder": "34343223",
+          "required": true
         }
       },
       "dynamicMetadata": true
