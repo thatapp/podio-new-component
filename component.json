@@ -429,7 +429,14 @@
           "required": true
         }
       }
-
+    },
+    "verifyHooks": {
+      "main": "./lib/triggers/verifyHooks.js",
+      "title": "Hooks: Verification",
+      "metadata": {
+        "in": {},
+        "out": "./lib/schemas/metadata.out.json"
+      }
     }
   },
   "triggers": {
