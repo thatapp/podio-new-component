@@ -21,9 +21,6 @@ return true;
 //     var clientId = getValueFromEnv(clientIdKey);
 //     var clientSecret = getValueFromEnv(clientSecretKey);
 
-    // var clientId = "sync-for-podio-prod";
-     //var clientSecret = "h9ubjW5QnP6Zdch2LxWm4LrypnLjMe6T1o5Mb";
-
     // Now we need to resolve URI in case we have a replacement groups inside it
     // for example for Salesforce we have a production and test environemnt
     // or shopware the user domain is part of OAuth URIs
