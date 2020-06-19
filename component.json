@@ -425,7 +425,7 @@
         "url": {
           "viewClass": "TextFieldView",
           "label": "url",
-          "placeholder": "https://google.com",
+          "placeholder": "https://sync.thatapp.io/podio/123342",
           "required": true
         }
       }
@@ -473,7 +473,7 @@
     },
     "verifyHook": {
       "main": "./lib/triggers/verifyHooks.js",
-      "title": "Hooks: Verification",
+      "title": "Hooks Trigger",
       "metadata": {
         "in": "./lib/schemas/verifyHooks.in.json"
       }
