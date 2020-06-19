@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Podio API integration component template for thatapp.io platform",
   "main": "index.js",
+  "engines": {
+    "node": ">=12.13.0"
+  },
   "scripts": {
     "test": "echo \"Warning: no test specified\" && exit 0"
   },
