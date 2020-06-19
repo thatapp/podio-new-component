@@ -21,6 +21,31 @@
         }
       }
     },
+    "hooks":{
+      "msg":{
+        "oauth": {
+          "access_token": "34cf7ce80a544b61b55cbdf3c154e2af",
+          "token_type": "bearer",
+          "refresh_token": "60fb6420b41d4ac4a1f97ee327e31523"
+        },
+        "headers":{},
+        "body":{
+          "ItemId" : 980503737
+        }
+      },
+      "cfg": {
+        "ItemId" : 980503737,
+        "url": "http://google.com",
+        "hook_type": ["item.update","item.create"],
+        "hookType": "app",
+        "ref_id": 21738954,
+        "oauth": {
+          "access_token": "34cf7ce80a544b61b55cbdf3c154e2af",
+          "token_type": "bearer",
+          "refresh_token": "60fb6420b41d4ac4a1f97ee327e31523"
+        }
+      }
+    },
     "apps":{
       "msg":{
         "headers":{},

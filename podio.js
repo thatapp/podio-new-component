@@ -44,7 +44,7 @@ Podio.prototype.request = function(method, path, params, formData) {
         }
         console.log('x-rate-limit-remaining:', response.headers['x-rate-limit-remaining']);
         if (401 === response.statusCode) {
-            console.log('Podio: Trying to refresh token...');
+            //console.log('Podio: Trying to refresh token...');
            oauthUtils.refreshAppToken('podio', that.cfg, onTokenRefresh);
 
            // updateToken(refreshedToken);
