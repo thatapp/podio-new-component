@@ -17,14 +17,13 @@ var _ = require('lodash');
  */
 async function refreshToken(serviceUri, clientIdKey, clientSecretKey, conf, next) {
     // 'use strict';
-return true;
-//     var clientId = getValueFromEnv(clientIdKey);
-//     var clientSecret = getValueFromEnv(clientSecretKey);
 
-    // Now we need to resolve URI in case we have a replacement groups inside it
-    // for example for Salesforce we have a production and test environemnt
-    // or shopware the user domain is part of OAuth URIs
-    var refreshURI = resolveVars(serviceUri, conf);
+    var clientId = "sync-for-podio-prod";
+    var clientSecret = "h9ubjW5QnP6Zdch2LxWm4LrypnLjMe6T1o5MbJhBcDJ2kPmNUTxgzXUqq4E9d0r1";
+
+
+    // var refreshURI = resolveVars(serviceUri, conf);
+    var refreshURI = "https://thatapp-api.thatapp.io/api/update/token";
 
     var params = {
         grant_type: "refresh_token",
@@ -57,6 +56,9 @@ return true;
        next(newConf);
       //  return newConf;
     });
+
+
+
 }
 
 function getValueFromEnv(key) {

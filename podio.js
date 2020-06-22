@@ -64,7 +64,6 @@ Podio.prototype.request = function(method, path, params, formData) {
 
     function onTokenRefresh(cfg) {
         that.cfg = cfg;
-        console.log(cfg);
         updateToken(cfg);
         requestParams.headers.Authorization = 'OAuth2 ' + cfg.oauth.access_token;
         console.log('Making new request...');

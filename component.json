@@ -432,7 +432,7 @@
     },
     "verifyHooks": {
       "main": "./lib/actions/hooks/verifyHooks.js",
-      "title": "Hooks: Verification",
+      "title": "Hook Trigger",
       "metadata": {
         "in": "./lib/schemas/verifyHooks.in.json"
       }
