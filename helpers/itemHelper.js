@@ -31,6 +31,18 @@ exports.fieldTransform = (item, update = false) => {
     return data;
 };
 
+exports.emitData = (cfg,result,that) => {
+    if (cfg.splitResult && Array.isArray(result)) {
+        for (const i_item of result) {
+            const output = messages.newMessageWithBody(i_item);
+            that.emit('data', output);
+        }
+        that.emit('end');
+    } else {
+        that.emit('data', messages.newMessageWithBody(result));
+    }
+};
+
 /**
  * https://developers.podio.com/doc/items
  * @param field Podio field config
