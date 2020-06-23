@@ -1,4 +1,5 @@
 const _ = require('lodash');
+const {messages} = require('elasticio-node');
 
 exports.outScheme = () => {
   return {
