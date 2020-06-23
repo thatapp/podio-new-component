@@ -27,6 +27,11 @@
           "prompt": "Enter app_id",
           "label": "Podio Application",
           "required": true
+        },
+        "splitResult": {
+          "label": "Split Result if it is an Array",
+          "viewClass": "CheckBoxView",
+          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
         }
       },
       "dynamicMetadata": true
@@ -40,6 +45,11 @@
           "prompt": "Enter app_id",
           "label": "Podio Application",
           "required": true
+        },
+        "splitResult": {
+          "label": "Split Result if it is an Array",
+          "viewClass": "CheckBoxView",
+          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
         }
       },
       "dynamicMetadata": true
@@ -96,6 +106,11 @@
           "label": "Podio Organisation",
           "required": true,
           "model": "organisations"
+        },
+        "splitResult": {
+          "label": "Split Result if it is an Array",
+          "viewClass": "CheckBoxView",
+          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
         }
       },
       "dynamicMetadata": true
@@ -110,6 +125,11 @@
           "label": "Podio Organisation",
           "required": true,
           "model": "organisations"
+        },
+        "splitResult": {
+          "label": "Split Result if it is an Array",
+          "viewClass": "CheckBoxView",
+          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
         }
       },
       "dynamicMetadata": true
@@ -193,6 +213,11 @@
           "viewClass": "TextFieldView",
           "label": "Search Fields",
           "placeholder": "100"
+        },
+        "splitResult": {
+          "label": "Split Result if it is an Array",
+          "viewClass": "CheckBoxView",
+          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
         }
       }
     },
@@ -206,6 +231,11 @@
           "label": "Podio Organisation",
           "required": true,
           "model": "organisations"
+        },
+        "splitResult": {
+          "label": "Split Result if it is an Array",
+          "viewClass": "CheckBoxView",
+          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
         }
       },
       "dynamicMetadata": true
@@ -227,6 +257,11 @@
           "label": "Podio Space",
           "required": true,
           "model": "spaces"
+        },
+        "splitResult": {
+          "label": "Split Result if it is an Array",
+          "viewClass": "CheckBoxView",
+          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
         }
       },
       "dynamicMetadata": true
@@ -255,6 +290,11 @@
           "label": "Podio Application",
           "required": true,
           "model": "applications"
+        },
+        "splitResult": {
+          "label": "Split Result if it is an Array",
+          "viewClass": "CheckBoxView",
+          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
         }
       },
       "dynamicMetadata": true
@@ -376,6 +416,13 @@
     "updateAppField": {
       "main": "./lib/actions/apps/updateAppField.js",
       "title": "App: Update App Field",
+      "fields": {
+        "splitResult": {
+          "label": "Split Result if it is an Array",
+          "viewClass": "CheckBoxView",
+          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
+        }
+      },
       "metadata": {
         "in": "./lib/schemas/updateAppField.in.json"
       },
@@ -412,6 +459,13 @@
     "deleteHooks": {
       "main": "./lib/actions/hooks/deleteHooks.js",
       "title": "Hooks: Delete",
+      "fields": {
+        "splitResult": {
+          "label": "Split Result if it is an Array",
+          "viewClass": "CheckBoxView",
+          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
+        }
+      },
       "metadata": {
         "in": "./lib/schemas/deleteHooks.in.json"
       }
@@ -419,6 +473,13 @@
     "updateSpaceMembership": {
       "main": "./lib/actions/spaces/updateSpaceMembership.js",
       "title": "Space: Update Space Membership",
+      "fields": {
+        "splitResult": {
+          "label": "Split Result if it is an Array",
+          "viewClass": "CheckBoxView",
+          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
+        }
+      },
       "metadata": {
         "in": "./lib/schemas/updateSpaceMembership.in.json"
       }
@@ -426,6 +487,13 @@
     "addMemberToSpace": {
       "main": "./lib/actions/spaces/addMemberToSpace.js",
       "title": "Space: Add Member to Space",
+      "fields": {
+        "splitResult": {
+          "label": "Split Result if it is an Array",
+          "viewClass": "CheckBoxView",
+          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
+        }
+      },
       "metadata": {
         "in": "./lib/schemas/addMemberToSpace.in.json"
       }
@@ -433,6 +501,13 @@
     "filterItems": {
       "main": "./lib/actions/all/filterItems.js",
       "title": "Items: Filters",
+      "fields": {
+        "splitResult": {
+          "label": "Split Result if it is an Array",
+          "viewClass": "CheckBoxView",
+          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
+        }
+      },
       "metadata": {
         "in": "./lib/schemas/filterItems.in.json"
       }
@@ -482,6 +557,13 @@
     "createView": {
       "main": "./lib/actions/views/createView.js",
       "title": "Views: Create Views",
+      "fields": {
+        "splitResult": {
+          "label": "Split Result if it is an Array",
+          "viewClass": "CheckBoxView",
+          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
+        }
+      },
       "metadata": {
         "in": "./lib/schemas/createView.in.json"
       }
@@ -526,12 +608,24 @@
           "label": "url",
           "placeholder": "https://sync.thatapp.io/podio/123342",
           "required": true
+        },
+        "splitResult": {
+            "label": "Split Result if it is an Array",
+            "viewClass": "CheckBoxView",
+            "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
         }
       }
     },
     "verifyHooks": {
       "main": "./lib/actions/hooks/verifyHooks.js",
       "title": "Hook Trigger",
+      "fields": {
+        "splitResult": {
+          "label": "Split Result if it is an Array",
+          "viewClass": "CheckBoxView",
+          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
+        }
+      },
       "metadata": {
         "in": "./lib/schemas/verifyHooks.in.json"
       }
