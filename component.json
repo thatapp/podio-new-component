@@ -47,6 +47,13 @@
     "getItem": {
       "main": "./lib/actions/items/getItem.js",
       "title": "Item: Get",
+      "fields": {
+        "splitResult": {
+          "label": "Split Result if it is an Array",
+          "viewClass": "CheckBoxView",
+          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
+        }
+      },
       "metadata": {
         "in": "./lib/schemas/getItem.in.json"
       }
@@ -54,6 +61,13 @@
     "getApp": {
       "main": "./lib/actions/apps/getApp.js",
       "title": "App: Get",
+      "fields": {
+        "splitResult": {
+          "label": "Split Result if it is an Array",
+          "viewClass": "CheckBoxView",
+          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
+        }
+      },
       "metadata": {
         "in": "./lib/schemas/getApp.in.json"
       }
@@ -61,6 +75,13 @@
     "getSpace": {
       "main": "./lib/actions/spaces/getSpace.js",
       "title": "Space: Get",
+      "fields": {
+        "splitResult": {
+          "label": "Split Result if it is an Array",
+          "viewClass": "CheckBoxView",
+          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
+        }
+      },
       "metadata": {
         "in": "./lib/schemas/getSpace.in.json"
       }
@@ -110,7 +131,12 @@
           "label": "Podio Space",
           "required": true,
           "model": "spaces"
-        }
+        },
+          "splitResult": {
+            "label": "Split Result if it is an Array",
+            "viewClass": "CheckBoxView",
+            "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
+          }
       },
       "dynamicMetadata": true
     },
@@ -236,6 +262,13 @@
     "getComment": {
       "main": "./lib/actions/comments/getComment.js",
       "title": "Comment: Get",
+      "fields": {
+        "splitResult": {
+          "label": "Split Result if it is an Array",
+          "viewClass": "CheckBoxView",
+          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
+        }
+      },
       "metadata": {
         "in": "./lib/schemas/getComment.in.json"
       }
@@ -243,6 +276,13 @@
     "getFile": {
       "main": "./lib/actions/files/getFile.js",
       "title": "File: Get",
+      "fields": {
+        "splitResult": {
+          "label": "Split Result if it is an Array",
+          "viewClass": "CheckBoxView",
+          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
+        }
+      },
       "metadata": {
         "in": "./lib/schemas/getFile.in.json"
       }
@@ -250,6 +290,13 @@
     "getTask": {
       "main": "./lib/actions/tasks/getTask.js",
       "title": "Task: Get",
+      "fields": {
+        "splitResult": {
+          "label": "Split Result if it is an Array",
+          "viewClass": "CheckBoxView",
+          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
+        }
+      },
       "metadata": {
         "in": "./lib/schemas/getTask.in.json"
       }
@@ -257,6 +304,13 @@
     "getAllApp": {
       "main": "./lib/actions/apps/getAllApp.js",
       "title": "App: Get All App",
+      "fields": {
+        "splitResult": {
+          "label": "Split Result if it is an Array",
+          "viewClass": "CheckBoxView",
+          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
+        }
+      },
       "metadata": {
         "in": "./lib/schemas/getAllApp.in.json"
       }
@@ -271,12 +325,24 @@
           "label": "Podio Organisation",
           "required": true,
           "model": "organisations"
+        },
+        "splitResult": {
+          "label": "Split Result if it is an Array",
+          "viewClass": "CheckBoxView",
+          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
         }
       }
     },
     "getOrgUrl": {
       "main": "./lib/actions/organisations/getOrgUrl.js",
       "title": "Org: Get Organisation's URL",
+      "fields": {
+        "splitResult": {
+          "label": "Split Result if it is an Array",
+          "viewClass": "CheckBoxView",
+          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
+        }
+      },
       "metadata": {
         "in": "./lib/schemas/getOrgUrl.in.json"
       }
@@ -298,6 +364,11 @@
           "label": "Podio Space",
           "required": true,
           "model": "spaces"
+        },
+        "splitResult": {
+          "label": "Split Result if it is an Array",
+          "viewClass": "CheckBoxView",
+          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
         }
       },
       "dynamicMetadata": true
@@ -313,6 +384,13 @@
     "getAllSpacesOrg": {
       "main": "./lib/actions/organisations/getAllSpacesOrg.js",
       "title": "Org: Get All Spaces on Organisations",
+      "fields": {
+        "splitResult": {
+          "label": "Split Result if it is an Array",
+          "viewClass": "CheckBoxView",
+          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
+        }
+      },
       "metadata": {
         "in": "./lib/schemas/getOrg.in.json"
       }
@@ -320,6 +398,13 @@
     "getHooks": {
       "main": "./lib/actions/hooks/getHooks.js",
       "title": "Hooks: Get",
+      "fields": {
+        "splitResult": {
+          "label": "Split Result if it is an Array",
+          "viewClass": "CheckBoxView",
+          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
+        }
+      },
       "metadata": {
         "in": "./lib/schemas/createHooks.in.json"
       }
@@ -369,6 +454,13 @@
     "getView": {
       "main": "./lib/actions/all/getView.js",
       "title": "Views: Get View",
+      "fields": {
+        "splitResult": {
+          "label": "Split Result if it is an Array",
+          "viewClass": "CheckBoxView",
+          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
+        }
+      },
       "metadata": {
         "in": "./lib/schemas/getView.in.json"
       }
@@ -376,6 +468,13 @@
     "getViews": {
       "main": "./lib/actions/all/getViews.js",
       "title": "Views: Get Views",
+      "fields": {
+        "splitResult": {
+          "label": "Split Result if it is an Array",
+          "viewClass": "CheckBoxView",
+          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
+        }
+      },
       "metadata": {
         "in": "./lib/schemas/getViews.in.json"
       }

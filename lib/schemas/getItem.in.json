@@ -6,11 +6,6 @@
             "required": true,
             "title": "Item id",
             "note": "84937"
-        },
-        "splitResult": {
-            "title": "Split Result if it is an Array",
-            "type": "CheckBoxView",
-            "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
         }
     }
 }
