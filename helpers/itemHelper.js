@@ -1,5 +1,4 @@
 const _ = require('lodash');
-const {messages} = require('elasticio-node');
 
 exports.outScheme = () => {
   return {
@@ -33,6 +32,8 @@ exports.fieldTransform = (item, update = false) => {
 };
 
 exports.emitData = (cfg,result,that) => {
+    const {messages} = require('elasticio-node');
+
     if (cfg.splitResult && Array.isArray(result)) {
         for (const i_item of result) {
             const output = messages.newMessageWithBody(i_item);
