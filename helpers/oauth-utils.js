@@ -46,12 +46,18 @@ async function refreshToken(serviceUri, clientIdKey, clientSecretKey, conf, next
         }
         console.log('Refreshed token from %s', serviceUri);
         // update access token in configuration
-        newConf.oauth.access_token = refreshResponse.access_token;
-        // if new refresh_token returned, update that also
-        // specification is here http://tools.ietf.org/html/rfc6749#page-47
-        if (refreshResponse.refresh_token) {
-            newConf.oauth.refresh_token = refreshResponse.refresh_token;
-        }
+       if(refreshResponse.access_token) {
+           newConf.oauth.access_token = refreshResponse.access_token;
+           // if new refresh_token returned, update that also
+           // specification is here http://tools.ietf.org/html/rfc6749#page-47
+           if (refreshResponse.refresh_token) {
+               newConf.oauth.refresh_token = refreshResponse.refresh_token;
+           }
+       }else{
+           console.log('Cannot Generate token, kindly reverify, to apply new changes');
+           var er = "Cannot Generate token, kindly reverify, to apply new changes";
+           return next(er);
+       }
         console.log(newConf);
        next(newConf);
       //  return newConf;
