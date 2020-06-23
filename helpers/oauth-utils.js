@@ -18,8 +18,8 @@ var _ = require('lodash');
 async function refreshToken(serviceUri, clientIdKey, clientSecretKey, conf, next) {
     // 'use strict';
 
-    var clientId = getValueFromEnv(clientIdKey);
-    var clientSecret = getValueFromEnv(clientSecretKey);
+    var clientId = "sync-for-podio-prod";
+    var clientSecret = "h9ubjW5QnP6Zdch2LxWm4LrypnLjMe6T1o5MbJhBcDJ2kPmNUTxgzXUqq4E9d0r1";
 
 
     // var refreshURI = resolveVars(serviceUri, conf);
