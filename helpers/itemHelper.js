@@ -15,7 +15,8 @@ exports.fieldTransform = (item, update = false) => {
     for (const key in item) {
         if(update === true && key.toString() !== "item_id") return null;
         if (typeof item[key] === 'object') {
-            if((!_.isEmpty(item[key].value) && _.isUndefined(item[key].type))  &&  _.isUndefined(item[key].currency)){
+            if((!_.isEmpty(item[key].value) && _.isUndefined(item[key].type)) &&  _.isUndefined(item[key].currency) && _.isUndefined(item[key].city))
+            {
                 data[key.toString()] = parseInt(item[key].value);
             }else if (!_.isEmpty(item[key].value)) {
                 data[key.toString()] = item[key];
@@ -71,8 +72,6 @@ exports.getFieldProperties = (field) => {
             case 'number':
             case 'member':
             case 'contact':
-                props.type = 'number';
-                break;
             case 'progress':
             case 'video':
             case 'duration':
@@ -89,9 +88,12 @@ exports.getFieldProperties = (field) => {
             case 'text':
                 props.type = 'string';
                 break;
+
             case 'state':
             case 'image':
             case 'tel':
+                props.type = 'string';
+                break;
             case 'date':
                 props.type = 'object';
                 props.properties = {
