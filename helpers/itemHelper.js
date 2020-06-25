@@ -156,7 +156,7 @@ exports.getFieldProperties = (field) => {
                 break;
             case 'app':
                 props.type = 'object';
-                if(field.settings.multiple){
+                if(field.config.settings.multiple){
                     props.properties = {
                         value: getStrConf('Item_id')
                     };
