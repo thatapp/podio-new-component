@@ -7,7 +7,7 @@
       "title": "Ref Type"
     },
     "ref_id": {
-      "type": "string",
+      "type": "number",
       "required": true,
       "title": "Ref Id"
     }
