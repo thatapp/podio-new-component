@@ -8,43 +8,6 @@ exports.getMetaModel = function getMetaModel(cfg, cb) {
             label: "Space Name",
             required: true,
             placeholder:"Enter space name"
-        },
-        privacy: {
-            viewClass: "SelectView",
-            prompt: "Privacy",
-            label: "Privacy",
-            required: true,
-            model: {
-                open: "open",
-                closed: "closed"
-            }
-        },
-        auto_join: {
-            viewClass: "SelectView",
-            prompt: "Auto Join",
-            label: "Auto Join (new employees should be joined automatically)",
-            model: {
-                true: "true",
-                false: "false"
-            }
-        },
-        post_on_new_app: {
-            viewClass: "SelectView",
-            prompt: "New App",
-            label: "New App Notification (if new apps should be announced with a status update)",
-            model: {
-                true: "true",
-                false: "false"
-            }
-        },
-        post_on_new_member: {
-            viewClass: "SelectView",
-            prompt: "New Member",
-            label: "New member Notification (if new members should be announced with a status update)",
-            model: {
-                true: "true",
-                false: "false"
-            }
         }
     };
     schema = {
@@ -58,7 +21,7 @@ exports.getMetaModel = function getMetaModel(cfg, cb) {
 
 exports.getSpaces = async (cfg, msg) => {
     console.log(msg);
-    console.log("Make API Call");
+    console.log("Make SPACE API Call");
     var podio = new Podio(cfg, this);
     var spaces = await podio.get('/space/org/' + cfg.orgId);
 
@@ -69,6 +32,45 @@ exports.getSpaces = async (cfg, msg) => {
 
     return JSON.parse(JSON.stringify(result));
 };
+
+exports.getApplication = async (cfg,msg) => {
+    console.log(msg);
+    console.log("Make APP API Call");
+    var podio = new Podio(cfg, this);
+
+    var apps = await podio.get('/app/space/' + cfg.spaceId);
+
+    var result = {};
+
+    apps.forEach(function (value, key) {
+        if (value.status === "active") {
+            result[value.app_id] = value.config.name;
+        }
+    });
+    return JSON.parse(JSON.stringify(result));
+};
+
+exports.getFields = async (cfg,msg) => {
+    console.log(msg);
+    console.log("Make Field API Call");
+    var podio = new Podio(cfg, this);
+
+    var app = await podio.get('/app/' + cfg.appId);
+
+    var result = {};
+
+    var fields = app.fields;
+
+    fields.forEach(function (value, key) {
+        if (value.status === "active") {
+            result[value.field_id] = value.label;
+        }
+    });
+    return JSON.parse(JSON.stringify(result));
+};
+
+
+
 
 exports.getCSPaceModel = (cfg, cb) => {
     let schema;
