@@ -123,6 +123,7 @@ exports.getFieldProperties = (field) => {
                     lng: getNumConf('(Longitude)'),
                     street_address: getStrConf('(Street Address)')
                 };
+                break;
             case 'tag':
                 props.type = 'string';
                 break;
