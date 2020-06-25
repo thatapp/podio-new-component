@@ -6,7 +6,11 @@ exports.emit = async (obj, data) => {
 };
 
 exports.handleFailed = async (obj) => {
-    messages.emitError.bind(obj)
+    try {
+        messages.emitError.bind(obj)
+    }catch (e) {
+        console.log(obj);
+    }
 };
 
 exports.handleDone = async (obj) => {

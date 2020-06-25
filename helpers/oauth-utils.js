@@ -16,7 +16,7 @@ var _ = require('lodash');
  * @param next
  */
 async function refreshToken(serviceUri, clientIdKey, clientSecretKey, conf, next) {
-    'use strict';
+    // 'use strict';
 
 
     var clientId = getValueFromEnv(clientIdKey);
