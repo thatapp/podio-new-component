@@ -827,7 +827,7 @@
     },
     "verifyHooks": {
       "main": "./lib/actions/hooks/verifyHooks.js",
-      "title": "Hook Trigger",
+      "title": "Hook: Verify",
       "fields": {
         "splitResult": {
           "label": "Split Result if it is an Array",
