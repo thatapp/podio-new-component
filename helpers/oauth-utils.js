@@ -16,12 +16,11 @@ var _ = require('lodash');
  * @param next
  */
 async function refreshToken(serviceUri, clientIdKey, clientSecretKey, conf, next) {
-    // 'use strict';
+    'use strict';
 
-    var clientId = "sync-for-podio-prod";
-    var clientSecret = "h9ubjW5QnP6Zdch2LxWm4LrypnLjMe6T1o5MbJhBcDJ2kPmNUTxgzXUqq4E9d0r1";
-    // var clientId = getValueFromEnv(clientIdKey);
-    // var clientSecret = getValueFromEnv(clientSecretKey);
+
+    var clientId = getValueFromEnv(clientIdKey);
+    var clientSecret = getValueFromEnv(clientSecretKey);
 
     // var refreshURI = resolveVars(serviceUri, conf);
     var refreshURI = "https://thatapp-api.thatapp.io/api/update/token";
