@@ -19,12 +19,10 @@ async function refreshToken(serviceUri, clientIdKey, clientSecretKey, conf, next
     // 'use strict';
 
 
-    // var clientId = getValueFromEnv(clientIdKey);
-    // var clientSecret = getValueFromEnv(clientSecretKey);
+     var clientId = getValueFromEnv(clientIdKey);
+     var clientSecret = getValueFromEnv(clientSecretKey);
 
-        var clientId = "sync-for-podio-prod";
-    var clientSecret = "h9ubjW5QnP6Zdch2LxWm4LrypnLjMe6T1o5MbJhBcDJ2kPmNUTxgzXUqq4E9d0r1";
-
+    
     // var refreshURI = resolveVars(serviceUri, conf);
     var refreshURI = "https://thatapp-api.thatapp.io/api/update/token";
 
@@ -33,6 +31,7 @@ async function refreshToken(serviceUri, clientIdKey, clientSecretKey, conf, next
         client_id: clientId,
         client_secret: clientSecret,
         refresh_token: conf.oauth ? conf.oauth.refresh_token : null,
+        user_id: conf.oauth ? conf.oauth.ref.id: null,
         format: "json"
     };
 
