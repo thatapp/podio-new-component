@@ -4,6 +4,12 @@
   "buildType": "docker",
   "credentials": {
     "fields": {
+      "username": {
+        "label": "Enter Ava Email (Premium): ",
+        "viewClass": "TextFieldView",
+        "required": false,
+        "prompt": "make sure you enter the right email address."
+      },
       "oauth": {
         "label": "Authentication",
         "viewClass": "OAuthFieldView",

@@ -15,7 +15,7 @@ var _ = require('lodash');
  * @param conf
  * @param next
  */
-async function refreshToken(serviceUri, clientIdKey, clientSecretKey, conf, next) {
+async function refreshToken(serviceUri, clientIdKey, clientSecretKey,credentials, conf, next) {
     // 'use strict';
 
 
@@ -32,9 +32,11 @@ async function refreshToken(serviceUri, clientIdKey, clientSecretKey, conf, next
         client_secret: clientSecret,
         refresh_token: conf.oauth ? conf.oauth.refresh_token : null,
         user_id: conf.oauth ? conf.oauth.ref.id: null,
+        email: credentials.email ? credentials.email : null,
         format: "json"
     };
 
+    console.log("Refresh Token: " + JSON.stringify(params));
     var newConf = _.cloneDeep(conf);
 
    await httpUtils.getJSON({
@@ -86,6 +88,7 @@ function refreshAppToken(app, conf, cb) {
         oauth2['token_uri'],
         oauth2['client_id'],
         oauth2['client_secret'],
+        credentials,
         conf,
         cb);
 }

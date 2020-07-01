@@ -7,7 +7,7 @@ var oauthUtils = require('./helpers/oauth-utils.js');
 var concatStream = require('concat-stream');
 
 function Podio(cfg, context) {
-    this.cfg = cfg;
+    this.cfg = cfg;refreshToken
     this.context = context;
 }
 

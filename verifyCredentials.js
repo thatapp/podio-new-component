@@ -7,13 +7,14 @@ module.exports =  async function verify(credentials, cb) {
     var clientId = getValueFromEnv(clientIdKey);
     var clientSecret = getValueFromEnv(clientSecretKey);
 
-    
+
     var params = {
         grant_type: "refresh_token",
         client_id: clientId,
         client_secret: clientSecret,
         refresh_token: conf.oauth ? conf.oauth.refresh_token : null,
         user_id: conf.oauth ? conf.oauth.ref.id: null,
+        email: credentials.email,
         format: "json"
     };
 
