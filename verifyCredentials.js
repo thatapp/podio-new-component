@@ -1,11 +1,13 @@
 const Podio = require('../../../podio');
+var httpUtils = require('./helpers/http-utils.js');
+var oauth_helper = require('./helpers/oauth-utils');
 
 module.exports =  async function verify(credentials, cb) {
    
     var refreshURI = "https://thatapp-api.thatapp.io/api/update/token";
 
-    var clientId = getValueFromEnv(clientIdKey);
-    var clientSecret = getValueFromEnv(clientSecretKey);
+    var clientId = oauth_helper.getValueFromEnv(clientIdKey);
+    var clientSecret = oauth_helper.getValueFromEnv(clientSecretKey);
 
 
     var params = {
@@ -18,7 +20,7 @@ module.exports =  async function verify(credentials, cb) {
         format: "json"
     };
 
-    var newConf = _.cloneDeep(conf);
+    console.log(params);
 
    await httpUtils.getJSON({
         url: refreshURI,

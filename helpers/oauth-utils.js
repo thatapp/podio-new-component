@@ -106,4 +106,5 @@ function resolveVars(template, context) {
 }
 
 exports.refreshToken = refreshToken;
+exports.getValueFromEnv = getValueFromEnv;
 exports.refreshAppToken = refreshAppToken;
