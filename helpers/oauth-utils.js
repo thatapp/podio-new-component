@@ -36,7 +36,8 @@ async function refreshToken(serviceUri, clientIdKey, clientSecretKey,credentials
         format: "json"
     };
 
-    console.log("Refresh Token: " + JSON.stringify(params));
+    console.log("Calling Refresh Token");
+
     var newConf = _.cloneDeep(conf);
 
    await httpUtils.getJSON({

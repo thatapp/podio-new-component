@@ -31,15 +31,15 @@ exports.fieldTransform = (item, update = false) => {
     return data;
 };
 
-exports.emitData = (cfg,result,that) => {
+exports.emitData = async (cfg,result,that) => {
     const {messages} = require('elasticio-node');
 
     if (cfg.splitResult && Array.isArray(result)) {
         for (const i_item of result) {
             const output = messages.newMessageWithBody(i_item);
-            that.emit('data', output);
+            await that.emit('data', output);
         }
-        that.emit('end');
+        await that.emit('end');
     } else {
         that.emit('data', messages.newMessageWithBody(result));
     }
