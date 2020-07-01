@@ -13,7 +13,6 @@ exports.outScheme = () => {
 exports.fieldTransform = (item, update = false) => {
     const data = {};
     for (const key in item) {
-        if(update === true && key.toString() !== "item_id") return null;
         if (typeof item[key] === 'object') {
             if((!_.isEmpty(item[key].value) && _.isUndefined(item[key].type)) &&  _.isUndefined(item[key].currency) && _.isUndefined(item[key].city))
             {
