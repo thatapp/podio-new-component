@@ -35,6 +35,7 @@ exports.emitData = async (cfg,result,that) => {
     const {messages} = require('elasticio-node');
 
     if (cfg.splitResult && Array.isArray(result)) {
+        console.log("I entered here!!");
         for (const i_item of result) {
             const output = messages.newMessageWithBody(i_item);
             await that.emit('data', output);
