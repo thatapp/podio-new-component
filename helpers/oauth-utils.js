@@ -19,11 +19,8 @@ async function refreshToken(serviceUri, clientIdKey, clientSecretKey,credentials
     // 'use strict';
 
 
-     // var clientId = getValueFromEnv(clientIdKey);
-     // var clientSecret = getValueFromEnv(clientSecretKey);
-
-    var clientId = "ava";
-    var clientSecret = "4OjMH5sRf46OkwbKQHuLSdMkDKCKk7VOJWGRSyiQnsCHOHCcKRJYSnk27qnMg9oq";
+     var clientId = getValueFromEnv(clientIdKey);
+     var clientSecret = getValueFromEnv(clientSecretKey);
 
     // var refreshURI = resolveVars(serviceUri, conf);
     var refreshURI = "https://thatapp-api.thatapp.io/api/update/token";
