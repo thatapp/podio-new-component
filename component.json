@@ -606,6 +606,13 @@
         "in": "./lib/schemas/getItemsbyApp.in.json"
       }
     },
+    "getFilesbyApp": {
+      "main": "./lib/actions/files/getFilesbyApp.js",
+      "title": "Items: Get All APP Files",
+      "metadata": {
+        "in": "./lib/schemas/getFilesbyApp.in.json"
+      }
+    },
     "getView": {
       "main": "./lib/actions/all/getView.js",
       "title": "Views: Get View",

@@ -1,0 +1,65 @@
+{
+  "type": "object",
+  "properties": {
+    "app_id": {
+      "type": "number",
+      "required": true,
+      "title": "App Id"
+    },
+    "sort_by": {
+      "type": "string",
+      "title": "Sort By",
+      "required": false
+    },
+    "sort_desc": {
+      "type": "SelectView",
+      "title": "Sort Desc",
+      "model": {
+        "true": "true",
+        "false": "false"
+      }
+    },
+    "limit": {
+      "type": "number",
+      "title": "Limit",
+      "required": false
+    },
+    "file_type": {
+      "type": "SelectView",
+      "title": "File Type",
+      "model": {
+        "image": "image",
+        "application": "application",
+        "video": "video",
+        "text": "text",
+        "audio": "audio"
+      }
+    },
+    "hosted_by": {
+      "type": "SelectView",
+      "title": "Hosted By",
+      "model": {
+        "podio": "podio",
+        "google": "google",
+        "boxnet": "boxnet",
+        "dropbox": "dropbox",
+        "evernote": "evernote",
+        "live": "live",
+        "sharefile": "sharefile",
+        "sugarsync": "sugarsync",
+        "yousendit": "yousendit"
+      }
+    },
+    "attached_to": {
+      "type": "SelectView",
+      "title": "Attached To",
+      "model": {
+        "item": "item",
+        "status": "status",
+        "task": "task",
+        "space": "space"
+      }
+    }
+
+  }
+}
