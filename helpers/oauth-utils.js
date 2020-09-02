@@ -19,10 +19,12 @@ async function refreshToken(serviceUri, clientIdKey, clientSecretKey,credentials
     // 'use strict';
 
 
-     var clientId = getValueFromEnv(clientIdKey);
-     var clientSecret = getValueFromEnv(clientSecretKey);
+     // var clientId = getValueFromEnv(clientIdKey);
+     // var clientSecret = getValueFromEnv(clientSecretKey);
 
-    
+    var clientId = "ava";
+    var clientSecret = "4OjMH5sRf46OkwbKQHuLSdMkDKCKk7VOJWGRSyiQnsCHOHCcKRJYSnk27qnMg9oq";
+
     // var refreshURI = resolveVars(serviceUri, conf);
     var refreshURI = "https://thatapp-api.thatapp.io/api/update/token";
 
@@ -31,7 +33,7 @@ async function refreshToken(serviceUri, clientIdKey, clientSecretKey,credentials
         client_id: clientId,
         client_secret: clientSecret,
         refresh_token: conf.oauth ? conf.oauth.refresh_token : null,
-        user_id: conf.oauth ? conf.oauth.ref.id: null,
+        user_id: conf.oauth && typeof conf.oauth.ref != "undefined" ? conf.oauth.ref.id: null,
         email: credentials.email ? credentials.email : null,
         format: "json"
     };
