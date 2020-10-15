@@ -1,0 +1,15 @@
+{
+  "type": "object",
+  "properties": {
+    "limit": {
+      "type": "number",
+      "title": "Limit",
+      "required": false
+    },
+    "offset": {
+      "type": "number",
+      "title": "Offset",
+      "required": false
+    }
+  }
+}

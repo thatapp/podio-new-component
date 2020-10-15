@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "limit": {
+      "type": "number",
+      "title": "Limit",
+      "required": false
+    },
+    "not_item_id": {
+      "type": "number",
+      "title": "Not Item Id",
+      "required": false
+    },
+    "text": {
+      "type": "object",
+      "title": "Text",
+      "required": false
+    }
+  }
+}

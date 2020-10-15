@@ -25,6 +25,9 @@ async function refreshToken(serviceUri, clientIdKey, clientSecretKey,credentials
     // var refreshURI = resolveVars(serviceUri, conf);
     // var refreshURI = "https://thatapp-api.thatapp.io/api/update/token";
     //
+
+    throw new Error('Cannot refresh a Token right now. As my function has been disabled.');
+
     var params = {
         grant_type: "refresh_token",
         client_id: clientId,
