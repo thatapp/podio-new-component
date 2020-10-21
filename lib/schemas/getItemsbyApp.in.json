@@ -1,6 +1,11 @@
 {
   "type": "object",
   "properties": {
+  "headers": {
+    "type": "object",
+    "required": true,
+    "title": "Headers"
+  },
     "app_id": {
       "type": "number",
       "required": true,

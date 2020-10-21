@@ -11,16 +11,19 @@ function Podio(cfg, context) {
     this.context = context;
 }
 
-Podio.prototype.request = function(method, path, params, formData) {
+Podio.prototype.request = function(method, path, params, formData,headers) {
     var defered = Q.defer();
     var that = this;
+    if(!headers){
+        headers = {
+            Authorization : 'OAuth2 ' + this.cfg.oauth.access_token
+        };
+    }
     var requestParams = {
         method : method,
         baseUrl: API_URL,
         url : path,
-        headers : {
-            Authorization : 'OAuth2 ' + this.cfg.oauth.access_token
-        },
+        headers : headers,
         json: true
     };
 
@@ -85,12 +88,12 @@ Podio.prototype.request = function(method, path, params, formData) {
     return defered.promise;
 };
 
-Podio.prototype.get = function(path, params) {
-    return this.request('GET', path, params);
+Podio.prototype.get = function(path, params,headers) {
+    return this.request('GET', path, params,null,headers);
 };
 
-Podio.prototype.post = function(path, params, formData) {
-    return this.request('POST', path, params, formData);
+Podio.prototype.post = function(path, params, formData,headers) {
+    return this.request('POST', path, params, formData,headers);
 };
 
 Podio.prototype.put = function(path, params) {
