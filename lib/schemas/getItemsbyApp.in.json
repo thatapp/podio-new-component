@@ -3,7 +3,7 @@
   "properties": {
   "headers": {
     "type": "object",
-    "required": true,
+    "required": false,
     "title": "Headers"
   },
     "app_id": {

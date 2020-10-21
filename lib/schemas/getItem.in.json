@@ -9,7 +9,7 @@
         },
         "headers": {
             "type": "object",
-            "required": true,
+            "required": false,
             "title": "Headers"
         }
     }
