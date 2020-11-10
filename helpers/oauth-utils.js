@@ -20,11 +20,18 @@ async function refreshToken(serviceUri, clientIdKey, clientSecretKey, conf, next
 // return true;
     var clientId = getValueFromEnv(clientIdKey);
     var clientSecret = getValueFromEnv(clientSecretKey);
-
    //  // Now we need to resolve URI in case we have a replacement groups inside it
    //  // for example for Salesforce we have a production and test environemnt
    //  // or shopware the user domain is part of OAuth URIs
     var refreshURI = resolveVars(serviceUri, conf);
+=======
+
+    // var refreshURI = resolveVars(serviceUri, conf);
+   //  var refreshURI = "https://thatapp-api.thatapp.io/api/update/token";
+    //
+
+   // throw new Error('Cannot refresh a Token right now. As my function has been disabled.');
+
 
     var params = {
         grant_type: "refresh_token",
