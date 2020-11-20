@@ -103,7 +103,7 @@ async function refreshToken(serviceUri, clientIdKey, clientSecretKey, conf, next
             console.error('Failed to refresh token from %s', serviceUri);
             return next(err);
         }
-        console.log('Refreshed token from %s', serviceUri);
+      //  console.log('Refreshed token from %s', serviceUri);
         // update access token in configuration
         newConf.oauth.access_token = refreshResponse.access_token;
         // if new refresh_token returned, update that also
