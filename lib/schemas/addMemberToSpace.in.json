@@ -4,11 +4,11 @@
     "space_id": {
       "type": "string",
       "required": true,
-      "title": "Role"
+      "title": "space_id"
     },
     "role": {
       "type": "string",
-      "title": "Role"
+      "title": "Role (employee ,external ,admin ,regular ,guest and premium)"
     },
     "message": {
       "type": "string",
