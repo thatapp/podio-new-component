@@ -1,0 +1,16 @@
+{
+  "type": "object",
+  "properties": {
+    "spaceId": {
+      "type": "number",
+      "required": true,
+      "title": "Space id"
+    },
+    "appId": {
+      "type": "number",
+      "required": true,
+      "title": "App id"
+    }
+  }
+}
+

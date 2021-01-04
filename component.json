@@ -900,6 +900,13 @@
       "metadata": {
         "in": "./lib/schemas/verifyHooks.in.json"
       }
+    },
+    "installApp": {
+      "main": "./lib/actions/apps/install.js",
+      "title": "App: Install",
+      "metadata": {
+        "in": "./lib/schemas/installApp.in.json"
+      }
     }
   },
   "triggers": {
