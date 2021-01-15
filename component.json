@@ -681,7 +681,6 @@
         "hook_type": {
           "viewClass": "MultiSelectView",
           "label": "Hook",
-          "placeholder": "34343223",
           "model": "getHooks",
           "required": true
         },
