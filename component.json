@@ -906,6 +906,13 @@
       "metadata": {
         "in": "./lib/schemas/installApp.in.json"
       }
+    },
+    "getItemRevisionDifference": {
+      "main": "./lib/actions/items/getItemRevisionDifference.js",
+      "title": "Items: Get item revision difference",
+      "metadata": {
+        "in": "./lib/schemas/getItemRevisionDifference.in.json"
+      }
     }
   },
   "triggers": {

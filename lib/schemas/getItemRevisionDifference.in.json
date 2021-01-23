@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "item_id": {
+      "type": "number",
+      "required": true,
+      "title": "Item id"
+    },
+    "revision_from": {
+      "type": "string",
+      "required": false,
+      "title": "Revision from"
+    },
+    "revision_to": {
+      "type": "string",
+      "required": false,
+      "title": "Revision to"
+    }
+  }
+}
