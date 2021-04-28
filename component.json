@@ -344,26 +344,11 @@
       "main": "./lib/actions/all/searchApp.js",
       "title": "Search: App",
       "fields": {
-        "orgId": {
-          "viewClass": "SelectView",
-          "prompt": "Select an Organisation",
-          "label": "Podio Organisation",
-          "required": true,
-          "model": "organisations"
-        },
-        "spaceId": {
-          "viewClass": "SelectView",
-          "prompt": "Select a Space",
-          "label": "Podio Space",
-          "required": true,
-          "model": "spaces"
-        },
         "appId": {
-          "viewClass": "SelectView",
+          "viewClass": "TextFieldView",
           "prompt": "Select an App",
           "label": "Podio Application",
-          "required": true,
-          "model": "applications"
+          "required": true
         },
         "splitResult": {
           "label": "Split Result if it is an Array",
