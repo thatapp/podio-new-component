@@ -597,7 +597,7 @@
         }
       },
       "metadata": {
-        "in": "./lib/schemas/filterItemByView.in.json"
+        "in": "./lib/schemas/filterItembyView.in.json"
       }
     },
     "getItemsbyApp": {
