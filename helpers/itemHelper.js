@@ -31,7 +31,7 @@ exports.fieldTransform = (item, update = false) => {
     return data;
 };
 
-exports.emitData = async (cfg,result,that) => {
+exports.emitData = async (cfg,result,that,end = null) => {
     const {messages} = require('elasticio-node');
 
     if (cfg.splitResult && Array.isArray(result)) {
@@ -40,7 +40,9 @@ exports.emitData = async (cfg,result,that) => {
             const output = messages.newMessageWithBody(i_item);
             await that.emit('data', output);
         }
-        await that.emit('end');
+        if(end === null) {
+            await that.emit('end');
+        }
     } else {
         that.emit('data', messages.newMessageWithBody(result));
     }
