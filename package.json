@@ -36,7 +36,7 @@
     "heartbeat-stream": "^1.0.1",
     "inquirer": "^7.1.0",
     "jsforce": "^1.9.3",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.21",
     "lodash.template": ">=4.5.0",
     "mime": "^2.4.6",
     "moment": "^2.26.0",
