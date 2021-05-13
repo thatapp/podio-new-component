@@ -79,7 +79,6 @@ Podio.prototype.request = function(method, path, params, formData,headers) {
     }
 
     async function updateToken(cfg) {
-        if (!that.context || !that.context.request || !that.context.request.emit) return;
         new_auth = {
             accountId : cfg._account,
             oauth : cfg.oauth
@@ -95,6 +94,7 @@ Podio.prototype.request = function(method, path, params, formData,headers) {
                 },
             }
         });
+        
         that.context.request.emit('updateAccessToken', new_auth);
     }
 
