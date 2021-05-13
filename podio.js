@@ -79,22 +79,21 @@ Podio.prototype.request = function(method, path, params, formData,headers) {
     }
 
     async function updateToken(cfg) {
-        new_auth = {
-            accountId : cfg._account,
-            oauth : cfg.oauth
-        };
         console.log('Updating component credentials with new access token');
-        await axios.patch(`https://api.elastic.io/v2/credentials/${cfg._account}`, {
+        var data = {
             data: {
                 id: cfg._account,
+                type: "credential",
                 attributes: {
                     keys: {
                         oauth: cfg.oauth,
                     }
                 },
             }
-        });
-
+        };
+       await axios.patch(`https://api.elastic.io/v2/credentials/${cfg._account}`, data).catch((errr) => {
+           console.log(errr);
+       });
         // that.context.request.emit('updateAccessToken', new_auth);
     }
 
