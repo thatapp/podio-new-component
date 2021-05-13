@@ -74,7 +74,7 @@ Podio.prototype.request = function(method, path, params, formData,headers) {
         that.cfg = cfg;
         updateToken(cfg);
         requestParams.headers.Authorization = 'OAuth2 ' + cfg.oauth.access_token;
-        console.log('Making new request...');
+
         request(requestParams, responseHandler);
     }
 
@@ -91,9 +91,16 @@ Podio.prototype.request = function(method, path, params, formData,headers) {
                 },
             }
         };
-       await axios.patch(`https://api.elastic.io/v2/credentials/${cfg._account}`, data).catch((errr) => {
-           console.log(errr);
-       });
+        const token = Buffer.from(`${cfg.email}:${cfg.avaApi}`, 'utf8').toString('base64')
+       await axios.patch(`https://api.elastic.io/v2/credentials/${cfg._account}`, data, 
+        {
+            headers: {
+                'Authorization': `Basic ${token}`
+            },
+        }
+    ).catch((errr) => {
+        console.log(errr);
+    });
         // that.context.request.emit('updateAccessToken', new_auth);
     }
 

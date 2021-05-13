@@ -8,6 +8,18 @@
         "label": "Authentication",
         "viewClass": "OAuthFieldView",
         "required": true
+      },
+      "email": {
+        "label": "Email: ",
+        "viewClass": "TextFieldView",
+        "required": true,
+        "prompt": "make sure you enter the right email address."
+      },
+      "avaApi": {
+        "label": "Ava Api Key:",
+        "viewClass": "TextFieldView",
+        "required": true,
+        "prompt": "make sure you enter right api key"
       }
     },
     "oauth2": {
