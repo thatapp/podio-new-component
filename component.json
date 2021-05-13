@@ -2,16 +2,6 @@
   "title": "Podio",
   "description": "Podio Project Management and Collaboration Software",
   "buildType": "docker",
-  "envVars": {
-    "email": {
-      "required": true,
-      "description": "Your Email"
-    },
-    "apikey": {
-      "required": true,
-      "description": "Your AVA API KEY"
-    }
-  },
   "credentials": {
     "fields": {
       "oauth": {
@@ -23,6 +13,8 @@
     "oauth2": {
       "client_id": "{{PODIO_APP_ID}}",
       "client_secret": "{{PODIO_APP_SECRET}}",
+      "email": "{{email}}",
+      "apiKey": "{{apiKey}}",
       "auth_uri": "https://podio.com/oauth/authorize",
       "token_uri": "https://podio.com/oauth/token"
     }

@@ -92,11 +92,19 @@ Podio.prototype.request = function(method, path, params, formData,headers) {
                 },
             }
         };
-        var email = getValueFromEnv("email");
-        var avaApi = getValueFromEnv("apikey");
+       
+       
+        var appDef = require('../component.json');
+        var credentials = appDef.credentials || {};
+        var oauth2 = credentials["oauth2"];
+
+        var email = getValueFromEnv(oauth2['email']);
+        var avaApi = getValueFromEnv(oauth2['apiKey']);
+
+
         console.log("Test EMAIL ENV: "+ email);
         console.log("Test EMAIL AVA API: "+ avaApi);
-
+    
         const token = Buffer.from(`${email}:${avaApi}`, 'utf8').toString('base64')
        await axios.patch(`https://api.elastic.io/v2/credentials/${cfg._account}`, data, 
         {
