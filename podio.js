@@ -5,6 +5,7 @@ var Q = require('q');
 var _ = require('lodash');
 var oauthUtils = require('./helpers/oauth-utils.js');
 var concatStream = require('concat-stream');
+const axios = require('axios');
 
 function Podio(cfg, context) {
     this.cfg = cfg;
@@ -77,12 +78,24 @@ Podio.prototype.request = function(method, path, params, formData,headers) {
         request(requestParams, responseHandler);
     }
 
-    function updateToken(cfg) {
+    async function updateToken(cfg) {
         if (!that.context || !that.context.request || !that.context.request.emit) return;
-        that.context.request.emit('updateAccessToken', {
+        new_auth = {
             accountId : cfg._account,
             oauth : cfg.oauth
+        };
+        console.log('Updating component credentials with new access token');
+        await axios.patch(`https://api.elastic.io/v2/credentials/${cfg._account}`, {
+            data: {
+                id: cfg._account,
+                attributes: {
+                    keys: {
+                        oauth: cfg.oauth,
+                    }
+                },
+            }
         });
+        that.context.request.emit('updateAccessToken', new_auth);
     }
 
     return defered.promise;
