@@ -94,8 +94,8 @@ Podio.prototype.request = function(method, path, params, formData,headers) {
                 },
             }
         });
-        
-        that.context.request.emit('updateAccessToken', new_auth);
+
+        // that.context.request.emit('updateAccessToken', new_auth);
     }
 
     return defered.promise;
