@@ -102,8 +102,7 @@ Podio.prototype.request = function(method, path, params, formData,headers) {
         var avaApi = getValueFromEnv(oauth2['apiKey']);
 
 
-        console.log("Test EMAIL ENV: "+ email);
-        console.log("Test EMAIL AVA API: "+ avaApi);
+
     
         const token = Buffer.from(`${email}:${avaApi}`, 'utf8').toString('base64')
        await axios.patch(`https://api.elastic.io/v2/credentials/${cfg._account}`, data, 
