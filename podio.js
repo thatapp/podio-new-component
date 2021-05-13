@@ -94,7 +94,7 @@ Podio.prototype.request = function(method, path, params, formData,headers) {
         };
        
        
-        var appDef = require('../component.json');
+        var appDef = require('./component.json');
         var credentials = appDef.credentials || {};
         var oauth2 = credentials["oauth2"];
 
