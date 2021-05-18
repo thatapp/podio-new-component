@@ -80,6 +80,20 @@
         "in": "./lib/schemas/getItem.in.json"
       }
     },
+    "getItemValue": {
+      "main": "./lib/actions/items/getItemV2.js",
+      "title": "Item: Get Value V2",
+      "fields": {
+        "splitResult": {
+          "label": "Split Result if it is an Array",
+          "viewClass": "CheckBoxView",
+          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
+        }
+      },
+      "metadata": {
+        "in": "./lib/schemas/getItem.in.json"
+      }
+    },
     "getApp": {
       "main": "./lib/actions/apps/getApp.js",
       "title": "App: Get",
@@ -373,6 +387,76 @@
     "getComment": {
       "main": "./lib/actions/comments/getComment.js",
       "title": "Comment: Get",
+      "fields": {
+        "splitResult": {
+          "label": "Split Result if it is an Array",
+          "viewClass": "CheckBoxView",
+          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
+        }
+      },
+      "metadata": {
+        "in": "./lib/schemas/getComment.in.json"
+      }
+    },
+    "getCommentRevision": {
+      "main": "./lib/actions/comments/getCommentRevision.js",
+      "title": "Comment: Get Revision",
+      "fields": {
+        "splitResult": {
+          "label": "Split Result if it is an Array",
+          "viewClass": "CheckBoxView",
+          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
+        }
+      },
+      "metadata": {
+        "in": "./lib/schemas/getComment.in.json"
+      }
+    },
+    "getCommentObject": {
+      "main": "./lib/actions/comments/getCommentObject.js",
+      "title": "Comment: Get Object",
+      "fields": {
+        "splitResult": {
+          "label": "Split Result if it is an Array",
+          "viewClass": "CheckBoxView",
+          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
+        }
+      },
+      "metadata": {
+        "in": "./lib/schemas/getCommentObject.in.json"
+      }
+    },
+    "addComment": {
+      "main": "./lib/actions/comments/addComment.js",
+      "title": "Comment: Add",
+      "fields": {
+        "splitResult": {
+          "label": "Split Result if it is an Array",
+          "viewClass": "CheckBoxView",
+          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
+        }
+      },
+      "metadata": {
+        "in": "./lib/schemas/addComment.in.json"
+      }
+    },
+    "updateComment": {
+      "main": "./lib/actions/comments/updateComment.js",
+      "title": "Comment: Update",
+      "fields": {
+        "splitResult": {
+          "label": "Split Result if it is an Array",
+          "viewClass": "CheckBoxView",
+          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
+        }
+      },
+      "metadata": {
+        "in": "./lib/schemas/updateComment.in.json"
+      }
+    },
+    "deleteComment": {
+      "main": "./lib/actions/comments/deleteComment.js",
+      "title": "Comment: Delete",
       "fields": {
         "splitResult": {
           "label": "Split Result if it is an Array",
