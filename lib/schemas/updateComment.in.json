@@ -1,0 +1,45 @@
+{
+    "type": "object",
+    "properties": {
+        "CommentId": {
+            "type": "number",
+            "title": "Comment Id",
+            "required": true
+        },
+        "data": {
+            "type": "object",
+            "properties": {
+                    "value": {
+                        "type": "string",
+                        "title": "Value",
+                        "required": false
+                    },
+                    "external_id": {
+                        "type": "string",
+                        "title": "External Id",
+                        "required": false
+                    },
+                  
+                    "file_ids": [
+                        {
+                            "type": "string",
+                            "title": "File Ids",
+                            "required": false
+                        }
+                    ],
+                    "embed_id": {
+                        "type": "string",
+                        "title": "Embed Id",
+                        "required": false
+                    },
+                    "embed_url": {
+                        "type": "string",
+                        "title": "Embed Url",
+                        "required": false
+                    }
+                  
+                  }
+        }  
+    }
+}
+  
