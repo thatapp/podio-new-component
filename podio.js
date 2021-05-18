@@ -6,6 +6,7 @@ var _ = require('lodash');
 var oauthUtils = require('./helpers/oauth-utils.js');
 var concatStream = require('concat-stream');
 const axios = require('axios');
+var handlebars = require('hbs').handlebars;
 
 function Podio(cfg, context) {
     this.cfg = cfg;
@@ -91,7 +92,19 @@ Podio.prototype.request = function(method, path, params, formData,headers) {
                 },
             }
         };
-        const token = Buffer.from(`${cfg.email}:${cfg.avaApi}`, 'utf8').toString('base64')
+       
+       
+        var appDef = require('./component.json');
+        var credentials = appDef.credentials || {};
+        var oauth2 = credentials["oauth2"];
+
+        var email = getValueFromEnv(oauth2['email']);
+        var avaApi = getValueFromEnv(oauth2['apiKey']);
+
+
+
+    
+        const token = Buffer.from(`${email}:${avaApi}`, 'utf8').toString('base64')
        await axios.patch(`https://api.elastic.io/v2/credentials/${cfg._account}`, data, 
         {
             headers: {
@@ -154,5 +167,14 @@ Podio.prototype.attachFile = function(fileId, refType, refId) {
     };
     return this.post('/file/'+fileId+'/attach', params);
 };
+
+function getValueFromEnv(key) {
+    var compiled = handlebars.compile(key);
+    var value = compiled(process.env);
+    if (value) {
+        return value;
+    }
+    throw new Error(util.format("No value is defined for environment variable: '%s'", key));
+}
 
 module.exports = Podio;
