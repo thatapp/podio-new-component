@@ -81,10 +81,6 @@ exports.getCSPaceModel = (cfg, cb) => {
             label: "Counts(true,false)",
 
         },
-        highlights: {
-            type: "SelectView",
-            label: "highlights(true,false)",
-        },
         limit: {
             type: "number",
             label: "Limit",
@@ -95,11 +91,6 @@ exports.getCSPaceModel = (cfg, cb) => {
             label: "Offset",
             placeholder:"0"
         },
-        ref_type: {
-            type: "string",
-            prompt: "Ref Type",
-            label: "Ref Type(item,task,file,conversation,profile,app)"
-        },
         query: {
             type: "string",
             label: "query",
@@ -108,7 +99,7 @@ exports.getCSPaceModel = (cfg, cb) => {
         search_fields: {
             type: "string",
             label: "Search Fields",
-            placeholder:""
+            placeholder:"The list of fields to search in. Can f.ex. be used to limit the search to the 'title' field"
         }
     };
     schema = {

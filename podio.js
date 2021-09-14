@@ -55,8 +55,6 @@ Podio.prototype.request = function(method, path, params, formData,headers) {
         if (401 === response.statusCode) {
             //console.log('Podio: Trying to refresh token...');
            oauthUtils.refreshAppToken('podio', that.cfg, onTokenRefresh);
-
-           // updateToken(refreshedToken);
         } else if (response.statusCode >= 400) {
             if (_.isObject(body)) {
                 err = new Error(body.error_description);
@@ -67,6 +65,7 @@ Podio.prototype.request = function(method, path, params, formData,headers) {
             err.statusCode = response.statusCode;
             return defered.reject(err);
         } else {
+            body.headers = response.headers;
             return defered.resolve(body);
         }
     }
@@ -92,8 +91,8 @@ Podio.prototype.request = function(method, path, params, formData,headers) {
                 },
             }
         };
-       
-       
+
+
         var appDef = require('./component.json');
         var credentials = appDef.credentials || {};
         var oauth2 = credentials["oauth2"];
@@ -103,9 +102,9 @@ Podio.prototype.request = function(method, path, params, formData,headers) {
 
 
 
-    
+
         const token = Buffer.from(`${email}:${avaApi}`, 'utf8').toString('base64')
-       await axios.patch(`https://api.elastic.io/v2/credentials/${cfg._account}`, data, 
+       await axios.patch(`https://api.elastic.io/v2/credentials/${cfg._account}`, data,
         {
             headers: {
                 'Authorization': `Basic ${token}`

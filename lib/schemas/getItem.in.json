@@ -6,11 +6,6 @@
             "required": true,
             "title": "Item id",
             "note": "84937"
-        },
-        "headers": {
-            "type": "object",
-            "required": false,
-            "title": "Headers"
         }
     }
 }

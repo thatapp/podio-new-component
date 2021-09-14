@@ -4,12 +4,14 @@
         "type": {
             "type": "string",
             "title": "Object Type",
-            "required": true
+            "required": true,
+            "placeholder": "Objects can be “items” or “status”"
         },
         "id": {
             "type": "number",
             "title": "Object Id",
-            "required": true
+            "required": true,
+            "placeholder": "Values can be 'item_id' or 'status_id' "
         },
         "data": {
             "type": "object",

@@ -4,7 +4,7 @@
     "hook_id": {
       "type": "number",
       "required": true,
-      "title": "Ref Type"
+      "title": "hook_id"
     },
     "code": {
       "type": "string",
