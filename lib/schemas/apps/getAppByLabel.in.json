@@ -1,0 +1,20 @@
+{
+    "type": "object",
+    "properties": {
+        "orgLabel": {
+            "type": "string",
+            "required": true,
+            "title": "Org Label"
+        },
+        "spaceLabel": {
+            "type": "string",
+            "required": true,
+            "title": "Space Label"
+        },
+        "appLabel": {
+            "type": "string",
+            "required": true,
+            "title": "App Label"
+        }
+    }
+}

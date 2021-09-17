@@ -112,6 +112,20 @@
         "in": "./lib/schemas/getAppField.in.json"
       }
     },
+    "getAppByLabel": {
+      "main": "./lib/actions/apps/getAppByLabel.js",
+      "title": "App: Get by org label, space label and app label",
+      "fields": {
+        "splitResult": {
+          "label": "Split Result if it is an Array",
+          "viewClass": "CheckBoxView",
+          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
+        }
+      },
+      "metadata": {
+        "in": "./lib/schemas/apps/getAppByLabel.in.json"
+      }
+    },
     "activateApp": {
       "main": "./lib/actions/apps/activateApp.js",
       "title": "App: Activate",
