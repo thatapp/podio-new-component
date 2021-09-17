@@ -140,6 +140,20 @@
         "in": "./lib/schemas/apps/getAppDependencies.in.json"
       }
     },
+    "getAppSpaceByUrlLabel": {
+      "main": "./lib/actions/apps/getAppSpaceByUrlLabel.js",
+      "title": "App: Get app on space by URL label",
+      "fields": {
+        "splitResult": {
+          "label": "Split Result if it is an Array",
+          "viewClass": "CheckBoxView",
+          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
+        }
+      },
+      "metadata": {
+        "in": "./lib/schemas/apps/getAppSpaceByUrlLabel.in.json"
+      }
+    },
     "activateApp": {
       "main": "./lib/actions/apps/activateApp.js",
       "title": "App: Activate",

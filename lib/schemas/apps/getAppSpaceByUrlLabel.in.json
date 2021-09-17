@@ -1,0 +1,15 @@
+{
+    "type": "object",
+    "properties": {
+        "spaceId": {
+            "type": "string",
+            "required": true,
+            "title": "Space Id"
+        },
+        "urlLabel": {
+            "type": "string",
+            "required": true,
+            "title": "Url Label"
+        }
+    }
+}
