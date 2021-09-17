@@ -1,0 +1,19 @@
+{
+    "type": "object",
+    "properties": {
+        "spaceId": {
+            "type": "string",
+            "required": true,
+            "title": "Space Id"
+        },
+        "includeInactive": {
+            "type": "SelectView",
+            "required": false,
+            "title": "Url Label",
+            "model": {
+              "true": "true",
+              "false": "false"
+            }
+        }
+    }
+}
