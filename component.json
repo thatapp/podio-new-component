@@ -133,6 +133,13 @@
         "in": "./lib/schemas/apps/deleteApp.in.json"
       }
     },
+    "deleteAppField": {
+      "main": "./lib/actions/apps/deleteAppField.js",
+      "title": "App: Delete Field",
+      "metadata": {
+        "in": "./lib/schemas/apps/deleteAppField.in.json"
+      }
+    },
     "getSpace": {
       "main": "./lib/actions/spaces/getSpace.js",
       "title": "Space: Get",
