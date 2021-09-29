@@ -1,0 +1,19 @@
+{
+    "type": "object",
+    "properties": {
+        "appIds": {
+            "type": "string",
+            "required": false,
+            "title": "App Id"
+        },
+        "includeSpace": {
+            "type": "SelectView",
+            "required": false,
+            "title": "Url Label",
+            "model": {
+              "true": "true",
+              "false": "false"
+            }
+        }
+    }
+}
