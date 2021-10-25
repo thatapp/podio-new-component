@@ -65,7 +65,11 @@ Podio.prototype.request = function(method, path, params, formData,headers) {
             err.statusCode = response.statusCode;
             return defered.reject(err);
         } else {
-            body.headers = response.headers;
+           if(body != undefined) {
+               if (response.headers != undefined) {
+                   body.headers = response.headers;
+               }
+           }
             return defered.resolve(body);
         }
     }

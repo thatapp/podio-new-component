@@ -128,32 +128,26 @@
     "updateItem":{
       "msg":{
         "oauth": {
-          "access_token": "d0a02fa8421442c1a584359d5c416dda",
+          "access_token": "680ba8409324cf047548713f3dc9b124",
           "token_type": "bearer",
           "refresh_token": "d53b599ec18f4098bce11def7289d92b"
         },
         "headers":{},
         "body": {
-          "appId" : 21732468,
-          "password":"eiusmod",
-          "username":"ex do",
-          "platform":"ipsum do",
-          "item_id":"1298870607",
-          "query" : "update"
+          "appId" : 26473618,
+          "dfsgf":"Hello World 123",
+          "item_id":"1875743215"
         }
       },
       "cfg": {
         "oauth": {
-          "access_token": "d0a02fa8421442c1a584359d5c416dda",
+          "access_token": "680ba8409324cf047548713f3dc9b124",
           "token_type": "bearer",
           "refresh_token": "d53b599ec18f4098bce11def7289d92b"
         },
-        "appId" : 21732468,
-        "password":"eiusmod",
-        "username":"ex do",
-        "platform":"ipsum do",
-        "item_id":"1298870607",
-        "query" : "update"
+        "appId" : 26473618,
+        "dfsgf":"Hello World",
+        "item_id":"1875743215"
       }
     },
     "getItemsbyApp":{
