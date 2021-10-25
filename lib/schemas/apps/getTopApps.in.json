@@ -1,0 +1,18 @@
+{
+    "type": "object",
+    "properties": {
+      "exclude_demo": {
+        "type": "SelectView",
+        "title": "Exclude Demo Apps",
+        "model": {
+          "true": "true",
+          "false": "false"
+        }
+      },
+      "limit": {
+        "type": "number",
+        "title": "Limit"
+      }
+    }
+  }
+  

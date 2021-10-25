@@ -1,0 +1,10 @@
+{
+    "type": "object",
+    "properties": {
+        "query": {
+            "type": "string",
+            "required": false,
+            "title": "Query (Any search term to match)"
+        }
+    }
+}
