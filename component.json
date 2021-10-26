@@ -245,6 +245,13 @@
         "in": "./lib/schemas/apps/updateAppOrder.in.json"
       }
     },
+    "updateAppUsageInstructions": {
+      "main": "./lib/actions/apps/updateAppUsageInstructions.js",
+      "title": "App: Update App Usage Instructions",
+      "metadata": {
+        "in": "./lib/schemas/apps/updateAppUsageInstructions.in.json"
+      }
+    },
     "getIconSuggestions": {
       "main": "./lib/actions/apps/getIconSuggestions.js",
       "title": "App: Get Icon Suggestions",
