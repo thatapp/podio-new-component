@@ -259,6 +259,24 @@
         "in": "./lib/schemas/apps/getIconSuggestions.in.json"
       }
     },
+    "getBatch": {
+      "main": "./lib/actions/batch/getBatch.js",
+      "title": "Batch: Get Batch",
+      "metadata": {
+        "in": "./lib/schemas/batch/getBatch.in.json"
+      }
+    },
+    "getBatches": {
+      "main": "./lib/actions/batch/getBatches.js",
+      "title": "Batch: Get Batches"
+    },
+    "getRunningBatches": {
+      "main": "./lib/actions/batch/getRunningBatches.js",
+      "title": "Batch: Get Running Batches",
+      "metadata": {
+        "in": "./lib/schemas/batch/getRunningBatches.in.json"
+      }
+    },
     "activateApp": {
       "main": "./lib/actions/apps/activateApp.js",
       "title": "App: Activate",

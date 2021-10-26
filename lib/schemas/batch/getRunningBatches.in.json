@@ -1,0 +1,20 @@
+{
+    "type": "object",
+    "properties": {
+        "ref_type": {
+            "type": "string",
+            "required": true,
+            "title": "Ref Type"
+        },
+        "ref_id": {
+            "type": "number",
+            "required": true,
+            "title": "Ref ID"
+        },
+        "plugin": {
+            "type": "string",
+            "required": true,
+            "title": "Plugin"
+        }
+    }
+}
