@@ -277,6 +277,27 @@
         "in": "./lib/schemas/batch/getRunningBatches.in.json"
       }
     },
+    "filterAppCalendar": {
+      "main": "./lib/actions/calendar/filterAppCalendar.js",
+      "title": "Calendar: Filter App Calendar",
+      "metadata": {
+        "in": "./lib/schemas/calendar/filterAppCalendar.in.json"
+      }
+    },
+    "getAppCalendar": {
+      "main": "./lib/actions/calendar/getAppCalendar.js",
+      "title": "Calendar: Get App Calendar",
+      "metadata": {
+        "in": "./lib/schemas/calendar/getAppCalendar.in.json"
+      }
+    },
+    "getAppCalendarIcal": {
+      "main": "./lib/actions/calendar/getAppCalendarIcal.js",
+      "title": "Calendar: Get App Calendar as iCal",
+      "metadata": {
+        "in": "./lib/schemas/calendar/getAppCalendarIcal.in.json"
+      }
+    },
     "activateApp": {
       "main": "./lib/actions/apps/activateApp.js",
       "title": "App: Activate",
