@@ -226,9 +226,23 @@
     },
     "updateApp": {
       "main": "./lib/actions/apps/updateApp.js",
-      "title": "App: Install",
+      "title": "App: Update",
       "metadata": {
         "in": "./lib/schemas/apps/updateApp.in.json"
+      }
+    },
+    "updateAppDescription": {
+      "main": "./lib/actions/apps/updateAppDescription.js",
+      "title": "App: Update App Description",
+      "metadata": {
+        "in": "./lib/schemas/apps/updateAppDescription.in.json"
+      }
+    },
+    "updateAppOrder": {
+      "main": "./lib/actions/apps/updateAppOrder.js",
+      "title": "App: Update App Order",
+      "metadata": {
+        "in": "./lib/schemas/apps/updateAppOrder.in.json"
       }
     },
     "getIconSuggestions": {

@@ -1,0 +1,12 @@
+{
+    "type": "object",
+    "properties": {
+      "space_id": {
+        "type": "number",
+        "required": true,
+        "title": "Space Id"
+      }
+    }
+  }
+  
+  
