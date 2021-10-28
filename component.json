@@ -340,6 +340,13 @@
         "in": "./lib/schemas/calendar/getGlobalCalendar.in.json"
       }
     },
+    "getGlobalCalendarIcal": {
+      "main": "./lib/actions/calendar/getGlobalCalendarIcal.js",
+      "title": "Calendar: Get Global Calendar as iCal",
+      "metadata": {
+        "in": "./lib/schemas/calendar/getGlobalCalendarIcal.in.json"
+      }
+    },
     "activateApp": {
       "main": "./lib/actions/apps/activateApp.js",
       "title": "App: Activate",
