@@ -319,6 +319,27 @@
         "in": "./lib/schemas/calendar/getCalendarSummarySpace.in.json"
       }
     },
+    "getExportByRef": {
+      "main": "./lib/actions/calendar/getExportByRef.js",
+      "title": "Calendar: Get Export by Ref",
+      "metadata": {
+        "in": "./lib/schemas/calendar/getExportByRef.in.json"
+      }
+    },
+    "getExportsbyReference": {
+      "main": "./lib/actions/calendar/getExportsbyReference.js",
+      "title": "Calendar: Get Exports by Reference",
+      "metadata": {
+        "in": "./lib/schemas/calendar/getExportsbyReference.in.json"
+      }
+    },
+    "getGlobalCalendar": {
+      "main": "./lib/actions/calendar/getGlobalCalendar.js",
+      "title": "Calendar: Get Global Calendar",
+      "metadata": {
+        "in": "./lib/schemas/calendar/getGlobalCalendar.in.json"
+      }
+    },
     "activateApp": {
       "main": "./lib/actions/apps/activateApp.js",
       "title": "App: Activate",

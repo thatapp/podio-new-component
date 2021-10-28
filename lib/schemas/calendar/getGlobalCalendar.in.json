@@ -1,0 +1,25 @@
+{
+    "type": "object",
+    "properties": {
+        "date_from": {
+            "type": "string",
+            "required": false,
+            "title": "Date from"
+        },
+        "date_to": {
+            "type": "string",
+            "required": false,
+            "title": "Date to"
+        },
+        "priority": {
+            "type": "number",
+            "required": false,
+            "title": "Priority"
+        },
+        "tasks": {
+            "type": "boolean",
+            "required": false,
+            "title": "Tasks"
+        }
+    }
+}
