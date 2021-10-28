@@ -298,6 +298,27 @@
         "in": "./lib/schemas/calendar/getAppCalendarIcal.in.json"
       }
     },
+    "getCalendarSummary": {
+      "main": "./lib/actions/calendar/getCalendarSummary.js",
+      "title": "Calendar: Get Calendar Summary",
+      "metadata": {
+        "in": "./lib/schemas/calendar/getCalendarSummary.in.json"
+      }
+    },
+    "getCalendarSummaryPersonal": {
+      "main": "./lib/actions/calendar/getCalendarSummaryPersonal.js",
+      "title": "Calendar: Get Calendar Summary for Personal",
+      "metadata": {
+        "in": "./lib/schemas/calendar/getCalendarSummaryPersonal.in.json"
+      }
+    },
+    "getCalendarSummarySpace": {
+      "main": "./lib/actions/calendar/getCalendarSummarySpace.js",
+      "title": "Calendar: Get Calendar Summary for Space",
+      "metadata": {
+        "in": "./lib/schemas/calendar/getCalendarSummarySpace.in.json"
+      }
+    },
     "activateApp": {
       "main": "./lib/actions/apps/activateApp.js",
       "title": "App: Activate",
