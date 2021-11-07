@@ -1,0 +1,10 @@
+{
+    "type": "object",
+    "properties": {
+        "linked_account_id": {
+            "type": "number",
+            "required": true,
+            "title": "Linked Account ID"
+        }
+    }
+}

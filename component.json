@@ -347,6 +347,76 @@
         "in": "./lib/schemas/calendar/getGlobalCalendarIcal.in.json"
       }
     },
+    "getGlobalExport": {
+      "main": "./lib/actions/calendar/getGlobalExport.js",
+      "title": "Calendar: Get Global Export",
+      "metadata": {
+        "in": "./lib/schemas/calendar/getGlobalExport.in.json"
+      }
+    },
+    "getGlobalExports": {
+      "main": "./lib/actions/calendar/getGlobalExports.js",
+      "title": "Calendar: Get Global Exports",
+      "metadata": {
+        "in": "./lib/schemas/calendar/getGlobalExports.in.json"
+      }
+    },
+    "getItemFieldCalendarIcal": {
+      "main": "./lib/actions/calendar/getItemFieldCalendarIcal.js",
+      "title": "Calendar: Get Item Field Calendar as iCal",
+      "metadata": {
+        "in": "./lib/schemas/calendar/getItemFieldCalendarIcal.in.json"
+      }
+    },
+    "getLinkedAccountCalendar": {
+      "main": "./lib/actions/calendar/getLinkedAccountCalendar.js",
+      "title": "Calendar: Get Linked Account Calendar",
+      "metadata": {
+        "in": "./lib/schemas/calendar/getLinkedAccountCalendar.in.json"
+      }
+    },
+    "getSpaceCalendar": {
+      "main": "./lib/actions/calendar/getSpaceCalendar.js",
+      "title": "Calendar: Get Space Calendar",
+      "metadata": {
+        "in": "./lib/schemas/calendar/getSpaceCalendar.in.json"
+      }
+    },
+    "getSpaceCalendarIcal": {
+      "main": "./lib/actions/calendar/getSpaceCalendarIcal.js",
+      "title": "Calendar: Get Space Calendar as iCal",
+      "metadata": {
+        "in": "./lib/schemas/calendar/getSpaceCalendarIcal.in.json"
+      }
+    },
+    "getTaskCalendarIcal": {
+      "main": "./lib/actions/calendar/getTaskCalendarIcal.js",
+      "title": "Calendar: Get Task Calendar as iCal",
+      "metadata": {
+        "in": "./lib/schemas/calendar/getTaskCalendarIcal.in.json"
+      }
+    },
+    "moveExternalCalendarEvent": {
+      "main": "./lib/actions/calendar/moveExternalCalendarEvent.js",
+      "title": "Calendar: Move External Calendar Event",
+      "metadata": {
+        "in": "./lib/schemas/calendar/moveExternalCalendarEvent.in.json"
+      }
+    },
+    "updateCalendarEvent": {
+      "main": "./lib/actions/calendar/updateCalendarEvent.js",
+      "title": "Calendar: Update Calendar Event",
+      "metadata": {
+        "in": "./lib/schemas/calendar/updateCalendarEvent.in.json"
+      }
+    },
+    "UpdateExternalCalendarEventDuration": {
+      "main": "./lib/actions/calendar/UpdateExternalCalendarEventDuration.js",
+      "title": "Calendar: Update External Calendar Event Duration",
+      "metadata": {
+        "in": "./lib/schemas/calendar/UpdateExternalCalendarEventDuration.in.json"
+      }
+    },
     "activateApp": {
       "main": "./lib/actions/apps/activateApp.js",
       "title": "App: Activate",

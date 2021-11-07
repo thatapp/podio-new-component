@@ -1,0 +1,10 @@
+{
+    "type": "object",
+    "properties": {
+        "uid": {
+            "type": "number",
+            "required": true,
+            "title": "UID"
+        }
+    }
+}
