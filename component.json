@@ -1414,6 +1414,5 @@
         "in": "./lib/schemas/verifyHooks.in.json"
       }
     }
-
   }
 }
