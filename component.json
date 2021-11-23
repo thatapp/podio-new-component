@@ -1365,6 +1365,13 @@
       "metadata": {
         "in": "./lib/schemas/getItemRevisionDifference.in.json"
       }
+    },
+    "getActualFile": {
+      "main": "./lib/actions/files/getActualFile.js",
+      "title": "File: Get Actual File",
+      "metadata": {
+        "in": "./lib/schemas/getFile.in.json"
+      }
     }
   },
   "triggers": {
@@ -1407,5 +1414,6 @@
         "in": "./lib/schemas/verifyHooks.in.json"
       }
     }
+
   }
 }

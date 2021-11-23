@@ -1,16 +1,9 @@
 {
   "fixtures":{
-    "items":{
+    "getItemData":{
       "msg":{
-        "oauth": {
-          "access_token": "ee777abc25e8b9025d52da8139ba60e2",
-          "token_type": "bearer",
-          "refresh_token": "d53b599ec18f4098bce11def7289d92b"
-        },
-        "headers":{},
         "body":{
-          "ItemId" : 1456176277,
-          "appId" : 22758086
+          "ItemId" : 1875743215
         }
       },
       "cfg": {
@@ -19,7 +12,7 @@
         "_account":"5efc92543a04ef0011325719",
         "username":"william@techego.com",
         "oauth":{
-          "access_token":"ee777abc25e8b9025d52da8139ba60e2",
+          "access_token":"472370990447ecdd179804930f55a26a",
           "expires_in":28800,
           "token_type":"bearer",
           "scope":"global:all",
