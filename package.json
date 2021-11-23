@@ -26,7 +26,7 @@
   },
   "homepage": "https://github.com/thatapp/podio-component#readme",
   "dependencies": {
-    "axios": "^0.21.1",
+    "axios": "^0.21.2",
     "concat-stream": "^2.0.0",
     "csv-parse": "^4.10.1",
     "debug": "2.6.9",
