@@ -83,11 +83,19 @@
       "msg":{
         "headers":{},
         "body":{
-          "FileId" : 988492515
+          "FileId" : 961108340
         }
       },
       "cfg": {
-        "FileId" : 988492515
+        "FileId" : 961108340,
+        "oauth":{
+          "access_token":"58ac536ccdbfc2d1dd8aa4e8dca94dd3",
+          "expires_in":28800,
+          "token_type":"bearer",
+          "scope":"global:all",
+          "ref":{"type":"user","id":4757151},
+          "refresh_token":"ff70514ee3fc1b867a1e72907e437b00"
+        }
       }
     },
     "comments":{
