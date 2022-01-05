@@ -70,6 +70,13 @@
         "in": "./lib/schemas/getItem.in.json"
       }
     },
+    "endSpaceMembership": {
+      "main": "./lib/actions/spaces/endSpaceMembership.js",
+      "title": "Space: End Membership",
+      "metadata": {
+        "in": "./lib/schemas/endSpaceMembership.in.json"
+      }
+    },
     "getItemValue": {
       "main": "./lib/actions/items/getItemV2.js",
       "title": "Item: Get Value V2",
