@@ -604,6 +604,13 @@
       },
       "dynamicMetadata": true
     },
+    "getSpaceMembership": {
+      "main": "./lib/actions/spaces/getSpaceMembership.js",
+      "title": "Space: Get Space Membership",
+      "metadata": {
+        "in": "./lib/schemas/getSpaceMembership.in.json"
+      }
+    },
     "search": {
       "main": "./lib/actions/all/search.js",
       "title": "Search All",
