@@ -93,6 +93,7 @@ exports.getFieldProperties = (field) => {
 
             case 'state':
             case 'image':
+            case 'link':
             case 'tel':
                 props.type = 'string';
                 break;
