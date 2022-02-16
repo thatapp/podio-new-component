@@ -1,6 +1,11 @@
 {
   "type": "object",
   "properties": {
+    "sample": {
+      "type": "boolean",
+      "required": false,
+      "title": "Sample"
+    },
   "headers": {
     "type": "object",
     "required": false,
