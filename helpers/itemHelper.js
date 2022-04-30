@@ -25,12 +25,7 @@ exports.fieldTransform = (item, update = false) => {
                 data[key.toString()] = item[key].value;
             }
         } else {
-            var result = (item[key]).toString();
-            if(result.includes(";")){
-                data[key.toString()] =  result.split(";")
-            }else {
-                data[key.toString()] = item[key];
-            }
+            data[key.toString()] = item[key];
         }
     }
     return data;
@@ -40,6 +35,7 @@ exports.emitData = async (cfg,result,that,end = null) => {
     const {messages} = require('elasticio-node');
 
     if (cfg.splitResult && Array.isArray(result)) {
+        console.log("I entered here!!");
         for (const i_item of result) {
             const output = messages.newMessageWithBody(i_item);
             await that.emit('data', output);
@@ -142,7 +138,7 @@ exports.getFieldProperties = (field) => {
                     value: getNumConf('(Value)')
                 };
                 break;
-            case 'link':
+            case 'embed':
                 props.type = 'object';
                 props.properties = {
                     embed: getStrConf('(Resolved URL)')
