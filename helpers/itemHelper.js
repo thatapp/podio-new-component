@@ -25,7 +25,12 @@ exports.fieldTransform = (item, update = false) => {
                 data[key.toString()] = item[key].value;
             }
         } else {
-            data[key.toString()] = item[key];
+            var result = (item[key]).toString();
+            if(result.includes(";")){
+                data[key.toString()] =  result.split(";")
+            }else {
+                data[key.toString()] = item[key];
+            }
         }
     }
     return data;
