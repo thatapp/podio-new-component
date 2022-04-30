@@ -1386,6 +1386,13 @@
       "metadata": {
         "in": "./lib/schemas/getFile.in.json"
       }
+    },
+    "cloneItem": {
+      "main": "./lib/actions/items/cloneItem.js",
+      "title": "Item: Clone Item",
+      "metadata": {
+        "in": "./lib/schemas/cloneItem.in.json"
+      }
     }
   },
   "triggers": {
