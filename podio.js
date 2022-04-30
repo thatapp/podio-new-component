@@ -101,22 +101,23 @@ Podio.prototype.request = function(method, path, params, formData,headers) {
         var credentials = appDef.credentials || {};
         var oauth2 = credentials["oauth2"];
 
-        var email = getValueFromEnv(oauth2['email']);
-        var avaApi = getValueFromEnv(oauth2['apiKey']);
 
-
-
-
-        const token = Buffer.from(`${email}:${avaApi}`, 'utf8').toString('base64')
-       await axios.patch(`https://api.elastic.io/v2/credentials/${cfg._account}`, data,
-        {
-            headers: {
-                'Authorization': `Basic ${token}`
-            },
-        }
-    ).catch((errr) => {
-        console.log(errr);
-    });
+       //  var email = getValueFromEnv(oauth2['email']);
+       //  var avaApi = getValueFromEnv(oauth2['apiKey']);
+       //
+       //
+       //
+       //
+       //  const token = Buffer.from(`${email}:${avaApi}`, 'utf8').toString('base64')
+       // await axios.patch(`https://api.elastic.io/v2/credentials/${cfg._account}`, data,
+       //  {
+       //      headers: {
+       //          'Authorization': `Basic ${token}`
+       //      },
+       //  }
+    // ).catch((errr) => {
+    //     console.log(errr);
+    // });
         // that.context.request.emit('updateAccessToken', new_auth);
     }
 
