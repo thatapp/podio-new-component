@@ -26,10 +26,12 @@ exports.fieldTransform = (item, update = false) => {
             }
         } else {
             var result = (item[key]).toString();
-            if(result.includes(";")){
-                data[key.toString()] =  result.split(";")
-            }else {
-                data[key.toString()] = item[key];
+            if(!_.isEmpty(result)){
+                if (result.includes(";")) {
+                    data[key.toString()] = result.split(";")
+                } else {
+                    data[key.toString()] = item[key];
+                }
             }
         }
     }
