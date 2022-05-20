@@ -1,0 +1,31 @@
+{
+    "type": "object",
+    "properties": {
+      "user_id": {
+        "type": "number",
+        "required": true,
+        "title": "User Id"
+      },
+      "groups_limit": {
+        "type": "number",
+        "required": false,
+        "title": "groups_limit"
+      },
+      "limit": {
+        "type": "number",
+        "required": false,
+        "title": "limit"
+      },
+      "offset": {
+        "type": "number",
+        "required": false,
+        "title": "offset"
+      },
+      "groups_event_types": {
+        "type": "string",
+        "required": false,
+        "title": "groups event types"
+      }
+    }
+  }
+  

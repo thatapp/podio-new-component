@@ -1393,6 +1393,13 @@
       "metadata": {
         "in": "./lib/schemas/cloneItem.in.json"
       }
+    },
+    "getUserStreamV3": {
+      "main": "./lib/actions/user/getUserStream.js",
+      "title": "Get user stream",
+      "metadata": {
+        "in": "./lib/schemas/getUserStream.in.json"
+      }
     }
   },
   "triggers": {
