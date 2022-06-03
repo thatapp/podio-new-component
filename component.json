@@ -1407,6 +1407,20 @@
       "metadata": {
         "in": "./lib/schemas/getItemCount.in.json"
       }
+    },
+    "FilterItemsByView": {
+      "main": "./lib/actions/items/FilterItemsByView.js",
+      "title": "Items: Filter items by view",
+      "fields": {
+        "splitResult": {
+          "label": "Split Result if it is an Array",
+          "viewClass": "CheckBoxView",
+          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
+        }
+      },
+      "metadata": {
+        "in": "./lib/schemas/FilterItemsByView.in.json"
+      }
     }
   },
   "triggers": {
