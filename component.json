@@ -1410,7 +1410,7 @@
     },
     "FilterItemsByView": {
       "main": "./lib/actions/items/FilterItemsByView.js",
-      "title": "Items: Filter items by view",
+      "title": "Items: Get items by app and view",
       "fields": {
         "splitResult": {
           "label": "Split Result if it is an Array",
