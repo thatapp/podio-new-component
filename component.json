@@ -1401,7 +1401,7 @@
         "in": "./lib/schemas/getUserStream.in.json"
       }
     },
-    "": {
+    "getItemCount": {
       "main": "./lib/actions/items/getItemCount.js",
       "title": "Get item count",
       "metadata": {
