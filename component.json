@@ -1400,6 +1400,13 @@
       "metadata": {
         "in": "./lib/schemas/getUserStream.in.json"
       }
+    },
+    "": {
+      "main": "./lib/actions/user/getItemCount.js",
+      "title": "Get item count",
+      "metadata": {
+        "in": "./lib/schemas/getItemCount.in.json"
+      }
     }
   },
   "triggers": {
