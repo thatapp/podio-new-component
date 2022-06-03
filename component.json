@@ -1402,7 +1402,7 @@
       }
     },
     "": {
-      "main": "./lib/actions/user/getItemCount.js",
+      "main": "./lib/actions/items/getItemCount.js",
       "title": "Get item count",
       "metadata": {
         "in": "./lib/schemas/getItemCount.in.json"
