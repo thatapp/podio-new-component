@@ -8,47 +8,38 @@
     },
     "role": {
       "type": "string",
-      "title": "Role",
-      "placeholder": "The role of the new users",
-      "require": [
+      "title": "The role of the new users",
+      "enum": [
         "employee",
         "external",
         "admin",
         "guest",
         "premium"
-      ],
-      "viewClass": "MultiSelectView",
-      "model": {
-        "employee": "Employee",
-        "external": "External",
-        "admin": "Admin",
-        "guest": "Guest",
-        "premium": "Premium"
-      }
+      ]
     },
-      "message": {
-        "type": "string",
-        "title": "message"
-      },
-      "users": {
-        "type": "string",
-        "title": "users"
-      },
-      "profiles": {
-        "type": "string",
-        "title": "Profile"
-      },
-      "mails": {
-        "type": "string",
-        "title": "Mails"
-      },
-      "context_ref_type": {
-        "type": "string",
-        "title": "Ref Type"
-      },
-      "context_ref_id": {
-        "type": "string",
-        "title": "Ref id"
-      }
+    "message": {
+      "type": "string",
+      "title": "message"
+    },
+    "users": {
+      "type": "string",
+      "title": "users"
+    },
+    "profiles": {
+      "type": "string",
+      "title": "Profile"
+    },
+    "mails": {
+      "type": "string",
+      "title": "Mails"
+    },
+    "context_ref_type": {
+      "type": "string",
+      "title": "Ref Type"
+    },
+    "context_ref_id": {
+      "type": "string",
+      "title": "Ref id"
     }
   }
+}
