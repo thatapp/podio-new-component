@@ -2,13 +2,14 @@
   "type": "object",
   "properties": {
     "space_id": {
-      "type": "string",
+      "type": "number",
       "required": true,
       "title": "space_id"
     },
     "role": {
       "type": "string",
-      "title": "Role (employee ,external ,admin ,regular ,guest and premium)"
+      "title": "Role (employee ,external ,admin ,regular ,guest and premium)",
+      "require": ["employee", "external", "admin", "guest", "premium"]
     },
     "message": {
       "type": "string",
