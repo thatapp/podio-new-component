@@ -1005,6 +1005,26 @@
     "addMemberToSpace": {
       "main": "./lib/actions/spaces/addMemberToSpace.js",
       "title": "Space: Add Member to Space",
+      "fields": {
+        "space_id": {
+          "label": "space_id",
+          "viewClass": "TextFieldView",
+          "required": true,
+          "note": "Enter the space_id"
+        },
+        "role": {
+          "label": "The role of the new users",
+          "required": true,
+          "viewClass": "MultiSelectView",
+          "model": {
+            "employee": "Employee",
+            "external": "External",
+            "admin": "Admin",
+            "guest": "Guest",
+            "premium": "Premium"
+          }
+        }
+      },
       "metadata": {
         "in": "./lib/schemas/addMemberToSpace.in.json"
       }
