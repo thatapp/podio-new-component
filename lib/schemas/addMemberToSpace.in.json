@@ -6,17 +6,6 @@
       "required": true,
       "title": "space_id"
     },
-    "role": {
-      "type": "string",
-      "title": "The role of the new users",
-      "enum": [
-        "employee",
-        "external",
-        "admin",
-        "guest",
-        "premium"
-      ]
-    },
     "message": {
       "type": "string",
       "title": "message"
@@ -35,11 +24,16 @@
     },
     "context_ref_type": {
       "type": "string",
-      "title": "Ref Type"
+      "title": "context_ref_type"
     },
     "context_ref_id": {
       "type": "string",
-      "title": "Ref id"
+      "title": "context_ref_id"
+    },
+    "invite_context": {
+      "type": "string",
+      "title": "invite_context",
+      "required": false
     }
   }
 }
