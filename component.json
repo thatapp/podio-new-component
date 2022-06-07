@@ -1015,7 +1015,7 @@
         "role": {
           "label": "The role of the new users",
           "required": true,
-          "viewClass": "MultiSelectView",
+          "viewClass": "SelectView",
           "model": {
             "employee": "Employee",
             "external": "External",
