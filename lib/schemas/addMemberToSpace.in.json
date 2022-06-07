@@ -11,16 +11,25 @@
       "title": "message"
     },
     "users": {
-      "type": "string",
-      "title": "users"
+      "type": "array",
+      "title": "users",
+      "items": {
+        "type": "number"
+      }
     },
     "profiles": {
-      "type": "string",
-      "title": "Profile"
+      "type": "array",
+      "title": "Profile",
+      "items": {
+        "type": "number"
+      }
     },
     "mails": {
-      "type": "string",
-      "title": "Mails"
+      "type": "array",
+      "title": "Mails",
+      "items": {
+        "type": "string"
+      }
     },
     "context_ref_type": {
       "type": "string",
