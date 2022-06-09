@@ -1,0 +1,45 @@
+{
+  "type": "object",
+  "properties": {
+    "PodioItemId": {
+      "type": "number",
+      "required": true,
+      "title": "Podio Item ID"
+    },
+    "UniqueId": {
+      "type": "string",
+      "required": true,
+      "title": "UniqueId"
+    },
+    "FirstName": {
+      "type": "string",
+      "required": true,
+      "title": "FirstName"
+    },
+    "LastName": {
+      "type": "string",
+      "required": true,
+      "title": "LastName"
+    },
+    "LocationRef": {
+      "type": "string",
+      "required": true,
+      "title": "LocationRef"
+    },
+    "Agency": {
+      "type": "string",
+      "required": true,
+      "title": "LocationRef"
+    },
+    "FileId": {
+      "type": "string",
+      "required": true,
+      "title": "File ID"
+    },
+    "DocuPhaseURL": {
+      "type": "string",
+      "required": true,
+      "title": "Docuphase URL"
+    }
+  }
+}

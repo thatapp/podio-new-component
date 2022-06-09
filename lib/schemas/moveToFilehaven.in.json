@@ -1,0 +1,15 @@
+{
+  "type": "object",
+  "properties": {
+    "fileURL": {
+      "type": "number",
+      "required": true,
+      "title": "File URL"
+    },
+    "destination": {
+      "type": "string",
+      "required": true,
+      "title": "Destination Folder in FileHaven"
+    }
+  }
+}
