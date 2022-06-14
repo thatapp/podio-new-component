@@ -29,12 +29,12 @@
     "Agency": {
       "type": "string",
       "required": true,
-      "title": "LocationRef"
+      "title": "Agency"
     },
-    "FileId": {
-      "type": "string",
+    "Files": {
+      "type": "object",
       "required": true,
-      "title": "File ID"
+      "title": "Files"
     },
     "DocuPhaseURL": {
       "type": "string",
