@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "FileId": {
+      "type": "number",
+      "required": true,
+      "title": "File id"
+    },
+    "ThatAppUserId": {
+      "type": "number",
+      "required": true,
+      "title": "Thatapp User id"
+    },
+    "rawData": {
+      "type": "string",
+      "required": false,
+      "title": "RawData (Yes/No)"
+    }
+  }
+}
