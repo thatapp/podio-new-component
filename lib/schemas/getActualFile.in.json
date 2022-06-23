@@ -1,0 +1,15 @@
+{
+  "type": "object",
+  "properties": {
+    "FileId": {
+      "type": "number",
+      "required": true,
+      "title": "File id"
+    },
+    "rawData": {
+      "type": "string",
+      "required": false,
+      "title": "RawData (Yes/No)"
+    }
+  }
+}

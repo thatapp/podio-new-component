@@ -1386,7 +1386,28 @@
       "main": "./lib/actions/files/getActualFile.js",
       "title": "File: Get Actual File",
       "metadata": {
-        "in": "./lib/schemas/getFile.in.json"
+        "in": "./lib/schemas/getActualFile.in.json"
+      }
+    },
+    "getActualFileThatApp": {
+      "main": "./lib/actions/files/getActualFileThatApp.js",
+      "title": "File: Get Actual File (ThatApp)",
+      "metadata": {
+        "in": "./lib/schemas/getActualFileThatApp.in.json"
+      }
+    },
+    "moveToFilehaven": {
+      "main": "./lib/actions/files/moveToFilehaven.js",
+      "title": "File: Move file within Filehaven Folder",
+      "metadata": {
+        "in": "./lib/schemas/moveToFilehaven.in.json"
+      }
+    },
+    "sendtoDocuphase": {
+      "main": "./lib/actions/files/sendtoDocuphase.js",
+      "title": "File: Send File to Docuphase",
+      "metadata": {
+        "in": "./lib/schemas/sendtoDocuphase.in.json"
       }
     },
     "cloneItem": {

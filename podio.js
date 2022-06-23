@@ -4,7 +4,6 @@ var request = require('request');
 var Q = require('q');
 var _ = require('lodash');
 var oauthUtils = require('./helpers/oauth-utils.js');
-var concatStream = require('concat-stream');
 const axios = require('axios');
 var handlebars = require('hbs').handlebars;
 
@@ -140,29 +139,29 @@ Podio.prototype.delete = function(path, params) {
     return this.request('DELETE', path, params);
 };
 
-Podio.prototype.uploadFileFromStream = function(fileName, source) {
-    var that = this;
-    var deferred = Q.defer();
-
-    source.on('error', deferred.reject);
-    source.pipe(concatStream(gotFile));
-
-    function gotFile(buffer) {
-        var formData = {
-            filename: fileName,
-                source: {
-                value:  buffer,
-                    options: {
-                    filename: fileName
-                }
-            }
-        };
-
-        deferred.resolve(that.post('/file/', null, formData));
-    }
-
-    return deferred.promise;
-};
+// Podio.prototype.uploadFileFromStream = function(fileName, source) {
+//     var that = this;
+//     var deferred = Q.defer();
+//
+//     source.on('error', deferred.reject);
+//     source.pipe(concatStream(gotFile));
+//
+//     function gotFile(buffer) {
+//         var formData = {
+//             filename: fileName,
+//                 source: {
+//                 value:  buffer,
+//                     options: {
+//                     filename: fileName
+//                 }
+//             }
+//         };
+//
+//         deferred.resolve(that.post('/file/', null, formData));
+//     }
+//
+//     return deferred.promise;
+// };
 
 Podio.prototype.attachFile = function(fileId, refType, refId) {
     var params = {
