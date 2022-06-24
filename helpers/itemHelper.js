@@ -149,7 +149,7 @@ exports.getFieldProperties = (field) => {
                 props.type = 'object';
                 props.properties = {
                     embed: getStrConf('(embed_id)'),
-                    file: getStrConf('(file_id)'),
+                    file: getStrConf('(file_id)')
                 };
                 break;
             case 'email':
