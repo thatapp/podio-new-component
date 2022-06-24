@@ -1,0 +1,22 @@
+{
+    "type": "object",
+    "properties": {
+      "app_id": {
+        "type": "number",
+        "required": true,
+        "title": "app_id"
+      },
+      "ref_type": {
+        "type": "string",
+        "required": false,
+        "title": "ref_type"
+      },
+      "highlights": {
+        "type": "boolean",
+        "required": false,
+        "title": "highlights"
+      }
+    }
+  }
+  
+  

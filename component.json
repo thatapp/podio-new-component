@@ -720,32 +720,10 @@
     "searchApp": {
       "main": "./lib/actions/all/searchApp.js",
       "title": "Search: App",
-      "fields": {
-        "appId": {
-          "viewClass": "TextFieldView",
-          "prompt": "Select an App",
-          "label": "Podio Application",
-          "required": true
-        },
-        "highlights": {
-          "label": "Highlights",
-          "required": true,
-          "viewClass": "SelectView",
-          "model": {
-            "true": "True",
-            "false": "False"
-          },
-          "prompt": "Make a selection"
-        },
-        "ref_type": {
-          "label": "Ref Type",
-          "required": true,
-          "viewClass": "TextFieldView",
-          "prompt": "Make a selection",
-          "note": "Restrict the search to objects of the given type. Can be 'item', 'task', 'file', 'conversation', 'profile', and 'app'"
-        }
-      },
-      "dynamicMetadata": true
+      "dynamicMetadata": true,
+      "metadata": {
+        "in": "./lib/schemas/searchApp.in.json"
+      }
     },
     "getComment": {
       "main": "./lib/actions/comments/getComment.js",
