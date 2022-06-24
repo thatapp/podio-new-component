@@ -13,7 +13,7 @@
       },
       "search_fields": {
         "type": "string",
-        "required": true,
+        "required": false,
         "title": "The list of fields to search in. Can f.ex. be used to limit the search to the title field."
       },
       "ref_type": {
