@@ -6,10 +6,25 @@
         "required": true,
         "title": "app_id"
       },
+      "query": {
+        "type": "string",
+        "required": true,
+        "title": "the text to search for"
+      },
+      "search_fields": {
+        "type": "string",
+        "required": true,
+        "title": "The list of fields to search in. Can f.ex. be used to limit the search to the title field."
+      },
       "ref_type": {
         "type": "string",
         "required": false,
         "title": "ref_type"
+      },
+      "counts": {
+        "type": "number",
+        "required": false,
+        "title": "counts"
       },
       "highlights": {
         "type": "boolean",
