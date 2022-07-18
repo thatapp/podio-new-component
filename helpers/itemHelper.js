@@ -101,7 +101,6 @@ exports.getFieldProperties = (field) => {
             case 'state':
             case 'image':
             case 'tel':
-            case 'tel':
                 props.type = 'string';
                 break;
             case 'date':
@@ -149,8 +148,7 @@ exports.getFieldProperties = (field) => {
             case 'embed':
                 props.type = 'object';
                 props.properties = {
-                    type: getStrConf('(embed|file)'),
-                    value: getStrConf('(embed_id)')
+                    embed: getStrConf('(Resolved URL)')
                 };
                 break;
             case 'email':
@@ -188,7 +186,7 @@ exports.getFieldProperties = (field) => {
 
 exports.getProperties = (fields, helper) => {
     function format(result, field) {
-        const properties = this.getFieldProperties(field,helper);
+        const properties = helper.getFieldProperties(field,helper);
         if (properties) {
             if(field.status === "active") {
                 result[field.external_id] = properties;
