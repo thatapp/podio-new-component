@@ -20,6 +20,18 @@
     }
   },
   "actions": {
+    "getTokens": {
+      "main": "./lib/actions/all/getTokens.js",
+      "title": "Credential: Get Tokens",
+      "fields": {
+        "random_id": {
+          "viewClass": "TextFieldView",
+          "prompt": "Enter Any Random Data",
+          "label": "Random Data",
+          "required": true
+        }
+      }
+    },
     "createItem": {
       "main": "./lib/actions/items/createItem.js",
       "title": "Item: Create",
