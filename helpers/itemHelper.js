@@ -101,6 +101,7 @@ exports.getFieldProperties = (field) => {
             case 'state':
             case 'image':
             case 'tel':
+            case 'tel':
                 props.type = 'string';
                 break;
             case 'date':
@@ -148,7 +149,8 @@ exports.getFieldProperties = (field) => {
             case 'embed':
                 props.type = 'object';
                 props.properties = {
-                    embed: getStrConf('(Resolved URL)')
+                    type: getStrConf('(embed|file)'),
+                    value: getStrConf('(embed_id)')
                 };
                 break;
             case 'email':
@@ -186,7 +188,7 @@ exports.getFieldProperties = (field) => {
 
 exports.getProperties = (fields, helper) => {
     function format(result, field) {
-        const properties = helper.getFieldProperties(field,helper);
+        const properties = this.getFieldProperties(field,helper);
         if (properties) {
             if(field.status === "active") {
                 result[field.external_id] = properties;
@@ -201,7 +203,7 @@ exports.proccessAll = (app, helper, itemProperties, cb, outScheme) => {
     let outProperties;
     if (!_.isArray(app.fields)) return cb(new Error('No fields found'));
 
-    itemProperties = _.extend(itemProperties, helper.getProperties(app.fields,helper));
+    itemProperties = _.extend(itemProperties, this.getProperties(app.fields,helper));
     console.log(JSON.stringify(itemProperties));
     outProperties = _.extend(outScheme, itemProperties);
 
