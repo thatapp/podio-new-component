@@ -17,7 +17,7 @@ Podio.prototype.request = function(method, path, params, formData,headers) {
     var that = this;
     if(!headers){
         headers = {
-            Authorization : 'OAuth2 05973f7ac4614cf3955e244bcc00db36'
+            Authorization : 'OAuth2 ' + this.cfg.oauth.access_token
         };
     }
     var requestParams = {
