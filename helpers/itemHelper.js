@@ -47,9 +47,6 @@ exports.emitData = async (cfg,result,that,end = null) => {
             const output = messages.newMessageWithBody(i_item);
             await that.emit('data', output);
         }
-        // if(end === null) {
-        //     await that.emit('end');
-        // }
     } else {
         that.emit('data', messages.newMessageWithBody(result));
     }
