@@ -101,6 +101,7 @@ exports.getFieldProperties = (field) => {
             case 'state':
             case 'image':
             case 'tel':
+            case 'embed':
                 props.type = 'string';
                 break;
             case 'date':
@@ -145,12 +146,12 @@ exports.getFieldProperties = (field) => {
                     value: getNumConf('(Value)')
                 };
                 break;
-            case 'embed':
-                props.type = 'object';
-                props.properties = {
-                    embed: getStrConf('(Resolved URL)')
-                };
-                break;
+            // case 'embed':
+            //     props.type = 'object';
+            //     props.properties = {
+            //         embed: getStrConf('(Resolved URL)')
+            //     };
+            //     break;
             case 'email':
                 props.type = 'object';
                 props.properties = {
