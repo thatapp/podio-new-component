@@ -1434,6 +1434,13 @@
       "metadata": {
         "in": "./lib/schemas/FilterItemsByView.in.json"
       }
+    },
+    "deleteItem": {
+      "main": "./lib/actions/items/deleteItem.js",
+      "title": "Delete Item",
+      "metadata": {
+        "in": "./lib/schemas/deleteItem.in.json"
+      }
     }
   },
   "triggers": {
