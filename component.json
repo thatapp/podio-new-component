@@ -1441,6 +1441,15 @@
       "metadata": {
         "in": "./lib/schemas/deleteItem.in.json"
       }
+    },
+    "showCredential": {
+      "main": "./lib/actions/all/showCredential.js",
+      "title": "Show Credential",
+      "fields": {
+        "splitResult": {
+          "label": "Show Credentials"
+        }
+      }
     }
   },
   "triggers": {
