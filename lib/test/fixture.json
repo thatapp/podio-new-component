@@ -115,7 +115,13 @@
                     "username":"ex do",
                     "platform":"ipsum do",
                     "item_id":"1298870607",
-                    "query" : "update"
+                    "query" : "update",
+                    "date": {
+                        "start_date": "7928392382"
+                    },
+                    "date2": {
+                        "start_date": []
+                    }
                 }
             },
             "cfg": {
