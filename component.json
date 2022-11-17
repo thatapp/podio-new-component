@@ -68,11 +68,13 @@
         "hook": {
           "label": "Hook: True if hooks should be executed for the change, false otherwise",
           "viewClass": "CheckBoxView",
+          "required": true,
           "note": "True if hooks should be executed for the change, false otherwise. Default value: true"
         },
         "silent": {
           "label": "Silent: True if notifications will be generated, false otherwise",
           "viewClass": "CheckBoxView",
+          "required": true,
           "note": "If set to true, the object will not be bumped up in the stream and notifications will not be generated. Default value: false"
         }
       },
