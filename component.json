@@ -1462,7 +1462,6 @@
           "label": "Show Credentials",
           "viewClass": "CheckBoxView",
           "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
-
         }
       }
     },
@@ -1470,18 +1469,6 @@
       "main": "./lib/actions/files/attachFile.js",
       "title": "Files: Attach file",
       "fields": {
-        "file_id": {
-          "viewClass": "TextFieldView",
-          "label": "File Id",
-          "placeholder": "File id",
-          "required": true
-        },
-        "ref_id": {
-          "viewClass": "TextFieldView",
-          "label": "Ref Id",
-          "placeholder": "The id of the object the file should be attached to",
-          "required": true
-        },
         "ref_type": {
           "viewClass": "SelectView",
           "label": "Ref Type",
@@ -1496,24 +1483,16 @@
           },
           "prompt": "Select Object Ref type"
         }
+      },
+      "metadata": {
+        "in": "./lib/schemas/attachFile.in.json"
       }
     },
-    "uploadFile": {
+    "publicUrl": {
       "main": "./lib/actions/files/uploadFileV2.js",
       "title": "Files: Upload file",
-      "fields": {
-        "source": {
-          "viewClass": "TextFieldView",
-          "label": "Source",
-          "placeholder": "Contents of the file",
-          "required": true
-        },
-        "filename": {
-          "viewClass": "TextFieldView",
-          "label": "Filename",
-          "placeholder": "Name of the file",
-          "required": true
-        }
+      "metadata": {
+        "in": "./lib/schemas/uploadFile.in.json"
       }
     }
   },

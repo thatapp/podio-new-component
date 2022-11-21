@@ -1,0 +1,15 @@
+{
+  "type": "object",
+  "properties": {
+    "file_id": {
+      "type": "number",
+      "required": true,
+      "title": "File id"
+    },
+    "ref_id": {
+      "type": "number",
+      "required": true,
+      "title": "Ref Id"
+    }
+  }
+}
