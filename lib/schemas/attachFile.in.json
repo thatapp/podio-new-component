@@ -7,7 +7,7 @@
       "title": "File id"
     },
     "ref_id": {
-      "type": "number",
+      "type": "string",
       "required": true,
       "title": "Ref Id"
     }
