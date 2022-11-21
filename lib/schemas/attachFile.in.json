@@ -2,7 +2,7 @@
   "type": "object",
   "properties": {
     "file_id": {
-      "type": "number",
+      "type": "string",
       "required": true,
       "title": "File id"
     },
