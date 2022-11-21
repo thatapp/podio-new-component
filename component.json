@@ -1499,7 +1499,7 @@
       }
     },
     "uploadFile": {
-      "main": "./lib/actions/files/uploadFile.js",
+      "main": "./lib/actions/files/uploadFileV2.js",
       "title": "Files: Upload file",
       "fields": {
         "source": {
