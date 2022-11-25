@@ -1492,6 +1492,13 @@
       "metadata": {
         "in": "./lib/schemas/uploadFile.in.json"
       }
+    },
+    "uploadFile": {
+      "main": "./lib/actions/files/uploadFile.js",
+      "title": "Files: Upload file V2",
+      "metadata": {
+        "in": "./lib/schemas/uploadFileV2.in.json"
+      }
     }
   },
   "triggers": {
