@@ -1499,6 +1499,13 @@
       "metadata": {
         "in": "./lib/schemas/uploadFileV2.in.json"
       }
+    },
+    "copyFile": {
+      "main": "./lib/actions/files/copyFile.js",
+      "title": "Files: Copy file",
+      "metadata": {
+        "in": "./lib/schemas/copyFile.in.json"
+      }
     }
   },
   "triggers": {
