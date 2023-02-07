@@ -16,7 +16,7 @@ exports.fieldTransform = (item, update = false) => {
         if (typeof item[key] === 'object') {
             if((!_.isEmpty(item[key].value) && _.isUndefined(item[key].type)) &&  _.isUndefined(item[key].currency) && _.isUndefined(item[key].city))
             {
-                data[key.toString()] = parseInt(item[key].value);
+                data[key.toString()] = item[key].value;
             }else if (!_.isEmpty(item[key].value)) {
                 data[key.toString()] = item[key];
             }else if(_.isUndefined(item[key].value)){
