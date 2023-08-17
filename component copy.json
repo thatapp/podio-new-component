@@ -1169,6 +1169,141 @@
         "in": "./lib/schemas/createHooks.in.json"
       }
     },
+    "createSpaceHooks": {
+      "main": "./lib/actions/hooks/createSpaceHook.js",
+      "title": "Hooks: Space Create",
+      "fields": {
+        "orgId": {
+          "viewClass": "SelectView",
+          "prompt": "Select an Organisation",
+          "label": "Podio Organisation",
+          "required": true,
+          "model": "organisations"
+        },
+        "ref_id": {
+          "viewClass": "SelectView",
+          "prompt": "Select a Space",
+          "label": "Podio Space",
+          "required": true,
+          "model": "spaces"
+        },
+        "hook_type": {
+          "viewClass": "MultiSelectView",
+          "label": "Hook",
+          "placeholder": "34343223",
+          "model": "getHooks",
+          "required": true
+        },
+        "url": {
+          "viewClass": "TextFieldView",
+          "label": "url",
+          "placeholder": "https://sync.thatapp.io/podio/123342",
+          "required": true
+        },
+        "splitResult": {
+          "label": "Split Result if it is an Array",
+          "viewClass": "CheckBoxView",
+          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
+        }
+      }
+    },
+    "createAppHooks": {
+      "main": "./lib/actions/hooks/createAppHook.js",
+      "title": "Hooks: App Create",
+      "fields": {
+        "orgId": {
+          "viewClass": "SelectView",
+          "prompt": "Select an Organisation",
+          "label": "Select an Organisation",
+          "required": true,
+          "model": "organisations"
+        },
+        "spaceId": {
+          "viewClass": "SelectView",
+          "prompt": "Select a Space",
+          "label": "Select a Space",
+          "required": true,
+          "model": "spaces"
+        },
+        "ref_id": {
+          "viewClass": "SelectView",
+          "prompt": "Select an App",
+          "label": "Select an App",
+          "required": true,
+          "model": "applications"
+        },
+        "hook_type": {
+          "viewClass": "MultiSelectView",
+          "label": "Hook",
+          "placeholder": "34343223",
+          "model": "getHooks",
+          "required": true
+        },
+        "url": {
+          "viewClass": "TextFieldView",
+          "label": "url",
+          "placeholder": "https://sync.thatapp.io/podio/123342",
+          "required": true
+        },
+        "splitResult": {
+          "label": "Split Result if it is an Array",
+          "viewClass": "CheckBoxView",
+          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
+        }
+      }
+    },
+    "createFieldHooks": {
+      "main": "./lib/actions/hooks/createFieldHook.js",
+      "title": "Hooks: Field Create",
+      "fields": {
+        "orgId": {
+          "viewClass": "SelectView",
+          "prompt": "Select an Organisation",
+          "label": "Select an Organisation",
+          "required": true,
+          "model": "organisations"
+        },
+        "spaceId": {
+          "viewClass": "SelectView",
+          "prompt": "Select a Space",
+          "label": "Select a Space",
+          "required": true,
+          "model": "spaces"
+        },
+        "appId": {
+          "viewClass": "SelectView",
+          "prompt": "Select an App",
+          "label": "Select an App",
+          "required": true,
+          "model": "applications"
+        },
+        "ref_id": {
+          "viewClass": "SelectView",
+          "prompt": "Select a Field",
+          "label": "Select a Field",
+          "required": true,
+          "model": "fields"
+        },
+        "hook_type": {
+          "viewClass": "MultiSelectView",
+          "label": "Hook",
+          "placeholder": "34343223",
+          "model": "getHooks",
+          "required": true
+        },
+        "url": {
+          "viewClass": "TextFieldView",
+          "label": "url",
+          "placeholder": "https://sync.thatapp.io/podio/123342",
+          "required": true
+        },
+        "splitResult": {
+          "label": "Split Result if it is an Array",
+          "viewClass": "CheckBoxView",
+          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
+        }
+      }
+    },
     "getItemReferences": {
       "main": "./lib/actions/items/getItemReferences.js",
       "title": "Items: Get Item References",
