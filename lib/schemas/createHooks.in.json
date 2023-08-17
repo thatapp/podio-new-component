@@ -7,9 +7,16 @@
       "title": "Ref Type"
     },
     "ref_id": {
-      "type": "number",
-      "required": true,
-      "title": "Ref Id"
+      "viewClass": "TextFieldView",
+      "label": "Ref Id(Space_id or App_id or Field_id)",
+      "placeholder": "34343223",
+      "required": true
+    },
+    "url": {
+      "viewClass": "TextFieldView",
+      "label": "url",
+      "placeholder": "https://sync.thatapp.io/podio/123342",
+      "required": true
     }
   }
 }

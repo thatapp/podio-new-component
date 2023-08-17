@@ -1159,23 +1159,14 @@
           "model": "getHooks",
           "required": true
         },
-        "ref_id": {
-          "viewClass": "TextFieldView",
-          "label": "Ref Id(Space_id or App_id or Field_id)",
-          "placeholder": "34343223",
-          "required": true
-        },
-        "url": {
-          "viewClass": "TextFieldView",
-          "label": "url",
-          "placeholder": "https://sync.thatapp.io/podio/123342",
-          "required": true
-        },
         "splitResult": {
           "label": "Split Result if it is an Array",
           "viewClass": "CheckBoxView",
           "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
         }
+      },
+      "metadata": {
+        "in": "./lib/schemas/createHooks.in.json"
       }
     },
     "createSpaceHooks": {
