@@ -600,9 +600,9 @@
       },
       "dynamicMetadata": true
     },
-    "getSpaceMember": {
-      "main": "./lib/actions/spaces/getSpaceMember.js",
-      "title": "Space: Get Space Member",
+    "getSpaceMembers": {
+      "main": "./lib/actions/spaces/getSpaceMembers.js",
+      "title": "Space: Get Space Members v2",
       "fields": {
         "orgId": {
           "viewClass": "SelectView",
@@ -625,6 +625,13 @@
         }
       },
       "dynamicMetadata": true
+    },
+    "getSpaceMember": {
+      "main": "./lib/actions/spaces/getSpaceMembership.js",
+      "title": "Space: Get Space Member",
+      "metadata": {
+        "in": "./lib/schemas/getSpaceMember.in.json"
+      }
     },
     "getSpaceMembership": {
       "main": "./lib/actions/spaces/getSpaceMembership.js",
