@@ -10,6 +10,11 @@
       "type": "number",
       "required": true,
       "title": "User Id"
+    },
+    "role": {
+      "type": "number",
+      "required": true,
+      "title": "Role"
     }
   }
 }
