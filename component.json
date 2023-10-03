@@ -1351,6 +1351,13 @@
         "in": "./lib/schemas/uploadFile.in.json"
       }
     },
+    "publicUrl": {
+      "main": "./lib/actions/files/uploadFileV3.js",
+      "title": "Files: Upload file v3(Base64 data)",
+      "metadata": {
+        "in": "./lib/schemas/uploadFilev3.in.json"
+      }
+    },
     "uploadFile": {
       "main": "./lib/actions/files/uploadFile.js",
       "title": "Files: Upload file V2",
