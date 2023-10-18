@@ -2,17 +2,17 @@
   "type": "object",
   "properties": {
     "space_id": {
-      "type": "number",
+      "type": "string",
       "required": true,
       "title": "Space id"
     },
     "user_ids": {
-      "type": "number",
+      "type": "string",
       "required": true,
       "title": "User Id"
     },
     "role": {
-      "type": "number",
+      "type": "string",
       "required": true,
       "title": "Role"
     }
