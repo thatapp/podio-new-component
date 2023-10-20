@@ -13,9 +13,10 @@
       "required": true
     },
     "role_t": {
-      "viewClass": "string",
+      "type": "string",
       "title": "Role",
       "required": true
     }
   }
 }
+
