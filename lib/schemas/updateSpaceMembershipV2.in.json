@@ -1,18 +1,18 @@
 {
   "type": "object",
   "properties": {
-    "space_id": {
-      "type": "string",
+    "space_t_id": {
+      "type": "number",
       "required": true,
       "title": "Space id"
     },
-    "user_id": {
+    "user_t_id": {
       "type": "number",
       "title": "User ID",
       "placeholder": "34343223",
       "required": true
     },
-    "role": {
+    "role_t": {
       "viewClass": "string",
       "title": "Role",
       "required": true
