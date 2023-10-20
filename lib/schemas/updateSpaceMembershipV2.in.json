@@ -1,0 +1,21 @@
+{
+  "type": "object",
+  "properties": {
+    "space_id": {
+      "type": "string",
+      "required": true,
+      "title": "Space id"
+    },
+    "user_id": {
+      "type": "number",
+      "title": "User ID",
+      "placeholder": "34343223",
+      "required": true
+    },
+    "role": {
+      "viewClass": "string",
+      "title": "Role",
+      "required": true
+    }
+  }
+}

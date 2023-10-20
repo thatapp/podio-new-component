@@ -997,7 +997,7 @@
     },
     "updateSpaceMembership": {
       "main": "./lib/actions/spaces/updateSpaceMembership.js",
-      "title": "Space: Update Space Membership",
+      "title": "Space: Update Space Membership(Deprecated)",
       "fields": {
         "splitResult": {
           "label": "Split Result if it is an Array",
@@ -1007,6 +1007,20 @@
       },
       "metadata": {
         "in": "./lib/schemas/updateSpaceMembership.in.json"
+      }
+    },
+    "updateSpaceMembershipV2": {
+      "main": "./lib/actions/spaces/updateSpaceMembershipV2.js",
+      "title": "Space: Update Space Membership V2",
+      "fields": {
+        "splitResult": {
+          "label": "Split Result if it is an Array",
+          "viewClass": "CheckBoxView",
+          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
+        }
+      },
+      "metadata": {
+        "in": "./lib/schemas/updateSpaceMembershipV2.in.json"
       }
     },
     "addMemberToSpace": {
