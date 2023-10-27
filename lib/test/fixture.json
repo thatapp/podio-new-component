@@ -21,6 +21,29 @@
                 }
             }
         },
+        "updateV2":{
+            "msg":{
+                "oauth": {
+                    "access_token": "364799ce14420edda42ae48c9c187a4c",
+                    "token_type": "bearer",
+                    "refresh_token": "d53b599ec18f4098bce11def7289d92b"
+                },
+                "headers":{},
+                "body":{
+                    "space_t_id" : "7491063",
+                    "user_t_id" : "4757151",
+                    "role_t" : "admin"
+                }
+            },
+            "cfg": {
+                "appId" : 22758086,
+                "oauth": {
+                    "access_token": "364799ce14420edda42ae48c9c187a4c",
+                    "token_type": "bearer",
+                    "refresh_token": "d53b599ec18f4098bce11def7289d92b"
+                }
+            }
+        },
         "hooks":{
             "msg":{
                 "oauth": {

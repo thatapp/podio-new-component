@@ -1,5 +1,28 @@
 {
   "fixtures": {
+    "updateV2":{
+      "msg":{
+        "oauth": {
+          "access_token": "6fb88c45d0e1ac5ee3af378441b348d3",
+          "token_type": "bearer",
+          "refresh_token": "af3800dbad97a90bc86744e0890318ba"
+        },
+        "headers":{},
+        "body":{
+          "space_t_id" : 7491063,
+          "user_t_id" : 4757151,
+          "role_t" : "admin"
+        }
+      },
+      "cfg": {
+        "appId" : 22758086,
+        "oauth": {
+          "access_token": "6fb88c45d0e1ac5ee3af378441b348d3",
+          "token_type": "bearer",
+          "refresh_token": "af3800dbad97a90bc86744e0890318ba"
+        }
+      }
+    },
     "getItemData": {
       "msg": {
         "body": {
