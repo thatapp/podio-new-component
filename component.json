@@ -1032,11 +1032,10 @@
           "required": true,
           "viewClass": "SelectView",
           "model": {
-            "employee": "Employee",
-            "external": "External",
-            "admin": "Admin",
-            "guest": "Guest",
-            "premium": "Premium"
+            "light": "Light",
+            "grant_only": "Grant Only",
+            "regular": "Regular",
+            "admin": "admin"
           }
         }
       },
