@@ -1366,7 +1366,7 @@
     },
     "publicUrl": {
       "main": "./lib/actions/files/uploadFileV2.js",
-      "title": "Files: Upload file",
+      "title": "Files: Upload file v3 (URL)",
       "metadata": {
         "in": "./lib/schemas/uploadFile.in.json"
       }
