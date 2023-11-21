@@ -1364,16 +1364,16 @@
         "in": "./lib/schemas/attachFile.in.json"
       }
     },
-    "publicUrl": {
+    "UploadFile": {
       "main": "./lib/actions/files/uploadFileV2.js",
-      "title": "Files: Upload file v3 (URL)",
+      "title": "Files: Upload file v3(URL)",
       "metadata": {
         "in": "./lib/schemas/uploadFile.in.json"
       }
     },
     "publicUrl": {
       "main": "./lib/actions/files/uploadFileV3.js",
-      "title": "Files: Upload file v3(Base64 git data)",
+      "title": "Files: Upload file v3(Base64 data)",
       "metadata": {
         "in": "./lib/schemas/uploadFilev3.in.json"
       }
