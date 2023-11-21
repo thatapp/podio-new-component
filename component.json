@@ -1373,7 +1373,7 @@
     },
     "publicUrl": {
       "main": "./lib/actions/files/uploadFileV3.js",
-      "title": "Files: Upload file v3(Base64 data)",
+      "title": "Files: Upload file v3(Base64 git data)",
       "metadata": {
         "in": "./lib/schemas/uploadFilev3.in.json"
       }
