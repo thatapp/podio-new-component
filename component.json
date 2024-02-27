@@ -404,6 +404,13 @@
         "in": "./lib/schemas/calendar/getLinkedAccountCalendar.in.json"
       }
     },
+    "getItemFieldValueV2": {
+      "main": "./lib/actions/items/getItemFieldValueV2.js",
+      "title": "Items: Get item field values v2",
+      "metadata": {
+        "in": "./lib/schemas/items/getItemFieldValueV2.in.json"
+      }
+    },
     "getSpaceCalendar": {
       "main": "./lib/actions/calendar/getSpaceCalendar.js",
       "title": "Calendar: Get Space Calendar",

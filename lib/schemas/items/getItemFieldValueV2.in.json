@@ -1,0 +1,17 @@
+{
+  "type": "object",
+  "properties": {
+    "item_id": {
+      "type": "number",
+      "title": "Item Id",
+      "required": true,
+      "placeholder": "item_id "
+    },
+    "field_id": {
+      "type": "number",
+      "title": "Field or External id",
+      "required": true,
+      "placeholder": "It can be the Field or External id"
+    }
+  }
+}
