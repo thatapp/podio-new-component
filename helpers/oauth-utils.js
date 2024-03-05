@@ -120,7 +120,7 @@ async function refreshToken(serviceUri, clientIdKey, clientSecretKey, conf, next
         if (refreshResponse.refresh_token) {
             newConf.oauth.refresh_token = refreshResponse.refresh_token;
         }
-        // console.log(newConf);
+        console.log(newConf);
         next(newConf);
         //  return newConf;
     });
@@ -147,6 +147,8 @@ async function refreshToken(serviceUri, clientIdKey, clientSecretKey, conf, next
                 console.log(result)
                 result.attributes.keys.oauth.access_token = newResponse.access_token;
 
+                console.log("New cred data")
+                console.log(result);
                 const raw = JSON.stringify(result);
 
                 fetch(url, {
