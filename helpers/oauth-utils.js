@@ -75,7 +75,7 @@ var _ = require('lodash');
 // }
 async function refreshToken(serviceUri, clientIdKey, clientSecretKey, conf, next) {
     // 'use strict';
-// return true;
+    // return true;
     var clientId = getValueFromEnv(clientIdKey);
     var clientSecret = getValueFromEnv(clientSecretKey);
 
@@ -109,7 +109,7 @@ async function refreshToken(serviceUri, clientIdKey, clientSecretKey, conf, next
 
         console.log(refreshResponse);
         console.log(conf);
-      //  console.log('Refreshed token from %s', serviceUri);
+        //  console.log('Refreshed token from %s', serviceUri);
         // update access token in configuration
         newConf.oauth.access_token = refreshResponse.access_token;
 
@@ -130,35 +130,40 @@ async function refreshToken(serviceUri, clientIdKey, clientSecretKey, conf, next
         const apiKey = getValueFromEnv("{{AVA_API_KEY}}");
         const myHeaders = new Headers();
         myHeaders.append("accept", "application/json");
-        myHeaders.append("Authorization", httpUtils.createBasicAuthorization(username , apiKey));
+        myHeaders.append("Authorization", httpUtils.createBasicAuthorization(username, apiKey));
         myHeaders.append("Content-Type", "application/json");
+        const component_id = conf.component_id;
+        const url = "https://api.thatapp.io/v2/credentials/" + component_id
 
 
-        const raw = JSON.stringify({
-            "data": {
-                "id": "5b4f337bff4304610483ba67",
-                "type": "credential",
-                "attributes": {
-                    "name": "Credential name",
-                    "keys": {
-                        "username": "John@yahoo.com",
-                        "password": "password"
-                    }
-                },
-            }
-        });
-
-        const requestOptions = {
-            method: "PATCH",
+        fetch(url, {
+            method: "GET",
             headers: myHeaders,
-            body: raw,
             redirect: "follow"
-        };
-
-        fetch("https://api.thatapp.io/v2/credentials/"+ conf.component_id, requestOptions)
+        })
             .then((response) => response.text())
-            .then((result) => console.log(result))
+            .then((result) => {
+                console.log("Retrieved cred data")
+                console.log(result)
+                result.attributes.keys.oauth.access_token = newResponse.access_token;
+
+                const raw = JSON.stringify(result);
+
+                fetch(url, {
+                    method: "PATCH",
+                    headers: myHeaders,
+                    body: raw,
+                    redirect: "follow"
+                })
+                    .then((response) => response.text())
+                    .then((result) => {
+                        console.log("Updated cred data")
+                        console.log(result)
+                    })
+                    .catch((error) => console.error(error));
+            })
             .catch((error) => console.error(error));
+
     }
 }
 function getValueFromEnv(key) {
