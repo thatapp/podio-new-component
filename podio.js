@@ -83,7 +83,6 @@ Podio.prototype.request = function (method, path, params, formData, headers) {
 
     async function updateToken(cfg) {
         console.log('Updating component credentials with new access token');
-        console.log(cfg);
         var data = {
             data: {
                 id: cfg._account,
@@ -96,9 +95,6 @@ Podio.prototype.request = function (method, path, params, formData, headers) {
             }
         };
 
-        console.log("New config");
-        console.log(data);
-
         var appDef = require('./component.json');
         var credentials = appDef.credentials || {};
         var oauth2 = credentials["oauth2"];
@@ -106,10 +102,6 @@ Podio.prototype.request = function (method, path, params, formData, headers) {
 
         var email = getValueFromEnv(oauth2['email']);
         var avaApi = getValueFromEnv(oauth2['apiKey']);
-
-        console.log("Creds");
-        console.log(email);
-        console.log(avaApi);
 
         const token = Buffer.from(`${email}:${avaApi}`, 'utf8').toString('base64')
         await axios.patch(`https://api.elastic.io/v2/credentials/${cfg._account}`, data,
