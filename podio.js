@@ -12,19 +12,19 @@ function Podio(cfg, context) {
     this.context = context;
 }
 
-Podio.prototype.request = function(method, path, params, formData,headers) {
+Podio.prototype.request = function (method, path, params, formData, headers) {
     var defered = Q.defer();
     var that = this;
-    if(!headers){
+    if (!headers) {
         headers = {
-            Authorization : 'OAuth2 ' + this.cfg.oauth.access_token
+            Authorization: 'OAuth2 ' + this.cfg.oauth.access_token
         };
     }
     var requestParams = {
-        method : method,
+        method: method,
         baseUrl: API_URL,
-        url : path,
-        headers : headers,
+        url: path,
+        headers: headers,
         json: true
     };
 
@@ -40,7 +40,7 @@ Podio.prototype.request = function(method, path, params, formData,headers) {
         }
     }
 
-     request(requestParams, responseHandler);
+    request(requestParams, responseHandler);
 
     async function responseHandler(err, response, body) {
         if (err) {
@@ -48,12 +48,12 @@ Podio.prototype.request = function(method, path, params, formData,headers) {
         }
         try {
             console.log('x-rate-limit-remaining:', response.headers['x-rate-limit-remaining']);
-        }catch (e) {
+        } catch (e) {
 
         }
         if (401 === response.statusCode) {
             //console.log('Podio: Trying to refresh token...');
-           oauthUtils.refreshAppToken('podio', that.cfg, onTokenRefresh);
+            oauthUtils.refreshAppToken('podio', that.cfg, onTokenRefresh);
         } else if (response.statusCode >= 400) {
             if (_.isObject(body)) {
                 err = new Error(body.error_description);
@@ -64,11 +64,11 @@ Podio.prototype.request = function(method, path, params, formData,headers) {
             err.statusCode = response.statusCode;
             return defered.reject(err);
         } else {
-           if(body != undefined) {
-               if (response.headers != undefined) {
-                   body.headers = response.headers;
-               }
-           }
+            if (body != undefined) {
+                if (response.headers != undefined) {
+                    body.headers = response.headers;
+                }
+            }
             return defered.resolve(body);
         }
     }
@@ -83,6 +83,7 @@ Podio.prototype.request = function(method, path, params, formData,headers) {
 
     async function updateToken(cfg) {
         console.log('Updating component credentials with new access token');
+        console.log(cfg);
         var data = {
             data: {
                 id: cfg._account,
@@ -95,47 +96,47 @@ Podio.prototype.request = function(method, path, params, formData,headers) {
             }
         };
 
+        console.log("New config");
+        console.log(data);
 
         var appDef = require('./component.json');
         var credentials = appDef.credentials || {};
         var oauth2 = credentials["oauth2"];
 
 
-       //  var email = getValueFromEnv(oauth2['email']);
-       //  var avaApi = getValueFromEnv(oauth2['apiKey']);
-       //
-       //
-       //
-       //
-       //  const token = Buffer.from(`${email}:${avaApi}`, 'utf8').toString('base64')
-       // await axios.patch(`https://api.elastic.io/v2/credentials/${cfg._account}`, data,
-       //  {
-       //      headers: {
-       //          'Authorization': `Basic ${token}`
-       //      },
-       //  }
-    // ).catch((errr) => {
-    //     console.log(errr);
-    // });
-        // that.context.request.emit('updateAccessToken', new_auth);
+        var email = getValueFromEnv(oauth2['email']);
+        var avaApi = getValueFromEnv(oauth2['apiKey']);
+
+
+        const token = Buffer.from(`${email}:${avaApi}`, 'utf8').toString('base64')
+        await axios.patch(`https://api.elastic.io/v2/credentials/${cfg._account}`, data,
+            {
+                headers: {
+                    'Authorization': `Basic ${token}`
+                },
+            }
+        ).catch((errr) => {
+            console.log(errr);
+        });
+        that.context.request.emit('updateAccessToken', new_auth);
     }
 
     return defered.promise;
 };
 
-Podio.prototype.get = function(path, params,headers) {
-    return this.request('GET', path, params,null,headers);
+Podio.prototype.get = function (path, params, headers) {
+    return this.request('GET', path, params, null, headers);
 };
 
-Podio.prototype.post = function(path, params, formData,headers) {
-    return this.request('POST', path, params, formData,headers);
+Podio.prototype.post = function (path, params, formData, headers) {
+    return this.request('POST', path, params, formData, headers);
 };
 
-Podio.prototype.put = function(path, params) {
+Podio.prototype.put = function (path, params) {
     return this.request('PUT', path, params);
 };
 
-Podio.prototype.delete = function(path, params) {
+Podio.prototype.delete = function (path, params) {
     return this.request('DELETE', path, params);
 };
 
@@ -163,12 +164,12 @@ Podio.prototype.delete = function(path, params) {
 //     return deferred.promise;
 // };
 
-Podio.prototype.attachFile = function(fileId, refType, refId) {
+Podio.prototype.attachFile = function (fileId, refType, refId) {
     var params = {
         ref_type: refType,
         ref_id: refId
     };
-    return this.post('/file/'+fileId+'/attach', params);
+    return this.post('/file/' + fileId + '/attach', params);
 };
 
 function getValueFromEnv(key) {
