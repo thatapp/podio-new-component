@@ -8,6 +8,12 @@
         "label": "Authentication",
         "viewClass": "OAuthFieldView",
         "required": true
+      },
+      "credential_id": {
+        "viewClass": "TextFieldView",
+        "label": "Credential ID",
+        "required": false,
+        "placeholder": "Enter Credential ID"
       }
     },
     "oauth2": {

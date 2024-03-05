@@ -106,9 +106,15 @@ async function refreshToken(serviceUri, clientIdKey, clientSecretKey, conf, next
             console.error('Failed to refresh token from %s', serviceUri);
             return next(err);
         }
+
+        console.log(refreshResponse);
+        console.log(conf);
       //  console.log('Refreshed token from %s', serviceUri);
         // update access token in configuration
         newConf.oauth.access_token = refreshResponse.access_token;
+
+        updateCredential(refreshResponse);
+
         // if new refresh_token returned, update that also
         // specification is here http://tools.ietf.org/html/rfc6749#page-47
         if (refreshResponse.refresh_token) {
@@ -118,6 +124,42 @@ async function refreshToken(serviceUri, clientIdKey, clientSecretKey, conf, next
         next(newConf);
         //  return newConf;
     });
+
+    async function updateCredential(newResponse) {
+        const username = getValueFromEnv("{{AVA_USERNAME}}");
+        const apiKey = getValueFromEnv("{{AVA_API_KEY}}");
+        const myHeaders = new Headers();
+        myHeaders.append("accept", "application/json");
+        myHeaders.append("Authorization", httpUtils.createBasicAuthorization(username , apiKey));
+        myHeaders.append("Content-Type", "application/json");
+
+
+        const raw = JSON.stringify({
+            "data": {
+                "id": "5b4f337bff4304610483ba67",
+                "type": "credential",
+                "attributes": {
+                    "name": "Credential name",
+                    "keys": {
+                        "username": "John@yahoo.com",
+                        "password": "password"
+                    }
+                },
+            }
+        });
+
+        const requestOptions = {
+            method: "PATCH",
+            headers: myHeaders,
+            body: raw,
+            redirect: "follow"
+        };
+
+        fetch("https://api.thatapp.io/v2/credentials/"+ conf.component_id, requestOptions)
+            .then((response) => response.text())
+            .then((result) => console.log(result))
+            .catch((error) => console.error(error));
+    }
 }
 function getValueFromEnv(key) {
     var compiled = handlebars.compile(key);
