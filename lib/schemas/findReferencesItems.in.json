@@ -1,6 +1,11 @@
 {
   "type": "object",
   "properties": {
+    "field_id": {
+      "type": "string",
+      "title": "Field Id",
+      "required": true
+    },
     "limit": {
       "type": "number",
       "title": "Limit",
