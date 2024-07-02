@@ -1402,14 +1402,13 @@
       "metadata": {
         "in": "./lib/schemas/verifyHooks.in.json"
       }
-    },
-    "createTag": {
-      "main": "./lib/actions/tags/createTag.js",
-      "title": "Create Tag(s)",
-      "metadata": {
-        "in": "./lib/schemas/tags/create.in.json"
-      }
     }
-    
+  },
+  "createTag": {
+    "main": "./lib/actions/tags/createTag.js",
+    "title": "Tag: Create",
+    "metadata": {
+      "in": "./lib/schemas/tags/create.in.json"
+    }
   }
 }
