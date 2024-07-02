@@ -1361,6 +1361,13 @@
       "metadata": {
         "in": "./lib/schemas/copyFile.in.json"
       }
+    },
+    "createTag": {
+      "main": "./lib/actions/tags/createTag.js",
+      "title": "Tag: Create",
+      "metadata": {
+        "in": "./lib/schemas/tags/create.in.json"
+      }
     }
   },
   "triggers": {
@@ -1402,13 +1409,6 @@
       "metadata": {
         "in": "./lib/schemas/verifyHooks.in.json"
       }
-    }
-  },
-  "createTag": {
-    "main": "./lib/actions/tags/createTag.js",
-    "title": "Tag: Create",
-    "metadata": {
-      "in": "./lib/schemas/tags/create.in.json"
     }
   }
 }
