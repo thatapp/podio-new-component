@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "ref_type": {
+      "type": "string",
+      "title": "Object Type",
+      "required": true,
+      "placeholder": "Objects can be “items” or “status”"
+    },
+    "ref_id": {
+      "type": "number",
+      "title": "Object Id",
+      "required": true,
+      "placeholder": "Values can be 'item_id' or 'status_id' "
+    },
+    "text": {
+      "type": "string",
+      "title": "Tag(s)",
+      "required": true,
+      "placeholder": "Seperate tags with a comma. E.g. tag_1, tag_2"
+    }
+  }
+}
