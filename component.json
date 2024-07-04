@@ -1362,11 +1362,25 @@
         "in": "./lib/schemas/copyFile.in.json"
       }
     },
-    "createTag": {
-      "main": "./lib/actions/tags/createTag.js",
-      "title": "Tag: Create",
+    "createTags": {
+      "main": "./lib/actions/tags/createTags.js",
+      "title": "Tags: Create",
       "metadata": {
         "in": "./lib/schemas/tags/create.in.json"
+      }
+    },
+    "updateTags": {
+      "main": "./lib/actions/tags/updateTags.js",
+      "title": "Tags: Update",
+      "metadata": {
+        "in": "./lib/schemas/tags/update.in.json"
+      }
+    },
+    "deleteTags": {
+      "main": "./lib/actions/tags/deleteTags.js",
+      "title": "Tags: Delete",
+      "metadata": {
+        "in": "./lib/schemas/tags/delete.in.json"
       }
     }
   },
