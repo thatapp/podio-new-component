@@ -40,6 +40,8 @@ Podio.prototype.request = function (method, path, params, formData, headers) {
         }
     }
 
+    console.log(requestParams);
+
     request(requestParams, responseHandler);
 
     async function responseHandler(err, response, body) {
