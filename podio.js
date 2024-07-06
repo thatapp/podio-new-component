@@ -40,8 +40,6 @@ Podio.prototype.request = function (method, path, params, formData, headers) {
         }
     }
 
-    console.log(requestParams);
-
     request(requestParams, responseHandler);
 
     async function responseHandler(err, response, body) {
@@ -133,8 +131,8 @@ Podio.prototype.put = function (path, params) {
     return this.request('PUT', path, params);
 };
 
-Podio.prototype.delete = function (path, params, formData = null) {
-    return this.request('DELETE', path, params, formData);
+Podio.prototype.delete = function (path, params) {
+    return this.request('DELETE', path, params);
 };
 
 // Podio.prototype.uploadFileFromStream = function(fileName, source) {
