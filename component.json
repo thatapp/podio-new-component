@@ -1364,23 +1364,23 @@
     },
     "createTags": {
       "main": "./lib/actions/tags/createTags.js",
-      "title": "Tags: Create",
+      "title": "Tags: Create tags",
       "metadata": {
         "in": "./lib/schemas/tags/create.in.json"
       }
     },
     "updateTags": {
       "main": "./lib/actions/tags/updateTags.js",
-      "title": "Tags: Update",
+      "title": "Tags: Update tags",
       "metadata": {
         "in": "./lib/schemas/tags/update.in.json"
       }
     },
-    "deleteTags": {
-      "main": "./lib/actions/tags/deleteTags.js",
-      "title": "Tags: Delete",
+    "removeTags": {
+      "main": "./lib/actions/tags/removeTags.js",
+      "title": "Tags: Remove tag",
       "metadata": {
-        "in": "./lib/schemas/tags/delete.in.json"
+        "in": "./lib/schemas/tags/remove.in.json"
       }
     }
   },
