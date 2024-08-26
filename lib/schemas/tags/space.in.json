@@ -1,0 +1,23 @@
+{
+  "type": "object",
+  "properties": {
+    "app_id": {
+      "type": "number",
+      "title": "Space Id",
+      "required": true,
+      "placeholder": "Valid org id"
+    },
+    "limit": {
+      "type": "number",
+      "title": "Limit",
+      "required": false,
+      "placeholder": "The maximum number of tags to return"
+    },
+    "text": {
+      "type": "string",
+      "title": "Text",
+      "required": false,
+      "placeholder": "The tag to search for"
+    }
+  }
+}

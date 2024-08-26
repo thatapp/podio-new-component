@@ -1382,6 +1382,62 @@
       "metadata": {
         "in": "./lib/schemas/tags/remove.in.json"
       }
+    },
+    "getAppTags": {
+      "main": "./lib/actions/tags/getAppTags.js",
+      "title": "Tags: Get tags on app",
+      "metadata": {
+        "in": "./lib/schemas/tags/app.in.json"
+      }
+    },
+    "getAppTagsTop": {
+      "main": "./lib/actions/tags/getAppTagsTop.js",
+      "title": "Tags: Get tags on app top",
+      "metadata": {
+        "in": "./lib/schemas/tags/app_top.in.json"
+      }
+    },
+    "getAppTagsFull": {
+      "main": "./lib/actions/tags/getAppTagsFull.js",
+      "title": "Tags: Get items tagged in app and space",
+      "metadata": {
+        "in": "./lib/schemas/tags/app_full.in.json"
+      }
+    },
+    "getAppTagsSearch": {
+      "main": "./lib/actions/tags/getAppTagsSearch.js",
+      "title": "Tags: Get objects on app with tag",
+      "metadata": {
+        "in": "./lib/schemas/tags/app_search.in.json"
+      }
+    },
+    "getOrgTagsSearch": {
+      "main": "./lib/actions/tags/getOrgTagsSearch.js",
+      "title": "Tags: Get objects on organization with tag",
+      "metadata": {
+        "in": "./lib/schemas/tags/org_search.in.json"
+      }
+    },
+    "getOrgTags": {
+      "main": "./lib/actions/tags/getOrgTags.js",
+      "title": "Tags: Get tags on organization",
+      "metadata": {
+        "in": "./lib/schemas/tags/org.in.json"
+      }
+    },
+    "getSpaceTagsSearch": {
+      "main": "./lib/actions/tags/getSpaceTagsSearch.js",
+      "title": "Tags: Get objects on space with tag",
+      "metadata": {
+        "in": "./lib/schemas/tags/space_search.in.json"
+      }
+    },
+    "getSpaceTags": {
+      "main": "./lib/actions/tags/getSpaceTags.js",
+      "title": "Tags: Get tags on space",
+      "metadata": {
+        "in": "./lib/schemas/tags/space.in.json"
+      }
     }
   },
   "triggers": {
