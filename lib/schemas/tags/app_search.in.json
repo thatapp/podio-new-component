@@ -1,0 +1,17 @@
+{
+  "type": "object",
+  "properties": {
+    "app_id": {
+      "type": "number",
+      "title": "App Id",
+      "required": true,
+      "placeholder": "Valid app id"
+    },
+    "text": {
+      "type": "string",
+      "title": "Text",
+      "required": false,
+      "placeholder": "The tag to search for"
+    }
+  }
+}
