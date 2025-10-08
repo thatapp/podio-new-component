@@ -11,16 +11,6 @@
             "required": true,
             "title": "View Id"
         },
-        "sample": {
-            "type": "boolean",
-            "required": false,
-            "title": "Sample"
-        },
-        "headers": {
-            "type": "object",
-            "required": false,
-            "title": "Headers"
-        },
         "sort_by": {
             "type": "string",
             "title": "Sort By",
