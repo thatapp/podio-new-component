@@ -1,0 +1,16 @@
+{
+  "type": "object",
+  "properties": {
+    "url": {
+      "type": "string",
+      "required": true,
+      "title": "URL",
+      "description": "The absolute URL to fetch metadata for (including protocol, e.g., https://...)"
+    },
+    "mode": {
+      "type": "string",
+      "title": "Mode",
+      "description": "Lookup mode: 'immediate' (default) waits for result, 'delayed' returns immediately and fetches async"
+    }
+  }
+}

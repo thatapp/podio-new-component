@@ -2,6 +2,16 @@
   "title": "Podio",
   "description": "Podio Project Management and Collaboration Software",
   "buildType": "docker",
+  "envVars": {
+    "PODIO_APP_ID": {
+      "required": true,
+      "description": "Podio OAuth Application ID"
+    },
+    "PODIO_APP_SECRET": {
+      "required": true,
+      "description": "Podio OAuth Application Secret"
+    }
+  },
   "credentials": {
     "fields": {
       "oauth": {
@@ -23,18 +33,21 @@
     "getTokens": {
       "main": "./lib/actions/all/getTokens.js",
       "title": "Credential: Get Tokens",
+      "description": "Retrieve current OAuth tokens for debugging or external use",
       "fields": {
         "random_id": {
           "viewClass": "TextFieldView",
-          "prompt": "Enter Any Random Data",
-          "label": "Random Data",
-          "required": true
+          "prompt": "Enter any value",
+          "label": "Trigger Value",
+          "required": true,
+          "note": "Enter any value to trigger token retrieval"
         }
       }
     },
     "createItem": {
       "main": "./lib/actions/items/createItem.js",
       "title": "Item: Create",
+      "description": "Create item with schema-based field mapper (app_id configured statically)",
       "fields": {
         "appId": {
           "viewClass": "TextFieldView",
@@ -43,21 +56,52 @@
           "required": true
         },
         "hook": {
-          "label": "Hook: True if hooks should be executed for the change, false otherwise",
+          "label": "Execute Hooks",
           "viewClass": "CheckBoxView",
-          "note": "True if hooks should be executed for the change, false otherwise. Default value: true"
+          "note": "Execute webhooks and automation flows for this change (default: true)"
         },
         "silent": {
-          "label": "Silent: True if notifications will be generated, false otherwise",
+          "label": "Silent Mode",
           "viewClass": "CheckBoxView",
-          "note": "If set to true, the object will not be bumped up in the stream and notifications will not be generated. Default value: false"
+          "note": "Suppress notifications and activity stream updates (default: false)"
+        },
+        "autoAddCategoryOptions": {
+          "label": "Auto-Add Missing Category Options",
+          "viewClass": "CheckBoxView",
+          "note": "Automatically add missing category values to the app field configuration before creating the item"
         }
       },
       "dynamicMetadata": true
     },
+    "createItemDynamic": {
+      "main": "./lib/actions/items/createItemDynamic.js",
+      "title": "Item: Create (Dynamic)",
+      "description": "Create item with dynamic app_id and raw JSON payload - no schema lookup. Advanced mode for routing to any app.",
+      "fields": {
+        "hook": {
+          "label": "Execute Hooks",
+          "viewClass": "CheckBoxView",
+          "note": "Execute webhooks and automation flows for this change (default: true)"
+        },
+        "silent": {
+          "label": "Silent Mode",
+          "viewClass": "CheckBoxView",
+          "note": "Suppress notifications and activity stream updates (default: false)"
+        },
+        "autoAddCategoryOptions": {
+          "label": "Auto-Add Missing Category Options",
+          "viewClass": "CheckBoxView",
+          "note": "Automatically add missing category values to the app field configuration before creating the item"
+        }
+      },
+      "metadata": {
+        "in": "./lib/schemas/items/createItemDynamic.in.json"
+      }
+    },
     "updateItem": {
       "main": "./lib/actions/items/updateItem.js",
       "title": "Item: Update",
+      "description": "Update an existing item using schema-based field mapper",
       "fields": {
         "appId": {
           "viewClass": "TextFieldView",
@@ -66,14 +110,19 @@
           "required": true
         },
         "hook": {
-          "label": "Hook: True if hooks should be executed for the change, false otherwise",
+          "label": "Execute Hooks",
           "viewClass": "CheckBoxView",
-          "note": "True if hooks should be executed for the change, false otherwise. Default value: true"
+          "note": "Execute webhooks and automation flows for this change (default: true)"
         },
         "silent": {
-          "label": "Silent: True if notifications will be generated, false otherwise",
+          "label": "Silent Mode",
           "viewClass": "CheckBoxView",
-          "note": "If set to true, the object will not be bumped up in the stream and notifications will not be generated. Default value: false"
+          "note": "Suppress notifications and activity stream updates (default: false)"
+        },
+        "autoAddCategoryOptions": {
+          "label": "Auto-Add Missing Category Options",
+          "viewClass": "CheckBoxView",
+          "note": "Automatically add missing category values to the app field configuration before updating the item"
         }
       },
       "dynamicMetadata": true
@@ -81,13 +130,7 @@
     "getItem": {
       "main": "./lib/actions/items/getItem.js",
       "title": "Item: Get",
-      "fields": {
-        "splitResult": {
-          "label": "Split Result if it is an Array",
-          "viewClass": "CheckBoxView",
-          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
-        }
-      },
+      "description": "Retrieve a single item by ID with all field values",
       "metadata": {
         "in": "./lib/schemas/getItem.in.json"
       }
@@ -95,6 +138,7 @@
     "endSpaceMembership": {
       "main": "./lib/actions/spaces/endSpaceMembership.js",
       "title": "Space: End Membership",
+      "description": "Remove a user from a space",
       "metadata": {
         "in": "./lib/schemas/endSpaceMembership.in.json"
       }
@@ -102,13 +146,7 @@
     "getItemValue": {
       "main": "./lib/actions/items/getItemV2.js",
       "title": "Item: Get Value V2",
-      "fields": {
-        "splitResult": {
-          "label": "Split Result if it is an Array",
-          "viewClass": "CheckBoxView",
-          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
-        }
-      },
+      "description": "Retrieve item field values in V2 format (simplified structure)",
       "metadata": {
         "in": "./lib/schemas/getItem.in.json"
       }
@@ -116,97 +154,86 @@
     "getApp": {
       "main": "./lib/actions/apps/getApp.js",
       "title": "App: Get",
+      "description": "Retrieve app details including configuration and fields",
+      "metadata": {
+        "in": "./lib/schemas/getApp.in.json"
+      }
+    },
+    "createApp": {
+      "main": "./lib/actions/apps/createApp.js",
+      "title": "App: Create",
+      "description": "Create a new app in a space",
       "fields": {
-        "splitResult": {
-          "label": "Split Result if it is an Array",
+        "silent": {
+          "label": "Silent Mode",
           "viewClass": "CheckBoxView",
-          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
+          "note": "Suppress notifications (default: false)"
         }
       },
       "metadata": {
-        "in": "./lib/schemas/getApp.in.json"
+        "in": "./lib/schemas/apps/createApp.in.json"
+      }
+    },
+    "addAppField": {
+      "main": "./lib/actions/apps/addAppField.js",
+      "title": "App: Add Field",
+      "description": "Add a new field to an existing app",
+      "metadata": {
+        "in": "./lib/schemas/apps/addAppField.in.json"
+      }
+    },
+    "getAppInverseDependencies": {
+      "main": "./lib/actions/apps/getAppInverseDependencies.js",
+      "title": "App: Get Inverse Dependencies",
+      "description": "Get apps that depend ON this app (have reference fields pointing to it)",
+      "metadata": {
+        "in": "./lib/schemas/apps/getAppInverseDependencies.in.json"
       }
     },
     "getAppField": {
       "main": "./lib/actions/apps/getAppField.js",
       "title": "App: Get Field",
-      "fields": {
-        "splitResult": {
-          "label": "Split Result if it is an Array",
-          "viewClass": "CheckBoxView",
-          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
-        }
-      },
+      "description": "Retrieve configuration details for a specific app field",
       "metadata": {
         "in": "./lib/schemas/getAppField.in.json"
       }
     },
     "getAppByLabel": {
       "main": "./lib/actions/apps/getAppByLabel.js",
-      "title": "App: Get by org label, space label and app label",
-      "fields": {
-        "splitResult": {
-          "label": "Split Result if it is an Array",
-          "viewClass": "CheckBoxView",
-          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
-        }
-      },
+      "title": "App: Get by Labels",
+      "description": "Retrieve app by organization, space, and app URL labels",
       "metadata": {
         "in": "./lib/schemas/apps/getAppByLabel.in.json"
       }
     },
     "getAppDependencies": {
       "main": "./lib/actions/apps/getAppDependencies.js",
-      "title": "App: Get dependencies",
-      "fields": {
-        "splitResult": {
-          "label": "Split Result if it is an Array",
-          "viewClass": "CheckBoxView",
-          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
-        }
-      },
+      "title": "App: Get Dependencies",
+      "description": "Get apps that this app depends on (has reference fields to)",
       "metadata": {
         "in": "./lib/schemas/apps/getAppDependencies.in.json"
       }
     },
     "getAppSpaceByUrlLabel": {
       "main": "./lib/actions/apps/getAppSpaceByUrlLabel.js",
-      "title": "App: Get app on space by URL label",
-      "fields": {
-        "splitResult": {
-          "label": "Split Result if it is an Array",
-          "viewClass": "CheckBoxView",
-          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
-        }
-      },
+      "title": "App: Get by Space URL Label",
+      "description": "Retrieve app using the space ID and app URL label",
       "metadata": {
         "in": "./lib/schemas/apps/getAppSpaceByUrlLabel.in.json"
       }
     },
     "getAppsBySpace": {
       "main": "./lib/actions/apps/getAppsBySpace.js",
-      "title": "App: Get apps by space",
-      "fields": {
-        "splitResult": {
-          "label": "Split Result if it is an Array",
-          "viewClass": "CheckBoxView",
-          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
-        }
-      },
+      "title": "App: Get Apps by Space",
+      "description": "List all apps in a specific space",
       "metadata": {
         "in": "./lib/schemas/apps/getAppsBySpace.in.json"
       }
     },
     "getFeatures": {
       "main": "./lib/actions/apps/getFeatures.js",
-      "title": "App: Get features",
-      "fields": {
-        "splitResult": {
-          "label": "Split Result if it is an Array",
-          "viewClass": "CheckBoxView",
-          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
-        }
-      },
+      "title": "App: Get Features",
+      "description": "Get features (filters, sortings) available for an app",
       "metadata": {
         "in": "./lib/schemas/apps/getFeatures.in.json"
       }
@@ -214,248 +241,31 @@
     "getSpaceAppDependencies": {
       "main": "./lib/actions/apps/getSpaceAppDependencies.js",
       "title": "App: Get Space App Dependencies",
-      "fields": {
-        "splitResult": {
-          "label": "Split Result if it is an Array",
-          "viewClass": "CheckBoxView",
-          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
-        }
-      },
+      "description": "Get all app dependencies within a space",
       "metadata": {
         "in": "./lib/schemas/apps/getSpaceAppDependencies.in.json"
-      }
-    },
-    "getTopApps": {
-      "main": "./lib/actions/apps/getTopApps.js",
-      "title": "App: Get Top Apps",
-      "fields": {
-        "splitResult": {
-          "label": "Split Result if it is an Array",
-          "viewClass": "CheckBoxView",
-          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
-        }
-      },
-      "metadata": {
-        "in": "./lib/schemas/apps/getTopApps.in.json"
-      }
-    },
-    "getTopAppsOrganization": {
-      "main": "./lib/actions/apps/getTopAppsOrganization.js",
-      "title": "App: Get Top Apps for Organization",
-      "fields": {
-        "splitResult": {
-          "label": "Split Result if it is an Array",
-          "viewClass": "CheckBoxView",
-          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
-        }
-      },
-      "metadata": {
-        "in": "./lib/schemas/apps/getTopAppsOrganization.in.json"
       }
     },
     "updateApp": {
       "main": "./lib/actions/apps/updateApp.js",
       "title": "App: Update",
+      "description": "Update any aspect of an app (name, description, settings, etc.)",
       "metadata": {
         "in": "./lib/schemas/apps/updateApp.in.json"
       }
     },
-    "updateAppDescription": {
-      "main": "./lib/actions/apps/updateAppDescription.js",
-      "title": "App: Update App Description",
-      "metadata": {
-        "in": "./lib/schemas/apps/updateAppDescription.in.json"
-      }
-    },
-    "updateAppOrder": {
-      "main": "./lib/actions/apps/updateAppOrder.js",
-      "title": "App: Update App Order",
-      "metadata": {
-        "in": "./lib/schemas/apps/updateAppOrder.in.json"
-      }
-    },
-    "updateAppUsageInstructions": {
-      "main": "./lib/actions/apps/updateAppUsageInstructions.js",
-      "title": "App: Update App Usage Instructions",
-      "metadata": {
-        "in": "./lib/schemas/apps/updateAppUsageInstructions.in.json"
-      }
-    },
-    "getIconSuggestions": {
-      "main": "./lib/actions/apps/getIconSuggestions.js",
-      "title": "App: Get Icon Suggestions",
-      "metadata": {
-        "in": "./lib/schemas/apps/getIconSuggestions.in.json"
-      }
-    },
-    "getBatch": {
-      "main": "./lib/actions/batch/getBatch.js",
-      "title": "Batch: Get Batch",
-      "metadata": {
-        "in": "./lib/schemas/batch/getBatch.in.json"
-      }
-    },
-    "getBatches": {
-      "main": "./lib/actions/batch/getBatches.js",
-      "title": "Batch: Get Batches"
-    },
-    "getRunningBatches": {
-      "main": "./lib/actions/batch/getRunningBatches.js",
-      "title": "Batch: Get Running Batches",
-      "metadata": {
-        "in": "./lib/schemas/batch/getRunningBatches.in.json"
-      }
-    },
-    "filterAppCalendar": {
-      "main": "./lib/actions/calendar/filterAppCalendar.js",
-      "title": "Calendar: Filter App Calendar",
-      "metadata": {
-        "in": "./lib/schemas/calendar/filterAppCalendar.in.json"
-      }
-    },
-    "getAppCalendar": {
-      "main": "./lib/actions/calendar/getAppCalendar.js",
-      "title": "Calendar: Get App Calendar",
-      "metadata": {
-        "in": "./lib/schemas/calendar/getAppCalendar.in.json"
-      }
-    },
-    "getAppCalendarIcal": {
-      "main": "./lib/actions/calendar/getAppCalendarIcal.js",
-      "title": "Calendar: Get App Calendar as iCal",
-      "metadata": {
-        "in": "./lib/schemas/calendar/getAppCalendarIcal.in.json"
-      }
-    },
-    "getCalendarSummary": {
-      "main": "./lib/actions/calendar/getCalendarSummary.js",
-      "title": "Calendar: Get Calendar Summary",
-      "metadata": {
-        "in": "./lib/schemas/calendar/getCalendarSummary.in.json"
-      }
-    },
-    "getCalendarSummaryPersonal": {
-      "main": "./lib/actions/calendar/getCalendarSummaryPersonal.js",
-      "title": "Calendar: Get Calendar Summary for Personal",
-      "metadata": {
-        "in": "./lib/schemas/calendar/getCalendarSummaryPersonal.in.json"
-      }
-    },
-    "getCalendarSummarySpace": {
-      "main": "./lib/actions/calendar/getCalendarSummarySpace.js",
-      "title": "Calendar: Get Calendar Summary for Space",
-      "metadata": {
-        "in": "./lib/schemas/calendar/getCalendarSummarySpace.in.json"
-      }
-    },
-    "getExportByRef": {
-      "main": "./lib/actions/calendar/getExportByRef.js",
-      "title": "Calendar: Get Export by Ref",
-      "metadata": {
-        "in": "./lib/schemas/calendar/getExportByRef.in.json"
-      }
-    },
-    "getExportsbyReference": {
-      "main": "./lib/actions/calendar/getExportsbyReference.js",
-      "title": "Calendar: Get Exports by Reference",
-      "metadata": {
-        "in": "./lib/schemas/calendar/getExportsbyReference.in.json"
-      }
-    },
-    "getGlobalCalendar": {
-      "main": "./lib/actions/calendar/getGlobalCalendar.js",
-      "title": "Calendar: Get Global Calendar",
-      "metadata": {
-        "in": "./lib/schemas/calendar/getGlobalCalendar.in.json"
-      }
-    },
-    "getGlobalCalendarIcal": {
-      "main": "./lib/actions/calendar/getGlobalCalendarIcal.js",
-      "title": "Calendar: Get Global Calendar as iCal",
-      "metadata": {
-        "in": "./lib/schemas/calendar/getGlobalCalendarIcal.in.json"
-      }
-    },
-    "getGlobalExport": {
-      "main": "./lib/actions/calendar/getGlobalExport.js",
-      "title": "Calendar: Get Global Export",
-      "metadata": {
-        "in": "./lib/schemas/calendar/getGlobalExport.in.json"
-      }
-    },
-    "getGlobalExports": {
-      "main": "./lib/actions/calendar/getGlobalExports.js",
-      "title": "Calendar: Get Global Exports",
-      "metadata": {
-        "in": "./lib/schemas/calendar/getGlobalExports.in.json"
-      }
-    },
-    "getItemFieldCalendarIcal": {
-      "main": "./lib/actions/calendar/getItemFieldCalendarIcal.js",
-      "title": "Calendar: Get Item Field Calendar as iCal",
-      "metadata": {
-        "in": "./lib/schemas/calendar/getItemFieldCalendarIcal.in.json"
-      }
-    },
-    "getLinkedAccountCalendar": {
-      "main": "./lib/actions/calendar/getLinkedAccountCalendar.js",
-      "title": "Calendar: Get Linked Account Calendar",
-      "metadata": {
-        "in": "./lib/schemas/calendar/getLinkedAccountCalendar.in.json"
-      }
-    },
     "getItemFieldValueV2": {
       "main": "./lib/actions/items/getItemFieldValueV2.js",
-      "title": "Items: Get item field values v2",
+      "title": "Item: Get Field Values V2",
+      "description": "Retrieve values for a specific field on an item (V2 format)",
       "metadata": {
         "in": "./lib/schemas/items/getItemFieldValueV2.in.json"
-      }
-    },
-    "getSpaceCalendar": {
-      "main": "./lib/actions/calendar/getSpaceCalendar.js",
-      "title": "Calendar: Get Space Calendar",
-      "metadata": {
-        "in": "./lib/schemas/calendar/getSpaceCalendar.in.json"
-      }
-    },
-    "getSpaceCalendarIcal": {
-      "main": "./lib/actions/calendar/getSpaceCalendarIcal.js",
-      "title": "Calendar: Get Space Calendar as iCal",
-      "metadata": {
-        "in": "./lib/schemas/calendar/getSpaceCalendarIcal.in.json"
-      }
-    },
-    "getTaskCalendarIcal": {
-      "main": "./lib/actions/calendar/getTaskCalendarIcal.js",
-      "title": "Calendar: Get Task Calendar as iCal",
-      "metadata": {
-        "in": "./lib/schemas/calendar/getTaskCalendarIcal.in.json"
-      }
-    },
-    "moveExternalCalendarEvent": {
-      "main": "./lib/actions/calendar/moveExternalCalendarEvent.js",
-      "title": "Calendar: Move External Calendar Event",
-      "metadata": {
-        "in": "./lib/schemas/calendar/moveExternalCalendarEvent.in.json"
-      }
-    },
-    "updateCalendarEvent": {
-      "main": "./lib/actions/calendar/updateCalendarEvent.js",
-      "title": "Calendar: Update Calendar Event",
-      "metadata": {
-        "in": "./lib/schemas/calendar/updateCalendarEvent.in.json"
-      }
-    },
-    "UpdateExternalCalendarEventDuration": {
-      "main": "./lib/actions/calendar/UpdateExternalCalendarEventDuration.js",
-      "title": "Calendar: Update External Calendar Event Duration",
-      "metadata": {
-        "in": "./lib/schemas/calendar/UpdateExternalCalendarEventDuration.in.json"
       }
     },
     "activateApp": {
       "main": "./lib/actions/apps/activateApp.js",
       "title": "App: Activate",
+      "description": "Re-activate a previously deactivated app",
       "metadata": {
         "in": "./lib/schemas/apps/activateApp.in.json"
       }
@@ -463,6 +273,7 @@
     "deactivateApp": {
       "main": "./lib/actions/apps/deactivateApp.js",
       "title": "App: Deactivate",
+      "description": "Deactivate an app (hides it without deleting)",
       "metadata": {
         "in": "./lib/schemas/apps/deactivateApp.in.json"
       }
@@ -470,6 +281,7 @@
     "deleteApp": {
       "main": "./lib/actions/apps/deleteApp.js",
       "title": "App: Delete",
+      "description": "Permanently delete an app and all its items",
       "metadata": {
         "in": "./lib/schemas/apps/deleteApp.in.json"
       }
@@ -477,6 +289,7 @@
     "deleteAppField": {
       "main": "./lib/actions/apps/deleteAppField.js",
       "title": "App: Delete Field",
+      "description": "Permanently delete a field from an app",
       "metadata": {
         "in": "./lib/schemas/apps/deleteAppField.in.json"
       }
@@ -484,13 +297,7 @@
     "getSpace": {
       "main": "./lib/actions/spaces/getSpace.js",
       "title": "Space: Get",
-      "fields": {
-        "splitResult": {
-          "label": "Split Result if it is an Array",
-          "viewClass": "CheckBoxView",
-          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
-        }
-      },
+      "description": "Retrieve details for a specific space",
       "metadata": {
         "in": "./lib/schemas/getSpace.in.json"
       }
@@ -498,6 +305,7 @@
     "createSpace": {
       "main": "./lib/actions/spaces/createSpace.js",
       "title": "Space: Create",
+      "description": "Create a new workspace in an organization",
       "fields": {
         "orgId": {
           "viewClass": "SelectView",
@@ -508,45 +316,29 @@
         },
         "privacy": {
           "viewClass": "SelectView",
-          "prompt": "Privacy",
-          "label": "Privacy",
+          "prompt": "Select privacy level",
+          "label": "Space Privacy",
           "required": true,
           "model": {
-            "open": "open",
-            "closed": "closed"
-          }
+            "open": "Open (visible to all organization members)",
+            "closed": "Closed (invite only)"
+          },
+          "note": "Open spaces are visible to all organization members. Closed spaces require an invitation."
         },
         "auto_join": {
-          "viewClass": "SelectView",
-          "prompt": "Auto Join",
-          "label": "Auto Join (new employees should be joined automatically)",
-          "model": {
-            "true": "true",
-            "false": "false"
-          }
+          "viewClass": "CheckBoxView",
+          "label": "Auto Join",
+          "note": "Automatically add new organization employees to this space"
         },
         "post_on_new_app": {
-          "viewClass": "SelectView",
-          "prompt": "New App",
-          "label": "New App Notification (if new apps should be announced with a status update)",
-          "model": {
-            "true": "true",
-            "false": "false"
-          }
+          "viewClass": "CheckBoxView",
+          "label": "Announce New Apps",
+          "note": "Post a status update when new apps are created in this space"
         },
         "post_on_new_member": {
-          "viewClass": "SelectView",
-          "prompt": "New Member",
-          "label": "New member Notification (if new members should be announced with a status update)",
-          "model": {
-            "true": "true",
-            "false": "false"
-          }
-        },
-        "splitResult": {
-          "label": "Split Result if it is an Array",
           "viewClass": "CheckBoxView",
-          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
+          "label": "Announce New Members",
+          "note": "Post a status update when new members join this space"
         }
       },
       "dynamicMetadata": true
@@ -554,6 +346,7 @@
     "updateSpace": {
       "main": "./lib/actions/spaces/updateSpace.js",
       "title": "Space: Update",
+      "description": "Update space settings and configuration",
       "fields": {
         "orgId": {
           "viewClass": "SelectView",
@@ -564,52 +357,37 @@
         },
         "privacy": {
           "viewClass": "SelectView",
-          "prompt": "Privacy",
-          "label": "Privacy",
+          "prompt": "Select privacy level",
+          "label": "Space Privacy",
           "required": true,
           "model": {
-            "open": "open",
-            "closed": "closed"
-          }
+            "open": "Open (visible to all organization members)",
+            "closed": "Closed (invite only)"
+          },
+          "note": "Open spaces are visible to all organization members. Closed spaces require an invitation."
         },
         "auto_join": {
-          "viewClass": "SelectView",
-          "prompt": "Auto Join",
-          "label": "Auto Join (new employees should be joined automatically)",
-          "model": {
-            "true": "true",
-            "false": "false"
-          }
+          "viewClass": "CheckBoxView",
+          "label": "Auto Join",
+          "note": "Automatically add new organization employees to this space"
         },
         "post_on_new_app": {
-          "viewClass": "SelectView",
-          "prompt": "New App",
-          "label": "New App Notification (if new apps should be announced with a status update)",
-          "model": {
-            "true": "true",
-            "false": "false"
-          }
+          "viewClass": "CheckBoxView",
+          "label": "Announce New Apps",
+          "note": "Post a status update when new apps are created in this space"
         },
         "post_on_new_member": {
-          "viewClass": "SelectView",
-          "prompt": "New Member",
-          "label": "New member Notification (if new members should be announced with a status update)",
-          "model": {
-            "true": "true",
-            "false": "false"
-          }
-        },
-        "splitResult": {
-          "label": "Split Result if it is an Array",
           "viewClass": "CheckBoxView",
-          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
+          "label": "Announce New Members",
+          "note": "Post a status update when new members join this space"
         }
       },
       "dynamicMetadata": true
     },
     "getSpaceMembers": {
       "main": "./lib/actions/spaces/getSpaceMembers.js",
-      "title": "Space: Get Space Members v2",
+      "title": "Space: Get Members",
+      "description": "List all members of a space with their roles",
       "fields": {
         "orgId": {
           "viewClass": "SelectView",
@@ -624,93 +402,80 @@
           "label": "Podio Space",
           "required": true,
           "model": "spaces"
-        },
-        "splitResult": {
-          "label": "Split Result if it is an Array",
-          "viewClass": "CheckBoxView",
-          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
         }
       },
       "dynamicMetadata": true
     },
     "getSpaceMember": {
       "main": "./lib/actions/spaces/getSpaceMembership.js",
-      "title": "Space: Get Space Member",
+      "title": "Space: Get Member",
+      "description": "Retrieve details for a specific space member",
       "metadata": {
         "in": "./lib/schemas/getSpaceMember.in.json"
       }
     },
     "getSpaceMembership": {
       "main": "./lib/actions/spaces/getSpaceMembership.js",
-      "title": "Space: Get Space Membership",
+      "title": "Space: Get Membership",
+      "description": "Retrieve membership details for a user in a space",
       "metadata": {
         "in": "./lib/schemas/getSpaceMembership.in.json"
       }
     },
     "search": {
       "main": "./lib/actions/all/search.js",
-      "title": "Search All",
+      "title": "Search: Global",
+      "description": "Search across all Podio content including items, tasks, files, and more",
       "fields": {
-        "counts": {
+        "query": {
+          "viewClass": "TextFieldView",
+          "label": "Search Query",
+          "placeholder": "Enter search terms...",
+          "required": true,
+          "note": "The text to search for across Podio"
+        },
+        "ref_type": {
           "viewClass": "SelectView",
-          "prompt": "Counts",
-          "label": "Counts",
+          "prompt": "Select content type to search",
+          "label": "Content Type",
           "model": {
-            "true": "true",
-            "false": "false"
-          }
+            "item": "Items",
+            "task": "Tasks",
+            "file": "Files",
+            "conversation": "Conversations",
+            "profile": "Profiles",
+            "app": "Apps"
+          },
+          "note": "Filter search results to a specific content type"
+        },
+        "counts": {
+          "viewClass": "CheckBoxView",
+          "label": "Include Counts",
+          "note": "Include the total count of matching results"
         },
         "highlights": {
-          "viewClass": "SelectView",
-          "label": "highlights",
-          "model": {
-            "true": "true",
-            "false": "false"
-          }
+          "viewClass": "CheckBoxView",
+          "label": "Include Highlights",
+          "note": "Include text snippets showing where matches were found"
         },
         "limit": {
           "viewClass": "TextFieldView",
           "label": "Limit",
-          "placeholder": "100"
+          "placeholder": "20",
+          "note": "Maximum number of results to return"
         },
         "offset": {
           "viewClass": "TextFieldView",
           "label": "Offset",
-          "placeholder": "0"
-        },
-        "ref_type": {
-          "viewClass": "SelectView",
-          "prompt": "Ref Type",
-          "label": "Ref Type",
-          "model": {
-            "item": "item",
-            "task": "task",
-            "admin": "file",
-            "regular": "conversation",
-            "light": "profile",
-            "guest": "app"
-          }
-        },
-        "query": {
-          "viewClass": "TextFieldView",
-          "label": "query",
-          "placeholder": ""
-        },
-        "search_fields": {
-          "viewClass": "TextFieldView",
-          "label": "Search Fields",
-          "placeholder": "100"
-        },
-        "splitResult": {
-          "label": "Split Result if it is an Array",
-          "viewClass": "CheckBoxView",
-          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
+          "placeholder": "0",
+          "note": "Number of results to skip (for pagination)"
         }
       }
     },
     "searchOrg": {
       "main": "./lib/actions/all/searchOrg.js",
-      "title": "Search: Organisation",
+      "title": "Search: Organization",
+      "description": "Search for content within a specific organization",
       "fields": {
         "orgId": {
           "viewClass": "SelectView",
@@ -718,11 +483,6 @@
           "label": "Podio Organisation",
           "required": true,
           "model": "organisations"
-        },
-        "splitResult": {
-          "label": "Split Result if it is an Array",
-          "viewClass": "CheckBoxView",
-          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
         }
       },
       "dynamicMetadata": true
@@ -730,6 +490,7 @@
     "searchSpace": {
       "main": "./lib/actions/all/searchSpace.js",
       "title": "Search: Space",
+      "description": "Search for content within a specific space",
       "fields": {
         "orgId": {
           "viewClass": "SelectView",
@@ -744,11 +505,6 @@
           "label": "Podio Space",
           "required": true,
           "model": "spaces"
-        },
-        "splitResult": {
-          "label": "Split Result if it is an Array",
-          "viewClass": "CheckBoxView",
-          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
         }
       },
       "dynamicMetadata": true
@@ -756,6 +512,7 @@
     "searchApp": {
       "main": "./lib/actions/all/searchApp.js",
       "title": "Search: App",
+      "description": "Search for items within a specific app",
       "dynamicMetadata": true,
       "metadata": {
         "in": "./lib/schemas/searchApp.in.json"
@@ -764,13 +521,7 @@
     "getComment": {
       "main": "./lib/actions/comments/getComment.js",
       "title": "Comment: Get",
-      "fields": {
-        "splitResult": {
-          "label": "Split Result if it is an Array",
-          "viewClass": "CheckBoxView",
-          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
-        }
-      },
+      "description": "Retrieve a specific comment by ID",
       "metadata": {
         "in": "./lib/schemas/getComment.in.json"
       }
@@ -778,27 +529,15 @@
     "getCommentRevision": {
       "main": "./lib/actions/comments/getCommentRevision.js",
       "title": "Comment: Get Revision",
-      "fields": {
-        "splitResult": {
-          "label": "Split Result if it is an Array",
-          "viewClass": "CheckBoxView",
-          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
-        }
-      },
+      "description": "Retrieve a specific revision of a comment",
       "metadata": {
         "in": "./lib/schemas/getComment.in.json"
       }
     },
     "getCommentObject": {
       "main": "./lib/actions/comments/getCommentObject.js",
-      "title": "Comment: Get Object",
-      "fields": {
-        "splitResult": {
-          "label": "Split Result if it is an Array",
-          "viewClass": "CheckBoxView",
-          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
-        }
-      },
+      "title": "Comment: Get by Object",
+      "description": "Retrieve all comments on a specific object (item, task, etc.)",
       "metadata": {
         "in": "./lib/schemas/getCommentObject.in.json"
       }
@@ -806,11 +545,12 @@
     "addComment": {
       "main": "./lib/actions/comments/addComment.js",
       "title": "Comment: Add",
+      "description": "Add a comment to an item, task, or other object",
       "fields": {
-        "splitResult": {
-          "label": "Split Result if it is an Array",
+        "silent": {
+          "label": "Silent Mode",
           "viewClass": "CheckBoxView",
-          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
+          "note": "Suppress notifications (default: false)"
         }
       },
       "metadata": {
@@ -820,11 +560,12 @@
     "updateComment": {
       "main": "./lib/actions/comments/updateComment.js",
       "title": "Comment: Update",
+      "description": "Update an existing comment",
       "fields": {
-        "splitResult": {
-          "label": "Split Result if it is an Array",
+        "silent": {
+          "label": "Silent Mode",
           "viewClass": "CheckBoxView",
-          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
+          "note": "Suppress notifications (default: false)"
         }
       },
       "metadata": {
@@ -834,13 +575,7 @@
     "deleteComment": {
       "main": "./lib/actions/comments/deleteComment.js",
       "title": "Comment: Delete",
-      "fields": {
-        "splitResult": {
-          "label": "Split Result if it is an Array",
-          "viewClass": "CheckBoxView",
-          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
-        }
-      },
+      "description": "Delete a comment",
       "metadata": {
         "in": "./lib/schemas/getComment.in.json"
       }
@@ -848,13 +583,7 @@
     "getFile": {
       "main": "./lib/actions/files/getFile.js",
       "title": "File: Get",
-      "fields": {
-        "splitResult": {
-          "label": "Split Result if it is an Array",
-          "viewClass": "CheckBoxView",
-          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
-        }
-      },
+      "description": "Retrieve file metadata by ID",
       "metadata": {
         "in": "./lib/schemas/getFile.in.json"
       }
@@ -862,34 +591,135 @@
     "getTask": {
       "main": "./lib/actions/tasks/getTask.js",
       "title": "Task: Get",
+      "description": "Retrieve a single task by ID",
+      "metadata": {
+        "in": "./lib/schemas/tasks/getTask.in.json"
+      }
+    },
+    "getTasks": {
+      "main": "./lib/actions/tasks/getTasks.js",
+      "title": "Task: Get Tasks (List)",
+      "description": "Get all tasks with powerful filtering options",
+      "metadata": {
+        "in": "./lib/schemas/tasks/getTasks.in.json"
+      }
+    },
+    "createTask": {
+      "main": "./lib/actions/tasks/createTask.js",
+      "title": "Task: Create",
+      "description": "Create a new task, optionally linked to an object",
       "fields": {
-        "splitResult": {
-          "label": "Split Result if it is an Array",
+        "hook": {
+          "label": "Execute Hooks",
           "viewClass": "CheckBoxView",
-          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
+          "note": "Execute hooks for this change (default: true)"
+        },
+        "silent": {
+          "label": "Silent Mode",
+          "viewClass": "CheckBoxView",
+          "note": "Suppress notifications (default: false)"
         }
       },
       "metadata": {
-        "in": "./lib/schemas/getTask.in.json"
+        "in": "./lib/schemas/tasks/createTask.in.json"
+      }
+    },
+    "updateTask": {
+      "main": "./lib/actions/tasks/updateTask.js",
+      "title": "Task: Update",
+      "description": "Update any aspect of an existing task",
+      "fields": {
+        "hook": {
+          "label": "Execute Hooks",
+          "viewClass": "CheckBoxView",
+          "note": "Execute hooks for this change (default: true)"
+        },
+        "silent": {
+          "label": "Silent Mode",
+          "viewClass": "CheckBoxView",
+          "note": "Suppress notifications (default: false)"
+        }
+      },
+      "metadata": {
+        "in": "./lib/schemas/tasks/updateTask.in.json"
+      }
+    },
+    "deleteTask": {
+      "main": "./lib/actions/tasks/deleteTask.js",
+      "title": "Task: Delete",
+      "description": "Permanently delete a task",
+      "metadata": {
+        "in": "./lib/schemas/tasks/deleteTask.in.json"
+      }
+    },
+    "completeTask": {
+      "main": "./lib/actions/tasks/completeTask.js",
+      "title": "Task: Complete",
+      "description": "Mark a task as completed",
+      "fields": {
+        "hook": {
+          "label": "Execute Hooks",
+          "viewClass": "CheckBoxView",
+          "note": "Execute hooks for this change (default: true)"
+        },
+        "silent": {
+          "label": "Silent Mode",
+          "viewClass": "CheckBoxView",
+          "note": "Suppress notifications (default: false)"
+        }
+      },
+      "metadata": {
+        "in": "./lib/schemas/tasks/completeTask.in.json"
+      }
+    },
+    "incompleteTask": {
+      "main": "./lib/actions/tasks/incompleteTask.js",
+      "title": "Task: Incomplete (Reopen)",
+      "description": "Reopen a completed task",
+      "fields": {
+        "hook": {
+          "label": "Execute Hooks",
+          "viewClass": "CheckBoxView",
+          "note": "Execute hooks for this change (default: true)"
+        },
+        "silent": {
+          "label": "Silent Mode",
+          "viewClass": "CheckBoxView",
+          "note": "Suppress notifications (default: false)"
+        }
+      },
+      "metadata": {
+        "in": "./lib/schemas/tasks/incompleteTask.in.json"
+      }
+    },
+    "getTaskSummary": {
+      "main": "./lib/actions/tasks/getTaskSummary.js",
+      "title": "Task: Get Summary",
+      "description": "Get task summary grouped by status (overdue, today, etc.)",
+      "metadata": {
+        "in": "./lib/schemas/tasks/getTaskSummary.in.json"
+      }
+    },
+    "assignTask": {
+      "main": "./lib/actions/tasks/assignTask.js",
+      "title": "Task: Assign",
+      "description": "Assign a task to another user",
+      "metadata": {
+        "in": "./lib/schemas/tasks/assignTask.in.json"
       }
     },
     "getAllApp": {
       "main": "./lib/actions/apps/getAllApp.js",
-      "title": "App: Get All App",
-      "fields": {
-        "splitResult": {
-          "label": "Split Result if it is an Array",
-          "viewClass": "CheckBoxView",
-          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
-        }
-      },
+      "title": "App: Get All Apps",
+      "description": "Retrieve all apps accessible to the authenticated user",
       "metadata": {
         "in": "./lib/schemas/getAllApp.in.json"
       }
     },
     "getOrg": {
       "main": "./lib/actions/organisations/getOrg.js",
-      "title": "Org: Get Organisations",
+      "title": "Org: Get Organization",
+      "description": "Retrieve details for a specific organization",
       "fields": {
         "orgId": {
           "viewClass": "SelectView",
@@ -897,31 +727,21 @@
           "label": "Podio Organisation",
           "required": true,
           "model": "organisations"
-        },
-        "splitResult": {
-          "label": "Split Result if it is an Array",
-          "viewClass": "CheckBoxView",
-          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
         }
       }
     },
     "getOrgUrl": {
       "main": "./lib/actions/organisations/getOrgUrl.js",
-      "title": "Org: Get Organisation's URL",
-      "fields": {
-        "splitResult": {
-          "label": "Split Result if it is an Array",
-          "viewClass": "CheckBoxView",
-          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
-        }
-      },
+      "title": "Org: Get by URL",
+      "description": "Retrieve organization details by URL slug",
       "metadata": {
         "in": "./lib/schemas/getOrgUrl.in.json"
       }
     },
     "getAppBySpace": {
       "main": "./lib/actions/spaces/getAppBySpace.js",
-      "title": "Space: Get App's By Space",
+      "title": "Space: Get Apps",
+      "description": "List all apps in a selected space",
       "fields": {
         "orgId": {
           "viewClass": "SelectView",
@@ -936,25 +756,14 @@
           "label": "Podio Space",
           "required": true,
           "model": "spaces"
-        },
-        "splitResult": {
-          "label": "Split Result if it is an Array",
-          "viewClass": "CheckBoxView",
-          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
         }
       },
       "dynamicMetadata": true
     },
     "updateAppField": {
       "main": "./lib/actions/apps/updateAppField.js",
-      "title": "App: Update App Field",
-      "fields": {
-        "splitResult": {
-          "label": "Split Result if it is an Array",
-          "viewClass": "CheckBoxView",
-          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
-        }
-      },
+      "title": "App: Update Field",
+      "description": "Update configuration for an app field",
       "metadata": {
         "in": "./lib/schemas/updateAppField.in.json"
       },
@@ -962,14 +771,8 @@
     },
     "getAllSpacesOrg": {
       "main": "./lib/actions/organisations/getAllSpacesOrg.js",
-      "title": "Org: Get All Spaces on Organisations",
-      "fields": {
-        "splitResult": {
-          "label": "Split Result if it is an Array",
-          "viewClass": "CheckBoxView",
-          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
-        }
-      },
+      "title": "Org: Get All Spaces",
+      "description": "List all spaces in an organization",
       "metadata": {
         "in": "./lib/schemas/getOrg.in.json"
       }
@@ -977,13 +780,7 @@
     "getHooks": {
       "main": "./lib/actions/hooks/getHooks.js",
       "title": "Hooks: Get",
-      "fields": {
-        "splitResult": {
-          "label": "Split Result if it is an Array",
-          "viewClass": "CheckBoxView",
-          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
-        }
-      },
+      "description": "Retrieve webhooks configured for an object",
       "metadata": {
         "in": "./lib/schemas/createHooks.in.json"
       }
@@ -991,59 +788,48 @@
     "deleteHooks": {
       "main": "./lib/actions/hooks/deleteHooks.js",
       "title": "Hooks: Delete",
-      "fields": {
-        "splitResult": {
-          "label": "Split Result if it is an Array",
-          "viewClass": "CheckBoxView",
-          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
-        }
-      },
+      "description": "Remove a webhook",
       "metadata": {
         "in": "./lib/schemas/deleteHooks.in.json"
       }
     },
     "updateSpaceMembership": {
       "main": "./lib/actions/spaces/updateSpaceMembership.js",
-      "title": "Space: Update Space Membership(Deprecated)",
-      "fields": {
-        "splitResult": {
-          "label": "Split Result if it is an Array",
-          "viewClass": "CheckBoxView",
-          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
-        }
-      },
+      "title": "Space: Update Membership (Deprecated)",
+      "description": "Update a user's role in a space (use V2 instead)",
       "metadata": {
         "in": "./lib/schemas/updateSpaceMembership.in.json"
       }
     },
     "updateSpaceMembershipV2": {
       "main": "./lib/actions/spaces/updateSpaceMembershipV2.js",
-      "title": "Space: Update Space Membership V2",
-      "fields": {
-        "splitResult": {
-          "label": "Split Result if it is an Array",
-          "viewClass": "CheckBoxView",
-          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
-        }
-      },
+      "title": "Space: Update Membership V2",
+      "description": "Update a user's role in a space (current version)",
       "metadata": {
         "in": "./lib/schemas/updateSpaceMembershipV2.in.json"
       }
     },
     "addMemberToSpace": {
       "main": "./lib/actions/spaces/addMemberToSpace.js",
-      "title": "Space: Add Member to Space",
+      "title": "Space: Add Member",
+      "description": "Add one or more users to a space",
       "fields": {
         "role": {
-          "label": "The role of the new users",
+          "label": "Member Role",
           "required": true,
           "viewClass": "SelectView",
           "model": {
-            "light": "Light",
-            "grant_only": "Grant Only",
-            "regular": "Regular",
-            "admin": "admin"
-          }
+            "admin": "Admin (full access)",
+            "regular": "Regular (standard access)",
+            "light": "Light (limited access)",
+            "grant_only": "Grant Only (invite others only)"
+          },
+          "note": "Select the permission level for the new member"
+        },
+        "silent": {
+          "label": "Silent Mode",
+          "viewClass": "CheckBoxView",
+          "note": "Suppress notifications (default: false)"
         }
       },
       "metadata": {
@@ -1052,129 +838,75 @@
     },
     "filterItems": {
       "main": "./lib/actions/all/filterItems.js",
-      "title": "Items: Filters",
-      "fields": {
-        "splitResult": {
-          "label": "Split Result if it is an Array",
-          "viewClass": "CheckBoxView",
-          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
-        }
-      },
+      "title": "Items: Filter",
+      "description": "Filter items in an app with auto-pagination (retrieves all matching items)",
       "metadata": {
         "in": "./lib/schemas/filterItems.in.json"
       }
     },
     "filterItemsByView": {
       "main": "./lib/actions/items/filterItembyView.js",
-      "title": "Items: Filter Items By View",
-      "fields": {
-        "splitResult": {
-          "label": "Split Result if it is an Array",
-          "viewClass": "CheckBoxView",
-          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
-        }
-      },
+      "title": "Items: Filter by View",
+      "description": "Filter items using a saved view's criteria",
       "metadata": {
         "in": "./lib/schemas/filterItembyView.in.json"
       }
     },
     "getItemsbyApp": {
       "main": "./lib/actions/items/getItemsbyApp.js",
-      "title": "Items: Get All APP Items",
-      "fields": {
-        "splitResult": {
-          "label": "Split Result if it is an Array",
-          "viewClass": "CheckBoxView",
-          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
-        }
-      },
+      "title": "Items: Get All by App",
+      "description": "Retrieve all items in an app",
       "metadata": {
         "in": "./lib/schemas/getItemsbyApp.in.json"
       }
     },
     "getFilesbyApp": {
       "main": "./lib/actions/files/getFilesbyApp.js",
-      "title": "Items: Get All APP Files",
-      "fields": {
-        "splitResult": {
-          "label": "Split Result if it is an Array",
-          "viewClass": "CheckBoxView",
-          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
-        }
-      },
+      "title": "Files: Get All by App",
+      "description": "Retrieve all files attached to items in an app",
       "metadata": {
         "in": "./lib/schemas/getFilesbyApp.in.json"
       }
     },
     "getView": {
       "main": "./lib/actions/all/getView.js",
-      "title": "Views: Get View",
-      "fields": {
-        "splitResult": {
-          "label": "Split Result if it is an Array",
-          "viewClass": "CheckBoxView",
-          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
-        }
-      },
+      "title": "View: Get",
+      "description": "Retrieve a saved view's configuration",
       "metadata": {
         "in": "./lib/schemas/getView.in.json"
       }
     },
     "getViews": {
       "main": "./lib/actions/all/getViews.js",
-      "title": "Views: Get Views",
-      "fields": {
-        "splitResult": {
-          "label": "Split Result if it is an Array",
-          "viewClass": "CheckBoxView",
-          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
-        }
-      },
+      "title": "View: List All",
+      "description": "List all saved views in an app",
       "metadata": {
         "in": "./lib/schemas/getViews.in.json"
-      }
-    },
-    "createView": {
-      "main": "./lib/actions/views/createView.js",
-      "title": "Views: Create Views",
-      "fields": {
-        "splitResult": {
-          "label": "Split Result if it is an Array",
-          "viewClass": "CheckBoxView",
-          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
-        }
-      },
-      "metadata": {
-        "in": "./lib/schemas/createView.in.json"
-      }
-    },
-    "deleteView": {
-      "main": "./lib/actions/views/deleteView.js",
-      "title": "Views: Delete View",
-      "metadata": {
-        "in": "./lib/schemas/deleteView.in.json"
       }
     },
     "createHooks": {
       "main": "./lib/actions/hooks/createHooks.js",
       "title": "Hooks: Create",
+      "description": "Create webhook to receive notifications when objects change",
       "fields": {
         "hookType": {
           "viewClass": "SelectView",
-          "prompt": "Select a Hook Type!!!",
-          "label": "Select Hook Type",
+          "prompt": "Select a hook type",
+          "label": "Hook Type",
           "model": {
             "space": "Space",
             "app": "App",
             "field": "Field"
           },
-          "required": true
+          "required": true,
+          "note": "The type of object to attach the webhook to"
         },
         "hook_type": {
           "viewClass": "MultiSelectView",
-          "label": "Hook",
+          "label": "Events",
           "model": "getHooks",
-          "required": true
+          "required": true,
+          "note": "Select the events that will trigger the webhook"
         }
       },
       "metadata": {
@@ -1183,21 +915,24 @@
     },
     "getItemReferences": {
       "main": "./lib/actions/items/getItemReferences.js",
-      "title": "Items: Get Item References",
+      "title": "Item: Get References",
+      "description": "Get items that reference this item",
       "metadata": {
         "in": "./lib/schemas/getItemReferences.in.json"
       }
     },
     "findReferencesItems": {
       "main": "./lib/actions/items/findReferencesItems.js",
-      "title": "Items: Find referenceable items",
+      "title": "Item: Find Referenceable",
+      "description": "Search for items that can be referenced by a field",
       "metadata": {
         "in": "./lib/schemas/findReferencesItems.in.json"
       }
     },
     "getReferencesToItemByField": {
       "main": "./lib/actions/items/getReferencesToItemByField.js",
-      "title": "Items: Get references to item by field",
+      "title": "Item: Get References by Field",
+      "description": "Get items referencing this item through a specific field",
       "metadata": {
         "in": "./lib/schemas/getReferencesToItemByField.in.json"
       }
@@ -1205,236 +940,220 @@
     "verifyHooks": {
       "main": "./lib/actions/hooks/verifyHooks.js",
       "title": "Hook: Verify",
+      "description": "Manually verify a webhook (useful after creation)",
       "metadata": {
         "in": "./lib/schemas/verifyHooks.in.json"
       }
     },
     "installApp": {
       "main": "./lib/actions/apps/install.js",
-      "title": "App: Install",
+      "title": "App: Install from Share",
+      "description": "Install an app from the App Market into a space",
       "metadata": {
         "in": "./lib/schemas/installApp.in.json"
       }
     },
     "getItemRevisionDifference": {
       "main": "./lib/actions/items/getItemRevisionDifference.js",
-      "title": "Items: Get item revision difference",
-      "fields": {
-        "splitResult": {
-          "label": "Split Result if it is an Array",
-          "viewClass": "CheckBoxView",
-          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
-        }
-      },
+      "title": "Item: Get Revision Difference",
+      "description": "Compare two revisions of an item to see changes",
       "metadata": {
         "in": "./lib/schemas/getItemRevisionDifference.in.json"
       }
     },
     "getActualFile": {
       "main": "./lib/actions/files/getActualFile.js",
-      "title": "File: Get Actual File",
+      "title": "File: Download",
+      "description": "Get the actual file content (binary data or URL)",
       "metadata": {
         "in": "./lib/schemas/getActualFile.in.json"
       }
     },
-    "getActualFileThatApp": {
-      "main": "./lib/actions/files/getActualFileThatApp.js",
-      "title": "File: Get Actual File (ThatApp)",
-      "metadata": {
-        "in": "./lib/schemas/getActualFileThatApp.in.json"
-      }
-    },
-    "moveToFilehaven": {
-      "main": "./lib/actions/files/moveToFilehaven.js",
-      "title": "File: Move file within Filehaven Folder",
-      "metadata": {
-        "in": "./lib/schemas/moveToFilehaven.in.json"
-      }
-    },
-    "sendtoDocuphase": {
-      "main": "./lib/actions/files/sendtoDocuphase.js",
-      "title": "File: Send File to Docuphase",
-      "metadata": {
-        "in": "./lib/schemas/sendtoDocuphase.in.json"
-      }
-    },
     "cloneItem": {
       "main": "./lib/actions/items/cloneItem.js",
-      "title": "Item: Clone Item",
+      "title": "Item: Clone",
+      "description": "Create a copy of an existing item",
       "metadata": {
         "in": "./lib/schemas/cloneItem.in.json"
       }
     },
-    "getUserStreamV3": {
-      "main": "./lib/actions/user/getUserStream.js",
-      "title": "Get user stream",
-      "metadata": {
-        "in": "./lib/schemas/getUserStream.in.json"
-      }
-    },
     "getItemCount": {
       "main": "./lib/actions/items/getItemCount.js",
-      "title": "Get item count",
+      "title": "Item: Get Count",
+      "description": "Get the total number of items in an app",
       "metadata": {
         "in": "./lib/schemas/getItemCount.in.json"
       }
     },
     "FilterItemsByView": {
       "main": "./lib/actions/items/FilterItemsByView.js",
-      "title": "Items: Get items by app and view",
-      "fields": {
-        "splitResult": {
-          "label": "Split Result if it is an Array",
-          "viewClass": "CheckBoxView",
-          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
-        }
-      },
+      "title": "Items: Get by App and View",
+      "description": "Retrieve items matching a saved view's filters",
       "metadata": {
         "in": "./lib/schemas/FilterItemsByView.in.json"
       }
     },
     "deleteItem": {
       "main": "./lib/actions/items/deleteItem.js",
-      "title": "Delete Item",
+      "title": "Item: Delete",
+      "description": "Permanently delete an item",
       "metadata": {
         "in": "./lib/schemas/deleteItem.in.json"
       }
     },
     "showCredential": {
       "main": "./lib/actions/all/showCredential.js",
-      "title": "Show Credential",
-      "fields": {
-        "splitResult": {
-          "label": "Show Credentials",
-          "viewClass": "CheckBoxView",
-          "note": "After making the request, and applying the above JSONata expression, if the result is an array and this box is checked, we will emit one message for each element of the array."
-        }
-      }
+      "title": "Credential: Show",
+      "description": "Display current credential information for debugging"
     },
     "attachFile": {
       "main": "./lib/actions/files/attachFile.js",
-      "title": "Files: Attach file",
+      "title": "Files: Attach File",
+      "description": "Attach an uploaded file to a Podio object",
       "fields": {
         "ref_type": {
           "viewClass": "SelectView",
-          "label": "Ref Type",
-          "placeholder": "The type of object the file should be attached to",
+          "label": "Object Type",
           "required": true,
           "model": {
-            "status": "status",
-            "item": "item",
-            "comment": "comment",
-            "space": "space",
-            "task": "task"
+            "item": "Item",
+            "task": "Task",
+            "status": "Status Update",
+            "comment": "Comment",
+            "space": "Space"
           },
-          "prompt": "Select Object Ref type"
+          "prompt": "Select object type",
+          "note": "The type of object to attach the file to"
         }
       },
       "metadata": {
         "in": "./lib/schemas/attachFile.in.json"
       }
     },
+    "addEmbed": {
+      "main": "./lib/actions/embeds/addEmbed.js",
+      "title": "Embed: Add",
+      "description": "Fetch metadata for a URL (title, description, thumbnail) to create an embed",
+      "metadata": {
+        "in": "./lib/schemas/embeds/addEmbed.in.json"
+      }
+    },
     "UploadFile": {
       "main": "./lib/actions/files/uploadFileV2.js",
-      "title": "Files: Upload file v3(URL)",
+      "title": "File: Upload from URL",
+      "description": "Upload a file to Podio from a URL",
       "metadata": {
         "in": "./lib/schemas/uploadFile.in.json"
       }
     },
     "publicUrl": {
       "main": "./lib/actions/files/uploadFileV3.js",
-      "title": "Files: Upload file v3(Base64 data)",
+      "title": "File: Upload from Base64",
+      "description": "Upload a file to Podio from Base64-encoded data",
       "metadata": {
         "in": "./lib/schemas/uploadFilev3.in.json"
       }
     },
     "uploadFile": {
       "main": "./lib/actions/files/uploadFile.js",
-      "title": "Files: Upload file V2",
+      "title": "File: Upload V2",
+      "description": "Upload a file to Podio (legacy version)",
       "metadata": {
         "in": "./lib/schemas/uploadFileV2.in.json"
       }
     },
     "copyFile": {
       "main": "./lib/actions/files/copyFile.js",
-      "title": "Files: Copy file",
+      "title": "File: Copy",
+      "description": "Create a copy of an existing file",
       "metadata": {
         "in": "./lib/schemas/copyFile.in.json"
       }
     },
     "createTags": {
       "main": "./lib/actions/tags/createTags.js",
-      "title": "Tags: Create tags",
+      "title": "Tag: Create",
+      "description": "Add tags to an object",
       "metadata": {
         "in": "./lib/schemas/tags/create.in.json"
       }
     },
     "updateTags": {
       "main": "./lib/actions/tags/updateTags.js",
-      "title": "Tags: Update tags",
+      "title": "Tag: Update",
+      "description": "Replace all tags on an object",
       "metadata": {
         "in": "./lib/schemas/tags/update.in.json"
       }
     },
     "removeTags": {
       "main": "./lib/actions/tags/removeTags.js",
-      "title": "Tags: Remove tag",
+      "title": "Tag: Remove",
+      "description": "Remove a tag from an object",
       "metadata": {
         "in": "./lib/schemas/tags/remove.in.json"
       }
     },
     "getAppTags": {
       "main": "./lib/actions/tags/getAppTags.js",
-      "title": "Tags: Get tags on app",
+      "title": "Tag: Get by App",
+      "description": "List all tags used in an app",
       "metadata": {
         "in": "./lib/schemas/tags/app.in.json"
       }
     },
     "getAppTagsTop": {
       "main": "./lib/actions/tags/getAppTagsTop.js",
-      "title": "Tags: Get tags on app top",
+      "title": "Tag: Get Top by App",
+      "description": "List the most used tags in an app",
       "metadata": {
         "in": "./lib/schemas/tags/app_top.in.json"
       }
     },
     "getAppTagsFull": {
       "main": "./lib/actions/tags/getAppTagsFull.js",
-      "title": "Tags: Get items tagged in app and space",
+      "title": "Tag: Get Items by Tag",
+      "description": "Find items with a specific tag in an app and space",
       "metadata": {
         "in": "./lib/schemas/tags/app_full.in.json"
       }
     },
     "getAppTagsSearch": {
       "main": "./lib/actions/tags/getAppTagsSearch.js",
-      "title": "Tags: Get objects on app with tag",
+      "title": "Tag: Search in App",
+      "description": "Find objects with a specific tag in an app",
       "metadata": {
         "in": "./lib/schemas/tags/app_search.in.json"
       }
     },
     "getOrgTagsSearch": {
       "main": "./lib/actions/tags/getOrgTagsSearch.js",
-      "title": "Tags: Get objects on organization with tag",
+      "title": "Tag: Search in Organization",
+      "description": "Find objects with a specific tag in an organization",
       "metadata": {
         "in": "./lib/schemas/tags/org_search.in.json"
       }
     },
     "getOrgTags": {
       "main": "./lib/actions/tags/getOrgTags.js",
-      "title": "Tags: Get tags on organization",
+      "title": "Tag: Get by Organization",
+      "description": "List all tags used in an organization",
       "metadata": {
         "in": "./lib/schemas/tags/org.in.json"
       }
     },
     "getSpaceTagsSearch": {
       "main": "./lib/actions/tags/getSpaceTagsSearch.js",
-      "title": "Tags: Get objects on space with tag",
+      "title": "Tag: Search in Space",
+      "description": "Find objects with a specific tag in a space",
       "metadata": {
         "in": "./lib/schemas/tags/space_search.in.json"
       }
     },
     "getSpaceTags": {
       "main": "./lib/actions/tags/getSpaceTags.js",
-      "title": "Tags: Get tags on space",
+      "title": "Tag: Get by Space",
+      "description": "List all tags used in a space",
       "metadata": {
         "in": "./lib/schemas/tags/space.in.json"
       }
@@ -1443,7 +1162,8 @@
   "triggers": {
     "getApplications": {
       "main": "./lib/triggers/getApplications.js",
-      "title": "Get Applications",
+      "title": "App: Poll for Changes",
+      "description": "Poll for new or updated applications",
       "type": "polling",
       "metadata": {
         "in": "./lib/schemas/getApp.in.json"
@@ -1451,7 +1171,8 @@
     },
     "getItems": {
       "main": "./lib/triggers/getItems.js",
-      "title": "Get Item",
+      "title": "Item: Poll for Changes",
+      "description": "Poll for new or updated items",
       "type": "polling",
       "metadata": {
         "in": "./lib/schemas/getItem.in.json"
@@ -1459,7 +1180,8 @@
     },
     "getOrganisations": {
       "main": "./lib/triggers/getOrganisations.js",
-      "title": "Get Organisation",
+      "title": "Org: Poll for Changes",
+      "description": "Poll for organization changes",
       "type": "polling",
       "metadata": {
         "in": "./lib/schemas/getOrg.in.json"
@@ -1467,7 +1189,8 @@
     },
     "getSpaces": {
       "main": "./lib/triggers/getSpaces.js",
-      "title": "Get Spaces",
+      "title": "Space: Poll for Changes",
+      "description": "Poll for new or updated spaces",
       "type": "polling",
       "metadata": {
         "in": "./lib/schemas/getSpace.in.json"
@@ -1475,7 +1198,8 @@
     },
     "verifyHook": {
       "main": "./lib/triggers/verifyHooks.js",
-      "title": "Hooks Trigger",
+      "title": "Hook: Webhook Receiver",
+      "description": "Receive and process webhook notifications from Podio",
       "metadata": {
         "in": "./lib/schemas/verifyHooks.in.json"
       }

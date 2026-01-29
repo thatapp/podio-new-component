@@ -4,17 +4,20 @@
     "item_id": {
       "type": "number",
       "required": true,
-      "title": "Item id"
+      "title": "Item ID",
+      "description": "The ID of the item to compare revisions for"
     },
     "revision_from": {
-      "type": "string",
+      "type": "number",
       "required": false,
-      "title": "Revision from"
+      "title": "From Revision",
+      "description": "The starting revision number for comparison"
     },
     "revision_to": {
-      "type": "string",
+      "type": "number",
       "required": false,
-      "title": "Revision to"
+      "title": "To Revision",
+      "description": "The ending revision number for comparison"
     }
   }
 }

@@ -4,35 +4,38 @@
     "app_id": {
       "type": "number",
       "required": true,
-      "title": "App Id"
+      "title": "App ID",
+      "description": "The ID of the app to filter items from"
     },
     "sort_by": {
       "type": "string",
       "title": "Sort By",
-      "required": false
+      "required": false,
+      "description": "Field external_id to sort by (e.g., 'created_on', 'last_edit_on', or a field external_id)"
     },
     "sort_desc": {
-      "type": "SelectView",
-      "title": "Sort Desc",
-      "model": {
-        "true": "true",
-        "false": "false"
-      }
+      "type": "boolean",
+      "title": "Sort Descending",
+      "required": false,
+      "description": "True to sort in descending order (newest first)"
     },
     "limit": {
       "type": "number",
-      "title": "Limit",
-      "required": false
+      "title": "Batch Size",
+      "required": false,
+      "description": "Number of items per batch (default: 15). Set to 0 to retrieve all items."
     },
     "offset": {
       "type": "number",
       "title": "Offset",
-      "required": false
+      "required": false,
+      "description": "Number of items to skip (for pagination)"
     },
     "filters": {
       "type": "object",
       "title": "Filters",
-      "required": false
+      "required": false,
+      "description": "Filter criteria as JSON object with field_id/external_id as keys"
     }
   }
 }

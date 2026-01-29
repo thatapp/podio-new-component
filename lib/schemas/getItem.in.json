@@ -1,11 +1,12 @@
 {
-    "type": "object",
-    "properties": {
-        "ItemId": {
-            "type": "number",
-            "required": true,
-            "title": "Item id",
-            "note": "84937"
-        }
+  "type": "object",
+  "properties": {
+    "ItemId": {
+      "type": "number",
+      "required": true,
+      "title": "Item ID",
+      "description": "The unique identifier of the item to retrieve",
+      "placeholder": "e.g., 12345678"
     }
+  }
 }

@@ -4,7 +4,8 @@
     "orgId": {
       "type": "number",
       "required": true,
-      "title": "Organisation id"
+      "title": "Organization ID",
+      "description": "The unique identifier of the organization to retrieve"
     }
   }
 }

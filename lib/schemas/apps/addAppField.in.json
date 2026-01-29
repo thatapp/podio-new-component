@@ -1,0 +1,43 @@
+{
+  "type": "object",
+  "properties": {
+    "app_id": {
+      "type": "number",
+      "required": true,
+      "title": "App ID",
+      "description": "The ID of the app to add the field to"
+    },
+    "type": {
+      "type": "string",
+      "required": true,
+      "title": "Field Type",
+      "description": "The type of field: text, number, category, date, app (reference), contact, calculation, duration, progress, location, money, phone, email, image, embed, etc."
+    },
+    "label": {
+      "type": "string",
+      "required": true,
+      "title": "Field Label",
+      "description": "The label users will see for this field"
+    },
+    "description": {
+      "type": "string",
+      "title": "Description",
+      "description": "Help text shown when editing the field"
+    },
+    "required": {
+      "type": "boolean",
+      "title": "Required",
+      "description": "Whether this field must be filled when creating/editing items"
+    },
+    "delta": {
+      "type": "number",
+      "title": "Position (Delta)",
+      "description": "Field order position relative to other fields"
+    },
+    "settings": {
+      "type": "object",
+      "title": "Settings",
+      "description": "Field-type-specific settings (varies by field type)"
+    }
+  }
+}

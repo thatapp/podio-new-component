@@ -3,6 +3,7 @@ var API_URL = 'https://api.podio.com';
 var request = require('request');
 var Q = require('q');
 var _ = require('lodash');
+var util = require('util');
 var oauthUtils = require('./helpers/oauth-utils.js');
 const axios = require('axios');
 var handlebars = require('hbs').handlebars;
@@ -113,7 +114,11 @@ Podio.prototype.request = function (method, path, params, formData, headers) {
         ).catch((errr) => {
             console.log(errr);
         });
-        that.context.request.emit('updateAccessToken', new_auth);
+
+        // Emit updateKeys event per thatapp.io docs to persist refreshed tokens
+        if (that.context && that.context.emit) {
+            that.context.emit('updateKeys', { oauth: cfg.oauth });
+        }
     }
 
     return defered.promise;

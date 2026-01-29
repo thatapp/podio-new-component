@@ -102,18 +102,30 @@ exports.getFieldProperties = (field) => {
             case 'date':
                 props.type = 'object';
                 props.properties = {
-                    start_date_utc: getStrConf('(Start Date Utc)'),
-                    end_date_utc: getStrConf('(End Date Utc)'),
-                    start_date: getStrConf('(Start Date)'),
-                    end_date: getStrConf('(End Date)'),
-                    start_time_utc: getStrConf('(Start Time Utc)'),
-                    end_time_utc: getStrConf('(End Time Utc)'),
-                    start_time: getStrConf('(Start Time)'),
-                    end_time: getStrConf('(End Time)'),
-                    start: getStrConf('(Start)'),
-                    end: getStrConf('(End)'),
-                    start_utc: getStrConf('(Start Utc)'),
-                    end_utc: getStrConf('(End Utc)'),
+                    start_date: {
+                        type: 'string',
+                        required: false,
+                        title: field.label + ' (Start Date)',
+                        description: 'Date in YYYY-MM-DD format (e.g., 2024-03-15)'
+                    },
+                    start_time: {
+                        type: 'string',
+                        required: false,
+                        title: field.label + ' (Start Time)',
+                        description: 'Time in HH:MM format (e.g., 14:30). Only use if field includes time.'
+                    },
+                    end_date: {
+                        type: 'string',
+                        required: false,
+                        title: field.label + ' (End Date)',
+                        description: 'Date in YYYY-MM-DD format (e.g., 2024-03-16). Only use for date ranges.'
+                    },
+                    end_time: {
+                        type: 'string',
+                        required: false,
+                        title: field.label + ' (End Time)',
+                        description: 'Time in HH:MM format (e.g., 17:00). Only use for date ranges with time.'
+                    }
                 };
                 break;
             case 'location':

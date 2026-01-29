@@ -1,0 +1,71 @@
+{
+  "type": "object",
+  "properties": {
+    "task_id": {
+      "type": "number",
+      "required": true,
+      "title": "Task ID",
+      "description": "The ID of the task to update"
+    },
+    "text": {
+      "type": "string",
+      "title": "Task Title",
+      "description": "The new title/text of the task"
+    },
+    "description": {
+      "type": "string",
+      "title": "Description",
+      "description": "The new description of the task"
+    },
+    "due_date": {
+      "type": "string",
+      "title": "Due Date",
+      "description": "New due date in local time (format: YYYY-MM-DD)"
+    },
+    "due_time": {
+      "type": "string",
+      "title": "Due Time",
+      "description": "New due time in local time (format: HH:MM)"
+    },
+    "responsible": {
+      "type": "number",
+      "title": "Responsible User ID",
+      "description": "New responsible user ID"
+    },
+    "private": {
+      "type": "boolean",
+      "title": "Private",
+      "description": "True to make the task private"
+    },
+    "ref_type": {
+      "type": "string",
+      "title": "Reference Type",
+      "description": "New reference type"
+    },
+    "ref_id": {
+      "type": "number",
+      "title": "Reference ID",
+      "description": "New reference ID"
+    },
+    "completed": {
+      "type": "boolean",
+      "title": "Completed",
+      "description": "True to mark as completed, false to mark as incomplete"
+    },
+    "labels": {
+      "type": "array",
+      "title": "Labels",
+      "description": "Array of label texts or IDs"
+    },
+    "file_ids": {
+      "type": "array",
+      "title": "File IDs",
+      "description": "Array of file IDs to attach"
+    },
+    "remind_delta": {
+      "type": "number",
+      "title": "Reminder (minutes)",
+      "description": "Minutes before due date to send reminder (empty to remove)"
+    }
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "type": "object",
+  "properties": {
+    "space_id": {
+      "type": "number",
+      "required": true,
+      "title": "Space ID",
+      "description": "The ID of the space where the app will be created"
+    },
+    "name": {
+      "type": "string",
+      "required": true,
+      "title": "App Name",
+      "description": "The name of the app"
+    },
+    "type": {
+      "type": "string",
+      "title": "App Type",
+      "description": "The type of app: standard, meeting, or contact (default: standard)"
+    },
+    "item_name": {
+      "type": "string",
+      "title": "Item Name",
+      "description": "Label for individual items in the app (e.g., 'Task', 'Project')"
+    },
+    "description": {
+      "type": "string",
+      "title": "Description",
+      "description": "The description of the app"
+    },
+    "usage": {
+      "type": "string",
+      "title": "Usage Instructions",
+      "description": "Instructions for how to use the app"
+    },
+    "icon": {
+      "type": "string",
+      "title": "Icon",
+      "description": "The icon name for the app"
+    },
+    "external_id": {
+      "type": "string",
+      "title": "External ID",
+      "description": "External system identifier"
+    },
+    "allow_edit": {
+      "type": "boolean",
+      "title": "Allow Edit",
+      "description": "Allow members to edit items"
+    },
+    "allow_attachments": {
+      "type": "boolean",
+      "title": "Allow Attachments",
+      "description": "Allow file attachments on items"
+    },
+    "allow_comments": {
+      "type": "boolean",
+      "title": "Allow Comments",
+      "description": "Allow comments on items"
+    },
+    "default_view": {
+      "type": "string",
+      "title": "Default View",
+      "description": "The default view when opening the app"
+    },
+    "fields": {
+      "type": "array",
+      "title": "Fields",
+      "description": "Array of field definitions to create with the app"
+    }
+  }
+}

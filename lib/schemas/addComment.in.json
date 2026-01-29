@@ -1,51 +1,58 @@
 {
-    "type": "object",
-    "properties": {
-        "type": {
-            "type": "string",
-            "title": "Object Type",
-            "required": true,
-            "placeholder": "Objects can be “items” or “status”"
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string",
+      "title": "Object Type",
+      "required": true,
+      "description": "The type of object to add the comment to",
+      "placeholder": "item or status"
+    },
+    "id": {
+      "type": "number",
+      "title": "Object ID",
+      "required": true,
+      "description": "The ID of the object (item_id or status_id)",
+      "placeholder": "e.g., 12345678"
+    },
+    "data": {
+      "type": "object",
+      "title": "Comment Data",
+      "properties": {
+        "value": {
+          "type": "string",
+          "title": "Comment Text",
+          "required": false,
+          "description": "The text content of the comment"
         },
-        "id": {
-            "type": "number",
-            "title": "Object Id",
-            "required": true,
-            "placeholder": "Values can be 'item_id' or 'status_id' "
+        "external_id": {
+          "type": "string",
+          "title": "External ID",
+          "required": false,
+          "description": "Optional external identifier for the comment"
         },
-        "data": {
-            "type": "object",
-            "properties": {
-                    "value": {
-                        "type": "string",
-                        "title": "Value",
-                        "required": false
-                    },
-                    "external_id": {
-                        "type": "string",
-                        "title": "External Id",
-                        "required": false
-                    },
-                    "file_ids": [
-                        {
-                            "type": "string",
-                            "title": "File Ids",
-                            "required": false
-                        }
-                    ],
-                    "embed_id": {
-                        "type": "string",
-                        "title": "Embed Id",
-                        "required": false
-                    },
-                    "embed_url": {
-                        "type": "string",
-                        "title": "Embed Url",
-                        "required": false
-                    }
-                  
-                  }
-        }  
+        "file_ids": {
+          "type": "array",
+          "title": "File IDs",
+          "required": false,
+          "description": "Array of file IDs to attach to the comment",
+          "items": {
+            "type": "number"
+          }
+        },
+        "embed_id": {
+          "type": "number",
+          "title": "Embed ID",
+          "required": false,
+          "description": "ID of an embed to include in the comment"
+        },
+        "embed_url": {
+          "type": "string",
+          "title": "Embed URL",
+          "required": false,
+          "description": "URL to embed in the comment (will be resolved automatically)"
+        }
+      }
     }
+  }
 }
-  

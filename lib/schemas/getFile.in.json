@@ -1,10 +1,11 @@
 {
-    "type": "object",
-    "properties": {
-        "FileId": {
-            "type": "number",
-            "required": true,
-            "title": "File id"
-        }
+  "type": "object",
+  "properties": {
+    "FileId": {
+      "type": "number",
+      "required": true,
+      "title": "File ID",
+      "description": "The unique identifier of the file to retrieve"
     }
+  }
 }

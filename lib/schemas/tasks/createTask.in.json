@@ -1,0 +1,69 @@
+{
+  "type": "object",
+  "properties": {
+    "text": {
+      "type": "string",
+      "required": true,
+      "title": "Task Title",
+      "description": "The title/text of the task"
+    },
+    "description": {
+      "type": "string",
+      "title": "Description",
+      "description": "The description of the task"
+    },
+    "due_date": {
+      "type": "string",
+      "title": "Due Date",
+      "description": "Date only in YYYY-MM-DD format (e.g., 2024-03-15)"
+    },
+    "due_time": {
+      "type": "string",
+      "title": "Due Time",
+      "description": "Time in HH:MM format (e.g., 14:30). Use with due_date for date+time."
+    },
+    "ref_type": {
+      "type": "string",
+      "title": "Reference Type",
+      "description": "Type of object to link task to: 'item', 'status', 'task', or 'space'"
+    },
+    "ref_id": {
+      "type": "number",
+      "title": "Reference ID",
+      "description": "ID of the object to link the task to"
+    },
+    "responsible": {
+      "type": "number",
+      "title": "Responsible User ID",
+      "description": "User ID of the person responsible for the task"
+    },
+    "private": {
+      "type": "boolean",
+      "title": "Private",
+      "description": "True to make the task private"
+    },
+    "labels": {
+      "type": "array",
+      "title": "Labels",
+      "description": "Array of label texts or IDs"
+    },
+    "file_ids": {
+      "type": "array",
+      "title": "File IDs",
+      "description": "Array of file IDs to attach",
+      "items": {
+        "type": "number"
+      }
+    },
+    "remind_delta": {
+      "type": "number",
+      "title": "Reminder (minutes)",
+      "description": "Minutes before due date to send reminder"
+    },
+    "external_id": {
+      "type": "string",
+      "title": "External ID",
+      "description": "External system reference ID"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "object",
+  "properties": {
+    "task_id": {
+      "type": "number",
+      "required": true,
+      "title": "Task ID",
+      "description": "The ID of the task to assign"
+    },
+    "responsible": {
+      "type": "number",
+      "required": true,
+      "title": "Responsible User ID",
+      "description": "The user ID to assign the task to"
+    }
+  }
+}

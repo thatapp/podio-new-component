@@ -1,10 +1,11 @@
 {
-    "type": "object",
-    "properties": {
-        "SpaceId": {
-            "type": "number",
-            "required": true,
-            "title": "Space id"
-        }
+  "type": "object",
+  "properties": {
+    "SpaceId": {
+      "type": "number",
+      "required": true,
+      "title": "Space ID",
+      "description": "The unique identifier of the space to retrieve"
     }
+  }
 }

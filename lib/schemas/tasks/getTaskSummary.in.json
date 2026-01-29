@@ -1,0 +1,20 @@
+{
+  "type": "object",
+  "properties": {
+    "org": {
+      "type": "number",
+      "title": "Organization ID",
+      "description": "Filter summary by organization ID"
+    },
+    "space": {
+      "type": "number",
+      "title": "Space ID",
+      "description": "Filter summary by space ID"
+    },
+    "limit": {
+      "type": "number",
+      "title": "Limit",
+      "description": "Maximum tasks per group in summary"
+    }
+  }
+}

@@ -1,10 +1,11 @@
 {
-    "type": "object",
-    "properties": {
-        "AppId": {
-            "type": "number",
-            "required": true,
-            "title": "App id"
-        }
+  "type": "object",
+  "properties": {
+    "AppId": {
+      "type": "number",
+      "required": true,
+      "title": "App ID",
+      "description": "The unique identifier of the app to retrieve"
     }
+  }
 }

@@ -2,24 +2,28 @@
   "type": "object",
   "properties": {
     "field_id": {
-      "type": "string",
-      "title": "Field Id",
-      "required": true
+      "type": "number",
+      "title": "Field ID",
+      "required": true,
+      "description": "The ID of the reference field"
     },
     "item_id": {
       "type": "number",
-      "title": "Item Id",
-      "required": true
+      "title": "Item ID",
+      "required": true,
+      "description": "The ID of the item to find references for"
     },
     "limit": {
       "type": "number",
       "title": "Limit",
-      "required": false
+      "required": false,
+      "description": "Maximum number of results to return"
     },
     "offset": {
       "type": "number",
       "title": "Offset",
-      "required": false
+      "required": false,
+      "description": "Number of results to skip (for pagination)"
     }
   }
 }
