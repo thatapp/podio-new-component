@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir /b /s \"c:\\\\Users\\\\SethHelgeson\\\\Documents\\\\GitHub\\\\podio-new-component\\\\lib\")",
+      "WebFetch(domain:docs.thatapp.io)",
+      "WebFetch(domain:developers.podio.com)",
+      "WebFetch(domain:podio.github.io)",
+      "WebFetch(domain:github.com)"
+    ]
+  }
+}

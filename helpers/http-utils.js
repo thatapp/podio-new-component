@@ -18,7 +18,7 @@ exports.createBasicAuthorization = function createBasicAuthorization(username, p
 
     var credentials = util.format("%s:%s", username, password);
 
-    return 'Basic ' + new Buffer(credentials).toString('base64');
+    return 'Basic ' + Buffer.from(credentials).toString('base64');
 };
 
 /**

@@ -2,24 +2,28 @@
   "type": "object",
   "properties": {
     "field_id": {
-      "type": "string",
-      "title": "Field Id",
-      "required": true
+      "type": "number",
+      "title": "Field ID",
+      "required": true,
+      "description": "The ID of the reference field to search from"
     },
     "limit": {
       "type": "number",
       "title": "Limit",
-      "required": false
+      "required": false,
+      "description": "Maximum number of results to return"
     },
     "not_item_id": {
       "type": "number",
-      "title": "Not Item Id",
-      "required": false
+      "title": "Exclude Item ID",
+      "required": false,
+      "description": "Item ID to exclude from results"
     },
     "text": {
-      "type": "object",
-      "title": "Text",
-      "required": false
+      "type": "string",
+      "title": "Search Text",
+      "required": false,
+      "description": "Text to search for in referenceable items"
     }
   }
 }

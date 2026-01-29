@@ -1,3 +1,5 @@
+'use strict';
+
 const { messages } = require('elasticio-node');
 
 exports.emit = async (obj, data) => {
@@ -5,14 +7,17 @@ exports.emit = async (obj, data) => {
     obj.emit('data', messages.newMessageWithBody(data));
 };
 
-exports.handleFailed = async (obj) => {
-    try {
-        messages.emitError.bind(obj)
-    }catch (e) {
-        console.log(obj);
-    }
+// Returns an error handler function for Q promise .fail() chains
+exports.handleFailed = (obj) => {
+    return function(error) {
+        console.error('API call failed:', error.message || error);
+        obj.emit('error', error);
+    };
 };
 
-exports.handleDone = async (obj) => {
-    messages.emitEnd.bind(obj)
+// Returns an end handler function for Q promise chains
+exports.handleDone = (obj) => {
+    return function() {
+        obj.emit('end');
+    };
 };

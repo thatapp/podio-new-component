@@ -4,12 +4,14 @@
     "file_id": {
       "type": "number",
       "required": true,
-      "title": "File id"
+      "title": "File ID",
+      "description": "The ID of the uploaded file to attach"
     },
     "ref_id": {
       "type": "number",
       "required": true,
-      "title": "Ref Id"
+      "title": "Object ID",
+      "description": "The ID of the object to attach the file to (item_id, task_id, etc.)"
     }
   }
 }

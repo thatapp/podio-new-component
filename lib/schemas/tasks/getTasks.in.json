@@ -1,0 +1,85 @@
+{
+  "type": "object",
+  "properties": {
+    "completed": {
+      "type": "boolean",
+      "title": "Completed",
+      "description": "True to return only completed tasks, false for open tasks"
+    },
+    "app": {
+      "type": "number",
+      "title": "App ID",
+      "description": "Filter tasks by app ID"
+    },
+    "org": {
+      "type": "number",
+      "title": "Organization ID",
+      "description": "Filter tasks by organization ID"
+    },
+    "space": {
+      "type": "number",
+      "title": "Space ID",
+      "description": "Filter tasks by space ID"
+    },
+    "responsible": {
+      "type": "number",
+      "title": "Responsible User ID",
+      "description": "Filter by user responsible for the task"
+    },
+    "reference": {
+      "type": "string",
+      "title": "Reference",
+      "description": "Filter by reference in format 'type:id' (e.g., 'item:12345')"
+    },
+    "label": {
+      "type": "number",
+      "title": "Label ID",
+      "description": "Filter tasks by label ID"
+    },
+    "due_date": {
+      "type": "string",
+      "title": "Due Date Range",
+      "description": "Filter by due date range (format: YYYY-MM-DD-YYYY-MM-DD)"
+    },
+    "created_on": {
+      "type": "string",
+      "title": "Created Date Range",
+      "description": "Filter by creation date range (format: YYYY-MM-DD-YYYY-MM-DD)"
+    },
+    "created_by": {
+      "type": "number",
+      "title": "Created By",
+      "description": "Filter by user who created the task"
+    },
+    "grouping": {
+      "type": "string",
+      "title": "Grouping",
+      "description": "Group results by: due_date, created_by, responsible, app, space, or org"
+    },
+    "sort_by": {
+      "type": "string",
+      "title": "Sort By",
+      "description": "Sort by: created_on, completed_on, or rank"
+    },
+    "sort_desc": {
+      "type": "boolean",
+      "title": "Sort Descending",
+      "description": "Sort in descending order"
+    },
+    "limit": {
+      "type": "number",
+      "title": "Limit",
+      "description": "Maximum number of tasks per batch (default: 50)"
+    },
+    "offset": {
+      "type": "number",
+      "title": "Offset",
+      "description": "Starting position in results"
+    },
+    "view": {
+      "type": "string",
+      "title": "View",
+      "description": "Set to 'full' for complete task data"
+    }
+  }
+}

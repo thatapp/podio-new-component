@@ -1,10 +1,11 @@
 {
-    "type": "object",
-    "properties": {
-        "CommentId": {
-            "type": "number",
-            "required": true,
-            "title": "Comment id"
-        }
+  "type": "object",
+  "properties": {
+    "CommentId": {
+      "type": "number",
+      "required": true,
+      "title": "Comment ID",
+      "description": "The unique identifier of the comment to retrieve"
     }
+  }
 }

@@ -1,15 +1,17 @@
 {
-    "type": "object",
-    "properties": {
-        "AppId": {
-            "type": "number",
-            "required": true,
-            "title": "App id"
-        },
-        "fieldOrExternalId": {
-            "type": "number",
-            "required": true,
-            "title": "Field or external id"
-        }
+  "type": "object",
+  "properties": {
+    "AppId": {
+      "type": "number",
+      "required": true,
+      "title": "App ID",
+      "description": "The unique identifier of the app containing the field"
+    },
+    "fieldOrExternalId": {
+      "type": "string",
+      "required": true,
+      "title": "Field ID or External ID",
+      "description": "The field_id (numeric) or external_id (string) of the field to retrieve"
     }
+  }
 }

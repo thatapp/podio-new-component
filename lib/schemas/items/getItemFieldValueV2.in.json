@@ -3,15 +3,15 @@
   "properties": {
     "item_id": {
       "type": "number",
-      "title": "Item Id",
+      "title": "Item ID",
       "required": true,
-      "placeholder": "item_id "
+      "description": "The ID of the item"
     },
     "field_id": {
       "type": "number",
-      "title": "Field or External id",
+      "title": "Field ID or External ID",
       "required": true,
-      "placeholder": "It can be the Field or External id"
+      "description": "The field_id (numeric) or external_id to retrieve values for"
     }
   }
 }
