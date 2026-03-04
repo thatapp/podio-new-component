@@ -985,14 +985,6 @@
         "in": "./lib/schemas/getItemCount.in.json"
       }
     },
-    "FilterItemsByView": {
-      "main": "./lib/actions/items/FilterItemsByView.js",
-      "title": "Items: Get by App and View",
-      "description": "Retrieve items matching a saved view's filters",
-      "metadata": {
-        "in": "./lib/schemas/FilterItemsByView.in.json"
-      }
-    },
     "deleteItem": {
       "main": "./lib/actions/items/deleteItem.js",
       "title": "Item: Delete",

@@ -12,22 +12,21 @@
       "required": false
     },
     "sort_desc": {
-      "type": "SelectView",
-      "title": "Sort Desc",
-      "model": {
-        "true": "true",
-        "false": "false"
-      }
+      "type": "boolean",
+      "title": "Sort Descending",
+      "required": false
     },
     "limit": {
       "type": "number",
-      "title": "Limit",
-      "required": false
+      "title": "Batch Size",
+      "required": false,
+      "description": "Number of items per batch (default: 15)"
     },
     "filters": {
       "type": "object",
       "title": "Filters",
-      "required": false
+      "required": false,
+      "description": "Filter criteria as JSON object with field_id/external_id as keys"
     }
   }
 }
