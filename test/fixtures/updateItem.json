@@ -1,14 +1,27 @@
 {
   "msg": {
     "body": {
-      "item_id": 1819757858,
+      "item_id": 3228591827,
+      "app": { "app_id": 27615331 },
+      "created_by": { "user_id": 12345 },
+      "created_on": "2024-01-15 10:30:00",
+      "highlight": "[highlight:start]001236950[highlight:end]",
+      "id": 3228503112,
+      "item": { "item_id": 3228503112, "title": "Some Entity" },
+      "link": "https://podio.com/example",
+      "org": {},
+      "rank": 1,
+      "search_id": "abc123",
+      "space": {},
+      "title": "Some Entity",
+      "type": "item",
       "elite-entity-card": {
         "value": 3228503112
       }
     }
   },
   "cfg": {
-    "appId": 26474954,
+    "appId": 27615331,
     "oauth": {
       "access_token": "YOUR_ACCESS_TOKEN",
       "refresh_token": "YOUR_REFRESH_TOKEN",

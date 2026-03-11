@@ -3,7 +3,9 @@
     "body": {
       "app_id": 27507927,
       "query": "001236693",
-      "ref_type": "item"
+      "ref_type": "item",
+      "highlights": true,
+      "counts": true
     }
   },
   "cfg": {
