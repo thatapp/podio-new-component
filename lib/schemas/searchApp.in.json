@@ -19,7 +19,9 @@
       "ref_type": {
         "type": "string",
         "required": false,
-        "title": "ref_type"
+        "title": "Reference Type",
+        "enum": ["item", "task", "status", "app"],
+        "enumTitles": ["Item", "Task", "Status", "App"]
       },
       "counts": {
         "type": "number",
