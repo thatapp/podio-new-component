@@ -1,0 +1,16 @@
+{
+  "msg": {
+    "body": {
+      "app_id": 27507927,
+      "query": "001236693",
+      "ref_type": "item"
+    }
+  },
+  "cfg": {
+    "oauth": {
+      "access_token": "YOUR_ACCESS_TOKEN",
+      "refresh_token": "YOUR_REFRESH_TOKEN",
+      "token_type": "bearer"
+    }
+  }
+}

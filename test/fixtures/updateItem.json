@@ -1,0 +1,18 @@
+{
+  "msg": {
+    "body": {
+      "item_id": 1819757858,
+      "elite-entity-card": {
+        "value": 3228503112
+      }
+    }
+  },
+  "cfg": {
+    "appId": 26474954,
+    "oauth": {
+      "access_token": "YOUR_ACCESS_TOKEN",
+      "refresh_token": "YOUR_REFRESH_TOKEN",
+      "token_type": "bearer"
+    }
+  }
+}

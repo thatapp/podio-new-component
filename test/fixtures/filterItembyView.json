@@ -1,0 +1,16 @@
+{
+  "msg": {
+    "body": {
+      "app_id": 27507927,
+      "view_id": 0,
+      "limit": 5
+    }
+  },
+  "cfg": {
+    "oauth": {
+      "access_token": "YOUR_ACCESS_TOKEN",
+      "refresh_token": "YOUR_REFRESH_TOKEN",
+      "token_type": "bearer"
+    }
+  }
+}
