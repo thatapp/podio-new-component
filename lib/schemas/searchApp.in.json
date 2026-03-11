@@ -24,7 +24,7 @@
         "enumTitles": ["Item", "Task", "Status", "App"]
       },
       "counts": {
-        "type": "number",
+        "type": "boolean",
         "required": false,
         "title": "counts"
       },
