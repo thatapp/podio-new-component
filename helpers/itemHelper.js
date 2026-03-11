@@ -13,7 +13,9 @@ exports.outScheme = () => {
 exports.fieldTransform = (item, update = false) => {
     const data = {};
     for (const key in item) {
-        if (typeof item[key] === 'object') {
+        if (item[key] === null || item[key] === undefined) {
+            // skip null/undefined values
+        } else if (typeof item[key] === 'object') {
             if((!_.isEmpty(item[key].value) && _.isUndefined(item[key].type)) &&  _.isUndefined(item[key].currency) && _.isUndefined(item[key].city))
             {
                 data[key.toString()] = item[key].value;
