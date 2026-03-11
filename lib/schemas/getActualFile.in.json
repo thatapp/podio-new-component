@@ -7,9 +7,9 @@
       "title": "File id"
     },
     "rawData": {
-      "type": "string",
+      "type": "boolean",
       "required": false,
-      "title": "RawData (Yes/No)"
+      "title": "Raw Data"
     }
   }
 }

@@ -32,7 +32,7 @@
       "title": "Right"
     },
     "target_space_id": {
-      "type": "string",
+      "type": "number",
       "required": false,
       "title": "Target Space"
     },
