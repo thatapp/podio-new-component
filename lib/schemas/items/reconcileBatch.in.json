@@ -1,0 +1,17 @@
+{
+    "type": "object",
+    "properties": {
+        "external_ids": {
+            "type": "array",
+            "required": true,
+            "title": "External IDs",
+            "note": "Non-empty array of strings — the same external_ids your upstream batch used when creating items. This action asks Podio whether each one actually landed."
+        },
+        "app_id": {
+            "type": "string",
+            "required": false,
+            "title": "App ID",
+            "note": "Optional override. Normally configured in the action's static config."
+        }
+    }
+}

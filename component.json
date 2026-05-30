@@ -98,6 +98,53 @@
         "in": "./lib/schemas/items/createItemDynamic.in.json"
       }
     },
+    "createItemIdempotent": {
+      "main": "./lib/actions/items/createItemIdempotent.js",
+      "title": "Item: Create (Idempotent by external_id)",
+      "description": "Safe-to-retry create: looks up by external_id first; returns the existing item if it already lands, otherwise creates a new one. Pair with `reconcileBatch` after a batch to verify Podio actually has every record (the canonical reliable-batch pattern for 'iPaaS shows N processed but Podio has fewer' scenarios). Emits `_idempotent_status: 'existing'|'created'` so downstream steps can branch.",
+      "fields": {
+        "appId": {
+          "viewClass": "TextFieldView",
+          "prompt": "Enter app_id",
+          "label": "Podio Application",
+          "required": true
+        },
+        "hook": {
+          "label": "Execute Hooks",
+          "viewClass": "CheckBoxView",
+          "note": "Execute webhooks and automation flows for this change (default: true)"
+        },
+        "silent": {
+          "label": "Silent Mode",
+          "viewClass": "CheckBoxView",
+          "note": "Suppress notifications and activity stream updates (default: false)"
+        }
+      },
+      "metadata": {
+        "in": "./lib/schemas/items/createItemIdempotent.in.json"
+      }
+    },
+    "reconcileBatch": {
+      "main": "./lib/actions/items/reconcileBatch.js",
+      "title": "Item: Reconcile Batch (by external_id)",
+      "description": "Given an app_id and an array of external_ids your upstream batch tried to write, ask Podio directly which ones landed. Returns {found, missing, errors, *_count}. Use at the end of a batch flow; route on missing.length > 0 back into createItemIdempotent for the gaps. Concurrency is configurable (default 4); call cost is one GET per external_id.",
+      "fields": {
+        "appId": {
+          "viewClass": "TextFieldView",
+          "prompt": "Enter app_id",
+          "label": "Podio Application",
+          "required": true
+        },
+        "concurrency": {
+          "viewClass": "TextFieldView",
+          "label": "Concurrency",
+          "note": "Max parallel lookups against Podio (default 4). Higher = faster but more risk of hitting rate limits on very large batches."
+        }
+      },
+      "metadata": {
+        "in": "./lib/schemas/items/reconcileBatch.in.json"
+      }
+    },
     "updateItem": {
       "main": "./lib/actions/items/updateItem.js",
       "title": "Item: Update",
@@ -182,14 +229,6 @@
         "in": "./lib/schemas/apps/addAppField.in.json"
       }
     },
-    "getAppInverseDependencies": {
-      "main": "./lib/actions/apps/getAppInverseDependencies.js",
-      "title": "App: Get Inverse Dependencies",
-      "description": "Get apps that depend ON this app (have reference fields pointing to it)",
-      "metadata": {
-        "in": "./lib/schemas/apps/getAppInverseDependencies.in.json"
-      }
-    },
     "getAppField": {
       "main": "./lib/actions/apps/getAppField.js",
       "title": "App: Get Field",
@@ -233,7 +272,7 @@
     "getFeatures": {
       "main": "./lib/actions/apps/getFeatures.js",
       "title": "App: Get Features",
-      "description": "Get features (filters, sortings) available for an app",
+      "description": "Get features (filters, sortings) available for one or more apps. `app_ids` is required (single id or comma-separated list). NOTE: multi-app calls require all apps to belong to the SAME Podio space — mixing spaces returns 'Apps not from same space'.",
       "metadata": {
         "in": "./lib/schemas/apps/getFeatures.in.json"
       }
@@ -474,8 +513,23 @@
     },
     "searchOrg": {
       "main": "./lib/actions/all/searchOrg.js",
-      "title": "Search: Organization",
-      "description": "Search for content within a specific organization",
+      "title": "Search: Organization (v1)",
+      "description": "Search for content within a specific organization. Returns a bare array of result rows. Compact payload, no facet counts. Compare to `searchOrgV2` for the {counts, results} envelope with per-ref_type aggregate counts.",
+      "fields": {
+        "orgId": {
+          "viewClass": "SelectView",
+          "prompt": "Select an Organisation",
+          "label": "Podio Organisation",
+          "required": true,
+          "model": "organisations"
+        }
+      },
+      "dynamicMetadata": true
+    },
+    "searchOrgV2": {
+      "main": "./lib/actions/all/searchOrgV2.js",
+      "title": "Search: Organization (v2 with counts)",
+      "description": "Search for content within a specific organization. Returns {counts, results}; pass counts=true to populate per-ref_type aggregate counts (useful for faceted UIs). Same 13-key result-row schema as searchOrg.",
       "fields": {
         "orgId": {
           "viewClass": "SelectView",
@@ -489,8 +543,30 @@
     },
     "searchSpace": {
       "main": "./lib/actions/all/searchSpace.js",
-      "title": "Search: Space",
-      "description": "Search for content within a specific space",
+      "title": "Search: Space (v1)",
+      "description": "Search for content within a specific space. Returns a bare array of result rows. Compact payload, no facet counts. Compare to `searchSpaceV2` for the {counts, results} envelope with per-ref_type aggregate counts.",
+      "fields": {
+        "orgId": {
+          "viewClass": "SelectView",
+          "prompt": "Select an Organisation",
+          "label": "Podio Organisation",
+          "required": true,
+          "model": "organisations"
+        },
+        "spaceId": {
+          "viewClass": "SelectView",
+          "prompt": "Select a Space",
+          "label": "Podio Space",
+          "required": true,
+          "model": "spaces"
+        }
+      },
+      "dynamicMetadata": true
+    },
+    "searchSpaceV2": {
+      "main": "./lib/actions/all/searchSpaceV2.js",
+      "title": "Search: Space (v2 with counts)",
+      "description": "Search for content within a specific space. Returns {counts, results}; pass counts=true to populate per-ref_type aggregate counts (useful for faceted UIs). Same 13-key result-row schema as searchSpace.",
       "fields": {
         "orgId": {
           "viewClass": "SelectView",
@@ -887,7 +963,7 @@
     "createHooks": {
       "main": "./lib/actions/hooks/createHooks.js",
       "title": "Hooks: Create",
-      "description": "Create webhook to receive notifications when objects change",
+      "description": "Create one or more Podio webhooks. WARNING: hooks on calculation fields silently NEVER FIRE (Podio does not emit item.update events for calc recomputes) — set the optional `appId` below to enable the calc-field pre-flight guard. Bridge pattern: copy calc values into a stored field via Podio Workflow Automation and subscribe to the stored field. On partial failure of multi-type installs, successful hooks are automatically rolled back.",
       "fields": {
         "hookType": {
           "viewClass": "SelectView",
@@ -896,7 +972,7 @@
           "model": {
             "space": "Space",
             "app": "App",
-            "field": "Field"
+            "field": "Field (item.update only; not supported on calculation fields)"
           },
           "required": true,
           "note": "The type of object to attach the webhook to"
@@ -906,7 +982,13 @@
           "label": "Events",
           "model": "getHooks",
           "required": true,
-          "note": "Select the events that will trigger the webhook"
+          "note": "Select the events that will trigger the webhook. For Hook Type = Field, only item.update is supported."
+        },
+        "appId": {
+          "viewClass": "TextFieldView",
+          "label": "App ID (optional, enables calc-field guard)",
+          "required": false,
+          "note": "When Hook Type is Field, set this to the parent app_id so the action can pre-flight the field's type and refuse calculation fields (which silently never fire). Optional — leave empty for back-compat with legacy install flows."
         }
       },
       "metadata": {

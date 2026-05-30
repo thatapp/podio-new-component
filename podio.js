@@ -5,8 +5,17 @@ var Q = require('q');
 var _ = require('lodash');
 var util = require('util');
 var oauthUtils = require('./helpers/oauth-utils.js');
+var errors = require('./helpers/errors.js');
 const axios = require('axios');
 var handlebars = require('hbs').handlebars;
+
+// In-process lock around OAuth token refresh. When multiple actions race to
+// refresh (typically during a large batch that crosses the 8h token boundary),
+// only ONE refresh proceeds; the rest wait for it and reuse the fresh cfg.
+// Without this, concurrent 401s caused multiple parallel refreshes + a race
+// on the credential-store PATCH, and the losers kept using stale tokens —
+// resulting in records dropping silently mid-batch.
+let podioRefreshLock = null;
 
 function Podio(cfg, context) {
     this.cfg = cfg;
@@ -45,33 +54,105 @@ Podio.prototype.request = function (method, path, params, formData, headers) {
 
     async function responseHandler(err, response, body) {
         if (err) {
+            // Transport-level error (network, DNS, timeout). Mark retryable so
+            // the iPaaS sailor auto-retries per its 10-retry exponential-backoff
+            // policy. See docs.elastic.io/developers/error-retry.html.
+            err.retry = true;
             return defered.reject(err);
         }
-        try {
-            console.log('x-rate-limit-remaining:', response.headers['x-rate-limit-remaining']);
-        } catch (e) {
 
-        }
+        // Rate-limit headroom early-warning. If Podio's remaining-budget header
+        // drops below threshold, surface it via Bunyan logger (B.6 will unify
+        // logging; for now fall back to console.warn when no platform context).
+        try {
+            const rawRemaining = response.headers && response.headers['x-rate-limit-remaining'];
+            const remaining = parseInt(rawRemaining, 10);
+            if (Number.isFinite(remaining) && remaining < 500) {
+                const logger = (that.context && that.context.logger) || console;
+                logger.warn(`Podio rate-limit remaining: ${remaining} (partner ceiling 75000/hr)`);
+            }
+        } catch (e) { /* noop */ }
+
         if (401 === response.statusCode) {
-            //console.log('Podio: Trying to refresh token...');
-            oauthUtils.refreshAppToken('podio', that.cfg, onTokenRefresh);
-        } else if (response.statusCode >= 400) {
-            if (_.isObject(body)) {
-                err = new Error(body.error_description);
-                _.extend(err, body);
-            } else {
-                err = new Error('Unknown error');
+            // Concurrent-refresh guard. If another action is already refreshing,
+            // wait for the in-flight refresh to complete; then update OUR cfg
+            // and retry the original request with the fresh access_token.
+            if (podioRefreshLock) {
+                return podioRefreshLock
+                    .then((freshCfg) => {
+                        that.cfg = freshCfg;
+                        requestParams.headers.Authorization = 'OAuth2 ' + freshCfg.oauth.access_token;
+                        request(requestParams, responseHandler);
+                    })
+                    .catch((refreshErr) => {
+                        refreshErr.retry = true;
+                        defered.reject(refreshErr);
+                    });
             }
-            err.statusCode = response.statusCode;
-            return defered.reject(err);
-        } else {
-            if (body != undefined) {
-                if (response.headers != undefined) {
-                    body.headers = response.headers;
-                }
-            }
-            return defered.resolve(body);
+
+            // First 401 of the race — initiate the refresh. The original
+            // `onTokenRefresh` callback handled success but unconditionally
+            // assigned the callback arg to `that.cfg` — including when the
+            // arg was an Error (refresh failure), which then threw TypeError
+            // on `cfg.oauth.access_token`. Properly distinguish here:
+            podioRefreshLock = new Promise((resolveLock, rejectLock) => {
+                oauthUtils.refreshAppToken('podio', that.cfg, function (newCfgOrErr) {
+                    if (newCfgOrErr instanceof Error) {
+                        podioRefreshLock = null;
+                        newCfgOrErr.retry = true;            // transient — let platform retry
+                        rejectLock(newCfgOrErr);
+                        return defered.reject(newCfgOrErr);
+                    }
+                    // Happy path: existing logic assigns cfg, PATCHes the
+                    // credential store, re-runs THIS request via onTokenRefresh.
+                    onTokenRefresh(newCfgOrErr);
+                    // Release lock so concurrent waiters can use the fresh cfg.
+                    podioRefreshLock = null;
+                    resolveLock(newCfgOrErr);
+                });
+            });
+            return;
         }
+
+        if (response.statusCode >= 400) {
+            // Normalize ALL non-success responses through the central classifier.
+            // Callers and the platform retry loop get:
+            //   - err.retry = true for 420 (rate_limit) and 5xx (server errors),
+            //     enabling the sailor's auto-retry. This is the headline fix for
+            //     "iPaaS shows N processed but Podio has fewer" reports.
+            //   - err.errorParameters surfacing Podio's "Must be one of {…}"
+            //     allowed-value set when present.
+            //   - err.kind diagnostic class (ROUTE_GONE / RESOURCE_MISSING /
+            //     FORBIDDEN / INVALID_REFERENCE / RATE_LIMIT / PROVIDER_ERROR /
+            //     UNAUTHORIZED / SERVER_ERROR / OTHER) — see helpers/errors.js.
+            const normalized = errors.normalizePodioError(
+                response.statusCode,
+                (typeof body === 'object' && body !== null) ? body : {}
+            );
+            return defered.reject(normalized);
+        }
+
+        // Success path
+        if (body !== undefined && body !== null) {
+            // Previously the code did `body.headers = response.headers` directly.
+            // For ARRAY responses (most list endpoints — `/app/`, `/bulletin/`,
+            // `/contact/`, `/tag/app/{id}/`, etc.) that adds an enumerable
+            // non-index property to an Array, which downstream serializers
+            // handle inconsistently (JSON.stringify drops it; Object.keys
+            // includes it). Attach as a non-enumerable property on objects
+            // only; leave arrays untouched.
+            if (!Array.isArray(body) && typeof body === 'object' && response.headers) {
+                try {
+                    Object.defineProperty(body, 'headers', {
+                        value: response.headers,
+                        enumerable: false,
+                        writable: false,
+                        configurable: true,
+                    });
+                } catch (e) { /* noop — body may be frozen */ }
+            }
+        }
+        return defered.resolve(body);
     }
 
     function onTokenRefresh(cfg) {

@@ -1,0 +1,23 @@
+{
+    "type": "object",
+    "properties": {
+        "external_id": {
+            "type": "string",
+            "required": true,
+            "title": "External ID",
+            "note": "The stable upstream record id that makes this call idempotent. Pass the same value here you used (or will use) on the corresponding `reconcileBatch` call. Without it, this action cannot detect that an item already exists for this record."
+        },
+        "fields": {
+            "type": "object",
+            "required": true,
+            "title": "Fields",
+            "note": "Raw Podio item fields payload — same shape as `Item: Create (Dynamic)`. Use external_id-keyed field names or numeric field_ids per Podio's API."
+        },
+        "app_id": {
+            "type": "string",
+            "required": false,
+            "title": "App ID",
+            "note": "Optional override. Normally configured in the action's static config; pass here only if routing dynamically."
+        }
+    }
+}
