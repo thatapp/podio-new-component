@@ -39,15 +39,14 @@
           "viewClass": "TextFieldView",
           "prompt": "Enter any value",
           "label": "Trigger Value",
-          "required": true,
-          "note": "Enter any value to trigger token retrieval"
+          "required": true
         }
       }
     },
     "createItem": {
       "main": "./lib/actions/items/createItem.js",
       "title": "Item: Create",
-      "description": "Create item with schema-based field mapper (app_id configured statically)",
+      "description": "Create item (schema-based field mapping; static app_id)",
       "fields": {
         "appId": {
           "viewClass": "TextFieldView",
@@ -57,18 +56,15 @@
         },
         "hook": {
           "label": "Execute Hooks",
-          "viewClass": "CheckBoxView",
-          "note": "Execute webhooks and automation flows for this change (default: true)"
+          "viewClass": "CheckBoxView"
         },
         "silent": {
           "label": "Silent Mode",
-          "viewClass": "CheckBoxView",
-          "note": "Suppress notifications and activity stream updates (default: false)"
+          "viewClass": "CheckBoxView"
         },
         "autoAddCategoryOptions": {
           "label": "Auto-Add Missing Category Options",
-          "viewClass": "CheckBoxView",
-          "note": "Automatically add missing category values to the app field configuration before creating the item"
+          "viewClass": "CheckBoxView"
         }
       },
       "dynamicMetadata": true
@@ -76,22 +72,19 @@
     "createItemDynamic": {
       "main": "./lib/actions/items/createItemDynamic.js",
       "title": "Item: Create (Dynamic)",
-      "description": "Create item with dynamic app_id and raw JSON payload - no schema lookup. Advanced mode for routing to any app.",
+      "description": "Create item — dynamic app_id, raw JSON payload (advanced).",
       "fields": {
         "hook": {
           "label": "Execute Hooks",
-          "viewClass": "CheckBoxView",
-          "note": "Execute webhooks and automation flows for this change (default: true)"
+          "viewClass": "CheckBoxView"
         },
         "silent": {
           "label": "Silent Mode",
-          "viewClass": "CheckBoxView",
-          "note": "Suppress notifications and activity stream updates (default: false)"
+          "viewClass": "CheckBoxView"
         },
         "autoAddCategoryOptions": {
           "label": "Auto-Add Missing Category Options",
-          "viewClass": "CheckBoxView",
-          "note": "Automatically add missing category values to the app field configuration before creating the item"
+          "viewClass": "CheckBoxView"
         }
       },
       "metadata": {
@@ -101,7 +94,7 @@
     "createItemIdempotent": {
       "main": "./lib/actions/items/createItemIdempotent.js",
       "title": "Item: Create (Idempotent by external_id)",
-      "description": "Safe-to-retry create: looks up by external_id first; returns the existing item if it already lands, otherwise creates a new one. Pair with `reconcileBatch` after a batch to verify Podio actually has every record (the canonical reliable-batch pattern for 'iPaaS shows N processed but Podio has fewer' scenarios). Emits `_idempotent_status: 'existing'|'created'` so downstream steps can branch.",
+      "description": "Retry-safe create by external_id. Pair with reconcileBatch for batch reliability.",
       "fields": {
         "appId": {
           "viewClass": "TextFieldView",
@@ -111,13 +104,11 @@
         },
         "hook": {
           "label": "Execute Hooks",
-          "viewClass": "CheckBoxView",
-          "note": "Execute webhooks and automation flows for this change (default: true)"
+          "viewClass": "CheckBoxView"
         },
         "silent": {
           "label": "Silent Mode",
-          "viewClass": "CheckBoxView",
-          "note": "Suppress notifications and activity stream updates (default: false)"
+          "viewClass": "CheckBoxView"
         }
       },
       "metadata": {
@@ -127,7 +118,7 @@
     "reconcileBatch": {
       "main": "./lib/actions/items/reconcileBatch.js",
       "title": "Item: Reconcile Batch (by external_id)",
-      "description": "Given an app_id and an array of external_ids your upstream batch tried to write, ask Podio directly which ones landed. Returns {found, missing, errors, *_count}. Use at the end of a batch flow; route on missing.length > 0 back into createItemIdempotent for the gaps. Concurrency is configurable (default 4); call cost is one GET per external_id.",
+      "description": "Reconcile batch by external_id: {found, missing, errors}. Re-feed missing.",
       "fields": {
         "appId": {
           "viewClass": "TextFieldView",
@@ -138,7 +129,7 @@
         "concurrency": {
           "viewClass": "TextFieldView",
           "label": "Concurrency",
-          "note": "Max parallel lookups against Podio (default 4). Higher = faster but more risk of hitting rate limits on very large batches."
+          "note": "Parallel lookups (default 4)."
         }
       },
       "metadata": {
@@ -158,18 +149,15 @@
         },
         "hook": {
           "label": "Execute Hooks",
-          "viewClass": "CheckBoxView",
-          "note": "Execute webhooks and automation flows for this change (default: true)"
+          "viewClass": "CheckBoxView"
         },
         "silent": {
           "label": "Silent Mode",
-          "viewClass": "CheckBoxView",
-          "note": "Suppress notifications and activity stream updates (default: false)"
+          "viewClass": "CheckBoxView"
         },
         "autoAddCategoryOptions": {
           "label": "Auto-Add Missing Category Options",
-          "viewClass": "CheckBoxView",
-          "note": "Automatically add missing category values to the app field configuration before updating the item"
+          "viewClass": "CheckBoxView"
         }
       },
       "dynamicMetadata": true
@@ -193,7 +181,7 @@
     "getItemValue": {
       "main": "./lib/actions/items/getItemV2.js",
       "title": "Item: Get Value V2",
-      "description": "Retrieve item field values in V2 format (simplified structure)",
+      "description": "Get item field values (V2 simplified format)",
       "metadata": {
         "in": "./lib/schemas/getItem.in.json"
       }
@@ -213,8 +201,7 @@
       "fields": {
         "silent": {
           "label": "Silent Mode",
-          "viewClass": "CheckBoxView",
-          "note": "Suppress notifications (default: false)"
+          "viewClass": "CheckBoxView"
         }
       },
       "metadata": {
@@ -272,7 +259,7 @@
     "getFeatures": {
       "main": "./lib/actions/apps/getFeatures.js",
       "title": "App: Get Features",
-      "description": "Get features (filters, sortings) available for one or more apps. `app_ids` is required (single id or comma-separated list). NOTE: multi-app calls require all apps to belong to the SAME Podio space — mixing spaces returns 'Apps not from same space'.",
+      "description": "App features (filters, sortings). app_ids required; same space.",
       "metadata": {
         "in": "./lib/schemas/apps/getFeatures.in.json"
       }
@@ -288,7 +275,7 @@
     "updateApp": {
       "main": "./lib/actions/apps/updateApp.js",
       "title": "App: Update",
-      "description": "Update any aspect of an app (name, description, settings, etc.)",
+      "description": "Update app config (name, description, settings)",
       "metadata": {
         "in": "./lib/schemas/apps/updateApp.in.json"
       }
@@ -359,25 +346,21 @@
           "label": "Space Privacy",
           "required": true,
           "model": {
-            "open": "Open (visible to all organization members)",
+            "open": "Open (visible to org members)",
             "closed": "Closed (invite only)"
-          },
-          "note": "Open spaces are visible to all organization members. Closed spaces require an invitation."
+          }
         },
         "auto_join": {
           "viewClass": "CheckBoxView",
-          "label": "Auto Join",
-          "note": "Automatically add new organization employees to this space"
+          "label": "Auto Join"
         },
         "post_on_new_app": {
           "viewClass": "CheckBoxView",
-          "label": "Announce New Apps",
-          "note": "Post a status update when new apps are created in this space"
+          "label": "Announce New Apps"
         },
         "post_on_new_member": {
           "viewClass": "CheckBoxView",
-          "label": "Announce New Members",
-          "note": "Post a status update when new members join this space"
+          "label": "Announce New Members"
         }
       },
       "dynamicMetadata": true
@@ -400,25 +383,21 @@
           "label": "Space Privacy",
           "required": true,
           "model": {
-            "open": "Open (visible to all organization members)",
+            "open": "Open (visible to org members)",
             "closed": "Closed (invite only)"
-          },
-          "note": "Open spaces are visible to all organization members. Closed spaces require an invitation."
+          }
         },
         "auto_join": {
           "viewClass": "CheckBoxView",
-          "label": "Auto Join",
-          "note": "Automatically add new organization employees to this space"
+          "label": "Auto Join"
         },
         "post_on_new_app": {
           "viewClass": "CheckBoxView",
-          "label": "Announce New Apps",
-          "note": "Post a status update when new apps are created in this space"
+          "label": "Announce New Apps"
         },
         "post_on_new_member": {
           "viewClass": "CheckBoxView",
-          "label": "Announce New Members",
-          "note": "Post a status update when new members join this space"
+          "label": "Announce New Members"
         }
       },
       "dynamicMetadata": true
@@ -464,14 +443,13 @@
     "search": {
       "main": "./lib/actions/all/search.js",
       "title": "Search: Global",
-      "description": "Search across all Podio content including items, tasks, files, and more",
+      "description": "Global unscoped Podio search (v2 GET). Returns {counts, results}.",
       "fields": {
         "query": {
           "viewClass": "TextFieldView",
           "label": "Search Query",
           "placeholder": "Enter search terms...",
-          "required": true,
-          "note": "The text to search for across Podio"
+          "required": true
         },
         "ref_type": {
           "viewClass": "SelectView",
@@ -484,37 +462,32 @@
             "conversation": "Conversations",
             "profile": "Profiles",
             "app": "Apps"
-          },
-          "note": "Filter search results to a specific content type"
+          }
         },
         "counts": {
           "viewClass": "CheckBoxView",
-          "label": "Include Counts",
-          "note": "Include the total count of matching results"
+          "label": "Include Counts"
         },
         "highlights": {
           "viewClass": "CheckBoxView",
-          "label": "Include Highlights",
-          "note": "Include text snippets showing where matches were found"
+          "label": "Include Highlights"
         },
         "limit": {
           "viewClass": "TextFieldView",
           "label": "Limit",
-          "placeholder": "20",
-          "note": "Maximum number of results to return"
+          "placeholder": "20"
         },
         "offset": {
           "viewClass": "TextFieldView",
           "label": "Offset",
-          "placeholder": "0",
-          "note": "Number of results to skip (for pagination)"
+          "placeholder": "0"
         }
       }
     },
     "searchOrg": {
       "main": "./lib/actions/all/searchOrg.js",
       "title": "Search: Organization (v1)",
-      "description": "Search for content within a specific organization. Returns a bare array of result rows. Compact payload, no facet counts. Compare to `searchOrgV2` for the {counts, results} envelope with per-ref_type aggregate counts.",
+      "description": "Search within an org (v1, bare array). See searchOrgV2 for facet counts.",
       "fields": {
         "orgId": {
           "viewClass": "SelectView",
@@ -529,7 +502,7 @@
     "searchOrgV2": {
       "main": "./lib/actions/all/searchOrgV2.js",
       "title": "Search: Organization (v2 with counts)",
-      "description": "Search for content within a specific organization. Returns {counts, results}; pass counts=true to populate per-ref_type aggregate counts (useful for faceted UIs). Same 13-key result-row schema as searchOrg.",
+      "description": "Search within an org (v2, {counts, results}). counts=true populates aggregates.",
       "fields": {
         "orgId": {
           "viewClass": "SelectView",
@@ -544,7 +517,7 @@
     "searchSpace": {
       "main": "./lib/actions/all/searchSpace.js",
       "title": "Search: Space (v1)",
-      "description": "Search for content within a specific space. Returns a bare array of result rows. Compact payload, no facet counts. Compare to `searchSpaceV2` for the {counts, results} envelope with per-ref_type aggregate counts.",
+      "description": "Search within a space (v1, bare array). See searchSpaceV2 for facet counts.",
       "fields": {
         "orgId": {
           "viewClass": "SelectView",
@@ -566,7 +539,7 @@
     "searchSpaceV2": {
       "main": "./lib/actions/all/searchSpaceV2.js",
       "title": "Search: Space (v2 with counts)",
-      "description": "Search for content within a specific space. Returns {counts, results}; pass counts=true to populate per-ref_type aggregate counts (useful for faceted UIs). Same 13-key result-row schema as searchSpace.",
+      "description": "Search within a space (v2, {counts, results}). counts=true populates aggregates.",
       "fields": {
         "orgId": {
           "viewClass": "SelectView",
@@ -613,7 +586,7 @@
     "getCommentObject": {
       "main": "./lib/actions/comments/getCommentObject.js",
       "title": "Comment: Get by Object",
-      "description": "Retrieve all comments on a specific object (item, task, etc.)",
+      "description": "List comments on an object",
       "metadata": {
         "in": "./lib/schemas/getCommentObject.in.json"
       }
@@ -625,8 +598,7 @@
       "fields": {
         "silent": {
           "label": "Silent Mode",
-          "viewClass": "CheckBoxView",
-          "note": "Suppress notifications (default: false)"
+          "viewClass": "CheckBoxView"
         }
       },
       "metadata": {
@@ -640,8 +612,7 @@
       "fields": {
         "silent": {
           "label": "Silent Mode",
-          "viewClass": "CheckBoxView",
-          "note": "Suppress notifications (default: false)"
+          "viewClass": "CheckBoxView"
         }
       },
       "metadata": {
@@ -687,13 +658,11 @@
       "fields": {
         "hook": {
           "label": "Execute Hooks",
-          "viewClass": "CheckBoxView",
-          "note": "Execute hooks for this change (default: true)"
+          "viewClass": "CheckBoxView"
         },
         "silent": {
           "label": "Silent Mode",
-          "viewClass": "CheckBoxView",
-          "note": "Suppress notifications (default: false)"
+          "viewClass": "CheckBoxView"
         }
       },
       "metadata": {
@@ -707,13 +676,11 @@
       "fields": {
         "hook": {
           "label": "Execute Hooks",
-          "viewClass": "CheckBoxView",
-          "note": "Execute hooks for this change (default: true)"
+          "viewClass": "CheckBoxView"
         },
         "silent": {
           "label": "Silent Mode",
-          "viewClass": "CheckBoxView",
-          "note": "Suppress notifications (default: false)"
+          "viewClass": "CheckBoxView"
         }
       },
       "metadata": {
@@ -735,13 +702,11 @@
       "fields": {
         "hook": {
           "label": "Execute Hooks",
-          "viewClass": "CheckBoxView",
-          "note": "Execute hooks for this change (default: true)"
+          "viewClass": "CheckBoxView"
         },
         "silent": {
           "label": "Silent Mode",
-          "viewClass": "CheckBoxView",
-          "note": "Suppress notifications (default: false)"
+          "viewClass": "CheckBoxView"
         }
       },
       "metadata": {
@@ -755,13 +720,11 @@
       "fields": {
         "hook": {
           "label": "Execute Hooks",
-          "viewClass": "CheckBoxView",
-          "note": "Execute hooks for this change (default: true)"
+          "viewClass": "CheckBoxView"
         },
         "silent": {
           "label": "Silent Mode",
-          "viewClass": "CheckBoxView",
-          "note": "Suppress notifications (default: false)"
+          "viewClass": "CheckBoxView"
         }
       },
       "metadata": {
@@ -899,13 +862,11 @@
             "regular": "Regular (standard access)",
             "light": "Light (limited access)",
             "grant_only": "Grant Only (invite others only)"
-          },
-          "note": "Select the permission level for the new member"
+          }
         },
         "silent": {
           "label": "Silent Mode",
-          "viewClass": "CheckBoxView",
-          "note": "Suppress notifications (default: false)"
+          "viewClass": "CheckBoxView"
         }
       },
       "metadata": {
@@ -915,7 +876,7 @@
     "filterItems": {
       "main": "./lib/actions/all/filterItems.js",
       "title": "Items: Filter",
-      "description": "Filter items in an app with auto-pagination (retrieves all matching items)",
+      "description": "Filter items in an app (auto-paginated)",
       "metadata": {
         "in": "./lib/schemas/filterItems.in.json"
       }
@@ -963,7 +924,7 @@
     "createHooks": {
       "main": "./lib/actions/hooks/createHooks.js",
       "title": "Hooks: Create",
-      "description": "Create one or more Podio webhooks. WARNING: hooks on calculation fields silently NEVER FIRE (Podio does not emit item.update events for calc recomputes) — set the optional `appId` below to enable the calc-field pre-flight guard. Bridge pattern: copy calc values into a stored field via Podio Workflow Automation and subscribe to the stored field. On partial failure of multi-type installs, successful hooks are automatically rolled back.",
+      "description": "Create Podio webhooks. Set appId for calc-field guard (calc fields never fire).",
       "fields": {
         "hookType": {
           "viewClass": "SelectView",
@@ -972,23 +933,22 @@
           "model": {
             "space": "Space",
             "app": "App",
-            "field": "Field (item.update only; not supported on calculation fields)"
+            "field": "Field (item.update only; not calc fields)"
           },
-          "required": true,
-          "note": "The type of object to attach the webhook to"
+          "required": true
         },
         "hook_type": {
           "viewClass": "MultiSelectView",
           "label": "Events",
           "model": "getHooks",
           "required": true,
-          "note": "Select the events that will trigger the webhook. For Hook Type = Field, only item.update is supported."
+          "note": "For Hook Type = Field, only item.update is supported."
         },
         "appId": {
           "viewClass": "TextFieldView",
           "label": "App ID (optional, enables calc-field guard)",
           "required": false,
-          "note": "When Hook Type is Field, set this to the parent app_id so the action can pre-flight the field's type and refuse calculation fields (which silently never fire). Optional — leave empty for back-compat with legacy install flows."
+          "note": "For Field hooks, set the parent app_id to refuse calculation fields."
         }
       },
       "metadata": {
@@ -1096,8 +1056,7 @@
             "comment": "Comment",
             "space": "Space"
           },
-          "prompt": "Select object type",
-          "note": "The type of object to attach the file to"
+          "prompt": "Select object type"
         }
       },
       "metadata": {
@@ -1107,7 +1066,7 @@
     "addEmbed": {
       "main": "./lib/actions/embeds/addEmbed.js",
       "title": "Embed: Add",
-      "description": "Fetch metadata for a URL (title, description, thumbnail) to create an embed",
+      "description": "Fetch URL metadata to create an embed",
       "metadata": {
         "in": "./lib/schemas/embeds/addEmbed.in.json"
       }
