@@ -10,21 +10,34 @@ exports.outScheme = () => {
   };
 };
 
+// Does this field value carry real content? Unlike lodash's _.isEmpty (which
+// reports numbers and booleans as "empty"), this keeps 0/false and only treats
+// null/undefined, blank strings, and empty arrays as contentless. Using this
+// stopped money/location fields from losing their currency/coords when `value`
+// was numeric.
+function hasContent(v) {
+    if (v === null || v === undefined) return false;
+    if (typeof v === 'string') return v.trim() !== '';
+    if (Array.isArray(v)) return v.length > 0;
+    return true;
+}
+
 exports.fieldTransform = (item, update = false) => {
     const data = {};
     for (const key in item) {
         if (item[key] === null || item[key] === undefined) {
             // skip null/undefined values
         } else if (typeof item[key] === 'object') {
-            if((!_.isEmpty(item[key].value) && _.isUndefined(item[key].type)) &&  _.isUndefined(item[key].currency) && _.isUndefined(item[key].city))
+            const v = item[key].value;
+            if (hasContent(v) && _.isUndefined(item[key].type) && _.isUndefined(item[key].currency) && _.isUndefined(item[key].city))
             {
-                data[key.toString()] = item[key].value;
-            }else if (!_.isEmpty(item[key].value)) {
+                data[key.toString()] = v;
+            }else if (hasContent(v)) {
                 data[key.toString()] = item[key];
-            }else if(_.isUndefined(item[key].value)){
+            }else if(_.isUndefined(v)){
                 data[key.toString()] = item[key];
             }else{
-                data[key.toString()] = item[key].value;
+                data[key.toString()] = v;
             }
         } else {
             var result = (item[key]).toString();
@@ -38,6 +51,63 @@ exports.fieldTransform = (item, update = false) => {
         }
     }
     return data;
+};
+
+// A value the caller meant to leave UNCHANGED (omit from the payload).
+function isOmitValue(v) {
+    if (v === null || v === undefined) return true;
+    if (typeof v === 'string') {
+        const t = v.trim();
+        return t === '' || t === 'null';
+    }
+    return false;
+}
+
+// A value the caller meant to CLEAR (Podio empties a field given []).
+// Mappings commonly use `source ? source : "[]"`, so the string "[]" and an
+// empty array both mean "clear this field".
+function isClearValue(v) {
+    if (Array.isArray(v)) return v.length === 0;
+    if (typeof v === 'string') return v.trim() === '[]';
+    return false;
+}
+
+/**
+ * Normalize a single Podio field value for create/update payloads.
+ *
+ * Podio rejects non-Podio-shaped values (e.g. "Invalid value ...: Must be a
+ * valid url/number"), and clears a field when it receives an empty list [].
+ * This centralizes empty/clear-sentinel handling so EVERY field type behaves
+ * the same — "", "[]", [], null, { value }, { embed }, and date objects.
+ *
+ * @returns `undefined` to OMIT the field (leave it unchanged in Podio),
+ *          `[]` to CLEAR it, or the value to send as-is.
+ */
+exports.normalizeFieldValue = (value) => {
+    if (isOmitValue(value)) return undefined;
+    if (isClearValue(value)) return [];
+
+    if (value !== null && typeof value === 'object' && !Array.isArray(value)) {
+        // Date: { start_date | start | end, ... }
+        if ('start_date' in value || 'start' in value || 'end' in value) {
+            const anchor = value.start_date != null ? value.start_date
+                         : value.start != null ? value.start
+                         : value.end;
+            return (isOmitValue(anchor) || isClearValue(anchor)) ? [] : value;
+        }
+        // Embed/link: { embed } — URL already resolved to an id by reformData
+        if ('embed' in value) {
+            return (isOmitValue(value.embed) || isClearValue(value.embed)) ? [] : value;
+        }
+        // Value-bearing objects: money / email / phone / reference / location
+        if ('value' in value) {
+            if (isOmitValue(value.value)) return undefined;
+            if (isClearValue(value.value)) return [];
+            return value;
+        }
+        return value;
+    }
+    return value;
 };
 
 exports.emitData = async (cfg,result,that,end = null) => {
