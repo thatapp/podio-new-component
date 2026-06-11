@@ -2,7 +2,7 @@ const _ = require('lodash');
 
 exports.outScheme = () => {
   return {
-      refId : {
+      ref_id : {
           type: 'number',
           required: false,
           title: 'Ref ID'

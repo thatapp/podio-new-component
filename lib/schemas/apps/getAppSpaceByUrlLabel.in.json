@@ -6,7 +6,7 @@
             "required": true,
             "title": "Space Id"
         },
-        "urlLabel": {
+        "url_label": {
             "type": "string",
             "required": true,
             "title": "Url Label"

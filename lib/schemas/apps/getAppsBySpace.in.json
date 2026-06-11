@@ -6,7 +6,7 @@
             "required": true,
             "title": "Space Id"
         },
-        "includeInactive": {
+        "include_inactive": {
             "type": "SelectView",
             "required": false,
             "title": "Url Label",

@@ -7,7 +7,7 @@
       "title": "App ID",
       "description": "The unique identifier of the app containing the field"
     },
-    "fieldOrExternalId": {
+    "field_id": {
       "type": "string",
       "required": true,
       "title": "Field ID or External ID",

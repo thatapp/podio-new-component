@@ -6,7 +6,7 @@
       "required": true,
       "title": "File id"
     },
-    "rawData": {
+    "raw_data": {
       "type": "boolean",
       "required": false,
       "title": "Raw Data"
