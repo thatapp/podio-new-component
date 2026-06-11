@@ -30,11 +30,11 @@
     "getItemData": {
       "msg": {
         "body": {
-          "ItemId": 1925169191
+          "item_id": 1925169191
         }
       },
       "cfg": {
-        "ItemId": 1925169191,
+        "item_id": 1925169191,
         "appId": 22758086,
         "_account": "5efc92543a04ef0011325719",
         "username": "william@techego.com",
@@ -60,11 +60,11 @@
         },
         "headers": {},
         "body": {
-          "ItemId": 980503737
+          "item_id": 980503737
         }
       },
       "cfg": {
-        "ItemId": 980503737,
+        "item_id": 980503737,
         "url": "http://google.com",
         "hook_type": [
           "item.update",
@@ -87,7 +87,7 @@
         }
       },
       "cfg": {
-        "AppId": 20457293,
+        "app_id": 20457293,
         "splitResult": true,
         "oauth": {
           "access_token": "7859a224c16a6d54730c4258bc7892fc",
@@ -100,11 +100,11 @@
       "msg": {
         "headers": {},
         "body": {
-          "SpaceId": 6269904
+          "space_id": 6269904
         }
       },
       "cfg": {
-        "SpaceId": 6269904,
+        "space_id": 6269904,
         "oauth": {
           "access_token": "d0a02fa8421442c1a584359d5c416dda",
           "token_type": "bearer",
@@ -116,11 +116,11 @@
       "msg": {
         "headers": {},
         "body": {
-          "FileId": 961108340
+          "file_id": 961108340
         }
       },
       "cfg": {
-        "FileId": 961108340,
+        "file_id": 961108340,
         "oauth": {
           "access_token": "58ac536ccdbfc2d1dd8aa4e8dca94dd3",
           "expires_in": 28800,
@@ -138,11 +138,11 @@
       "msg": {
         "headers": {},
         "body": {
-          "CommentId": 988492515
+          "comment_id": 988492515
         }
       },
       "cfg": {
-        "CommentId": 988492515,
+        "comment_id": 988492515,
         "oauth": {
           "access_token": "51cb05148f6d437997d0c6e9c6ff5d3c",
           "token_type": "bearer",
@@ -154,11 +154,11 @@
       "msg": {
         "headers": {},
         "body": {
-          "taskId": 988492515
+          "task_id": 988492515
         }
       },
       "cfg": {
-        "taskId": 988492515
+        "task_id": 988492515
       }
     },
     "updateItem": {

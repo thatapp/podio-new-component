@@ -1,8 +1,8 @@
 {
   "type": "object",
   "properties": {
-    "orgId": {
-      "type": "number",
+    "org_id": {
+      "type": "string",
       "required": true,
       "title": "Organization ID",
       "description": "The unique identifier of the organization to retrieve"

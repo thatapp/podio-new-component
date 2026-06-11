@@ -1,8 +1,8 @@
 {
   "type": "object",
   "properties": {
-    "AppId": {
-      "type": "number",
+    "app_id": {
+      "type": "string",
       "required": true,
       "title": "App ID",
       "description": "The unique identifier of the app to retrieve"

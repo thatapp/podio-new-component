@@ -1,8 +1,8 @@
 {
   "type": "object",
   "properties": {
-    "CommentId": {
-      "type": "number",
+    "comment_id": {
+      "type": "string",
       "title": "Comment ID",
       "required": true,
       "description": "The ID of the comment to update"

@@ -1,8 +1,8 @@
 {
   "type": "object",
   "properties": {
-    "CommentId": {
-      "type": "number",
+    "comment_id": {
+      "type": "string",
       "required": true,
       "title": "Comment ID",
       "description": "The unique identifier of the comment to retrieve"

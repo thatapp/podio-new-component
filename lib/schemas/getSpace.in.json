@@ -1,8 +1,8 @@
 {
   "type": "object",
   "properties": {
-    "SpaceId": {
-      "type": "number",
+    "space_id": {
+      "type": "string",
       "required": true,
       "title": "Space ID",
       "description": "The unique identifier of the space to retrieve"

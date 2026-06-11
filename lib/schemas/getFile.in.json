@@ -1,8 +1,8 @@
 {
   "type": "object",
   "properties": {
-    "FileId": {
-      "type": "number",
+    "file_id": {
+      "type": "string",
       "required": true,
       "title": "File ID",
       "description": "The unique identifier of the file to retrieve"

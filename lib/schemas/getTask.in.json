@@ -1,8 +1,8 @@
 {
     "type": "object",
     "properties": {
-        "TaskId": {
-            "type": "number",
+        "task_id": {
+            "type": "string",
             "required": true,
             "title": "Task id"
         }

@@ -1,13 +1,13 @@
 {
   "type": "object",
   "properties": {
-    "appId": {
-      "type": "number",
+    "app_id": {
+      "type": "string",
       "required": true,
       "title": "App id"
     },
-    "fieldId": {
-      "type": "number",
+    "field_id": {
+      "type": "string",
       "required": true,
       "title": "Field id"
     },
@@ -41,4 +41,3 @@
     }
   }
 }
-

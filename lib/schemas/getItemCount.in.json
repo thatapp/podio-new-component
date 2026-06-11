@@ -1,8 +1,8 @@
 {
   "type": "object",
   "properties": {
-    "appId": {
-      "type": "number",
+    "app_id": {
+      "type": "string",
       "required": true,
       "title": "App ID",
       "description": "The ID of the app to count items in"
