@@ -30,6 +30,217 @@
     }
   },
   "actions": {
+    "activateApp": {
+      "main": "./lib/actions/apps/activateApp.js",
+      "title": "App: Activate",
+      "description": "Re-activate a previously deactivated app",
+      "metadata": {
+        "in": "./lib/schemas/apps/activateApp.in.json"
+      }
+    },
+    "addAppField": {
+      "main": "./lib/actions/apps/addAppField.js",
+      "title": "App: Add Field",
+      "description": "Add a new field to an existing app",
+      "metadata": {
+        "in": "./lib/schemas/apps/addAppField.in.json"
+      }
+    },
+    "createApp": {
+      "main": "./lib/actions/apps/createApp.js",
+      "title": "App: Create",
+      "description": "Create a new app in a space",
+      "fields": {
+        "silent": {
+          "label": "Silent Mode",
+          "viewClass": "CheckBoxView"
+        }
+      },
+      "metadata": {
+        "in": "./lib/schemas/apps/createApp.in.json"
+      }
+    },
+    "deactivateApp": {
+      "main": "./lib/actions/apps/deactivateApp.js",
+      "title": "App: Deactivate",
+      "description": "Deactivate an app (hides it without deleting)",
+      "metadata": {
+        "in": "./lib/schemas/apps/deactivateApp.in.json"
+      }
+    },
+    "deleteApp": {
+      "main": "./lib/actions/apps/deleteApp.js",
+      "title": "App: Delete",
+      "description": "Permanently delete an app and all its items",
+      "metadata": {
+        "in": "./lib/schemas/apps/deleteApp.in.json"
+      }
+    },
+    "deleteAppField": {
+      "main": "./lib/actions/apps/deleteAppField.js",
+      "title": "App: Delete Field",
+      "description": "Permanently delete a field from an app",
+      "metadata": {
+        "in": "./lib/schemas/apps/deleteAppField.in.json"
+      }
+    },
+    "getApp": {
+      "main": "./lib/actions/apps/getApp.js",
+      "title": "App: Get",
+      "description": "Retrieve app details including configuration and fields",
+      "metadata": {
+        "in": "./lib/schemas/getApp.in.json"
+      }
+    },
+    "getAllApp": {
+      "main": "./lib/actions/apps/getAllApp.js",
+      "title": "App: Get All Apps",
+      "description": "Retrieve all apps accessible to the authenticated user",
+      "metadata": {
+        "in": "./lib/schemas/getAllApp.in.json"
+      }
+    },
+    "getAppsBySpace": {
+      "main": "./lib/actions/apps/getAppsBySpace.js",
+      "title": "App: Get Apps by Space",
+      "description": "List all apps in a specific space",
+      "metadata": {
+        "in": "./lib/schemas/apps/getAppsBySpace.in.json"
+      }
+    },
+    "getAppByLabel": {
+      "main": "./lib/actions/apps/getAppByLabel.js",
+      "title": "App: Get by Labels",
+      "description": "Retrieve app by organization, space, and app URL labels",
+      "metadata": {
+        "in": "./lib/schemas/apps/getAppByLabel.in.json"
+      }
+    },
+    "getAppSpaceByUrlLabel": {
+      "main": "./lib/actions/apps/getAppSpaceByUrlLabel.js",
+      "title": "App: Get by Space URL Label",
+      "description": "Retrieve app using the space ID and app URL label",
+      "metadata": {
+        "in": "./lib/schemas/apps/getAppSpaceByUrlLabel.in.json"
+      }
+    },
+    "getAppDependencies": {
+      "main": "./lib/actions/apps/getAppDependencies.js",
+      "title": "App: Get Dependencies",
+      "description": "Get apps that this app depends on (has reference fields to)",
+      "metadata": {
+        "in": "./lib/schemas/apps/getAppDependencies.in.json"
+      }
+    },
+    "getFeatures": {
+      "main": "./lib/actions/apps/getFeatures.js",
+      "title": "App: Get Features",
+      "description": "App features (filters, sortings). app_ids required; same space.",
+      "metadata": {
+        "in": "./lib/schemas/apps/getFeatures.in.json"
+      }
+    },
+    "getAppField": {
+      "main": "./lib/actions/apps/getAppField.js",
+      "title": "App: Get Field",
+      "description": "Retrieve configuration details for a specific app field",
+      "metadata": {
+        "in": "./lib/schemas/getAppField.in.json"
+      }
+    },
+    "getSpaceAppDependencies": {
+      "main": "./lib/actions/apps/getSpaceAppDependencies.js",
+      "title": "App: Get Space App Dependencies",
+      "description": "Get all app dependencies within a space",
+      "metadata": {
+        "in": "./lib/schemas/apps/getSpaceAppDependencies.in.json"
+      }
+    },
+    "installApp": {
+      "main": "./lib/actions/apps/install.js",
+      "title": "App: Install from Share",
+      "description": "Install an app from the App Market into a space",
+      "metadata": {
+        "in": "./lib/schemas/installApp.in.json"
+      }
+    },
+    "updateApp": {
+      "main": "./lib/actions/apps/updateApp.js",
+      "title": "App: Update",
+      "description": "Update app config (name, description, settings)",
+      "metadata": {
+        "in": "./lib/schemas/apps/updateApp.in.json"
+      }
+    },
+    "updateAppField": {
+      "main": "./lib/actions/apps/updateAppField.js",
+      "title": "App: Update Field",
+      "description": "Update configuration for an app field",
+      "metadata": {
+        "in": "./lib/schemas/updateAppField.in.json"
+      },
+      "dynamicMetadata": true
+    },
+    "addComment": {
+      "main": "./lib/actions/comments/addComment.js",
+      "title": "Comment: Add",
+      "description": "Add a comment to an item, task, or other object",
+      "fields": {
+        "silent": {
+          "label": "Silent Mode",
+          "viewClass": "CheckBoxView"
+        }
+      },
+      "metadata": {
+        "in": "./lib/schemas/addComment.in.json"
+      }
+    },
+    "deleteComment": {
+      "main": "./lib/actions/comments/deleteComment.js",
+      "title": "Comment: Delete",
+      "description": "Delete a comment",
+      "metadata": {
+        "in": "./lib/schemas/getComment.in.json"
+      }
+    },
+    "getComment": {
+      "main": "./lib/actions/comments/getComment.js",
+      "title": "Comment: Get",
+      "description": "Retrieve a specific comment by ID",
+      "metadata": {
+        "in": "./lib/schemas/getComment.in.json"
+      }
+    },
+    "getCommentObject": {
+      "main": "./lib/actions/comments/getCommentObject.js",
+      "title": "Comment: Get by Object",
+      "description": "List comments on an object",
+      "metadata": {
+        "in": "./lib/schemas/getCommentObject.in.json"
+      }
+    },
+    "getCommentRevision": {
+      "main": "./lib/actions/comments/getCommentRevision.js",
+      "title": "Comment: Get Revision",
+      "description": "Retrieve a specific revision of a comment",
+      "metadata": {
+        "in": "./lib/schemas/getComment.in.json"
+      }
+    },
+    "updateComment": {
+      "main": "./lib/actions/comments/updateComment.js",
+      "title": "Comment: Update",
+      "description": "Update an existing comment",
+      "fields": {
+        "silent": {
+          "label": "Silent Mode",
+          "viewClass": "CheckBoxView"
+        }
+      },
+      "metadata": {
+        "in": "./lib/schemas/updateComment.in.json"
+      }
+    },
     "getTokens": {
       "main": "./lib/actions/all/getTokens.js",
       "title": "Credential: Get Tokens",
@@ -41,6 +252,164 @@
           "label": "Trigger Value",
           "required": true
         }
+      }
+    },
+    "showCredential": {
+      "main": "./lib/actions/all/showCredential.js",
+      "title": "Credential: Show",
+      "description": "Display current credential information for debugging"
+    },
+    "addEmbed": {
+      "main": "./lib/actions/embeds/addEmbed.js",
+      "title": "Embed: Add",
+      "description": "Fetch URL metadata to create an embed",
+      "metadata": {
+        "in": "./lib/schemas/embeds/addEmbed.in.json"
+      }
+    },
+    "attachFile": {
+      "main": "./lib/actions/files/attachFile.js",
+      "title": "File: Attach File",
+      "description": "Attach an uploaded file to a Podio object",
+      "fields": {
+        "ref_type": {
+          "viewClass": "SelectView",
+          "label": "Object Type",
+          "required": true,
+          "model": {
+            "item": "Item",
+            "task": "Task",
+            "status": "Status Update",
+            "comment": "Comment",
+            "space": "Space"
+          },
+          "prompt": "Select object type"
+        }
+      },
+      "metadata": {
+        "in": "./lib/schemas/attachFile.in.json"
+      }
+    },
+    "copyFile": {
+      "main": "./lib/actions/files/copyFile.js",
+      "title": "File: Copy",
+      "description": "Create a copy of an existing file",
+      "metadata": {
+        "in": "./lib/schemas/copyFile.in.json"
+      }
+    },
+    "getActualFile": {
+      "main": "./lib/actions/files/getActualFile.js",
+      "title": "File: Download",
+      "description": "Get the actual file content (binary data or URL)",
+      "metadata": {
+        "in": "./lib/schemas/getActualFile.in.json"
+      }
+    },
+    "getFile": {
+      "main": "./lib/actions/files/getFile.js",
+      "title": "File: Get",
+      "description": "Retrieve file metadata by ID",
+      "metadata": {
+        "in": "./lib/schemas/getFile.in.json"
+      }
+    },
+    "getFilesbyApp": {
+      "main": "./lib/actions/files/getFilesbyApp.js",
+      "title": "File: Get All by App",
+      "description": "Retrieve all files attached to items in an app",
+      "metadata": {
+        "in": "./lib/schemas/getFilesbyApp.in.json"
+      }
+    },
+    "publicUrl": {
+      "main": "./lib/actions/files/uploadFileV3.js",
+      "title": "File: Upload from Base64",
+      "description": "Upload a file to Podio from Base64-encoded data",
+      "metadata": {
+        "in": "./lib/schemas/uploadFilev3.in.json"
+      }
+    },
+    "UploadFile": {
+      "main": "./lib/actions/files/uploadFileV2.js",
+      "title": "File: Upload from URL",
+      "description": "Upload a file to Podio from a URL",
+      "metadata": {
+        "in": "./lib/schemas/uploadFile.in.json"
+      }
+    },
+    "uploadFile": {
+      "main": "./lib/actions/files/uploadFile.js",
+      "title": "File: Upload V2",
+      "description": "Upload a file to Podio (legacy version)",
+      "metadata": {
+        "in": "./lib/schemas/uploadFileV2.in.json"
+      }
+    },
+    "createHooks": {
+      "main": "./lib/actions/hooks/createHooks.js",
+      "title": "Hook: Create",
+      "description": "Create Podio webhooks. Set appId for calc-field guard (calc fields never fire).",
+      "fields": {
+        "hookType": {
+          "viewClass": "SelectView",
+          "prompt": "Select a hook type",
+          "label": "Hook Type",
+          "model": {
+            "space": "Space",
+            "app": "App",
+            "field": "Field (item.update only; not calc fields)"
+          },
+          "required": true
+        },
+        "hook_type": {
+          "viewClass": "MultiSelectView",
+          "label": "Events",
+          "model": "getHooks",
+          "required": true,
+          "note": "For Hook Type = Field, only item.update is supported."
+        },
+        "appId": {
+          "viewClass": "TextFieldView",
+          "label": "App ID (optional, enables calc-field guard)",
+          "required": false,
+          "note": "For Field hooks, set the parent app_id to refuse calculation fields."
+        }
+      },
+      "metadata": {
+        "in": "./lib/schemas/createHooks.in.json"
+      }
+    },
+    "deleteHooks": {
+      "main": "./lib/actions/hooks/deleteHooks.js",
+      "title": "Hook: Delete",
+      "description": "Remove a webhook",
+      "metadata": {
+        "in": "./lib/schemas/deleteHooks.in.json"
+      }
+    },
+    "getHooks": {
+      "main": "./lib/actions/hooks/getHooks.js",
+      "title": "Hook: Get",
+      "description": "Retrieve webhooks configured for an object",
+      "metadata": {
+        "in": "./lib/schemas/createHooks.in.json"
+      }
+    },
+    "verifyHooks": {
+      "main": "./lib/actions/hooks/verifyHooks.js",
+      "title": "Hook: Verify",
+      "description": "Manually verify a webhook (useful after creation)",
+      "metadata": {
+        "in": "./lib/schemas/verifyHooks.in.json"
+      }
+    },
+    "cloneItem": {
+      "main": "./lib/actions/items/cloneItem.js",
+      "title": "Item: Clone",
+      "description": "Create a copy of an existing item",
+      "metadata": {
+        "in": "./lib/schemas/cloneItem.in.json"
       }
     },
     "createItem": {
@@ -115,6 +484,102 @@
         "in": "./lib/schemas/items/createItemIdempotent.in.json"
       }
     },
+    "deleteItem": {
+      "main": "./lib/actions/items/deleteItem.js",
+      "title": "Item: Delete",
+      "description": "Permanently delete an item",
+      "metadata": {
+        "in": "./lib/schemas/deleteItem.in.json"
+      }
+    },
+    "filterItems": {
+      "main": "./lib/actions/all/filterItems.js",
+      "title": "Item: Filter",
+      "description": "Filter items in an app (auto-paginated)",
+      "metadata": {
+        "in": "./lib/schemas/filterItems.in.json"
+      }
+    },
+    "filterItemsByView": {
+      "main": "./lib/actions/items/filterItembyView.js",
+      "title": "Item: Filter by View",
+      "description": "Filter items using a saved view's criteria",
+      "metadata": {
+        "in": "./lib/schemas/filterItembyView.in.json"
+      }
+    },
+    "findReferencesItems": {
+      "main": "./lib/actions/items/findReferencesItems.js",
+      "title": "Item: Find Referenceable",
+      "description": "Search for items that can be referenced by a field",
+      "metadata": {
+        "in": "./lib/schemas/findReferencesItems.in.json"
+      }
+    },
+    "getItem": {
+      "main": "./lib/actions/items/getItem.js",
+      "title": "Item: Get",
+      "description": "Retrieve a single item by ID with all field values",
+      "metadata": {
+        "in": "./lib/schemas/getItem.in.json"
+      }
+    },
+    "getItemsbyApp": {
+      "main": "./lib/actions/items/getItemsbyApp.js",
+      "title": "Item: Get All by App",
+      "description": "Retrieve all items in an app",
+      "metadata": {
+        "in": "./lib/schemas/getItemsbyApp.in.json"
+      }
+    },
+    "getItemCount": {
+      "main": "./lib/actions/items/getItemCount.js",
+      "title": "Item: Get Count",
+      "description": "Get the total number of items in an app",
+      "metadata": {
+        "in": "./lib/schemas/getItemCount.in.json"
+      }
+    },
+    "getItemFieldValueV2": {
+      "main": "./lib/actions/items/getItemFieldValueV2.js",
+      "title": "Item: Get Field Value (v2)",
+      "description": "Retrieve values for a specific field on an item (V2 format)",
+      "metadata": {
+        "in": "./lib/schemas/items/getItemFieldValueV2.in.json"
+      }
+    },
+    "getItemReferences": {
+      "main": "./lib/actions/items/getItemReferences.js",
+      "title": "Item: Get References",
+      "description": "Get items that reference this item",
+      "metadata": {
+        "in": "./lib/schemas/getItemReferences.in.json"
+      }
+    },
+    "getReferencesToItemByField": {
+      "main": "./lib/actions/items/getReferencesToItemByField.js",
+      "title": "Item: Get References by Field",
+      "description": "Get items referencing this item through a specific field",
+      "metadata": {
+        "in": "./lib/schemas/getReferencesToItemByField.in.json"
+      }
+    },
+    "getItemRevisionDifference": {
+      "main": "./lib/actions/items/getItemRevisionDifference.js",
+      "title": "Item: Get Revision Difference",
+      "description": "Compare two revisions of an item to see changes",
+      "metadata": {
+        "in": "./lib/schemas/getItemRevisionDifference.in.json"
+      }
+    },
+    "getItemValue": {
+      "main": "./lib/actions/items/getItemV2.js",
+      "title": "Item: Get Values (v2)",
+      "description": "Get item field values (V2 simplified format)",
+      "metadata": {
+        "in": "./lib/schemas/getItem.in.json"
+      }
+    },
     "reconcileBatch": {
       "main": "./lib/actions/items/reconcileBatch.js",
       "title": "Item: Reconcile Batch (by external_id)",
@@ -162,176 +627,26 @@
       },
       "dynamicMetadata": true
     },
-    "getItem": {
-      "main": "./lib/actions/items/getItem.js",
-      "title": "Item: Get",
-      "description": "Retrieve a single item by ID with all field values",
+    "getAllSpacesOrg": {
+      "main": "./lib/actions/organisations/getAllSpacesOrg.js",
+      "title": "Org: Get All Spaces",
+      "description": "List all spaces in an organization",
       "metadata": {
-        "in": "./lib/schemas/getItem.in.json"
+        "in": "./lib/schemas/getOrg.in.json"
       }
     },
-    "endSpaceMembership": {
-      "main": "./lib/actions/spaces/endSpaceMembership.js",
-      "title": "Space: End Membership",
-      "description": "Remove a user from a space",
+    "getOrgUrl": {
+      "main": "./lib/actions/organisations/getOrgUrl.js",
+      "title": "Org: Get by URL",
+      "description": "Retrieve organization details by URL slug",
       "metadata": {
-        "in": "./lib/schemas/endSpaceMembership.in.json"
+        "in": "./lib/schemas/getOrgUrl.in.json"
       }
     },
-    "getItemValue": {
-      "main": "./lib/actions/items/getItemV2.js",
-      "title": "Item: Get Value V2",
-      "description": "Get item field values (V2 simplified format)",
-      "metadata": {
-        "in": "./lib/schemas/getItem.in.json"
-      }
-    },
-    "getApp": {
-      "main": "./lib/actions/apps/getApp.js",
-      "title": "App: Get",
-      "description": "Retrieve app details including configuration and fields",
-      "metadata": {
-        "in": "./lib/schemas/getApp.in.json"
-      }
-    },
-    "createApp": {
-      "main": "./lib/actions/apps/createApp.js",
-      "title": "App: Create",
-      "description": "Create a new app in a space",
-      "fields": {
-        "silent": {
-          "label": "Silent Mode",
-          "viewClass": "CheckBoxView"
-        }
-      },
-      "metadata": {
-        "in": "./lib/schemas/apps/createApp.in.json"
-      }
-    },
-    "addAppField": {
-      "main": "./lib/actions/apps/addAppField.js",
-      "title": "App: Add Field",
-      "description": "Add a new field to an existing app",
-      "metadata": {
-        "in": "./lib/schemas/apps/addAppField.in.json"
-      }
-    },
-    "getAppField": {
-      "main": "./lib/actions/apps/getAppField.js",
-      "title": "App: Get Field",
-      "description": "Retrieve configuration details for a specific app field",
-      "metadata": {
-        "in": "./lib/schemas/getAppField.in.json"
-      }
-    },
-    "getAppByLabel": {
-      "main": "./lib/actions/apps/getAppByLabel.js",
-      "title": "App: Get by Labels",
-      "description": "Retrieve app by organization, space, and app URL labels",
-      "metadata": {
-        "in": "./lib/schemas/apps/getAppByLabel.in.json"
-      }
-    },
-    "getAppDependencies": {
-      "main": "./lib/actions/apps/getAppDependencies.js",
-      "title": "App: Get Dependencies",
-      "description": "Get apps that this app depends on (has reference fields to)",
-      "metadata": {
-        "in": "./lib/schemas/apps/getAppDependencies.in.json"
-      }
-    },
-    "getAppSpaceByUrlLabel": {
-      "main": "./lib/actions/apps/getAppSpaceByUrlLabel.js",
-      "title": "App: Get by Space URL Label",
-      "description": "Retrieve app using the space ID and app URL label",
-      "metadata": {
-        "in": "./lib/schemas/apps/getAppSpaceByUrlLabel.in.json"
-      }
-    },
-    "getAppsBySpace": {
-      "main": "./lib/actions/apps/getAppsBySpace.js",
-      "title": "App: Get Apps by Space",
-      "description": "List all apps in a specific space",
-      "metadata": {
-        "in": "./lib/schemas/apps/getAppsBySpace.in.json"
-      }
-    },
-    "getFeatures": {
-      "main": "./lib/actions/apps/getFeatures.js",
-      "title": "App: Get Features",
-      "description": "App features (filters, sortings). app_ids required; same space.",
-      "metadata": {
-        "in": "./lib/schemas/apps/getFeatures.in.json"
-      }
-    },
-    "getSpaceAppDependencies": {
-      "main": "./lib/actions/apps/getSpaceAppDependencies.js",
-      "title": "App: Get Space App Dependencies",
-      "description": "Get all app dependencies within a space",
-      "metadata": {
-        "in": "./lib/schemas/apps/getSpaceAppDependencies.in.json"
-      }
-    },
-    "updateApp": {
-      "main": "./lib/actions/apps/updateApp.js",
-      "title": "App: Update",
-      "description": "Update app config (name, description, settings)",
-      "metadata": {
-        "in": "./lib/schemas/apps/updateApp.in.json"
-      }
-    },
-    "getItemFieldValueV2": {
-      "main": "./lib/actions/items/getItemFieldValueV2.js",
-      "title": "Item: Get Field Values V2",
-      "description": "Retrieve values for a specific field on an item (V2 format)",
-      "metadata": {
-        "in": "./lib/schemas/items/getItemFieldValueV2.in.json"
-      }
-    },
-    "activateApp": {
-      "main": "./lib/actions/apps/activateApp.js",
-      "title": "App: Activate",
-      "description": "Re-activate a previously deactivated app",
-      "metadata": {
-        "in": "./lib/schemas/apps/activateApp.in.json"
-      }
-    },
-    "deactivateApp": {
-      "main": "./lib/actions/apps/deactivateApp.js",
-      "title": "App: Deactivate",
-      "description": "Deactivate an app (hides it without deleting)",
-      "metadata": {
-        "in": "./lib/schemas/apps/deactivateApp.in.json"
-      }
-    },
-    "deleteApp": {
-      "main": "./lib/actions/apps/deleteApp.js",
-      "title": "App: Delete",
-      "description": "Permanently delete an app and all its items",
-      "metadata": {
-        "in": "./lib/schemas/apps/deleteApp.in.json"
-      }
-    },
-    "deleteAppField": {
-      "main": "./lib/actions/apps/deleteAppField.js",
-      "title": "App: Delete Field",
-      "description": "Permanently delete a field from an app",
-      "metadata": {
-        "in": "./lib/schemas/apps/deleteAppField.in.json"
-      }
-    },
-    "getSpace": {
-      "main": "./lib/actions/spaces/getSpace.js",
-      "title": "Space: Get",
-      "description": "Retrieve details for a specific space",
-      "metadata": {
-        "in": "./lib/schemas/getSpace.in.json"
-      }
-    },
-    "createSpace": {
-      "main": "./lib/actions/spaces/createSpace.js",
-      "title": "Space: Create",
-      "description": "Create a new workspace in an organization",
+    "getOrg": {
+      "main": "./lib/actions/organisations/getOrg.js",
+      "title": "Org: Get Organization",
+      "description": "Retrieve details for a specific organization",
       "fields": {
         "orgId": {
           "viewClass": "SelectView",
@@ -339,105 +654,16 @@
           "label": "Podio Organisation",
           "required": true,
           "model": "organisations"
-        },
-        "privacy": {
-          "viewClass": "SelectView",
-          "prompt": "Select privacy level",
-          "label": "Space Privacy",
-          "required": true,
-          "model": {
-            "open": "Open (visible to org members)",
-            "closed": "Closed (invite only)"
-          }
-        },
-        "auto_join": {
-          "viewClass": "CheckBoxView",
-          "label": "Auto Join"
-        },
-        "post_on_new_app": {
-          "viewClass": "CheckBoxView",
-          "label": "Announce New Apps"
-        },
-        "post_on_new_member": {
-          "viewClass": "CheckBoxView",
-          "label": "Announce New Members"
         }
-      },
-      "dynamicMetadata": true
-    },
-    "updateSpace": {
-      "main": "./lib/actions/spaces/updateSpace.js",
-      "title": "Space: Update",
-      "description": "Update space settings and configuration",
-      "fields": {
-        "orgId": {
-          "viewClass": "SelectView",
-          "prompt": "Select an Organisation",
-          "label": "Podio Organisation",
-          "required": true,
-          "model": "organisations"
-        },
-        "privacy": {
-          "viewClass": "SelectView",
-          "prompt": "Select privacy level",
-          "label": "Space Privacy",
-          "required": true,
-          "model": {
-            "open": "Open (visible to org members)",
-            "closed": "Closed (invite only)"
-          }
-        },
-        "auto_join": {
-          "viewClass": "CheckBoxView",
-          "label": "Auto Join"
-        },
-        "post_on_new_app": {
-          "viewClass": "CheckBoxView",
-          "label": "Announce New Apps"
-        },
-        "post_on_new_member": {
-          "viewClass": "CheckBoxView",
-          "label": "Announce New Members"
-        }
-      },
-      "dynamicMetadata": true
-    },
-    "getSpaceMembers": {
-      "main": "./lib/actions/spaces/getSpaceMembers.js",
-      "title": "Space: Get Members",
-      "description": "List all members of a space with their roles",
-      "fields": {
-        "orgId": {
-          "viewClass": "SelectView",
-          "prompt": "Select an Organisation",
-          "label": "Podio Organisation",
-          "required": true,
-          "model": "organisations"
-        },
-        "spaceId": {
-          "viewClass": "SelectView",
-          "prompt": "Select a Space",
-          "label": "Podio Space",
-          "required": true,
-          "model": "spaces"
-        }
-      },
-      "dynamicMetadata": true
-    },
-    "getSpaceMember": {
-      "main": "./lib/actions/spaces/getSpaceMembership.js",
-      "title": "Space: Get Member",
-      "description": "Retrieve details for a specific space member",
-      "metadata": {
-        "in": "./lib/schemas/getSpaceMember.in.json"
       }
     },
-    "getSpaceMembership": {
-      "main": "./lib/actions/spaces/getSpaceMembership.js",
-      "title": "Space: Get Membership",
-      "description": "Retrieve membership details for a user in a space",
+    "searchApp": {
+      "main": "./lib/actions/all/searchApp.js",
+      "title": "Search: App",
+      "description": "Search for items within a specific app",
+      "dynamicMetadata": true,
       "metadata": {
-        "in": "./lib/schemas/getSpaceMembership.in.json"
+        "in": "./lib/schemas/searchApp.in.json"
       }
     },
     "search": {
@@ -558,296 +784,6 @@
       },
       "dynamicMetadata": true
     },
-    "searchApp": {
-      "main": "./lib/actions/all/searchApp.js",
-      "title": "Search: App",
-      "description": "Search for items within a specific app",
-      "dynamicMetadata": true,
-      "metadata": {
-        "in": "./lib/schemas/searchApp.in.json"
-      }
-    },
-    "getComment": {
-      "main": "./lib/actions/comments/getComment.js",
-      "title": "Comment: Get",
-      "description": "Retrieve a specific comment by ID",
-      "metadata": {
-        "in": "./lib/schemas/getComment.in.json"
-      }
-    },
-    "getCommentRevision": {
-      "main": "./lib/actions/comments/getCommentRevision.js",
-      "title": "Comment: Get Revision",
-      "description": "Retrieve a specific revision of a comment",
-      "metadata": {
-        "in": "./lib/schemas/getComment.in.json"
-      }
-    },
-    "getCommentObject": {
-      "main": "./lib/actions/comments/getCommentObject.js",
-      "title": "Comment: Get by Object",
-      "description": "List comments on an object",
-      "metadata": {
-        "in": "./lib/schemas/getCommentObject.in.json"
-      }
-    },
-    "addComment": {
-      "main": "./lib/actions/comments/addComment.js",
-      "title": "Comment: Add",
-      "description": "Add a comment to an item, task, or other object",
-      "fields": {
-        "silent": {
-          "label": "Silent Mode",
-          "viewClass": "CheckBoxView"
-        }
-      },
-      "metadata": {
-        "in": "./lib/schemas/addComment.in.json"
-      }
-    },
-    "updateComment": {
-      "main": "./lib/actions/comments/updateComment.js",
-      "title": "Comment: Update",
-      "description": "Update an existing comment",
-      "fields": {
-        "silent": {
-          "label": "Silent Mode",
-          "viewClass": "CheckBoxView"
-        }
-      },
-      "metadata": {
-        "in": "./lib/schemas/updateComment.in.json"
-      }
-    },
-    "deleteComment": {
-      "main": "./lib/actions/comments/deleteComment.js",
-      "title": "Comment: Delete",
-      "description": "Delete a comment",
-      "metadata": {
-        "in": "./lib/schemas/getComment.in.json"
-      }
-    },
-    "getFile": {
-      "main": "./lib/actions/files/getFile.js",
-      "title": "File: Get",
-      "description": "Retrieve file metadata by ID",
-      "metadata": {
-        "in": "./lib/schemas/getFile.in.json"
-      }
-    },
-    "getTask": {
-      "main": "./lib/actions/tasks/getTask.js",
-      "title": "Task: Get",
-      "description": "Retrieve a single task by ID",
-      "metadata": {
-        "in": "./lib/schemas/tasks/getTask.in.json"
-      }
-    },
-    "getTasks": {
-      "main": "./lib/actions/tasks/getTasks.js",
-      "title": "Task: Get Tasks (List)",
-      "description": "Get all tasks with powerful filtering options",
-      "metadata": {
-        "in": "./lib/schemas/tasks/getTasks.in.json"
-      }
-    },
-    "createTask": {
-      "main": "./lib/actions/tasks/createTask.js",
-      "title": "Task: Create",
-      "description": "Create a new task, optionally linked to an object",
-      "fields": {
-        "hook": {
-          "label": "Execute Hooks",
-          "viewClass": "CheckBoxView"
-        },
-        "silent": {
-          "label": "Silent Mode",
-          "viewClass": "CheckBoxView"
-        }
-      },
-      "metadata": {
-        "in": "./lib/schemas/tasks/createTask.in.json"
-      }
-    },
-    "updateTask": {
-      "main": "./lib/actions/tasks/updateTask.js",
-      "title": "Task: Update",
-      "description": "Update any aspect of an existing task",
-      "fields": {
-        "hook": {
-          "label": "Execute Hooks",
-          "viewClass": "CheckBoxView"
-        },
-        "silent": {
-          "label": "Silent Mode",
-          "viewClass": "CheckBoxView"
-        }
-      },
-      "metadata": {
-        "in": "./lib/schemas/tasks/updateTask.in.json"
-      }
-    },
-    "deleteTask": {
-      "main": "./lib/actions/tasks/deleteTask.js",
-      "title": "Task: Delete",
-      "description": "Permanently delete a task",
-      "metadata": {
-        "in": "./lib/schemas/tasks/deleteTask.in.json"
-      }
-    },
-    "completeTask": {
-      "main": "./lib/actions/tasks/completeTask.js",
-      "title": "Task: Complete",
-      "description": "Mark a task as completed",
-      "fields": {
-        "hook": {
-          "label": "Execute Hooks",
-          "viewClass": "CheckBoxView"
-        },
-        "silent": {
-          "label": "Silent Mode",
-          "viewClass": "CheckBoxView"
-        }
-      },
-      "metadata": {
-        "in": "./lib/schemas/tasks/completeTask.in.json"
-      }
-    },
-    "incompleteTask": {
-      "main": "./lib/actions/tasks/incompleteTask.js",
-      "title": "Task: Incomplete (Reopen)",
-      "description": "Reopen a completed task",
-      "fields": {
-        "hook": {
-          "label": "Execute Hooks",
-          "viewClass": "CheckBoxView"
-        },
-        "silent": {
-          "label": "Silent Mode",
-          "viewClass": "CheckBoxView"
-        }
-      },
-      "metadata": {
-        "in": "./lib/schemas/tasks/incompleteTask.in.json"
-      }
-    },
-    "getTaskSummary": {
-      "main": "./lib/actions/tasks/getTaskSummary.js",
-      "title": "Task: Get Summary",
-      "description": "Get task summary grouped by status (overdue, today, etc.)",
-      "metadata": {
-        "in": "./lib/schemas/tasks/getTaskSummary.in.json"
-      }
-    },
-    "assignTask": {
-      "main": "./lib/actions/tasks/assignTask.js",
-      "title": "Task: Assign",
-      "description": "Assign a task to another user",
-      "metadata": {
-        "in": "./lib/schemas/tasks/assignTask.in.json"
-      }
-    },
-    "getAllApp": {
-      "main": "./lib/actions/apps/getAllApp.js",
-      "title": "App: Get All Apps",
-      "description": "Retrieve all apps accessible to the authenticated user",
-      "metadata": {
-        "in": "./lib/schemas/getAllApp.in.json"
-      }
-    },
-    "getOrg": {
-      "main": "./lib/actions/organisations/getOrg.js",
-      "title": "Org: Get Organization",
-      "description": "Retrieve details for a specific organization",
-      "fields": {
-        "orgId": {
-          "viewClass": "SelectView",
-          "prompt": "Select an Organisation",
-          "label": "Podio Organisation",
-          "required": true,
-          "model": "organisations"
-        }
-      }
-    },
-    "getOrgUrl": {
-      "main": "./lib/actions/organisations/getOrgUrl.js",
-      "title": "Org: Get by URL",
-      "description": "Retrieve organization details by URL slug",
-      "metadata": {
-        "in": "./lib/schemas/getOrgUrl.in.json"
-      }
-    },
-    "getAppBySpace": {
-      "main": "./lib/actions/spaces/getAppBySpace.js",
-      "title": "Space: Get Apps",
-      "description": "List all apps in a selected space",
-      "fields": {
-        "orgId": {
-          "viewClass": "SelectView",
-          "prompt": "Select an Organisation",
-          "label": "Podio Organisation",
-          "required": true,
-          "model": "organisations"
-        },
-        "spaceId": {
-          "viewClass": "SelectView",
-          "prompt": "Select a Space",
-          "label": "Podio Space",
-          "required": true,
-          "model": "spaces"
-        }
-      },
-      "dynamicMetadata": true
-    },
-    "updateAppField": {
-      "main": "./lib/actions/apps/updateAppField.js",
-      "title": "App: Update Field",
-      "description": "Update configuration for an app field",
-      "metadata": {
-        "in": "./lib/schemas/updateAppField.in.json"
-      },
-      "dynamicMetadata": true
-    },
-    "getAllSpacesOrg": {
-      "main": "./lib/actions/organisations/getAllSpacesOrg.js",
-      "title": "Org: Get All Spaces",
-      "description": "List all spaces in an organization",
-      "metadata": {
-        "in": "./lib/schemas/getOrg.in.json"
-      }
-    },
-    "getHooks": {
-      "main": "./lib/actions/hooks/getHooks.js",
-      "title": "Hooks: Get",
-      "description": "Retrieve webhooks configured for an object",
-      "metadata": {
-        "in": "./lib/schemas/createHooks.in.json"
-      }
-    },
-    "deleteHooks": {
-      "main": "./lib/actions/hooks/deleteHooks.js",
-      "title": "Hooks: Delete",
-      "description": "Remove a webhook",
-      "metadata": {
-        "in": "./lib/schemas/deleteHooks.in.json"
-      }
-    },
-    "updateSpaceMembership": {
-      "main": "./lib/actions/spaces/updateSpaceMembership.js",
-      "title": "Space: Update Membership (Deprecated)",
-      "description": "Update a user's role in a space (use V2 instead)",
-      "metadata": {
-        "in": "./lib/schemas/updateSpaceMembership.in.json"
-      }
-    },
-    "updateSpaceMembershipV2": {
-      "main": "./lib/actions/spaces/updateSpaceMembershipV2.js",
-      "title": "Space: Update Membership V2",
-      "description": "Update a user's role in a space (current version)",
-      "metadata": {
-        "in": "./lib/schemas/updateSpaceMembershipV2.in.json"
-      }
-    },
     "addMemberToSpace": {
       "main": "./lib/actions/spaces/addMemberToSpace.js",
       "title": "Space: Add Member",
@@ -873,234 +809,170 @@
         "in": "./lib/schemas/addMemberToSpace.in.json"
       }
     },
-    "filterItems": {
-      "main": "./lib/actions/all/filterItems.js",
-      "title": "Items: Filter",
-      "description": "Filter items in an app (auto-paginated)",
-      "metadata": {
-        "in": "./lib/schemas/filterItems.in.json"
-      }
-    },
-    "filterItemsByView": {
-      "main": "./lib/actions/items/filterItembyView.js",
-      "title": "Items: Filter by View",
-      "description": "Filter items using a saved view's criteria",
-      "metadata": {
-        "in": "./lib/schemas/filterItembyView.in.json"
-      }
-    },
-    "getItemsbyApp": {
-      "main": "./lib/actions/items/getItemsbyApp.js",
-      "title": "Items: Get All by App",
-      "description": "Retrieve all items in an app",
-      "metadata": {
-        "in": "./lib/schemas/getItemsbyApp.in.json"
-      }
-    },
-    "getFilesbyApp": {
-      "main": "./lib/actions/files/getFilesbyApp.js",
-      "title": "Files: Get All by App",
-      "description": "Retrieve all files attached to items in an app",
-      "metadata": {
-        "in": "./lib/schemas/getFilesbyApp.in.json"
-      }
-    },
-    "getView": {
-      "main": "./lib/actions/all/getView.js",
-      "title": "View: Get",
-      "description": "Retrieve a saved view's configuration",
-      "metadata": {
-        "in": "./lib/schemas/getView.in.json"
-      }
-    },
-    "getViews": {
-      "main": "./lib/actions/all/getViews.js",
-      "title": "View: List All",
-      "description": "List all saved views in an app",
-      "metadata": {
-        "in": "./lib/schemas/getViews.in.json"
-      }
-    },
-    "createHooks": {
-      "main": "./lib/actions/hooks/createHooks.js",
-      "title": "Hooks: Create",
-      "description": "Create Podio webhooks. Set appId for calc-field guard (calc fields never fire).",
+    "createSpace": {
+      "main": "./lib/actions/spaces/createSpace.js",
+      "title": "Space: Create",
+      "description": "Create a new workspace in an organization",
       "fields": {
-        "hookType": {
+        "orgId": {
           "viewClass": "SelectView",
-          "prompt": "Select a hook type",
-          "label": "Hook Type",
-          "model": {
-            "space": "Space",
-            "app": "App",
-            "field": "Field (item.update only; not calc fields)"
-          },
-          "required": true
-        },
-        "hook_type": {
-          "viewClass": "MultiSelectView",
-          "label": "Events",
-          "model": "getHooks",
+          "prompt": "Select an Organisation",
+          "label": "Podio Organisation",
           "required": true,
-          "note": "For Hook Type = Field, only item.update is supported."
+          "model": "organisations"
         },
-        "appId": {
-          "viewClass": "TextFieldView",
-          "label": "App ID (optional, enables calc-field guard)",
-          "required": false,
-          "note": "For Field hooks, set the parent app_id to refuse calculation fields."
-        }
-      },
-      "metadata": {
-        "in": "./lib/schemas/createHooks.in.json"
-      }
-    },
-    "getItemReferences": {
-      "main": "./lib/actions/items/getItemReferences.js",
-      "title": "Item: Get References",
-      "description": "Get items that reference this item",
-      "metadata": {
-        "in": "./lib/schemas/getItemReferences.in.json"
-      }
-    },
-    "findReferencesItems": {
-      "main": "./lib/actions/items/findReferencesItems.js",
-      "title": "Item: Find Referenceable",
-      "description": "Search for items that can be referenced by a field",
-      "metadata": {
-        "in": "./lib/schemas/findReferencesItems.in.json"
-      }
-    },
-    "getReferencesToItemByField": {
-      "main": "./lib/actions/items/getReferencesToItemByField.js",
-      "title": "Item: Get References by Field",
-      "description": "Get items referencing this item through a specific field",
-      "metadata": {
-        "in": "./lib/schemas/getReferencesToItemByField.in.json"
-      }
-    },
-    "verifyHooks": {
-      "main": "./lib/actions/hooks/verifyHooks.js",
-      "title": "Hook: Verify",
-      "description": "Manually verify a webhook (useful after creation)",
-      "metadata": {
-        "in": "./lib/schemas/verifyHooks.in.json"
-      }
-    },
-    "installApp": {
-      "main": "./lib/actions/apps/install.js",
-      "title": "App: Install from Share",
-      "description": "Install an app from the App Market into a space",
-      "metadata": {
-        "in": "./lib/schemas/installApp.in.json"
-      }
-    },
-    "getItemRevisionDifference": {
-      "main": "./lib/actions/items/getItemRevisionDifference.js",
-      "title": "Item: Get Revision Difference",
-      "description": "Compare two revisions of an item to see changes",
-      "metadata": {
-        "in": "./lib/schemas/getItemRevisionDifference.in.json"
-      }
-    },
-    "getActualFile": {
-      "main": "./lib/actions/files/getActualFile.js",
-      "title": "File: Download",
-      "description": "Get the actual file content (binary data or URL)",
-      "metadata": {
-        "in": "./lib/schemas/getActualFile.in.json"
-      }
-    },
-    "cloneItem": {
-      "main": "./lib/actions/items/cloneItem.js",
-      "title": "Item: Clone",
-      "description": "Create a copy of an existing item",
-      "metadata": {
-        "in": "./lib/schemas/cloneItem.in.json"
-      }
-    },
-    "getItemCount": {
-      "main": "./lib/actions/items/getItemCount.js",
-      "title": "Item: Get Count",
-      "description": "Get the total number of items in an app",
-      "metadata": {
-        "in": "./lib/schemas/getItemCount.in.json"
-      }
-    },
-    "deleteItem": {
-      "main": "./lib/actions/items/deleteItem.js",
-      "title": "Item: Delete",
-      "description": "Permanently delete an item",
-      "metadata": {
-        "in": "./lib/schemas/deleteItem.in.json"
-      }
-    },
-    "showCredential": {
-      "main": "./lib/actions/all/showCredential.js",
-      "title": "Credential: Show",
-      "description": "Display current credential information for debugging"
-    },
-    "attachFile": {
-      "main": "./lib/actions/files/attachFile.js",
-      "title": "Files: Attach File",
-      "description": "Attach an uploaded file to a Podio object",
-      "fields": {
-        "ref_type": {
+        "privacy": {
           "viewClass": "SelectView",
-          "label": "Object Type",
+          "prompt": "Select privacy level",
+          "label": "Space Privacy",
           "required": true,
           "model": {
-            "item": "Item",
-            "task": "Task",
-            "status": "Status Update",
-            "comment": "Comment",
-            "space": "Space"
-          },
-          "prompt": "Select object type"
+            "open": "Open (visible to org members)",
+            "closed": "Closed (invite only)"
+          }
+        },
+        "auto_join": {
+          "viewClass": "CheckBoxView",
+          "label": "Auto Join"
+        },
+        "post_on_new_app": {
+          "viewClass": "CheckBoxView",
+          "label": "Announce New Apps"
+        },
+        "post_on_new_member": {
+          "viewClass": "CheckBoxView",
+          "label": "Announce New Members"
         }
       },
+      "dynamicMetadata": true
+    },
+    "endSpaceMembership": {
+      "main": "./lib/actions/spaces/endSpaceMembership.js",
+      "title": "Space: End Membership",
+      "description": "Remove a user from a space",
       "metadata": {
-        "in": "./lib/schemas/attachFile.in.json"
+        "in": "./lib/schemas/endSpaceMembership.in.json"
       }
     },
-    "addEmbed": {
-      "main": "./lib/actions/embeds/addEmbed.js",
-      "title": "Embed: Add",
-      "description": "Fetch URL metadata to create an embed",
+    "getSpace": {
+      "main": "./lib/actions/spaces/getSpace.js",
+      "title": "Space: Get",
+      "description": "Retrieve details for a specific space",
       "metadata": {
-        "in": "./lib/schemas/embeds/addEmbed.in.json"
+        "in": "./lib/schemas/getSpace.in.json"
       }
     },
-    "UploadFile": {
-      "main": "./lib/actions/files/uploadFileV2.js",
-      "title": "File: Upload from URL",
-      "description": "Upload a file to Podio from a URL",
+    "getAppBySpace": {
+      "main": "./lib/actions/spaces/getAppBySpace.js",
+      "title": "Space: Get Apps",
+      "description": "List all apps in a selected space",
+      "fields": {
+        "orgId": {
+          "viewClass": "SelectView",
+          "prompt": "Select an Organisation",
+          "label": "Podio Organisation",
+          "required": true,
+          "model": "organisations"
+        },
+        "spaceId": {
+          "viewClass": "SelectView",
+          "prompt": "Select a Space",
+          "label": "Podio Space",
+          "required": true,
+          "model": "spaces"
+        }
+      },
+      "dynamicMetadata": true
+    },
+    "getSpaceMember": {
+      "main": "./lib/actions/spaces/getSpaceMembership.js",
+      "title": "Space: Get Member",
+      "description": "Retrieve details for a specific space member",
       "metadata": {
-        "in": "./lib/schemas/uploadFile.in.json"
+        "in": "./lib/schemas/getSpaceMember.in.json"
       }
     },
-    "publicUrl": {
-      "main": "./lib/actions/files/uploadFileV3.js",
-      "title": "File: Upload from Base64",
-      "description": "Upload a file to Podio from Base64-encoded data",
+    "getSpaceMembers": {
+      "main": "./lib/actions/spaces/getSpaceMembers.js",
+      "title": "Space: Get Members",
+      "description": "List all members of a space with their roles",
+      "fields": {
+        "orgId": {
+          "viewClass": "SelectView",
+          "prompt": "Select an Organisation",
+          "label": "Podio Organisation",
+          "required": true,
+          "model": "organisations"
+        },
+        "spaceId": {
+          "viewClass": "SelectView",
+          "prompt": "Select a Space",
+          "label": "Podio Space",
+          "required": true,
+          "model": "spaces"
+        }
+      },
+      "dynamicMetadata": true
+    },
+    "getSpaceMembership": {
+      "main": "./lib/actions/spaces/getSpaceMembership.js",
+      "title": "Space: Get Membership",
+      "description": "Retrieve membership details for a user in a space",
       "metadata": {
-        "in": "./lib/schemas/uploadFilev3.in.json"
+        "in": "./lib/schemas/getSpaceMembership.in.json"
       }
     },
-    "uploadFile": {
-      "main": "./lib/actions/files/uploadFile.js",
-      "title": "File: Upload V2",
-      "description": "Upload a file to Podio (legacy version)",
+    "updateSpace": {
+      "main": "./lib/actions/spaces/updateSpace.js",
+      "title": "Space: Update",
+      "description": "Update space settings and configuration",
+      "fields": {
+        "orgId": {
+          "viewClass": "SelectView",
+          "prompt": "Select an Organisation",
+          "label": "Podio Organisation",
+          "required": true,
+          "model": "organisations"
+        },
+        "privacy": {
+          "viewClass": "SelectView",
+          "prompt": "Select privacy level",
+          "label": "Space Privacy",
+          "required": true,
+          "model": {
+            "open": "Open (visible to org members)",
+            "closed": "Closed (invite only)"
+          }
+        },
+        "auto_join": {
+          "viewClass": "CheckBoxView",
+          "label": "Auto Join"
+        },
+        "post_on_new_app": {
+          "viewClass": "CheckBoxView",
+          "label": "Announce New Apps"
+        },
+        "post_on_new_member": {
+          "viewClass": "CheckBoxView",
+          "label": "Announce New Members"
+        }
+      },
+      "dynamicMetadata": true
+    },
+    "updateSpaceMembership": {
+      "main": "./lib/actions/spaces/updateSpaceMembership.js",
+      "title": "Space: Update Membership (Deprecated)",
+      "description": "Update a user's role in a space (use V2 instead)",
       "metadata": {
-        "in": "./lib/schemas/uploadFileV2.in.json"
+        "in": "./lib/schemas/updateSpaceMembership.in.json"
       }
     },
-    "copyFile": {
-      "main": "./lib/actions/files/copyFile.js",
-      "title": "File: Copy",
-      "description": "Create a copy of an existing file",
+    "updateSpaceMembershipV2": {
+      "main": "./lib/actions/spaces/updateSpaceMembershipV2.js",
+      "title": "Space: Update Membership V2",
+      "description": "Update a user's role in a space (current version)",
       "metadata": {
-        "in": "./lib/schemas/copyFile.in.json"
+        "in": "./lib/schemas/updateSpaceMembershipV2.in.json"
       }
     },
     "createTags": {
@@ -1111,28 +983,36 @@
         "in": "./lib/schemas/tags/create.in.json"
       }
     },
-    "updateTags": {
-      "main": "./lib/actions/tags/updateTags.js",
-      "title": "Tag: Update",
-      "description": "Replace all tags on an object",
-      "metadata": {
-        "in": "./lib/schemas/tags/update.in.json"
-      }
-    },
-    "removeTags": {
-      "main": "./lib/actions/tags/removeTags.js",
-      "title": "Tag: Remove",
-      "description": "Remove a tag from an object",
-      "metadata": {
-        "in": "./lib/schemas/tags/remove.in.json"
-      }
-    },
     "getAppTags": {
       "main": "./lib/actions/tags/getAppTags.js",
       "title": "Tag: Get by App",
       "description": "List all tags used in an app",
       "metadata": {
         "in": "./lib/schemas/tags/app.in.json"
+      }
+    },
+    "getOrgTags": {
+      "main": "./lib/actions/tags/getOrgTags.js",
+      "title": "Tag: Get by Organization",
+      "description": "List all tags used in an organization",
+      "metadata": {
+        "in": "./lib/schemas/tags/org.in.json"
+      }
+    },
+    "getSpaceTags": {
+      "main": "./lib/actions/tags/getSpaceTags.js",
+      "title": "Tag: Get by Space",
+      "description": "List all tags used in a space",
+      "metadata": {
+        "in": "./lib/schemas/tags/space.in.json"
+      }
+    },
+    "getAppTagsFull": {
+      "main": "./lib/actions/tags/getAppTagsFull.js",
+      "title": "Tag: Get Items by Tag",
+      "description": "Find items with a specific tag in an app and space",
+      "metadata": {
+        "in": "./lib/schemas/tags/app_full.in.json"
       }
     },
     "getAppTagsTop": {
@@ -1143,12 +1023,12 @@
         "in": "./lib/schemas/tags/app_top.in.json"
       }
     },
-    "getAppTagsFull": {
-      "main": "./lib/actions/tags/getAppTagsFull.js",
-      "title": "Tag: Get Items by Tag",
-      "description": "Find items with a specific tag in an app and space",
+    "removeTags": {
+      "main": "./lib/actions/tags/removeTags.js",
+      "title": "Tag: Remove",
+      "description": "Remove a tag from an object",
       "metadata": {
-        "in": "./lib/schemas/tags/app_full.in.json"
+        "in": "./lib/schemas/tags/remove.in.json"
       }
     },
     "getAppTagsSearch": {
@@ -1167,14 +1047,6 @@
         "in": "./lib/schemas/tags/org_search.in.json"
       }
     },
-    "getOrgTags": {
-      "main": "./lib/actions/tags/getOrgTags.js",
-      "title": "Tag: Get by Organization",
-      "description": "List all tags used in an organization",
-      "metadata": {
-        "in": "./lib/schemas/tags/org.in.json"
-      }
-    },
     "getSpaceTagsSearch": {
       "main": "./lib/actions/tags/getSpaceTagsSearch.js",
       "title": "Tag: Search in Space",
@@ -1183,12 +1055,140 @@
         "in": "./lib/schemas/tags/space_search.in.json"
       }
     },
-    "getSpaceTags": {
-      "main": "./lib/actions/tags/getSpaceTags.js",
-      "title": "Tag: Get by Space",
-      "description": "List all tags used in a space",
+    "updateTags": {
+      "main": "./lib/actions/tags/updateTags.js",
+      "title": "Tag: Update",
+      "description": "Replace all tags on an object",
       "metadata": {
-        "in": "./lib/schemas/tags/space.in.json"
+        "in": "./lib/schemas/tags/update.in.json"
+      }
+    },
+    "assignTask": {
+      "main": "./lib/actions/tasks/assignTask.js",
+      "title": "Task: Assign",
+      "description": "Assign a task to another user",
+      "metadata": {
+        "in": "./lib/schemas/tasks/assignTask.in.json"
+      }
+    },
+    "completeTask": {
+      "main": "./lib/actions/tasks/completeTask.js",
+      "title": "Task: Complete",
+      "description": "Mark a task as completed",
+      "fields": {
+        "hook": {
+          "label": "Execute Hooks",
+          "viewClass": "CheckBoxView"
+        },
+        "silent": {
+          "label": "Silent Mode",
+          "viewClass": "CheckBoxView"
+        }
+      },
+      "metadata": {
+        "in": "./lib/schemas/tasks/completeTask.in.json"
+      }
+    },
+    "createTask": {
+      "main": "./lib/actions/tasks/createTask.js",
+      "title": "Task: Create",
+      "description": "Create a new task, optionally linked to an object",
+      "fields": {
+        "hook": {
+          "label": "Execute Hooks",
+          "viewClass": "CheckBoxView"
+        },
+        "silent": {
+          "label": "Silent Mode",
+          "viewClass": "CheckBoxView"
+        }
+      },
+      "metadata": {
+        "in": "./lib/schemas/tasks/createTask.in.json"
+      }
+    },
+    "deleteTask": {
+      "main": "./lib/actions/tasks/deleteTask.js",
+      "title": "Task: Delete",
+      "description": "Permanently delete a task",
+      "metadata": {
+        "in": "./lib/schemas/tasks/deleteTask.in.json"
+      }
+    },
+    "getTask": {
+      "main": "./lib/actions/tasks/getTask.js",
+      "title": "Task: Get",
+      "description": "Retrieve a single task by ID",
+      "metadata": {
+        "in": "./lib/schemas/tasks/getTask.in.json"
+      }
+    },
+    "getTaskSummary": {
+      "main": "./lib/actions/tasks/getTaskSummary.js",
+      "title": "Task: Get Summary",
+      "description": "Get task summary grouped by status (overdue, today, etc.)",
+      "metadata": {
+        "in": "./lib/schemas/tasks/getTaskSummary.in.json"
+      }
+    },
+    "getTasks": {
+      "main": "./lib/actions/tasks/getTasks.js",
+      "title": "Task: Get Tasks (List)",
+      "description": "Get all tasks with powerful filtering options",
+      "metadata": {
+        "in": "./lib/schemas/tasks/getTasks.in.json"
+      }
+    },
+    "incompleteTask": {
+      "main": "./lib/actions/tasks/incompleteTask.js",
+      "title": "Task: Incomplete (Reopen)",
+      "description": "Reopen a completed task",
+      "fields": {
+        "hook": {
+          "label": "Execute Hooks",
+          "viewClass": "CheckBoxView"
+        },
+        "silent": {
+          "label": "Silent Mode",
+          "viewClass": "CheckBoxView"
+        }
+      },
+      "metadata": {
+        "in": "./lib/schemas/tasks/incompleteTask.in.json"
+      }
+    },
+    "updateTask": {
+      "main": "./lib/actions/tasks/updateTask.js",
+      "title": "Task: Update",
+      "description": "Update any aspect of an existing task",
+      "fields": {
+        "hook": {
+          "label": "Execute Hooks",
+          "viewClass": "CheckBoxView"
+        },
+        "silent": {
+          "label": "Silent Mode",
+          "viewClass": "CheckBoxView"
+        }
+      },
+      "metadata": {
+        "in": "./lib/schemas/tasks/updateTask.in.json"
+      }
+    },
+    "getView": {
+      "main": "./lib/actions/all/getView.js",
+      "title": "View: Get",
+      "description": "Retrieve a saved view's configuration",
+      "metadata": {
+        "in": "./lib/schemas/getView.in.json"
+      }
+    },
+    "getViews": {
+      "main": "./lib/actions/all/getViews.js",
+      "title": "View: List All",
+      "description": "List all saved views in an app",
+      "metadata": {
+        "in": "./lib/schemas/getViews.in.json"
       }
     }
   },
